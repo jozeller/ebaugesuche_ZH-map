@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "updated": "2026-11-16T08:42:42.209Z",
+    "count": 5,
+    "successCount": 5,
+    "gemeinde": "weisslingen",
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.927,
+          47.543
+        ]
+      },
+      "properties": {
+        "nummer": "3307034",
+        "adresse": "Tüffi 9 8484 Theilingen",
+        "gemeinde": "Weisslingen",
+        "bautyp": "Carport-Verbreiterung, Tüffi 9, GVZ-Nr. 1445, Kat.-Nr. 2521, Kernzone Weiler",
+        "datum": "2026-10-29",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3307034",
+        "displayName": "weisslingen (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.927,
+          47.543
+        ]
+      },
+      "properties": {
+        "nummer": "3308823",
+        "adresse": "Neschwilerstrasse 71.1 8484 Neschwil",
+        "gemeinde": "Weisslingen",
+        "bautyp": "Abbruch Schopf und Neubau Ökonomiegebäude, Neschwilerstr. 71.1, GVZ-Nr. 123, Kat.-Nr. 2622, Kernzone Weiler",
+        "datum": "2026-10-29",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3308823",
+        "displayName": "weisslingen (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.927,
+          47.543
+        ]
+      },
+      "properties": {
+        "nummer": "3353333",
+        "adresse": "Ludetswilerstrasse 16 8484 Neschwil",
+        "gemeinde": "Weisslingen",
+        "bautyp": "Photovoltaikanlage auf Dach (mit Speicher), Ludetswilerstr. 16, GVZ-Nr. 1138, Kat.-Nr. 1958, Kernzone Weiler",
+        "datum": "2026-11-09",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3353333",
+        "displayName": "weisslingen (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.927,
+          47.543
+        ]
+      },
+      "properties": {
+        "nummer": "3378532",
+        "adresse": "Tollenstrasse 23 8484 Weisslingen",
+        "gemeinde": "Weisslingen",
+        "bautyp": "Wetterschutzverglasung, Tollenstr. 23, GVZ-Nr. 615, Kat.-Nr. 2692, Zone W 1.4",
+        "datum": "2026-11-13",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3378532",
+        "displayName": "weisslingen (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.927,
+          47.543
+        ]
+      },
+      "properties": {
+        "nummer": "3379172",
+        "adresse": "Rennweg 30a.1 8484 Theilingen",
+        "gemeinde": "Weisslingen",
+        "bautyp": "Photovoltaikanlage auf Dach, Rennweg 30a.1, GVZ-Nr. 303, Kat.-Nr. 765, Lk und Kernzone Weiler",
+        "datum": "2026-11-13",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3379172",
+        "displayName": "weisslingen (BFS center)"
+      }
+    }
+  ]
+}

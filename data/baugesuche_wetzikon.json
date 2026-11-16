@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "updated": "2026-11-16T08:42:42.279Z",
+    "count": 3,
+    "successCount": 3,
+    "gemeinde": "wetzikon",
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.828,
+          47.322
+        ]
+      },
+      "properties": {
+        "nummer": "3326946",
+        "adresse": "bei Tösstalstrasse 189 8620 Wetzikon ZH",
+        "gemeinde": "Wetzikon (ZH)",
+        "bautyp": "Sanierung Quellen Chämptnerwald - 2. Etappe",
+        "datum": "2026-10-30",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3326946",
+        "displayName": "wetzikon (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.828,
+          47.322
+        ]
+      },
+      "properties": {
+        "nummer": "2209375",
+        "adresse": "Schönenwerdstrasse 60 a-d, 62 a-c, 64 a-b, 66 a-e, 70 a-c 8620 Wetzikon ZH",
+        "gemeinde": "Wetzikon (ZH)",
+        "bautyp": "Abbruch Gebäude Vers.-Nrn. 2823, 4886, 3595, 1145 Schönenwerdstrasse 60, 60.1, 70.1 und 70.2 und Neubau von 5 Reiheneinfamilienhäusern mit 14 Wohneinheiten (b. Natur- und Landschaftsschutzobjekt 7.19)",
+        "datum": "2026-11-06",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/2209375",
+        "displayName": "wetzikon (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.828,
+          47.322
+        ]
+      },
+      "properties": {
+        "nummer": "3356137",
+        "adresse": "Guyer-Zeller-Strasse 2 0 Unterwetzikon",
+        "gemeinde": "Wetzikon (ZH)",
+        "bautyp": "Neubau Wohn- und Geschäftshaus mit Tiefgarage sowie Umbau und Aufstockung Fabrikgebäude Vers. Nr. 1626, Seidenhof Wetzikon, Kat. Nr. 10750, Guyer-Zeller-Strasse 2/4/6/8 (Denkmalschutzobjekt u. b. Natur- u. Landschaftsinventar)",
+        "datum": "2026-11-06",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3356137",
+        "displayName": "wetzikon (BFS center)"
+      }
+    }
+  ]
+}

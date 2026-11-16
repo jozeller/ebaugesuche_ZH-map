@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "updated": "2026-11-16T08:42:42.073Z",
+    "count": 2,
+    "successCount": 2,
+    "gemeinde": "uetikonamsee",
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.56,
+          47.336
+        ]
+      },
+      "properties": {
+        "nummer": "3347821",
+        "adresse": "Aelpli 2 8707 Uetikon am See",
+        "gemeinde": "Uetikon am See",
+        "bautyp": "Im Aelpli 2 Uetikon",
+        "datum": "2026-11-06",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3347821",
+        "displayName": "uetikonamsee (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.56,
+          47.336
+        ]
+      },
+      "properties": {
+        "nummer": "3347876",
+        "adresse": "Seestrasse 97 8707 Uetikon am See",
+        "gemeinde": "Uetikon am See",
+        "bautyp": "Umnutzung Stammhaus",
+        "datum": "2026-11-06",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3347876",
+        "displayName": "uetikonamsee (BFS center)"
+      }
+    }
+  ]
+}

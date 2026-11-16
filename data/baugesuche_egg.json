@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "updated": "2026-11-16T08:42:40.536Z",
+    "count": 2,
+    "successCount": 2,
+    "gemeinde": "egg",
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.763,
+          47.358
+        ]
+      },
+      "properties": {
+        "nummer": "3309736",
+        "adresse": "Forchstrasse 105 8132 Egg b. Zürich",
+        "gemeinde": "Egg",
+        "bautyp": "Plattenbelag und mobiler Unterstand (bereits bestehend)",
+        "datum": "2026-10-28",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3309736",
+        "displayName": "egg (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.763,
+          47.358
+        ]
+      },
+      "properties": {
+        "nummer": "3339378",
+        "adresse": "Löwenstrasse 1 8133 Esslingen",
+        "gemeinde": "Egg",
+        "bautyp": "Umnutzung Wohngebäude zu Gewerbe / Sanierung und Erstellung Aufbauten auf Terasse (alles bereits erstellt)",
+        "datum": "2026-11-04",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3339378",
+        "displayName": "egg (BFS center)"
+      }
+    }
+  ]
+}

@@ -1,10 +1,11 @@
 const fetch = require('node-fetch');
 const fs = require('fs');
 const path = require('path');
+const { getCoordinates } = require('./gemeinden-coordinator');
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
 const NOMINATIM_URL = 'https://nominatim.openstreetmap.org/search';
-const DELAY_MS = 1000; // Rate limit: 1 request per second
+const DELAY_MS = 2000; // Rate limit: increased to 2 seconds to avoid 429 errors
 
 async function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -90,12 +91,37 @@ async function geocodeGesuche(gemeinde = 'stäfa') {
 
   console.log(`📍 Geocoding ${gesuche.length} addresses...\n`);
 
+  // Get fallback coordinates from BFS
+  const fallbackCoords = getCoordinates(gemeinde);
+
   const geocoded = [];
+  let retryCount = 0;
+  const maxRetries = 3;
+
   for (let i = 0; i < gesuche.length; i++) {
     const g = gesuche[i];
     console.log(`[${i + 1}/${gesuche.length}] ${g.adresse || 'N/A'}`);
 
-    const coords = await geocodeAddress(g.adresse, g.gemeinde || gemeinde);
+    let coords = await geocodeAddress(g.adresse, g.gemeinde || gemeinde);
+
+    // If geocoding fails and we have retries left, try again
+    if (!coords && retryCount < maxRetries) {
+      console.log(`  ⚠️  Retrying (${retryCount + 1}/${maxRetries})...`);
+      retryCount++;
+      await delay(3000); // longer delay before retry
+      coords = await geocodeAddress(g.adresse, g.gemeinde || gemeinde);
+      if (coords) retryCount = 0; // reset on success
+    }
+
+    // Fallback to BFS coordinates if Nominatim fails
+    if (!coords && fallbackCoords) {
+      console.log(`  📍 Using BFS fallback coordinates for ${gemeinde}`);
+      coords = {
+        lat: fallbackCoords[0],
+        lon: fallbackCoords[1],
+        displayName: `${gemeinde} (BFS center)`
+      };
+    }
 
     if (coords) {
       geocoded.push({

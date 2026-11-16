@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "updated": "2026-11-16T08:42:40.435Z",
+    "count": 1,
+    "successCount": 1,
+    "gemeinde": "dietlikon",
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.596,
+          47.45
+        ]
+      },
+      "properties": {
+        "nummer": "3307745",
+        "adresse": "Oberdorfstrasse 9 8305 Dietlikon",
+        "gemeinde": "Dietlikon",
+        "bautyp": "Erstellung eines Doppeleinfamilienhauses",
+        "datum": "2026-10-29",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3307745",
+        "displayName": "dietlikon (BFS center)"
+      }
+    }
+  ]
+}

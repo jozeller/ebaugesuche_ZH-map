@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "updated": "2026-11-16T08:42:42.485Z",
+    "count": 2,
+    "successCount": 2,
+    "gemeinde": "zell",
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.876,
+          47.262
+        ]
+      },
+      "properties": {
+        "nummer": "3368292",
+        "adresse": "Weidenweg 1 8483 Kollbrunn",
+        "gemeinde": "Zell (ZH)",
+        "bautyp": "Poolersatz",
+        "datum": "2026-11-13",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3368292",
+        "displayName": "zell (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.876,
+          47.262
+        ]
+      },
+      "properties": {
+        "nummer": "3369118",
+        "adresse": "Garten 4 8487 Zell ZH",
+        "gemeinde": "Zell (ZH)",
+        "bautyp": "Umbau Wohnhaus und Neubau Produktionsbereich",
+        "datum": "2026-11-13",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3369118",
+        "displayName": "zell (BFS center)"
+      }
+    }
+  ]
+}

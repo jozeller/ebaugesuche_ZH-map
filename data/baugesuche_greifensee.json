@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "updated": "2026-11-16T08:42:40.777Z",
+    "count": 1,
+    "successCount": 1,
+    "gemeinde": "greifensee",
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.732,
+          47.392
+        ]
+      },
+      "properties": {
+        "nummer": "3371240",
+        "adresse": "Wildsbergstrasse 17 8606 Greifensee",
+        "gemeinde": "Greifensee",
+        "bautyp": "Neues Giebelfenster im Dachgeschoss",
+        "datum": "2026-11-12",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3371240",
+        "displayName": "greifensee (BFS center)"
+      }
+    }
+  ]
+}

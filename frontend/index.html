@@ -335,86 +335,111 @@
     let GEMEINDEN = []; // Will be populated with available communes
 
     const GEMEINDE_CENTERS = {
-      'adliswil': [47.226, 8.572],
-      'affolternamalbis': [47.256, 8.436],
-      'bassersdorf': [47.506, 8.52],
+      'adliswil': [47.248, 8.515],
+      'affolternamalbis': [47.257, 8.449],
+      'bassersdorf': [47.506, 8.520],
       'brütten': [47.538, 8.385],
       'bubikon': [47.182, 8.906],
-      'buchs': [47.5, 8.255],
+      'buchs': [47.500, 8.255],
       'bülach': [47.526, 8.536],
       'dielsdorf': [47.482, 8.398],
-      'dietlikon': [47.45, 8.596],
+      'dietlikon': [47.450, 8.596],
       'dübendorf': [47.418, 8.627],
       'dürnten': [47.295, 8.926],
       'egg': [47.358, 8.763],
-      'elgg': [47.385, 8.87],
+      'elgg': [47.385, 8.870],
       'elsau': [47.475, 8.673],
+      'erlenbach': [47.282, 8.703],
       'fällanden': [47.378, 8.618],
       'glattfelden': [47.588, 8.555],
       'gossau': [47.268, 8.956],
       'greifensee': [47.392, 8.732],
+      'herrliberg': [47.305, 8.580],
       'hettlingen': [47.465, 8.803],
       'hinwil': [47.314, 8.965],
-      'hochfelden': [47.59, 8.38],
+      'hochfelden': [47.590, 8.380],
+      'hombrechtikon': [47.215, 8.912],
       'horgen': [47.232, 8.592],
       'illnau-effretikon': [47.522, 8.815],
-      'kilchberg': [47.28, 8.563],
+      'kilchberg': [47.280, 8.563],
       'küsnacht': [47.335, 8.595],
-      'langnauamalbis': [47.242, 8.49],
+      'langnauamalbis': [47.242, 8.490],
       'maur': [47.348, 8.689],
       'meilen': [47.252, 8.636],
+      'männedorf': [47.220, 8.647],
       'mönchaltorf': [47.362, 8.836],
       'neftenbach': [47.515, 8.868],
       'niederglatt': [47.575, 8.514],
       'oberglatt': [47.576, 8.485],
-      'oberrieden': [47.216, 8.68],
+      'oberrieden': [47.216, 8.680],
       'obfelden': [47.278, 8.438],
-      'oetwilanderlimmat': [47.285, 8.69],
+      'oetwilanderlimmat': [47.285, 8.690],
       'opfikon': [47.405, 8.585],
       'ossingen': [47.565, 8.895],
-      'pfungen': [47.585, 8.78],
+      'pfungen': [47.585, 8.780],
       'pfäffikon': [47.352, 8.914],
-      'rafz': [47.636, 8.59],
+      'rafz': [47.636, 8.590],
       'regensdorf': [47.456, 8.432],
       'richterswil': [47.182, 8.793],
       'russikon': [47.368, 8.868],
-      'rümlang': [47.44, 8.548],
+      'rümlang': [47.440, 8.548],
+      'rüschlikon': [47.281, 8.548],
       'schlatt': [47.545, 8.842],
-      'seegräben': [47.358, 8.87],
-      'stadel': [47.622, 8.42],
+      'seegräben': [47.358, 8.870],
+      'stadel': [47.622, 8.420],
       'steinmaur': [47.552, 8.368],
       'stäfa': [47.248, 8.686],
       'thalwil': [47.266, 8.592],
       'turbenthal': [47.575, 8.853],
-      'uetikonamsee': [47.336, 8.56],
+      'uetikonamsee': [47.336, 8.560],
       'urdorf': [47.352, 8.423],
       'wald': [47.308, 8.948],
       'weiningen': [47.356, 8.415],
       'weisslingen': [47.543, 8.927],
       'wettswilamalbis': [47.282, 8.459],
       'wetzikon': [47.322, 8.828],
-      'wila': [47.38, 8.915],
+      'wila': [47.380, 8.915],
       'winterthur': [47.502, 8.725],
       'wädenswil': [47.196, 8.676],
       'zell': [47.262, 8.876],
-      'zollikon': [47.32, 8.607],
-      'zumikon': [47.338, 8.58],
+      'zollikon': [47.320, 8.607],
+      'zumikon': [47.338, 8.580],
       'zürich': [47.3769, 8.5472]
     };
 
     let map;
     let currentMarkers = [];
     let currentData = null;
+    let osmLayer, aerialLayer, layerControl;
 
     // Initialize map
     function initMap() {
-      map = L.map('map').setView([47.3769, 8.5472], 11);
+      map = L.map('map').setView([47.248, 8.686], 10); // Stäfa as default center
 
-      // Add tile layer
-      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      // OpenStreetMap layer
+      osmLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap contributors',
         maxZoom: 19,
         minZoom: 8
+      }).addTo(map);
+
+      // SwissTopo Orthofoto layer (aerial imagery)
+      aerialLayer = L.tileLayer('https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.swissimage/default/current/3857/{z}/{x}/{y}.jpeg', {
+        attribution: '© swisstopo',
+        maxZoom: 19,
+        minZoom: 8,
+        crossOrigin: true
+      });
+
+      // Layer control
+      const baseLayers = {
+        'OpenStreetMap': osmLayer,
+        'Luftbild (SwissTopo)': aerialLayer
+      };
+      
+      layerControl = L.control.layers(baseLayers, {}, {
+        position: 'topright',
+        collapsed: true
       }).addTo(map);
 
       // Add geolocation control

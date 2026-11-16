@@ -1,0 +1,88 @@
+{
+  "metadata": {
+    "updated": "2026-11-16T08:42:41.140Z",
+    "count": 4,
+    "successCount": 4,
+    "gemeinde": "langnauamalbis",
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.49,
+          47.242
+        ]
+      },
+      "properties": {
+        "nummer": "3289430",
+        "adresse": "bei Haslenstrasse o.Nr. 8135 Langnau am Albis",
+        "gemeinde": "Langnau am Albis",
+        "bautyp": "Neubau Mehrfamilienhaus",
+        "datum": "2026-10-30",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3289430",
+        "displayName": "langnauamalbis (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.49,
+          47.242
+        ]
+      },
+      "properties": {
+        "nummer": "3291574",
+        "adresse": "Sihltalstrasse 130 8135 Langnau am Albis",
+        "gemeinde": "Langnau am Albis",
+        "bautyp": "Neubau Werkhof Sihlhof",
+        "datum": "2026-10-30",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3291574",
+        "displayName": "langnauamalbis (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.49,
+          47.242
+        ]
+      },
+      "properties": {
+        "nummer": "3303931",
+        "adresse": "Neue Dorfstrasse 24 8135 Langnau am Albis",
+        "gemeinde": "Langnau am Albis",
+        "bautyp": "Umbau Gewerberaum",
+        "datum": "2026-10-30",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3303931",
+        "displayName": "langnauamalbis (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.49,
+          47.242
+        ]
+      },
+      "properties": {
+        "nummer": "3379766",
+        "adresse": "Eggwiesweg 2 8135 Langnau am Albis",
+        "gemeinde": "Langnau am Albis",
+        "bautyp": "Neubau Kindergarten Eggwies",
+        "datum": "2026-11-13",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3379766",
+        "displayName": "langnauamalbis (BFS center)"
+      }
+    }
+  ]
+}

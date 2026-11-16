@@ -1,0 +1,107 @@
+{
+  "metadata": {
+    "updated": "2026-11-16T08:42:41.309Z",
+    "count": 5,
+    "successCount": 5,
+    "gemeinde": "neftenbach",
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.868,
+          47.515
+        ]
+      },
+      "properties": {
+        "nummer": "3315418",
+        "adresse": "Wartgutstrasse 7 8413 Neftenbach",
+        "gemeinde": "Neftenbach",
+        "bautyp": "Photovoltaikanlage",
+        "datum": "2026-11-06",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3315418",
+        "displayName": "neftenbach (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.868,
+          47.515
+        ]
+      },
+      "properties": {
+        "nummer": "3315733",
+        "adresse": "Seuzachstrasse 5b 8413 Neftenbach",
+        "gemeinde": "Neftenbach",
+        "bautyp": "Erstellung Pflasterweg",
+        "datum": "2026-11-06",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3315733",
+        "displayName": "neftenbach (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.868,
+          47.515
+        ]
+      },
+      "properties": {
+        "nummer": "3346326",
+        "adresse": "Tössallmendstrasse 16 8413 Neftenbach",
+        "gemeinde": "Neftenbach",
+        "bautyp": "Gartengestaltung (bereits erstellt)",
+        "datum": "2026-11-13",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3346326",
+        "displayName": "neftenbach (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.868,
+          47.515
+        ]
+      },
+      "properties": {
+        "nummer": "3347115",
+        "adresse": "Seuzachstrasse 5a und 5b 8413 Neftenbach",
+        "gemeinde": "Neftenbach",
+        "bautyp": "Gartenzaun, Gartensitzplatz und Sichtschutzwände (bereits erstellt)",
+        "datum": "2026-11-13",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3347115",
+        "displayName": "neftenbach (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.868,
+          47.515
+        ]
+      },
+      "properties": {
+        "nummer": "3349356",
+        "adresse": "Dättlikonstrasse 3.2 8413 Neftenbach",
+        "gemeinde": "Neftenbach",
+        "bautyp": "Neubau Schattenhalle",
+        "datum": "2026-11-13",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3349356",
+        "displayName": "neftenbach (BFS center)"
+      }
+    }
+  ]
+}

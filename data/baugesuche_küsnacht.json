@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "updated": "2026-11-16T08:42:41.103Z",
+    "count": 3,
+    "successCount": 3,
+    "gemeinde": "küsnacht",
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.595,
+          47.335
+        ]
+      },
+      "properties": {
+        "nummer": "3288395",
+        "adresse": "Bahnhofstrasse 2a 8700 Küsnacht",
+        "gemeinde": "Küsnacht (ZH)",
+        "bautyp": "Bahnhofstrasse 2a / Aufstockung und Ersatzneubau Wohn- und Geschäftshaus",
+        "datum": "2026-10-29",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3288395",
+        "displayName": "küsnacht (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.595,
+          47.335
+        ]
+      },
+      "properties": {
+        "nummer": "3288558",
+        "adresse": "Zürichstrasse 81 8700 Küsnacht",
+        "gemeinde": "Küsnacht (ZH)",
+        "bautyp": "Zürichstrasse 81 und 83 / Energetische Sanierung und Vergrösserung der Balkone",
+        "datum": "2026-10-29",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3288558",
+        "displayName": "küsnacht (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.595,
+          47.335
+        ]
+      },
+      "properties": {
+        "nummer": "3350030",
+        "adresse": "Schützenweg 2 8700 Küsnacht",
+        "gemeinde": "Küsnacht (ZH)",
+        "bautyp": "Schützenweg 2 / Abbruch Vers.-Nr. 1835",
+        "datum": "2026-11-12",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3350030",
+        "displayName": "küsnacht (BFS center)"
+      }
+    }
+  ]
+}

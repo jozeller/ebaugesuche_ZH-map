@@ -1,0 +1,126 @@
+{
+  "metadata": {
+    "updated": "2026-11-16T08:42:40.575Z",
+    "count": 6,
+    "successCount": 6,
+    "gemeinde": "elgg",
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.87,
+          47.385
+        ]
+      },
+      "properties": {
+        "nummer": "3307423",
+        "adresse": "Wenzikon 19 8354 Hofstetten ZH",
+        "gemeinde": "Elgg",
+        "bautyp": "s33/26, Müller, PV Anlage Aufdach",
+        "datum": "2026-10-29",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3307423",
+        "displayName": "elgg (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.87,
+          47.385
+        ]
+      },
+      "properties": {
+        "nummer": "3307497",
+        "adresse": "Haldenstrasse 6 8353 Elgg",
+        "gemeinde": "Elgg",
+        "bautyp": "s35/26, Fricker, PV-Anlage Aufdach",
+        "datum": "2026-10-29",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3307497",
+        "displayName": "elgg (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.87,
+          47.385
+        ]
+      },
+      "properties": {
+        "nummer": "3339966",
+        "adresse": "Hertenstrasse  12c 8353 Elgg",
+        "gemeinde": "Elgg",
+        "bautyp": "58/26, Gföhler, Gartenumgestaltung mit Bio-Pool",
+        "datum": "2026-11-05",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3339966",
+        "displayName": "elgg (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.87,
+          47.385
+        ]
+      },
+      "properties": {
+        "nummer": "3339977",
+        "adresse": "Huggenberg 40 8353 Elgg",
+        "gemeinde": "Elgg",
+        "bautyp": "69/26, Zwicky, Umgebungsarbeiten",
+        "datum": "2026-11-05",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3339977",
+        "displayName": "elgg (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.87,
+          47.385
+        ]
+      },
+      "properties": {
+        "nummer": "3339990",
+        "adresse": "Dorfstrasse 18 8354 Dickbuch",
+        "gemeinde": "Elgg",
+        "bautyp": "wta29/26, Krenger, Klimaanlage",
+        "datum": "2026-11-05",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3339990",
+        "displayName": "elgg (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.87,
+          47.385
+        ]
+      },
+      "properties": {
+        "nummer": "3354291",
+        "adresse": "Alpstrasse 6 8354 Hofstetten ZH",
+        "gemeinde": "Elgg",
+        "bautyp": "46/26, Gurtner, Fassadenänderung durch Einbau Fenstertüre",
+        "datum": "2026-11-07",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3354291",
+        "displayName": "elgg (BFS center)"
+      }
+    }
+  ]
+}

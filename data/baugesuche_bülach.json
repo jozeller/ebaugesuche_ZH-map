@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "updated": "2026-11-16T08:42:40.375Z",
+    "count": 2,
+    "successCount": 2,
+    "gemeinde": "bülach",
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.536,
+          47.526
+        ]
+      },
+      "properties": {
+        "nummer": "3365576",
+        "adresse": "Seemattstrasse 22 8180 Bülach",
+        "gemeinde": "Bülach",
+        "bautyp": "Erstellung Sichtschutzwand",
+        "datum": "2026-11-13",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3365576",
+        "displayName": "bülach (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.536,
+          47.526
+        ]
+      },
+      "properties": {
+        "nummer": "3369659",
+        "adresse": "Feldstrasse 63 8180 Bülach",
+        "gemeinde": "Bülach",
+        "bautyp": "Neubau Betriebsgebäude Habegger AG",
+        "datum": "2026-11-13",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3369659",
+        "displayName": "bülach (BFS center)"
+      }
+    }
+  ]
+}

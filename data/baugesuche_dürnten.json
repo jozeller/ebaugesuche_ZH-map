@@ -1,0 +1,88 @@
+{
+  "metadata": {
+    "updated": "2026-11-16T08:42:40.503Z",
+    "count": 4,
+    "successCount": 4,
+    "gemeinde": "dürnten",
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.926,
+          47.295
+        ]
+      },
+      "properties": {
+        "nummer": "3348061",
+        "adresse": "Bubikonerstrasse 47 8635 Dürnten",
+        "gemeinde": "Dürnten",
+        "bautyp": "Abbruch Gebäude Vers.-Nr. 549 und Ersatzneubau Gewerbehalle mit Betriebsleiterwohnung",
+        "datum": "2026-11-06",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3348061",
+        "displayName": "dürnten (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.926,
+          47.295
+        ]
+      },
+      "properties": {
+        "nummer": "3380938",
+        "adresse": "Tannägertenstrasse 28b 8635 Dürnten",
+        "gemeinde": "Dürnten",
+        "bautyp": "An- und Umbau Schweinestall in Legehennenstall",
+        "datum": "2026-11-12",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3380938",
+        "displayName": "dürnten (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.926,
+          47.295
+        ]
+      },
+      "properties": {
+        "nummer": "3385767",
+        "adresse": "Oberdürntnerstrasse 5b 8635 Dürnten",
+        "gemeinde": "Dürnten",
+        "bautyp": "Fensterersatz",
+        "datum": "2026-11-13",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3385767",
+        "displayName": "dürnten (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.926,
+          47.295
+        ]
+      },
+      "properties": {
+        "nummer": "3390508",
+        "adresse": "Langrütistrasse 94 + 96 8635 Dürnten",
+        "gemeinde": "Dürnten",
+        "bautyp": "Freistehende Photovoltaikanlage",
+        "datum": "2026-11-13",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3390508",
+        "displayName": "dürnten (BFS center)"
+      }
+    }
+  ]
+}

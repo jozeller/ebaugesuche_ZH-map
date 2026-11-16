@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "updated": "2026-11-16T08:42:41.740Z",
+    "count": 3,
+    "successCount": 3,
+    "gemeinde": "russikon",
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.868,
+          47.368
+        ]
+      },
+      "properties": {
+        "nummer": "3304095",
+        "adresse": "Im Hundbüel 1 8332 Russikon",
+        "gemeinde": "Russikon",
+        "bautyp": "Umbau Einfamilienhaus (Vorentscheid mit Drittverbindlichkeit)",
+        "datum": "2026-10-30",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3304095",
+        "displayName": "russikon (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.868,
+          47.368
+        ]
+      },
+      "properties": {
+        "nummer": "3332558",
+        "adresse": "Wettsteinstrasse 61a 8332 Russikon",
+        "gemeinde": "Russikon",
+        "bautyp": "Beheizung Naturpool",
+        "datum": "2026-10-30",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3332558",
+        "displayName": "russikon (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.868,
+          47.368
+        ]
+      },
+      "properties": {
+        "nummer": "3373828",
+        "adresse": "Stuketenstrasse 11 8332 Rumlikon",
+        "gemeinde": "Russikon",
+        "bautyp": "Erstellung von Parkplätzen sowie Stützmauer beim Gebäude Vers.-Nr. 750",
+        "datum": "2026-11-13",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3373828",
+        "displayName": "russikon (BFS center)"
+      }
+    }
+  ]
+}

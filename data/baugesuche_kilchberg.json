@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "updated": "2026-11-16T08:42:41.067Z",
+    "count": 2,
+    "successCount": 2,
+    "gemeinde": "kilchberg",
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.563,
+          47.28
+        ]
+      },
+      "properties": {
+        "nummer": "3348474",
+        "adresse": "Schützenmattstrasse 3 8802 Kilchberg",
+        "gemeinde": "Kilchberg (ZH)",
+        "bautyp": "Liftanbau Mehrfamilienhaus",
+        "datum": "2026-11-06",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3348474",
+        "displayName": "kilchberg (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.563,
+          47.28
+        ]
+      },
+      "properties": {
+        "nummer": "3376558",
+        "adresse": "Bächlerstrasse 4 8802 Kilchberg",
+        "gemeinde": "Kilchberg (ZH)",
+        "bautyp": "Mobilfunkanlage auf Flachdach",
+        "datum": "2026-11-13",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3376558",
+        "displayName": "kilchberg (BFS center)"
+      }
+    }
+  ]
+}

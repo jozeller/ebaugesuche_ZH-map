@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "updated": "2026-11-16T08:42:40.939Z",
+    "count": 2,
+    "successCount": 2,
+    "gemeinde": "hochfelden",
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.38,
+          47.59
+        ]
+      },
+      "properties": {
+        "nummer": "3313947",
+        "adresse": "Willenhofstrasse 6 8182 Hochfelden",
+        "gemeinde": "Hochfelden",
+        "bautyp": "Aufteilung einer Wohneinheit in zwei Wohnungen",
+        "datum": "2026-10-30",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3313947",
+        "displayName": "hochfelden (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.38,
+          47.59
+        ]
+      },
+      "properties": {
+        "nummer": "3342466",
+        "adresse": "Wybergstrasse 34 8182 Hochfelden",
+        "gemeinde": "Hochfelden",
+        "bautyp": "Sitzplatzüberdachung mit Glasdach",
+        "datum": "2026-11-06",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3342466",
+        "displayName": "hochfelden (BFS center)"
+      }
+    }
+  ]
+}

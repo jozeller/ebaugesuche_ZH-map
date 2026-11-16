@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "updated": "2026-11-16T08:42:40.743Z",
+    "count": 2,
+    "successCount": 2,
+    "gemeinde": "gossau",
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.956,
+          47.268
+        ]
+      },
+      "properties": {
+        "nummer": "3321731",
+        "adresse": "Laufenbachstrasse 1-11 8625 Gossau ZH",
+        "gemeinde": "Gossau (ZH)",
+        "bautyp": "Neubau 4 MFH mit Gewerbeflächen, Neubau Pavillon und Erstellung Sammelstelle",
+        "datum": "2026-10-30",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3321731",
+        "displayName": "gossau (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.956,
+          47.268
+        ]
+      },
+      "properties": {
+        "nummer": "3386180",
+        "adresse": "Austrasse 55 8625 Gossau ZH",
+        "gemeinde": "Gossau (ZH)",
+        "bautyp": "Erschliessung Lagerraum im UG durch Rampe",
+        "datum": "2026-11-13",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3386180",
+        "displayName": "gossau (BFS center)"
+      }
+    }
+  ]
+}

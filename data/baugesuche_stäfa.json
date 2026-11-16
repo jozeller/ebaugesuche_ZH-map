@@ -1,10 +1,11 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:15:19.432Z",
+    "updated": "2026-11-16T08:42:41.966Z",
     "count": 6,
     "successCount": 6,
     "gemeinde": "stäfa",
-    "source": "https://portal.ebaugesuche.zh.ch/"
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
   },
   "features": [
     {
@@ -12,8 +13,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.7180005,
-          47.2476197
+          8.686,
+          47.248
         ]
       },
       "properties": {
@@ -23,7 +24,7 @@
         "bautyp": "Werkstatt zwischen Haupthaus und Garage (bereits erstellt), Vers.-Nr. 1589, Rainstrasse 67, Kat.-Nr. 5016, 8712 Stäfa",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3302326",
-        "displayName": "67, Rainstrasse, Lenz, Ülikon, Stäfa, Bezirk Meilen, Zürich, 8712, Schweiz / Suisse / Svizzera / Svizra"
+        "displayName": "stäfa (BFS center)"
       }
     },
     {
@@ -31,8 +32,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.7328322,
-          47.2390224
+          8.686,
+          47.248
         ]
       },
       "properties": {
@@ -42,7 +43,7 @@
         "bautyp": "Graberweiterung Friedhof, bei Vers.-Nr. 618, Schmittenbachstrasse 10 (Friedhofshalle), Kat.-Nr. 5492, 8712 Stäfa",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3303714",
-        "displayName": "Abdankungshalle, 10, Schmittenbachstrasse, Kehlhof, Ürikon, Stäfa, Bezirk Meilen, Zürich, 8712, Schweiz / Suisse / Svizzera / Svizra"
+        "displayName": "stäfa (BFS center)"
       }
     },
     {
@@ -50,8 +51,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.7209085,
-          47.2394013
+          8.686,
+          47.248
         ]
       },
       "properties": {
@@ -61,7 +62,7 @@
         "bautyp": "Luft-Wasser-Wärmepumpe, Vers.-Nr. 823, Spittelstrasse 16, Kat.-Nr. 139, 8712 Stäfa",
         "datum": "2026-11-06",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3322621",
-        "displayName": "16, Spittelstrasse, Mutzmalen, Stäfa, Bezirk Meilen, Zürich, 8712, Schweiz / Suisse / Svizzera / Svizra"
+        "displayName": "stäfa (BFS center)"
       }
     },
     {
@@ -69,8 +70,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.7265715,
-          47.2463944
+          8.686,
+          47.248
         ]
       },
       "properties": {
@@ -80,7 +81,7 @@
         "bautyp": "Luft-Wasser-Wärmepumpe, Vers.-Nr. 1881, Bergstrasse 89, Kat.-Nr. 5451, 8712 Stäfa",
         "datum": "2026-11-06",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3336593",
-        "displayName": "89, 89a, Bergstrasse, Ülikon, Stäfa, Bezirk Meilen, Zürich, 8712, Schweiz / Suisse / Svizzera / Svizra"
+        "displayName": "stäfa (BFS center)"
       }
     },
     {
@@ -88,8 +89,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.7310436,
-          47.2380132
+          8.686,
+          47.248
         ]
       },
       "properties": {
@@ -99,7 +100,7 @@
         "bautyp": "Luft-Wasser-Wärmepumpe, Vers.-Nr. 1504 (Inventarobjekt), Kreuzstrasse 45, Kat.-Nr. 746, 8712 Stäfa",
         "datum": "2026-11-06",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3338497",
-        "displayName": "45, Kreuzstrasse, Kehlhof, Ürikon, Stäfa, Bezirk Meilen, Zürich, 8712, Schweiz / Suisse / Svizzera / Svizra"
+        "displayName": "stäfa (BFS center)"
       }
     },
     {
@@ -107,8 +108,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.7541276,
-          47.2381015
+          8.686,
+          47.248
         ]
       },
       "properties": {
@@ -118,7 +119,7 @@
         "bautyp": "Schulraumprovisorium, Vers.-Nr. NEUBAU, Moritzbergstrasse, Kat.-Nr. 10118, 8713 Uerikon",
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3346602",
-        "displayName": "Schulhaus Moritzberg, 45, Moritzbergstrasse, Ürikon, Stäfa, Bezirk Meilen, Zürich, 8713, Schweiz / Suisse / Svizzera / Svizra"
+        "displayName": "stäfa (BFS center)"
       }
     }
   ]

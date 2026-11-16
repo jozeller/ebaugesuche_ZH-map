@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "updated": "2026-11-16T08:42:42.002Z",
+    "count": 3,
+    "successCount": 3,
+    "gemeinde": "thalwil",
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.592,
+          47.266
+        ]
+      },
+      "properties": {
+        "nummer": "3346075",
+        "adresse": "Säumerstrasse 35 8800 Thalwil",
+        "gemeinde": "Thalwil",
+        "bautyp": "BE 2026.177 Umbau auf UFC und Erweiterung Sammelstelle",
+        "datum": "2026-11-06",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3346075",
+        "displayName": "thalwil (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.592,
+          47.266
+        ]
+      },
+      "properties": {
+        "nummer": "3378311",
+        "adresse": "Im Marbach 24 8800 Thalwil",
+        "gemeinde": "Thalwil",
+        "bautyp": "BE 2026.184 Erstellung Photovoltaikanlage (GP Marbach)",
+        "datum": "2026-11-13",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3378311",
+        "displayName": "thalwil (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.592,
+          47.266
+        ]
+      },
+      "properties": {
+        "nummer": "3379487",
+        "adresse": "Alpenstrasse 43 8800 Thalwil",
+        "gemeinde": "Thalwil",
+        "bautyp": "BE 2025.136-02 Innere Umbauten EFH, Erstellung Aussengeländer, Dachflächenfenster, Chromstahlkamin über Dach und PV-Anlage (Projektänderung Wintergarten)",
+        "datum": "2026-11-13",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3379487",
+        "displayName": "thalwil (BFS center)"
+      }
+    }
+  ]
+}

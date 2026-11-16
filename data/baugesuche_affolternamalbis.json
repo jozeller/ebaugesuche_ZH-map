@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "updated": "2026-11-16T08:42:40.205Z",
+    "count": 1,
+    "successCount": 1,
+    "gemeinde": "affolternamalbis",
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.449,
+          47.257
+        ]
+      },
+      "properties": {
+        "nummer": "3383131",
+        "adresse": "Betpurstrasse 7 8910 Affoltern am Albis",
+        "gemeinde": "Affoltern am Albis",
+        "bautyp": "Neubau Unterflurcontainer",
+        "datum": "2026-11-13",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3383131",
+        "displayName": "affolternamalbis (BFS center)"
+      }
+    }
+  ]
+}

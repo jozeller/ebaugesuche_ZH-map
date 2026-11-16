@@ -1,29 +1,11 @@
 {
   "metadata": {
-    "updated": "2026-11-16T07:32:41.026Z",
-    "count": 1,
-    "successCount": 1,
+    "updated": "2026-11-16T08:42:40.807Z",
+    "count": 0,
+    "successCount": 0,
     "gemeinde": "herrliberg",
-    "source": "https://portal.ebaugesuche.zh.ch/"
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
   },
-  "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.5912,
-          47.3213
-        ]
-      },
-      "properties": {
-        "nummer": "3347100",
-        "adresse": "Seestrasse 120, 8708 Herrliberg",
-        "gemeinde": "Herrliberg",
-        "bautyp": "Neubau",
-        "datum": "2026-11-10",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3347100"
-      }
-    }
-  ]
+  "features": []
 }

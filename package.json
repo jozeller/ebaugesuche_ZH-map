@@ -7,7 +7,8 @@
     "scrape": "node scripts/scraper.js",
     "geocode": "node scripts/geocoder.js",
     "build": "node scripts/build.js",
-    "update": "npm run build",
+    "build:all": "node scripts/build-all.js",
+    "update": "npm run build:all",
     "test": "node --test scripts/scraper.test.js",
     "start": "node scripts/server.js",
     "dev": "node scripts/server.js"

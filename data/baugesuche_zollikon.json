@@ -1,10 +1,11 @@
 {
   "metadata": {
-    "updated": "2026-11-16T07:32:41.026Z",
-    "count": 2,
-    "successCount": 2,
+    "updated": "2026-11-16T08:42:42.523Z",
+    "count": 4,
+    "successCount": 4,
     "gemeinde": "zollikon",
-    "source": "https://portal.ebaugesuche.zh.ch/"
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
   },
   "features": [
     {
@@ -12,17 +13,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.6096,
-          47.3314
+          8.607,
+          47.32
         ]
       },
       "properties": {
-        "nummer": "3347200",
-        "adresse": "Hauptstrasse 150, 8702 Zollikon",
+        "nummer": "3303270",
+        "adresse": "Sennhofstrasse 47 8125 Zollikerberg",
         "gemeinde": "Zollikon",
-        "bautyp": "Sanierung",
-        "datum": "2026-11-11",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3347200"
+        "bautyp": "Boccia-Bahn bei Einfamilienhaus (bereits erstellt)",
+        "datum": "2026-10-30",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3303270",
+        "displayName": "zollikon (BFS center)"
       }
     },
     {
@@ -30,17 +32,56 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.6186,
-          47.3274
+          8.607,
+          47.32
         ]
       },
       "properties": {
-        "nummer": "3347201",
-        "adresse": "Dorfstrasse 45, 8702 Zollikon",
+        "nummer": "3336718",
+        "adresse": "Zolliker Strasse 23 8702 Zollikon",
         "gemeinde": "Zollikon",
-        "bautyp": "Umbau",
+        "bautyp": "Umgebungsveränderung bei Einfamilienhaus, 2 neue Autoabstellplätze im Freien",
+        "datum": "2026-11-06",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3336718",
+        "displayName": "zollikon (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.607,
+          47.32
+        ]
+      },
+      "properties": {
+        "nummer": "3373496",
+        "adresse": "Zolliker Strasse 57 8702 Zollikon",
+        "gemeinde": "Zollikon",
+        "bautyp": "Umbau Mehrfamilien- und Geschäftshaus, wärmetechnische Sanierung Dachgeschoss",
         "datum": "2026-11-13",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3347201"
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3373496",
+        "displayName": "zollikon (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.607,
+          47.32
+        ]
+      },
+      "properties": {
+        "nummer": "3373632",
+        "adresse": "Alte Landstrasse 67 8702 Zollikon",
+        "gemeinde": "Zollikon",
+        "bautyp": "Umgebungsveränderung bei Reiheneinfamilienhaus, neuer Autoabstellplatz im Freien (im Inventar Denkmalpflege)",
+        "datum": "2026-11-13",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3373632",
+        "displayName": "zollikon (BFS center)"
       }
     }
   ]

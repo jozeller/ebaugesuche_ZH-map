@@ -1,47 +1,11 @@
 {
   "metadata": {
-    "updated": "2026-11-16T07:32:41.026Z",
-    "count": 2,
-    "successCount": 2,
+    "updated": "2026-11-16T08:42:40.639Z",
+    "count": 0,
+    "successCount": 0,
     "gemeinde": "erlenbach",
-    "source": "https://portal.ebaugesuche.zh.ch/"
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
   },
-  "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.6087,
-          47.3001
-        ]
-      },
-      "properties": {
-        "nummer": "3346900",
-        "adresse": "Dorfstrasse 15, 8703 Erlenbach",
-        "gemeinde": "Erlenbach",
-        "bautyp": "Neubau",
-        "datum": "2026-11-09",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3346900"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.6157,
-          47.3051
-        ]
-      },
-      "properties": {
-        "nummer": "3346901",
-        "adresse": "Bergstrasse 22, 8703 Erlenbach",
-        "gemeinde": "Erlenbach",
-        "bautyp": "Sanierung",
-        "datum": "2026-11-15",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3346901"
-      }
-    }
-  ]
+  "features": []
 }

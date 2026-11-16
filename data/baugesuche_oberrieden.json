@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "updated": "2026-11-16T08:42:41.404Z",
+    "count": 3,
+    "successCount": 3,
+    "gemeinde": "oberrieden",
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.68,
+          47.216
+        ]
+      },
+      "properties": {
+        "nummer": "3321557",
+        "adresse": "Im Huebacher 3 8942 Oberrieden",
+        "gemeinde": "Oberrieden",
+        "bautyp": "Ersatzneubau eines Mehfamilienhauses",
+        "datum": "2026-10-29",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3321557",
+        "displayName": "oberrieden (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.68,
+          47.216
+        ]
+      },
+      "properties": {
+        "nummer": "3323355",
+        "adresse": "Bleierstrasse 30 8942 Oberrieden",
+        "gemeinde": "Oberrieden",
+        "bautyp": "850 Fassadensanierung Doppelwohnhaus Bleierstrasse 30, 8942 Oberrieden",
+        "datum": "2026-11-02",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3323355",
+        "displayName": "oberrieden (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.68,
+          47.216
+        ]
+      },
+      "properties": {
+        "nummer": "3364702",
+        "adresse": "Fachstrasse 12, 14 8942 Oberrieden",
+        "gemeinde": "Oberrieden",
+        "bautyp": "Ersatzneubau von zwei Mehrfamilienhäuser",
+        "datum": "2026-11-10",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3364702",
+        "displayName": "oberrieden (BFS center)"
+      }
+    }
+  ]
+}

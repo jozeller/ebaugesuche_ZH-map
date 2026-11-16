@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "updated": "2026-11-16T08:42:41.639Z",
+    "count": 3,
+    "successCount": 3,
+    "gemeinde": "rafz",
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.59,
+          47.636
+        ]
+      },
+      "properties": {
+        "nummer": "3385800",
+        "adresse": "Gajebärg 3 8197 Rafz",
+        "gemeinde": "Rafz",
+        "bautyp": "Neubau Mehrfamilienhaus mit Tiefgarage",
+        "datum": "2026-11-13",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3385800",
+        "displayName": "rafz (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.59,
+          47.636
+        ]
+      },
+      "properties": {
+        "nummer": "3386140",
+        "adresse": "Höhewäg 14 8197 Rafz",
+        "gemeinde": "Rafz",
+        "bautyp": "Neubau Mehrfamilienhaus mit Tiefgarage",
+        "datum": "2026-11-13",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3386140",
+        "displayName": "rafz (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.59,
+          47.636
+        ]
+      },
+      "properties": {
+        "nummer": "3386764",
+        "adresse": "Im Boden 11.2 8197 Rafz",
+        "gemeinde": "Rafz",
+        "bautyp": "Ersatz Gartenhaus",
+        "datum": "2026-11-13",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3386764",
+        "displayName": "rafz (BFS center)"
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "updated": "2026-11-16T08:42:41.534Z",
+    "count": 1,
+    "successCount": 1,
+    "gemeinde": "ossingen",
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.895,
+          47.565
+        ]
+      },
+      "properties": {
+        "nummer": "3324539",
+        "adresse": "Löberen 10 8475 Ossingen",
+        "gemeinde": "Ossingen",
+        "bautyp": "Pergola mit Lamellendach und Ganzglas-Schiebeanlagen",
+        "datum": "2026-10-30",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3324539",
+        "displayName": "ossingen (BFS center)"
+      }
+    }
+  ]
+}

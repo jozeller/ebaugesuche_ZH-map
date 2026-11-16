@@ -1,0 +1,126 @@
+{
+  "metadata": {
+    "updated": "2026-11-16T08:42:40.889Z",
+    "count": 6,
+    "successCount": 6,
+    "gemeinde": "hinwil",
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.965,
+          47.314
+        ]
+      },
+      "properties": {
+        "nummer": "3310562",
+        "adresse": "Wildbachstrasse 18 8340 Hinwil",
+        "gemeinde": "Hinwil",
+        "bautyp": "Instandstellung und Erhöhung Stalldach am Gebäude Vers.-Nr. 1886",
+        "datum": "2026-10-30",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3310562",
+        "displayName": "hinwil (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.965,
+          47.314
+        ]
+      },
+      "properties": {
+        "nummer": "3313367",
+        "adresse": "Zürichstrasse 74, 76 und 76.2 8340 Hinwil",
+        "gemeinde": "Hinwil",
+        "bautyp": "Abbruch Gebäude Vers.-Nrn. 2348 und 1810 und Neubau eines Betriebs- und Bürogebäudes sowie eines Carportes, einer Aussenanlage mit Pavillon und einer Trafostation",
+        "datum": "2026-10-30",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3313367",
+        "displayName": "hinwil (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.965,
+          47.314
+        ]
+      },
+      "properties": {
+        "nummer": "3313615",
+        "adresse": "Brünneliweid 7.2 8340 Hinwil",
+        "gemeinde": "Hinwil",
+        "bautyp": "Anbau eines Velounterstandes am Gebäude Vers.-Nr. 2007 auf Grundstück Kat.-Nr. 7952, Brünneliweid 7.2, Hinwil (W/1.6)",
+        "datum": "2026-10-30",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3313615",
+        "displayName": "hinwil (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.965,
+          47.314
+        ]
+      },
+      "properties": {
+        "nummer": "3349289",
+        "adresse": "Nübruchstrasse 5 8340 Hinwil",
+        "gemeinde": "Hinwil",
+        "bautyp": "Sanierung, Innenum- und ausbauten, Neubau von drei Türen, fünf Dachflächenfenstern und eines Fensters sowie Aufbau einer Photovoltaikanlage am Gebäude Vers.-Nr. 821",
+        "datum": "2026-11-06",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3349289",
+        "displayName": "hinwil (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.965,
+          47.314
+        ]
+      },
+      "properties": {
+        "nummer": "3349370",
+        "adresse": "Fabrikstrasse 3 8340 Hinwil",
+        "gemeinde": "Hinwil",
+        "bautyp": "Abbruch Gebäude Vers.-Nr. 1526 und Neubau Wohn- und Gewerbebaute mit UN-Garage",
+        "datum": "2026-11-06",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3349370",
+        "displayName": "hinwil (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.965,
+          47.314
+        ]
+      },
+      "properties": {
+        "nummer": "3349504",
+        "adresse": "Bachtelstrasse 63.1 8342 Wernetshausen",
+        "gemeinde": "Hinwil",
+        "bautyp": "Einbau von zwei Dachflächenfenstern sowie Umnutzung Gebäude Vers.-Nr. 336 zu Wohnzwecken",
+        "datum": "2026-11-06",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3349504",
+        "displayName": "hinwil (BFS center)"
+      }
+    }
+  ]
+}

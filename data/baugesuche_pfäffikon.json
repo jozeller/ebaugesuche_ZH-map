@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "updated": "2026-11-16T08:42:41.604Z",
+    "count": 2,
+    "successCount": 2,
+    "gemeinde": "pfäffikon",
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.914,
+          47.352
+        ]
+      },
+      "properties": {
+        "nummer": "3327528",
+        "adresse": "Hotzenweidstrasse 49 8330 Pfäffikon ZH",
+        "gemeinde": "Pfäffikon",
+        "bautyp": "unbeheizte Wohnraumerweiterung und Terrassenüberdachung im Attikageschoss beim Gebäude Vers.-Nr. 2165",
+        "datum": "2026-11-06",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3327528",
+        "displayName": "pfäffikon (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.914,
+          47.352
+        ]
+      },
+      "properties": {
+        "nummer": "3388030",
+        "adresse": "Tumbelenstrasse 60a 8330 Pfäffikon ZH",
+        "gemeinde": "Pfäffikon",
+        "bautyp": "Teilweise erstellte Mauer und Sichtschutz beim Gebäude Vers.-Nr. 3290, ohne Aussteckung",
+        "datum": "2026-11-13",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3388030",
+        "displayName": "pfäffikon (BFS center)"
+      }
+    }
+  ]
+}

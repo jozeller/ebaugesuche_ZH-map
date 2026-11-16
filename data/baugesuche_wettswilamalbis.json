@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "updated": "2026-11-16T08:42:42.244Z",
+    "count": 3,
+    "successCount": 3,
+    "gemeinde": "wettswilamalbis",
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.459,
+          47.282
+        ]
+      },
+      "properties": {
+        "nummer": "3303604",
+        "adresse": "Hirsächersteig 8 8907 Wettswil",
+        "gemeinde": "Wettswil am Albis",
+        "bautyp": "Baugesuch 2026-90, von Planta Urs, Hirsächersteig 8, Erstellung Pergola",
+        "datum": "2026-10-30",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3303604",
+        "displayName": "wettswilamalbis (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.459,
+          47.282
+        ]
+      },
+      "properties": {
+        "nummer": "3303899",
+        "adresse": "Im Grundächer 44 8907 Wettswil a.A.",
+        "gemeinde": "Wettswil am Albis",
+        "bautyp": "Baugesuch 2026-72, Meier Vinzenz, Im Grundächer 44, Installation von 2 Klimaanlagen",
+        "datum": "2026-10-30",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3303899",
+        "displayName": "wettswilamalbis (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.459,
+          47.282
+        ]
+      },
+      "properties": {
+        "nummer": "3334268",
+        "adresse": "Bühlerstrasse 16 8907 Wettswil a.A.",
+        "gemeinde": "Wettswil am Albis",
+        "bautyp": "BG 2026-95, Huber Rolf, Bühlerstrasse 16, Umbau und Sanierung EFH",
+        "datum": "2026-11-06",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3334268",
+        "displayName": "wettswilamalbis (BFS center)"
+      }
+    }
+  ]
+}

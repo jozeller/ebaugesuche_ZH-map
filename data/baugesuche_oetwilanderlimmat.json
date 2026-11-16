@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "updated": "2026-11-16T08:42:41.473Z",
+    "count": 1,
+    "successCount": 1,
+    "gemeinde": "oetwilanderlimmat",
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.69,
+          47.285
+        ]
+      },
+      "properties": {
+        "nummer": "3283171",
+        "adresse": "Karligutweg 8955 Oetwil an der Limmat",
+        "gemeinde": "Oetwil an der Limmat",
+        "bautyp": "Sanierung Trockensteinmauer Parz. 1212",
+        "datum": "2026-10-29",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3283171",
+        "displayName": "oetwilanderlimmat (BFS center)"
+      }
+    }
+  ]
+}

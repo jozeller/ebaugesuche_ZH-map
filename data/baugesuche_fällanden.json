@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "updated": "2026-11-16T08:42:40.675Z",
+    "count": 3,
+    "successCount": 3,
+    "gemeinde": "fällanden",
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.618,
+          47.378
+        ]
+      },
+      "properties": {
+        "nummer": "3301737",
+        "adresse": "Sängglenstrasse 11 8118 Pfaffhausen",
+        "gemeinde": "Fällanden",
+        "bautyp": "Dachsanierung Einfamilienhaus",
+        "datum": "2026-10-30",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3301737",
+        "displayName": "fällanden (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.618,
+          47.378
+        ]
+      },
+      "properties": {
+        "nummer": "3337838",
+        "adresse": "Rohrwis / Userriet  - 8117 Fällanden",
+        "gemeinde": "Fällanden",
+        "bautyp": "Chaussierte Fusswegverbreiterung \"Im Rohrwis\"",
+        "datum": "2026-11-06",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3337838",
+        "displayName": "fällanden (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.618,
+          47.378
+        ]
+      },
+      "properties": {
+        "nummer": "3359043",
+        "adresse": "Sängglenstrasse 6 8118 Pfaffhausen",
+        "gemeinde": "Fällanden",
+        "bautyp": "Erstellung einer Erdsonden-Wärmepumpe",
+        "datum": "2026-11-06",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3359043",
+        "displayName": "fällanden (BFS center)"
+      }
+    }
+  ]
+}

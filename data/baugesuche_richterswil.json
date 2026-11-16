@@ -1,10 +1,11 @@
 {
   "metadata": {
-    "updated": "2026-11-16T07:32:41.026Z",
-    "count": 2,
-    "successCount": 2,
+    "updated": "2026-11-16T08:42:41.706Z",
+    "count": 4,
+    "successCount": 4,
     "gemeinde": "richterswil",
-    "source": "https://portal.ebaugesuche.zh.ch/"
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
   },
   "features": [
     {
@@ -12,17 +13,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.7755,
-          47.2547
+          8.793,
+          47.182
         ]
       },
       "properties": {
-        "nummer": "3347400",
-        "adresse": "Hauptstrasse 200, 8805 Richterswil",
+        "nummer": "3335029",
+        "adresse": "Erlenstrasse 35, 37 und 41 8805 Richterswil",
         "gemeinde": "Richterswil",
-        "bautyp": "Erweiterung",
-        "datum": "2026-11-09",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3347400"
+        "bautyp": "Installation 3 Luft/Wasser-Wärmepumpen (aussenaufgestellt)",
+        "datum": "2026-11-06",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3335029",
+        "displayName": "richterswil (BFS center)"
       }
     },
     {
@@ -30,17 +32,56 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.7865,
-          47.2627
+          8.793,
+          47.182
         ]
       },
       "properties": {
-        "nummer": "3347401",
-        "adresse": "Seestrasse 85, 8805 Richterswil",
+        "nummer": "3349102",
+        "adresse": "Glärnischstrasse 100 8805 Richterswil",
         "gemeinde": "Richterswil",
-        "bautyp": "Umbau",
-        "datum": "2026-11-11",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3347401"
+        "bautyp": "Neugestaltung Garten",
+        "datum": "2026-11-06",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3349102",
+        "displayName": "richterswil (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.793,
+          47.182
+        ]
+      },
+      "properties": {
+        "nummer": "3349137",
+        "adresse": "Bodenstrasse 42 8805 Richterswil",
+        "gemeinde": "Richterswil",
+        "bautyp": "Umbau und Aufstockung Reiheneinfamilienhaus",
+        "datum": "2026-11-06",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3349137",
+        "displayName": "richterswil (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.793,
+          47.182
+        ]
+      },
+      "properties": {
+        "nummer": "3349425",
+        "adresse": "Seestrasse 67 8805 Richterswil",
+        "gemeinde": "Richterswil",
+        "bautyp": "Neubau Terrassenüberdachung mit Terrassensanierung (bereits erstellt)",
+        "datum": "2026-11-13",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3349425",
+        "displayName": "richterswil (BFS center)"
       }
     }
   ]

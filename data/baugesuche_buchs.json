@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "updated": "2026-11-16T08:42:40.342Z",
+    "count": 2,
+    "successCount": 2,
+    "gemeinde": "buchs",
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.255,
+          47.5
+        ]
+      },
+      "properties": {
+        "nummer": "3303061",
+        "adresse": "Kastellstrasse 55 8107 Buchs ZH",
+        "gemeinde": "Buchs (ZH)",
+        "bautyp": "Neubau Holzterrassendeck",
+        "datum": "2026-10-30",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3303061",
+        "displayName": "buchs (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.255,
+          47.5
+        ]
+      },
+      "properties": {
+        "nummer": "1838920",
+        "adresse": "Unterdorfstrasse 2 8107 Buchs ZH",
+        "gemeinde": "Buchs (ZH)",
+        "bautyp": "Prjektänderung: Innere Umbauten, Fensterersatz sowie Anpassung einer Fassadenöffnung an der Südfassade",
+        "datum": "2026-11-06",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/1838920",
+        "displayName": "buchs (BFS center)"
+      }
+    }
+  ]
+}

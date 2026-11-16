@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "updated": "2026-11-16T08:42:40.612Z",
+    "count": 3,
+    "successCount": 3,
+    "gemeinde": "elsau",
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.673,
+          47.475
+        ]
+      },
+      "properties": {
+        "nummer": "3374288",
+        "adresse": "Dorfstrasse 22 8352 Elsau",
+        "gemeinde": "Elsau",
+        "bautyp": "48/2026 Ilg, PV-Anlage",
+        "datum": "2026-11-13",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3374288",
+        "displayName": "elsau (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.673,
+          47.475
+        ]
+      },
+      "properties": {
+        "nummer": "3383389",
+        "adresse": "Im Rain 2a 8352 Elsau",
+        "gemeinde": "Elsau",
+        "bautyp": "45/2026 Aytac, Sichtschutzwand und Maschendrahtzaun",
+        "datum": "2026-11-13",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3383389",
+        "displayName": "elsau (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.673,
+          47.475
+        ]
+      },
+      "properties": {
+        "nummer": "3383503",
+        "adresse": "Dorfstrasse 1c 8352 Elsau",
+        "gemeinde": "Elsau",
+        "bautyp": "47/2026 Hofer, Anbau Carport bei Gebäude Vers.Nr. 1213",
+        "datum": "2026-11-13",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3383503",
+        "displayName": "elsau (BFS center)"
+      }
+    }
+  ]
+}

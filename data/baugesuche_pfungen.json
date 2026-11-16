@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "updated": "2026-11-16T08:42:41.569Z",
+    "count": 2,
+    "successCount": 2,
+    "gemeinde": "pfungen",
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.78,
+          47.585
+        ]
+      },
+      "properties": {
+        "nummer": "3320285",
+        "adresse": "Dammstrasse 6.1 8422 Pfungen",
+        "gemeinde": "Pfungen",
+        "bautyp": "Neubau Coop Tankstelle mit Shop",
+        "datum": "2026-10-30",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3320285",
+        "displayName": "pfungen (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.78,
+          47.585
+        ]
+      },
+      "properties": {
+        "nummer": "3389703",
+        "adresse": "Spöristrasse 1.1 8422 Pfungen",
+        "gemeinde": "Pfungen",
+        "bautyp": "Neubau 2 Terrassenhäuser und vier Reiheneinfamilienhäuser sowie Tiefgarage",
+        "datum": "2026-11-13",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3389703",
+        "displayName": "pfungen (BFS center)"
+      }
+    }
+  ]
+}

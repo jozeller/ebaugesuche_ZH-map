@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "updated": "2026-11-16T08:42:41.441Z",
+    "count": 3,
+    "successCount": 3,
+    "gemeinde": "obfelden",
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.438,
+          47.278
+        ]
+      },
+      "properties": {
+        "nummer": "3317004",
+        "adresse": "Wolserstrasse 71b 8912 Obfelden",
+        "gemeinde": "Obfelden",
+        "bautyp": "Ersatz des bestehenden Planschbeckens in CNS inkl. Beckenverrohrung beim Freibad Obfelden, Vers.-Nr. 1575",
+        "datum": "2026-10-30",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3317004",
+        "displayName": "obfelden (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.438,
+          47.278
+        ]
+      },
+      "properties": {
+        "nummer": "3367037",
+        "adresse": "Wolserbach 8912 Obfelden",
+        "gemeinde": "Obfelden",
+        "bautyp": "Ersatzneubau des bestehenden Bachdurchlasses 010-011 (Wolserbach), Dorfstrasse",
+        "datum": "2026-11-03",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3367037",
+        "displayName": "obfelden (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.438,
+          47.278
+        ]
+      },
+      "properties": {
+        "nummer": "3371289",
+        "adresse": "Ankenrain 2 8912 Obfelden",
+        "gemeinde": "Obfelden",
+        "bautyp": "Um- und Anbau EFH, Vers.-Nr. 349, Kat.-Nr. 1644, Ankenrain 2, W1/26",
+        "datum": "2026-11-13",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3371289",
+        "displayName": "obfelden (BFS center)"
+      }
+    }
+  ]
+}

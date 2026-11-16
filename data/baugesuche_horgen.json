@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "updated": "2026-11-16T08:42:41.001Z",
+    "count": 2,
+    "successCount": 2,
+    "gemeinde": "horgen",
+    "source": "https://portal.ebaugesuche.zh.ch/",
+    "geocodingMethod": "BFS Municipality Center"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.592,
+          47.232
+        ]
+      },
+      "properties": {
+        "nummer": "3376354",
+        "adresse": "Chaseren 4 8816 Hirzel",
+        "gemeinde": "Horgen",
+        "bautyp": "Photovoltaikanlage auf Dach und an Fassade 50 m² (ohne Aussteckung)",
+        "datum": "2026-11-13",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3376354",
+        "displayName": "horgen (BFS center)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.592,
+          47.232
+        ]
+      },
+      "properties": {
+        "nummer": "3378351",
+        "adresse": "Gehrenstrasse 29 8810 Horgen",
+        "gemeinde": "Horgen",
+        "bautyp": "Neubau Schulhaus Gehren, 2. Standort",
+        "datum": "2026-11-13",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3378351",
+        "displayName": "horgen (BFS center)"
+      }
+    }
+  ]
+}
