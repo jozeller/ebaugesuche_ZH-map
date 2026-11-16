@@ -28,12 +28,12 @@ test('production map starts with aerial imagery and uses the clickable default p
       markers.push(this);
     }
     setLngLat() { return this; }
-    setPopup() { return this; }
+    setPopup(popup) { this.popup = popup; return this; }
     addTo() { return this; }
     getElement() { return this.element; }
   }
   class PopupMock {
-    setHTML() { return this; }
+    setHTML(html) { this.html = html; return this; }
   }
   const context = vm.createContext({
     window: { addEventListener() {} },
@@ -65,7 +65,58 @@ test('production map starts with aerial imagery and uses the clickable default p
   assert.match(mapOptions.style.sources['swisstopo-raster'].tiles[0], /LAYERS=ch\.swisstopo\.swissimage&/);
   assert.equal(markers.length, 1);
   assert.equal(markers[0].args.length, 0);
-  assert.equal(typeof markers[0].click, 'function');
+  assert.match(markers[0].popup.html, /Test/);
+  assert.match(markers[0].popup.html, /Details/);
+  assert.equal(markers[0].click, undefined);
+  assert.doesNotMatch(html, /id="sidebar"/);
+});
+
+test('local marker opens its popup without replacing the results list', async () => {
+  const { script } = pageScript('frontend/index.html');
+  const elements = new Map();
+  const marker = {
+    handlers: [],
+    bindPopup(content) { this.popup = content; return this; },
+    on(event, handler) { this.handlers.push({ event, handler }); return this; },
+    addTo() { return this; }
+  };
+  const getElement = id => {
+    if (!elements.has(id)) elements.set(id, {
+      style: {},
+      innerHTML: '',
+      textContent: '',
+      addEventListener() {},
+      querySelector() { return { setAttribute() {} }; },
+      replaceChildren() {}
+    });
+    return elements.get(id);
+  };
+  const feature = {
+    geometry: { type: 'Point', coordinates: [8.7, 47.2] },
+    properties: {
+      nummer: '123', adresse: 'Teststrasse 1', bautyp: 'Umbau',
+      datum: '2026-01-01', detailUrl: 'https://example.com/'
+    }
+  };
+  const context = vm.createContext({
+    window: { addEventListener() {} },
+    document: { getElementById: getElement },
+    fetch: async () => ({
+      ok: true,
+      json: async () => ({ metadata: { count: 1, successCount: 1 }, features: [feature] })
+    }),
+    L: {
+      circleMarker() { return marker; },
+      latLngBounds() { return {}; }
+    }
+  });
+  vm.runInContext(script, context);
+  vm.runInContext('map = { fitBounds() {}, removeLayer() {} }', context);
+  await context.loadGemeinde('stäfa');
+
+  assert.match(marker.popup, /Teststrasse 1/);
+  assert.match(getElement('sidebar-content').innerHTML, /Teststrasse 1/);
+  assert.equal(marker.handlers.length, 0);
 });
 
 test('local map starts with the aerial layer', () => {

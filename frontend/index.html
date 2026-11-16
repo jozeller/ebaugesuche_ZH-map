@@ -458,21 +458,6 @@
           `;
 
           marker.bindPopup(popupContent);
-          marker.on('click', () => {
-            // Show in sidebar
-            const sidebarTitle = document.getElementById('sidebar-title');
-            sidebarTitle.textContent = properties.adresse;
-            sidebarContent.innerHTML = `
-              <div class="gesuch-item active">
-                <div class="nummer">Nummer: ${properties.nummer}</div>
-                <div class="adresse"><strong>${properties.adresse}</strong></div>
-                <div class="bautyp">${properties.bautyp}</div>
-                <div class="datum">Datum: ${formatDate(properties.datum)}</div>
-                <a href="${properties.detailUrl}" target="_blank">Details anschauen</a>
-              </div>
-            `;
-          });
-
           marker.addTo(map);
           currentMarkers.push(marker);
         });
