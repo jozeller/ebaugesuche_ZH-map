@@ -6,8 +6,8 @@ für die aktuell 65 Gemeinden.
 
 Die produktive GitHub-Pages-Seite verwendet [`index.html`](./index.html). Der
 lokale Server (`npm start`) liefert [`frontend/index.html`](./frontend/index.html).
-Beide Karten zeigen das SwissTopo-Luftbild und die vollständige Gemeindeliste;
-Stäfa ist die Startgemeinde.
+Beide Karten starten mit dem SwissTopo-Luftbild und zeigen die vollständige
+Gemeindeliste; Stäfa ist die Startgemeinde.
 
 ## Daten und Koordinaten
 

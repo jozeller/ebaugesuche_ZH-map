@@ -270,26 +270,6 @@
       background: #000;
     }
 
-    /* Marker */
-    .marker {
-      width: 32px;
-      height: 32px;
-      cursor: pointer;
-    }
-
-    .marker::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='10' fill='%23222' stroke='white' stroke-width='2'/%3E%3C/svg%3E");
-      background-size: contain;
-      transition: transform 0.2s;
-    }
-
-    .marker:hover::before {
-      transform: scale(1.15);
-    }
-
     /* Loading */
     .loading {
       position: absolute;
@@ -417,7 +397,7 @@
       <label>Kartenlayer</label>
       <select id="layer-select">
         <option value="pixelkarte">Pixelkarte</option>
-        <option value="swissimage">Luftbild</option>
+        <option value="swissimage" selected>Luftbild</option>
         <option value="osm">OpenStreetMap</option>
       </select>
     </div>
@@ -436,7 +416,7 @@
     let markers = [];
     let gemeinden = [];
     let currentGemeinde = 'stäfa';
-    let currentLayer = 'pixelkarte';
+    let currentLayer = 'swissimage';
 
     const mapLayers = {
       'pixelkarte': {
@@ -465,7 +445,7 @@
       }
     };
 
-    function createStyle(layer = 'pixelkarte') {
+    function createStyle(layer = 'swissimage') {
       const sourceId = layer === 'osm' ? 'osm-raster' : 'swisstopo-raster';
       const sources = mapLayers[layer];
       
@@ -485,7 +465,7 @@
     function initMap() {
       map = new maplibregl.Map({
         container: 'map',
-        style: createStyle('pixelkarte'),
+        style: createStyle(currentLayer),
         center: [8.680557, 47.244037],
         zoom: 13,
         attributionControl: true
@@ -613,9 +593,6 @@
       if (feature.geometry?.type !== 'Point') return;
 
       const props = feature.properties;
-      const el = document.createElement('div');
-      el.className = 'marker';
-      
       const popup = new maplibregl.Popup({ offset: 25 })
         .setHTML(`
           <div class="popup-content">
@@ -628,12 +605,12 @@
           </div>
         `);
 
-      const marker = new maplibregl.Marker(el)
+      const marker = new maplibregl.Marker()
         .setLngLat(feature.geometry.coordinates)
         .setPopup(popup)
         .addTo(map);
 
-      el.addEventListener('click', () => {
+      marker.getElement().addEventListener('click', () => {
         showSidebar(feature);
       });
 

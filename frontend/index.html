@@ -290,7 +290,7 @@
         attribution: '© OpenStreetMap contributors',
         maxZoom: 19,
         minZoom: 8
-      }).addTo(map);
+      });
 
       // SwissTopo Orthofoto layer (aerial imagery)
       aerialLayer = L.tileLayer.wms('https://wms.geo.admin.ch/', {
@@ -303,7 +303,7 @@
         maxZoom: 19,
         minZoom: 8,
         crs: L.CRS.EPSG3857
-      });
+      }).addTo(map);
 
       // Layer control
       const baseLayers = {
