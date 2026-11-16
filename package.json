@@ -14,12 +14,16 @@
     "start": "node scripts/server.js",
     "dev": "node scripts/server.js"
   },
-  "keywords": ["baugesuche", "zh", "kanton", "karte", "mapbox"],
+  "keywords": [
+    "baugesuche",
+    "zh",
+    "kanton",
+    "karte",
+    "mapbox"
+  ],
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "puppeteer": "^21.6.1",
-    "node-fetch": "^2.7.0",
-    "cheerio": "^1.0.0-rc.12"
+    "node-fetch": "^2.7.0"
   }
 }

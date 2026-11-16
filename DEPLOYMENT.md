@@ -9,7 +9,8 @@ the `main` branch and the `/(root)` folder.
 The workflow in `.github/workflows/daily-update.yml` refreshes portal data
 daily at 06:00 UTC and commits changes to the data files. It can also be run
 manually from the Actions tab. Confirm that the Actions token has permission
-to write repository contents.
+to write repository contents. The workflow uses Node.js 24 and `npm ci` with
+the committed lockfile; it does not download a browser.
 
 ## Other static hosts
 
