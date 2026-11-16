@@ -198,6 +198,17 @@
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
 
+    .leaflet-popup-close-button {
+      width: 44px !important;
+      height: 44px !important;
+      font-size: 30px !important;
+      line-height: 40px !important;
+    }
+
+    .leaflet-popup-content-wrapper {
+      padding-right: 22px;
+    }
+
     .loading {
       text-align: center;
       padding: 20px;
@@ -263,7 +274,7 @@
   </div>
 
   <script>
-    let GEMEINDEN = []; // Will be populated with available communes
+    let GEMEINDEN = [];
 
     let map;
     let currentMarkers = [];
@@ -325,20 +336,30 @@
       try {
         infoText.textContent = `Lädt Daten für ${gemeinde}...`;
 
-        // Fetch data
-        const response = await fetch(`../data/baugesuche_${gemeinde}.json`);
-        if (!response.ok) {
-          throw new Error(`HTTP ${response.status}`);
-        }
-
-        currentData = await response.json();
+        const selectedGemeinden = gemeinde === 'alle' ? GEMEINDEN : [gemeinde];
+        const datasets = await Promise.all(selectedGemeinden.map(async slug => {
+          const response = await fetch(`../data/baugesuche_${slug}.json`);
+          if (!response.ok) {
+            throw new Error(`${slug}: HTTP ${response.status}`);
+          }
+          return response.json();
+        }));
+        const features = datasets.flatMap(data => data.features || []);
+        currentData = {
+          metadata: {
+            count: datasets.reduce((total, data) => total + data.metadata.count, 0),
+            successCount: datasets.reduce((total, data) => (
+              total + (data.metadata.successCount ?? data.features.filter(feature => feature.geometry).length)
+            ), 0)
+          },
+          features
+        };
 
         // Clear existing markers
         currentMarkers.forEach(marker => map.removeLayer(marker));
         currentMarkers = [];
 
         // Add markers
-        const features = currentData.features || [];
         features.forEach(feature => {
           if (feature.geometry?.type !== 'Point') return;
           const { coordinates } = feature.geometry;
@@ -386,7 +407,8 @@
 
         // Update info text
         const successCount = currentData.metadata.successCount ?? features.filter(feature => feature.geometry).length;
-        infoText.textContent = `${currentData.metadata.count} Baugesuche in ${gemeinde} (${successCount} exakt verortet)`;
+        const scope = gemeinde === 'alle' ? 'allen Gemeinden' : gemeinde;
+        infoText.textContent = `${currentData.metadata.count} Baugesuche in ${scope} (${successCount} exakt verortet)`;
 
         // Update sidebar
         renderSidebar(features);
@@ -463,6 +485,10 @@
       // Update dropdown
       const select = document.getElementById('gemeinde-select');
       select.innerHTML = '';
+      const allOption = document.createElement('option');
+      allOption.value = 'alle';
+      allOption.textContent = 'Alle Gemeinden';
+      select.appendChild(allOption);
       
       portalGemeinden.forEach(gemeinde => {
         const option = document.createElement('option');
@@ -491,6 +517,7 @@
       // Load default (Stäfa if available, otherwise first available)
       const defaultGemeinde = available.includes('stäfa') ? 'stäfa' : available[0];
       if (defaultGemeinde) {
+        document.getElementById('gemeinde-select').value = defaultGemeinde;
         loadGemeinde(defaultGemeinde);
       }
     });

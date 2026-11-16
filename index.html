@@ -68,6 +68,11 @@
       color: #222;
     }
 
+    #map .maplibregl-ctrl-top-left {
+      top: 64px;
+      left: 12px;
+    }
+
     /* Controls */
     .controls {
       position: absolute;
@@ -177,29 +182,32 @@
     }
 
     /* Popup */
-    .mapboxgl-popup {
+    .maplibregl-popup {
       z-index: 20;
     }
 
-    .mapboxgl-popup-close-button {
-      display: none;
+    .maplibregl-popup-close-button {
+      width: 44px;
+      height: 44px;
+      font-size: 28px;
+      line-height: 40px;
     }
 
-    .mapboxgl-popup-content {
+    .maplibregl-popup-content {
       background: white;
       border-radius: 8px;
-      padding: 14px;
+      padding: 18px 48px 14px 14px;
       max-width: 280px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
       border: 1px solid #e0e0e0;
       font-family: inherit;
     }
 
-    .mapboxgl-popup-tip {
+    .maplibregl-popup-tip {
       border-top-color: white;
     }
 
-    .mapboxgl-popup-content h4 {
+    .maplibregl-popup-content h4 {
       margin: 0 0 10px 0;
       font-size: 15px;
       font-weight: 700;
@@ -241,7 +249,7 @@
       margin: 6px 0;
     }
 
-    .mapboxgl-popup-content a {
+    .maplibregl-popup-content a {
       display: inline-block;
       color: white;
       background: #222;
@@ -256,7 +264,7 @@
       cursor: pointer;
     }
 
-    .mapboxgl-popup-content a:hover {
+    .maplibregl-popup-content a:hover {
       background: #000;
     }
 
@@ -413,6 +421,7 @@
     let map;
     let gesuche = [];
     let markers = [];
+    let gemeinden = [];
     let currentGemeinde = 'stäfa';
     let currentLayer = 'pixelkarte';
 
@@ -490,13 +499,17 @@
         const response = await fetch('./data/gemeinden.json');
         if (!response.ok) throw new Error(`Gemeindeliste: HTTP ${response.status}`);
 
-        const gemeinden = await response.json();
+        gemeinden = await response.json();
         if (!Array.isArray(gemeinden) || gemeinden.length === 0) {
           throw new Error('Die Gemeindeliste ist leer oder ungültig.');
         }
 
         const select = document.getElementById('gemeinde-select');
         select.replaceChildren();
+        const allOption = document.createElement('option');
+        allOption.value = 'alle';
+        allOption.textContent = 'Alle Gemeinden';
+        select.appendChild(allOption);
         for (const gemeinde of gemeinden) {
           const option = document.createElement('option');
           option.value = gemeinde.slug;
@@ -514,56 +527,56 @@
     }
 
     function changeMapLayer(layer) {
-      currentLayer = layer;
-      const sourceId = layer === 'osm' ? 'osm-raster' : 'swisstopo-raster';
-      const sources = mapLayers[layer];
-      
-      try {
-        if (map.getSource('swisstopo-raster')) map.removeSource('swisstopo-raster');
-        if (map.getSource('osm-raster')) map.removeSource('osm-raster');
-        if (map.getLayer('base-layer')) map.removeLayer('base-layer');
-      } catch (e) {}
-      
-      for (const [id, config] of Object.entries(sources)) {
-        if (!map.getSource(id)) {
-          map.addSource(id, config);
-        }
+      if (!mapLayers[layer]) {
+        showError(`Unbekannter Kartenlayer: ${layer}`);
+        return;
       }
-      
-      map.addLayer({
-        id: 'base-layer',
-        type: 'raster',
-        source: sourceId,
-        minzoom: 0,
-        maxzoom: 18
-      });
+      currentLayer = layer;
+      map.setStyle(createStyle(layer));
     }
 
     async function loadGesuche() {
       try {
         showLoading(true);
-        
-        const dataUrl = `./data/baugesuche_${currentGemeinde}.json`;
-        const response = await fetch(dataUrl);
-        
-        if (!response.ok) {
-          throw new Error(`HTTP ${response.status}`);
-        }
 
-        gesuche = await response.json();
+        const slugs = currentGemeinde === 'alle'
+          ? gemeinden.map(gemeinde => gemeinde.slug)
+          : [currentGemeinde];
+        const datasets = await Promise.all(slugs.map(async slug => {
+          const response = await fetch(`./data/baugesuche_${slug}.json`);
+          if (!response.ok) {
+            throw new Error(`${slug}: HTTP ${response.status}`);
+          }
+          return response.json();
+        }));
+        const features = datasets.flatMap(data => data.features || []);
+        const latestUpdate = datasets
+          .map(data => data.metadata.updated)
+          .sort()
+          .at(-1);
+        gesuche = {
+          metadata: {
+            count: datasets.reduce((total, data) => total + data.metadata.count, 0),
+            successCount: datasets.reduce((total, data) => (
+              total + (data.metadata.successCount ?? data.features.filter(feature => feature.geometry).length)
+            ), 0),
+            updated: latestUpdate
+          },
+          features
+        };
 
         markers.forEach(marker => marker.remove());
         markers = [];
 
-        const features = gesuche.features || [];
         features.forEach(feature => {
           addMarker(feature);
         });
 
-        const updated = new Date(gesuche.metadata.updated).toLocaleString('de-CH');
+        const formattedUpdated = new Date(gesuche.metadata.updated).toLocaleString('de-CH');
         const locatedCount = features.filter(feature => feature.geometry).length;
         const meta = document.querySelector('.meta');
-        meta.innerHTML = `<strong>${gesuche.metadata.count} Gesuche</strong><div class="timestamp">${locatedCount} exakt verortet${locatedCount < gesuche.metadata.count ? ` · ${gesuche.metadata.count - locatedCount} ohne exakte Adresse` : ''}<br>Aktualisiert: ${updated}</div>`;
+        const scope = currentGemeinde === 'alle' ? ' in allen Gemeinden' : '';
+        meta.innerHTML = `<strong>${gesuche.metadata.count} Gesuche${scope}</strong><div class="timestamp">${locatedCount} exakt verortet${locatedCount < gesuche.metadata.count ? ` · ${gesuche.metadata.count - locatedCount} ohne exakte Adresse` : ''}<br>Aktualisiert: ${formattedUpdated}</div>`;
         showUnlocatedCases(features.filter(feature => !feature.geometry));
 
         const located = features.filter(feature => feature.geometry?.type === 'Point');
