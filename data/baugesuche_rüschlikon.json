@@ -1,7 +1,47 @@
 {
-  "metadata": {"updated": "2026-11-16T07:32:41.026Z", "count": 2, "successCount": 2, "gemeinde": "rüschlikon", "source": "https://portal.ebaugesuche.zh.ch/"},
+  "metadata": {
+    "updated": "2026-11-16T07:32:41.026Z",
+    "count": 2,
+    "successCount": 2,
+    "gemeinde": "rüschlikon",
+    "source": "https://portal.ebaugesuche.zh.ch/"
+  },
   "features": [
-    {"type": "Feature", "geometry": {"type": "Point", "coordinates": [8.6270, 47.2850]}, "properties": {"nummer": "3347500", "adresse": "Hauptstrasse 120, 8803 Rüschlikon", "gemeinde": "Rüschlikon", "bautyp": "Sanierung", "datum": "2026-11-10", "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3347500"}},
-    {"type": "Feature", "geometry": {"type": "Point", "coordinates": [8.6300, 47.2900]}, "properties": {"nummer": "3347501", "adresse": "Dorfstrasse 35, 8803 Rüschlikon", "gemeinde": "Rüschlikon", "bautyp": "Neubau", "datum": "2026-11-15", "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3347501"}}
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.635,
+          47.2909
+        ]
+      },
+      "properties": {
+        "nummer": "3347500",
+        "adresse": "Hauptstrasse 120, 8803 Rüschlikon",
+        "gemeinde": "Rüschlikon",
+        "bautyp": "Sanierung",
+        "datum": "2026-11-10",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3347500"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.6339,
+          47.281
+        ]
+      },
+      "properties": {
+        "nummer": "3347501",
+        "adresse": "Dorfstrasse 35, 8803 Rüschlikon",
+        "gemeinde": "Rüschlikon",
+        "bautyp": "Neubau",
+        "datum": "2026-11-15",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3347501"
+      }
+    }
   ]
 }

@@ -1,8 +1,65 @@
 {
-  "metadata": {"updated": "2026-11-16T07:32:41.026Z", "count": 3, "successCount": 3, "gemeinde": "hombrechtikon", "source": "https://portal.ebaugesuche.zh.ch/"},
+  "metadata": {
+    "updated": "2026-11-16T07:32:41.026Z",
+    "count": 3,
+    "successCount": 3,
+    "gemeinde": "hombrechtikon",
+    "source": "https://portal.ebaugesuche.zh.ch/"
+  },
   "features": [
-    {"type": "Feature", "geometry": {"type": "Point", "coordinates": [8.5980, 47.2743]}, "properties": {"nummer": "3346700", "adresse": "Hauptstrasse 50, 8634 Hombrechtikon", "gemeinde": "Hombrechtikon", "bautyp": "Sanierung", "datum": "2026-11-14", "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3346700"}},
-    {"type": "Feature", "geometry": {"type": "Point", "coordinates": [8.6020, 47.2780]}, "properties": {"nummer": "3346701", "adresse": "Dorfstrasse 12, 8634 Hombrechtikon", "gemeinde": "Hombrechtikon", "bautyp": "Neubau", "datum": "2026-11-12", "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3346701"}},
-    {"type": "Feature", "geometry": {"type": "Point", "coordinates": [8.5920, 47.2700]}, "properties": {"nummer": "3346702", "adresse": "Schulweg 8, 8634 Hombrechtikon", "gemeinde": "Hombrechtikon", "bautyp": "Erweiterung", "datum": "2026-11-10", "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3346702"}}
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.5978,
+          47.2723
+        ]
+      },
+      "properties": {
+        "nummer": "3346700",
+        "adresse": "Hauptstrasse 50, 8634 Hombrechtikon",
+        "gemeinde": "Hombrechtikon",
+        "bautyp": "Sanierung",
+        "datum": "2026-11-14",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3346700"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.5969,
+          47.2816
+        ]
+      },
+      "properties": {
+        "nummer": "3346701",
+        "adresse": "Dorfstrasse 12, 8634 Hombrechtikon",
+        "gemeinde": "Hombrechtikon",
+        "bautyp": "Neubau",
+        "datum": "2026-11-12",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3346701"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.5939,
+          47.2807
+        ]
+      },
+      "properties": {
+        "nummer": "3346702",
+        "adresse": "Schulweg 8, 8634 Hombrechtikon",
+        "gemeinde": "Hombrechtikon",
+        "bautyp": "Erweiterung",
+        "datum": "2026-11-10",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3346702"
+      }
+    }
   ]
 }

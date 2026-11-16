@@ -11,7 +11,10 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [8.6806, 47.2441]
+        "coordinates": [
+          8.6847,
+          47.249
+        ]
       },
       "properties": {
         "nummer": "3346602",
@@ -26,7 +29,10 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [8.6742, 47.2389]
+        "coordinates": [
+          8.6831,
+          47.2451
+        ]
       },
       "properties": {
         "nummer": "3346603",
@@ -41,7 +47,10 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [8.6890, 47.2510]
+        "coordinates": [
+          8.6892,
+          47.2384
+        ]
       },
       "properties": {
         "nummer": "3346604",
@@ -56,7 +65,10 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [8.6758, 47.2456]
+        "coordinates": [
+          8.6844,
+          47.2521
+        ]
       },
       "properties": {
         "nummer": "3346605",
@@ -71,7 +83,10 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [8.6920, 47.2380]
+        "coordinates": [
+          8.6844,
+          47.2399
+        ]
       },
       "properties": {
         "nummer": "3346606",
@@ -86,7 +101,10 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [8.6635, 47.2520]
+        "coordinates": [
+          8.6785,
+          47.2366
+        ]
       },
       "properties": {
         "nummer": "3346607",
@@ -101,7 +119,10 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [8.6845, 47.2290]
+        "coordinates": [
+          8.6787,
+          47.2425
+        ]
       },
       "properties": {
         "nummer": "3346608",
@@ -116,7 +137,10 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [8.6970, 47.2430]
+        "coordinates": [
+          8.6778,
+          47.2435
+        ]
       },
       "properties": {
         "nummer": "3346609",

@@ -1,7 +1,47 @@
 {
-  "metadata": {"updated": "2026-11-16T07:32:41.026Z", "count": 2, "successCount": 2, "gemeinde": "wädenswil", "source": "https://portal.ebaugesuche.zh.ch/"},
+  "metadata": {
+    "updated": "2026-11-16T07:32:41.026Z",
+    "count": 2,
+    "successCount": 2,
+    "gemeinde": "wädenswil",
+    "source": "https://portal.ebaugesuche.zh.ch/"
+  },
   "features": [
-    {"type": "Feature", "geometry": {"type": "Point", "coordinates": [8.7701, 47.2204]}, "properties": {"nummer": "3346800", "adresse": "Seestrasse 100, 8820 Wädenswil", "gemeinde": "Wädenswil", "bautyp": "Sanierung", "datum": "2026-11-13", "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3346800"}},
-    {"type": "Feature", "geometry": {"type": "Point", "coordinates": [8.7650, 47.2250]}, "properties": {"nummer": "3346801", "adresse": "Hauptstrasse 75, 8820 Wädenswil", "gemeinde": "Wädenswil", "bautyp": "Umbau", "datum": "2026-11-11", "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3346801"}}
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.7645,
+          47.2092
+        ]
+      },
+      "properties": {
+        "nummer": "3346800",
+        "adresse": "Seestrasse 100, 8820 Wädenswil",
+        "gemeinde": "Wädenswil",
+        "bautyp": "Sanierung",
+        "datum": "2026-11-13",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3346800"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.7679,
+          47.2241
+        ]
+      },
+      "properties": {
+        "nummer": "3346801",
+        "adresse": "Hauptstrasse 75, 8820 Wädenswil",
+        "gemeinde": "Wädenswil",
+        "bautyp": "Umbau",
+        "datum": "2026-11-11",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3346801"
+      }
+    }
   ]
 }

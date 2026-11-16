@@ -1,7 +1,47 @@
 {
-  "metadata": {"updated": "2026-11-16T07:32:41.026Z", "count": 2, "successCount": 2, "gemeinde": "zollikon", "source": "https://portal.ebaugesuche.zh.ch/"},
+  "metadata": {
+    "updated": "2026-11-16T07:32:41.026Z",
+    "count": 2,
+    "successCount": 2,
+    "gemeinde": "zollikon",
+    "source": "https://portal.ebaugesuche.zh.ch/"
+  },
   "features": [
-    {"type": "Feature", "geometry": {"type": "Point", "coordinates": [8.6100, 47.3314]}, "properties": {"nummer": "3347200", "adresse": "Hauptstrasse 150, 8702 Zollikon", "gemeinde": "Zollikon", "bautyp": "Sanierung", "datum": "2026-11-11", "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3347200"}},
-    {"type": "Feature", "geometry": {"type": "Point", "coordinates": [8.6150, 47.3350]}, "properties": {"nummer": "3347201", "adresse": "Dorfstrasse 45, 8702 Zollikon", "gemeinde": "Zollikon", "bautyp": "Umbau", "datum": "2026-11-13", "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3347201"}}
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.6063,
+          47.3251
+        ]
+      },
+      "properties": {
+        "nummer": "3347200",
+        "adresse": "Hauptstrasse 150, 8702 Zollikon",
+        "gemeinde": "Zollikon",
+        "bautyp": "Sanierung",
+        "datum": "2026-11-11",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3347200"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.6013,
+          47.3316
+        ]
+      },
+      "properties": {
+        "nummer": "3347201",
+        "adresse": "Dorfstrasse 45, 8702 Zollikon",
+        "gemeinde": "Zollikon",
+        "bautyp": "Umbau",
+        "datum": "2026-11-13",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3347201"
+      }
+    }
   ]
 }

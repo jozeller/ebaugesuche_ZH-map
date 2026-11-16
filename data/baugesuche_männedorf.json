@@ -1,7 +1,47 @@
 {
-  "metadata": {"updated": "2026-11-16T07:32:41.026Z", "count": 2, "successCount": 2, "gemeinde": "männedorf", "source": "https://portal.ebaugesuche.zh.ch/"},
+  "metadata": {
+    "updated": "2026-11-16T07:32:41.026Z",
+    "count": 2,
+    "successCount": 2,
+    "gemeinde": "männedorf",
+    "source": "https://portal.ebaugesuche.zh.ch/"
+  },
   "features": [
-    {"type": "Feature", "geometry": {"type": "Point", "coordinates": [8.6960, 47.3340]}, "properties": {"nummer": "3347300", "adresse": "Seestrasse 200, 8708 Männedorf", "gemeinde": "Männedorf", "bautyp": "Neubau", "datum": "2026-11-14", "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3347300"}},
-    {"type": "Feature", "geometry": {"type": "Point", "coordinates": [8.7000, 47.3380]}, "properties": {"nummer": "3347301", "adresse": "Dorfstrasse 60, 8708 Männedorf", "gemeinde": "Männedorf", "bautyp": "Sanierung", "datum": "2026-11-12", "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3347301"}}
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.7026,
+          47.3257
+        ]
+      },
+      "properties": {
+        "nummer": "3347300",
+        "adresse": "Seestrasse 200, 8708 Männedorf",
+        "gemeinde": "Männedorf",
+        "bautyp": "Neubau",
+        "datum": "2026-11-14",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3347300"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.6971,
+          47.3443
+        ]
+      },
+      "properties": {
+        "nummer": "3347301",
+        "adresse": "Dorfstrasse 60, 8708 Männedorf",
+        "gemeinde": "Männedorf",
+        "bautyp": "Sanierung",
+        "datum": "2026-11-12",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3347301"
+      }
+    }
   ]
 }

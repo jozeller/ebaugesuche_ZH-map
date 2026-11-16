@@ -1,7 +1,47 @@
 {
-  "metadata": {"updated": "2026-11-16T07:32:41.026Z", "count": 2, "successCount": 2, "gemeinde": "meilen", "source": "https://portal.ebaugesuche.zh.ch/"},
+  "metadata": {
+    "updated": "2026-11-16T07:32:41.026Z",
+    "count": 2,
+    "successCount": 2,
+    "gemeinde": "meilen",
+    "source": "https://portal.ebaugesuche.zh.ch/"
+  },
   "features": [
-    {"type": "Feature", "geometry": {"type": "Point", "coordinates": [8.6010, 47.3089]}, "properties": {"nummer": "3347000", "adresse": "Seestrasse 35, 8706 Meilen", "gemeinde": "Meilen", "bautyp": "Sanierung", "datum": "2026-11-12", "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3347000"}},
-    {"type": "Feature", "geometry": {"type": "Point", "coordinates": [8.6050, 47.3120]}, "properties": {"nummer": "3347001", "adresse": "Hauptstrasse 88, 8706 Meilen", "gemeinde": "Meilen", "bautyp": "Erweiterung", "datum": "2026-11-14", "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3347001"}}
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.5982,
+          47.3143
+        ]
+      },
+      "properties": {
+        "nummer": "3347000",
+        "adresse": "Seestrasse 35, 8706 Meilen",
+        "gemeinde": "Meilen",
+        "bautyp": "Sanierung",
+        "datum": "2026-11-12",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3347000"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.5924,
+          47.2982
+        ]
+      },
+      "properties": {
+        "nummer": "3347001",
+        "adresse": "Hauptstrasse 88, 8706 Meilen",
+        "gemeinde": "Meilen",
+        "bautyp": "Erweiterung",
+        "datum": "2026-11-14",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3347001"
+      }
+    }
   ]
 }
