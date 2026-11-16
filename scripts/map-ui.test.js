@@ -107,7 +107,7 @@ for (const file of ['index.html', 'frontend/index.html']) {
       append(...children) { this.children.push(...children); },
       appendChild(child) { this.children.push(child); }
     });
-    const notices = { open: true, querySelector() { return summary; } };
+    const notices = { open: true, hidden: true, querySelector() { return summary; } };
     elements.set('unlocated-notices', notices);
     for (const id of ['unlocated-count', 'unlocated-heading', 'unlocated-list']) {
       elements.set(id, makeElement());
@@ -127,12 +127,13 @@ for (const file of ['index.html', 'frontend/index.html']) {
     };
     vm.runInContext(script, context);
 
-    assert.match(html, /<details id="unlocated-notices">/);
+    assert.match(html, /<details id="unlocated-notices" hidden>/);
     const features = Array.from({ length: 25 }, (_, i) => ({
       properties: { adresse: `Adresse ${i}`, detailUrl: `https://example.com/${i}` }
     }));
     context.showUnlocatedCases(features);
     assert.equal(notices.open, false);
+    assert.equal(notices.hidden, false);
     assert.equal(elements.get('unlocated-count').textContent, 25);
     assert.equal(summary['aria-label'], '25 Gesuche ohne exakte Adresskoordinate');
     assert.equal(elements.get('unlocated-list').children.length, 25);
@@ -141,8 +142,12 @@ for (const file of ['index.html', 'frontend/index.html']) {
     notices.open = true;
     context.showUnlocatedCases([]);
     assert.equal(notices.open, false);
+    assert.equal(notices.hidden, true);
     assert.equal(elements.get('unlocated-count').textContent, 0);
     assert.equal(elements.get('unlocated-list').children.length, 0);
     assert.match(elements.get('unlocated-list').textContent, /Keine Gesuche/);
+    context.showUnlocatedCases(features.slice(0, 1));
+    assert.equal(notices.hidden, false);
+    assert.equal(elements.get('unlocated-count').textContent, 1);
   });
 }

@@ -15,6 +15,7 @@ If no exact address result is available, the record remains in the GeoJSON with
 shown in the unlocated-address list instead. GeoJSON point coordinates are
 stored in `[longitude, latitude]` order. Open the orange exclamation mark in
 the map header to view the list; it is closed by default.
+The icon is hidden when there are no unlocated records.
 
 Rebuild all portal data with:
 

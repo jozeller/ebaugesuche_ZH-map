@@ -310,7 +310,7 @@
       <div class="header-content">
         <h1>🗺️ Baugesuche ZH</h1>
         <div class="controls">
-          <details id="unlocated-notices">
+          <details id="unlocated-notices" hidden>
             <summary class="unlocated-summary" aria-label="Gesuche ohne exakte Adresskoordinate">
               <span class="unlocated-icon" aria-hidden="true">!</span>
               <span id="unlocated-count">0</span>
@@ -507,6 +507,7 @@
       const notices = document.getElementById('unlocated-notices');
       const list = document.getElementById('unlocated-list');
       notices.open = false;
+      notices.hidden = features.length === 0;
       document.getElementById('unlocated-count').textContent = features.length;
       notices.querySelector('summary').setAttribute(
         'aria-label', `${features.length} Gesuche ohne exakte Adresskoordinate`
