@@ -12,9 +12,10 @@ manually from the Actions tab. Confirm that the Actions token has permission
 to write repository contents. The workflow uses Node.js 24 and `npm ci` with
 the committed lockfile; it does not download a browser.
 
-The workflow's commits use `GITHUB_TOKEN`. GitHub Pages does not automatically
-rebuild a branch-published site for those commits, so a separate Pages deployment
-mechanism is required for refreshed data to appear on the live site.
+GitHub documents that commits pushed with `GITHUB_TOKEN` may not trigger a
+branch-based Pages build. On 2026-11-16, this repository's update run did
+trigger a Pages build, and the published data matched the new commit. Check
+the Pages deployment and live data after updates if publication stops.
 
 ## Other static hosts
 
