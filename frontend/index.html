@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baugesuche Stäfa - Karte</title>
+  
+  <!-- Mapbox GL -->
+  <script src='https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v3.3.0/mapbox-gl.css' rel='stylesheet' />
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: #f5f5f5;
+    }
+
+    #map {
+      width: 100%;
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .sidebar {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      max-width: 350px;
+      z-index: 10;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .sidebar h3 {
+      margin-bottom: 10px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .sidebar p {
+      font-size: 12px;
+      color: #666;
+      margin: 5px 0;
+      line-height: 1.4;
+    }
+
+    .sidebar .meta {
+      background: #f0f0f0;
+      padding: 8px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      font-size: 11px;
+    }
+
+    .sidebar .meta strong {
+      display: block;
+      color: #333;
+    }
+
+    .sidebar .meta .timestamp {
+      color: #999;
+      font-size: 10px;
+      margin-top: 3px;
+    }
+
+    .sidebar a {
+      color: #0066cc;
+      text-decoration: none;
+      word-break: break-word;
+    }
+
+    .sidebar a:hover {
+      text-decoration: underline;
+    }
+
+    .sidebar .bautyp {
+      display: inline-block;
+      background: #e3f2fd;
+      color: #1976d2;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 11px;
+      margin: 5px 0;
+    }
+
+    .mapboxgl-popup-content {
+      background: white;
+      border-radius: 6px;
+      padding: 12px;
+      max-width: 250px;
+    }
+
+    .mapboxgl-popup-content h4 {
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .mapboxgl-popup-content p {
+      font-size: 12px;
+      color: #666;
+      margin: 4px 0;
+    }
+
+    .mapboxgl-popup-content a {
+      color: #0066cc;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 8px;
+      font-weight: 500;
+    }
+
+    .mapboxgl-popup-content a:hover {
+      text-decoration: underline;
+    }
+
+    .marker {
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Ccircle cx='15' cy='15' r='12' fill='%231976d2' stroke='white' stroke-width='2'/%3E%3C/svg%3E");
+      background-size: contain;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .marker:hover {
+      transform: scale(1.2);
+    }
+
+    .controls {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      z-index: 10;
+    }
+
+    .controls button {
+      background: #1976d2;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      margin: 5px;
+      transition: background 0.2s;
+    }
+
+    .controls button:hover {
+      background: #1565c0;
+    }
+
+    .controls button:active {
+      background: #0d47a1;
+    }
+
+    .loading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 20px 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      z-index: 20;
+    }
+
+    .loading-spinner {
+      width: 30px;
+      height: 30px;
+      border: 3px solid #f3f3f3;
+      border-top: 3px solid #1976d2;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 10px auto;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .error {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #ffebee;
+      color: #c62828;
+      padding: 15px 20px;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      z-index: 20;
+      max-width: 500px;
+    }
+
+    .error button {
+      background: #c62828;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 12px;
+      margin-left: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        max-width: 90vw;
+        right: 5px;
+      }
+
+      .controls {
+        bottom: 10px;
+        right: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+  <div class="sidebar" id="sidebar" style="display: none;">
+    <h3>Baugesuch Details</h3>
+    <div class="meta">
+      <strong id="sidebar-nummer">-</strong>
+      <div id="sidebar-address"></div>
+      <div class="timestamp" id="sidebar-updated"></div>
+    </div>
+    <p><strong>Adresse:</strong> <span id="sidebar-adresse">-</span></p>
+    <p><strong>Typ:</strong> <span class="bautyp" id="sidebar-bautyp">-</span></p>
+    <p><strong>Datum:</strong> <span id="sidebar-datum">-</span></p>
+    <p>
+      <strong>Details:</strong><br>
+      <a id="sidebar-link" href="#" target="_blank">→ Zum Baugesuch</a>
+    </p>
+  </div>
+
+  <div class="controls">
+    <button id="refresh-btn">🔄 Aktualisieren</button>
+    <button id="locate-btn">📍 Mein Standort</button>
+  </div>
+
+  <div id="loading" class="loading" style="display: none;">
+    <div class="loading-spinner"></div>
+    <p>Daten werden geladen...</p>
+  </div>
+
+  <div id="error" class="error" style="display: none;">
+    <span id="error-text"></span>
+    <button onclick="document.getElementById('error').style.display = 'none';">✕</button>
+  </div>
+
+  <script>
+    // Mapbox GL Token (using free OpenMapTiles alternative)
+    // For better tiles, get a token at https://account.mapbox.com
+    
+    const MAP_CENTER = [8.680557, 47.244037]; // Stäfa coordinates
+    const INITIAL_ZOOM = 13;
+    const DATA_URL = './data/baugesuche.json';
+
+    let map;
+    let markers = [];
+    let currentFeature = null;
+    let gesuche = null;
+
+    // Initialize map with free tile provider
+    function initMap() {
+      // Using free OpenStreetMap tiles as default
+      const style = {
+        version: 8,
+        sources: {
+          'osm': {
+            type: 'raster',
+            tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+            tileSize: 256,
+            attribution: '© OpenStreetMap contributors'
+          },
+          'swisstopo': {
+            type: 'raster',
+            tiles: [
+              'https://tile.osm.ch/switzerland/{z}/{x}/{y}.png'
+            ],
+            tileSize: 256,
+            attribution: '© swisstopo'
+          }
+        },
+        layers: [
+          {
+            id: 'swisstopo-layer',
+            type: 'raster',
+            source: 'swisstopo',
+            minzoom: 0,
+            maxzoom: 18
+          }
+        ]
+      };
+
+      map = new mapboxgl.Map({
+        container: 'map',
+        style: style,
+        center: MAP_CENTER,
+        zoom: INITIAL_ZOOM,
+        attributionControl: true
+      });
+
+      map.on('load', () => {
+        console.log('Map loaded');
+        loadGesuche();
+      });
+
+      // Add controls
+      map.addControl(new mapboxgl.NavigationControl(), 'top-left');
+      map.addControl(new mapboxgl.FullscreenControl(), 'top-right');
+
+      // Add event listeners
+      document.getElementById('refresh-btn').addEventListener('click', loadGesuche);
+      document.getElementById('locate-btn').addEventListener('click', locateUser);
+    }
+
+    async function loadGesuche() {
+      try {
+        showLoading(true);
+        
+        const response = await fetch(DATA_URL);
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+
+        gesuche = await response.json();
+        console.log(`Loaded ${gesuche.features.length} Baugesuche`);
+
+        // Clear existing markers
+        markers.forEach(marker => marker.remove());
+        markers = [];
+
+        // Add new markers
+        gesuche.features.forEach(feature => {
+          addMarker(feature);
+        });
+
+        // Update metadata
+        const updated = new Date(gesuche.metadata.updated).toLocaleString('de-CH');
+        const infoText = `${gesuche.features.length} Baugesuche • Aktualisiert: ${updated}`;
+        console.log(infoText);
+
+        showLoading(false);
+        showError(null);
+
+      } catch (error) {
+        console.error('Error loading gesuche:', error);
+        showLoading(false);
+        showError(`Fehler beim Laden der Daten: ${error.message}`);
+      }
+    }
+
+    function addMarker(feature) {
+      const props = feature.properties;
+      
+      // Create marker element
+      const el = document.createElement('div');
+      el.className = 'marker';
+      
+      // Create popup
+      const popup = new mapboxgl.Popup({ offset: 25 })
+        .setHTML(`
+          <h4>${props.nummer || 'N/A'}</h4>
+          <p><strong>${props.adresse}</strong></p>
+          <p>${props.gemeinde}</p>
+          ${props.bautyp ? `<p>Typ: ${props.bautyp}</p>` : ''}
+          ${props.datum ? `<p>Datum: ${props.datum}</p>` : ''}
+          <a href="${props.detailUrl}" target="_blank" rel="noopener">
+            → Details anzeigen
+          </a>
+        `);
+
+      // Create marker
+      const marker = new mapboxgl.Marker(el)
+        .setLngLat([feature.geometry.coordinates[0], feature.geometry.coordinates[1]])
+        .setPopup(popup)
+        .addTo(map);
+
+      // Add click event to show sidebar
+      el.addEventListener('click', () => {
+        showSidebar(feature);
+      });
+
+      markers.push(marker);
+    }
+
+    function showSidebar(feature) {
+      currentFeature = feature;
+      const props = feature.properties;
+
+      document.getElementById('sidebar-nummer').textContent = props.nummer || 'N/A';
+      document.getElementById('sidebar-address').textContent = props.adresse || '';
+      document.getElementById('sidebar-adresse').textContent = props.adresse || '-';
+      document.getElementById('sidebar-bautyp').textContent = props.bautyp || '-';
+      document.getElementById('sidebar-datum').textContent = props.datum || '-';
+      
+      const link = document.getElementById('sidebar-link');
+      link.href = props.detailUrl || '#';
+      link.textContent = props.detailUrl ? '→ Zum Baugesuch' : 'Kein Link verfügbar';
+
+      if (gesuche && gesuche.metadata) {
+        const updated = new Date(gesuche.metadata.updated).toLocaleString('de-CH');
+        document.getElementById('sidebar-updated').textContent = `Aktualisiert: ${updated}`;
+      }
+
+      document.getElementById('sidebar').style.display = 'block';
+
+      // Pan to marker
+      map.flyTo({
+        center: feature.geometry.coordinates,
+        zoom: 15,
+        duration: 1000
+      });
+    }
+
+    function locateUser() {
+      if (!navigator.geolocation) {
+        showError('Geolocation nicht unterstützt');
+        return;
+      }
+
+      showLoading(true);
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          map.flyTo({
+            center: [longitude, latitude],
+            zoom: 16,
+            duration: 1000
+          });
+          showLoading(false);
+        },
+        (error) => {
+          showLoading(false);
+          showError(`Standort konnte nicht ermittelt werden: ${error.message}`);
+        }
+      );
+    }
+
+    function showLoading(show) {
+      document.getElementById('loading').style.display = show ? 'block' : 'none';
+    }
+
+    function showError(message) {
+      const errorEl = document.getElementById('error');
+      if (message) {
+        document.getElementById('error-text').textContent = message;
+        errorEl.style.display = 'block';
+      } else {
+        errorEl.style.display = 'none';
+      }
+    }
+
+    // Initialize on load
+    window.addEventListener('load', initMap);
+  </script>
+</body>
+</html>

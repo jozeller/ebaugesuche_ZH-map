@@ -1,0 +1,53 @@
+name: Daily Update Baugesuche
+
+on:
+  schedule:
+    # Every day at 06:00 UTC (08:00 CEST/07:00 CET)
+    - cron: '0 6 * * *'
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build and update data
+        run: npm run update
+        timeout-minutes: 20
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          
+          if git diff --quiet data/baugesuche.json; then
+            echo "No changes detected in data"
+          else
+            git add data/baugesuche.json
+            git commit -m "chore: update baugesuche data [skip ci]"
+            git push
+          fi
+
+      - name: Notify on failure
+        if: failure()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '❌ Daily baugesuche update failed. Check workflow logs for details.'
+            })

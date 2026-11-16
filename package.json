@@ -1,0 +1,22 @@
+{
+  "name": "ebaugesuche-zh-map",
+  "version": "1.0.0",
+  "description": "Baugesuche ZH Kanton auf interaktiver Karte mit SwissTopo Hintergrund",
+  "main": "scripts/build.js",
+  "scripts": {
+    "scrape": "node scripts/scraper.js",
+    "geocode": "node scripts/geocoder.js",
+    "build": "node scripts/build.js",
+    "update": "npm run build",
+    "start": "node scripts/server.js",
+    "dev": "node scripts/server.js"
+  },
+  "keywords": ["baugesuche", "zh", "kanton", "karte", "mapbox"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "puppeteer": "^21.6.1",
+    "node-fetch": "^2.7.0",
+    "cheerio": "^1.0.0-rc.12"
+  }
+}
