@@ -243,71 +243,7 @@
           <div class="control-group">
             <label for="gemeinde-select">Gemeinde:</label>
             <select id="gemeinde-select">
-              <option value="adliswil">Adliswil</option>
-              <option value="affolternamalbis">Affoltern am Albis</option>
-              <option value="bassersdorf">Bassersdorf</option>
-              <option value="brütten">Brütten</option>
-              <option value="bubikon">Bubikon</option>
-              <option value="buchs">Buchs</option>
-              <option value="bülach">Bülach</option>
-              <option value="dielsdorf">Dielsdorf</option>
-              <option value="dietlikon">Dietlikon</option>
-              <option value="dübendorf">Dübendorf</option>
-              <option value="dürnten">Dürnten</option>
-              <option value="egg">Egg</option>
-              <option value="elgg">Elgg</option>
-              <option value="elsau">Elsau</option>
-              <option value="fällanden">Fällanden</option>
-              <option value="glattfelden">Glattfelden</option>
-              <option value="gossau">Gossau</option>
-              <option value="greifensee">Greifensee</option>
-              <option value="hettlingen">Hettlingen</option>
-              <option value="hinwil">Hinwil</option>
-              <option value="hochfelden">Hochfelden</option>
-              <option value="horgen">Horgen</option>
-              <option value="illnau-effretikon">Illnau-Effretikon</option>
-              <option value="kilchberg">Kilchberg</option>
-              <option value="küsnacht">Küsnacht</option>
-              <option value="langnauamalbis">Langnau am Albis</option>
-              <option value="maur">Maur</option>
-              <option value="meilen">Meilen</option>
-              <option value="mönchaltorf">Mönchaltorf</option>
-              <option value="neftenbach">Neftenbach</option>
-              <option value="niederglatt">Niederglatt</option>
-              <option value="oberglatt">Oberglatt</option>
-              <option value="oberrieden">Oberrieden</option>
-              <option value="obfelden">Obfelden</option>
-              <option value="oetwilanderlimmat">Oetwil an der Limmat</option>
-              <option value="opfikon">Opfikon</option>
-              <option value="ossingen">Ossingen</option>
-              <option value="pfungen">Pfungen</option>
-              <option value="pfäffikon">Pfäffikon</option>
-              <option value="rafz">Rafz</option>
-              <option value="regensdorf">Regensdorf</option>
-              <option value="richterswil">Richterswil</option>
-              <option value="russikon">Russikon</option>
-              <option value="rümlang">Rümlang</option>
-              <option value="schlatt">Schlatt</option>
-              <option value="seegräben">Seegräben</option>
-              <option value="stadel">Stadel</option>
-              <option value="steinmaur">Steinmaur</option>
-              <option value="stäfa" selected>Stäfa</option>
-              <option value="thalwil">Thalwil</option>
-              <option value="turbenthal">Turbenthal</option>
-              <option value="uetikonamsee">Uetikon am See</option>
-              <option value="urdorf">Urdorf</option>
-              <option value="wald">Wald</option>
-              <option value="weiningen">Weiningen</option>
-              <option value="weisslingen">Weisslingen</option>
-              <option value="wettswilamalbis">Wettswil am Albis</option>
-              <option value="wetzikon">Wetzikon</option>
-              <option value="wila">Wila</option>
-              <option value="winterthur">Winterthur</option>
-              <option value="wädenswil">Wädenswil</option>
-              <option value="zell">Zell</option>
-              <option value="zollikon">Zollikon</option>
-              <option value="zumikon">Zumikon</option>
-              <option value="zürich">Zürich</option>
+              <option>Lädt Gemeinden...</option>
             </select>
           </div>
           <div class="info-text" id="info-text">Lädt...</div>
@@ -327,8 +263,8 @@
   </div>
 
   <script>
-    // Configuration
-    const GEMEINDEN = [
+    // All available municipalities with eAuflage
+    const ALL_GEMEINDEN = [
       'adliswil',
       'affolternamalbis',
       'bassersdorf',
@@ -395,6 +331,8 @@
       'zumikon',
       'zürich'
     ];
+
+    let GEMEINDEN = []; // Will be populated with available communes
 
     const GEMEINDE_CENTERS = {
       'adliswil': [47.226, 8.572],
@@ -622,10 +560,55 @@
       loadGemeinde(gemeinde);
     });
 
+    // Check which Gemeinden have available data
+    async function detectAvailableGemeinden() {
+      const available = [];
+      
+      for (const gemeinde of ALL_GEMEINDEN) {
+        try {
+          const response = await fetch(`../data/baugesuche_${gemeinde}.json`, { method: 'HEAD' });
+          if (response.ok) {
+            available.push(gemeinde);
+          }
+        } catch (error) {
+          // File doesn't exist
+        }
+      }
+      
+      GEMEINDEN = available;
+      
+      // Update dropdown
+      const select = document.getElementById('gemeinde-select');
+      const currentValue = select.value;
+      select.innerHTML = '';
+      
+      available.forEach(g => {
+        const name = g.charAt(0).toUpperCase() + g.slice(1).replace(/([a-z])([A-Z])/g, '$1 $2');
+        const option = document.createElement('option');
+        option.value = g;
+        option.textContent = name;
+        if (g === 'stäfa' || (g === available[0] && currentValue === '')) {
+          option.selected = true;
+        }
+        select.appendChild(option);
+      });
+      
+      console.log(`Loaded ${available.length} municipalities with data`);
+      return available;
+    }
+
     // Initialize on load
-    window.addEventListener('load', () => {
+    window.addEventListener('load', async () => {
       initMap();
-      loadGemeinde('stäfa'); // Default to Stäfa
+      
+      // Detect available Gemeinden first
+      const available = await detectAvailableGemeinden();
+      
+      // Load default (Stäfa if available, otherwise first available)
+      const defaultGemeinde = available.includes('stäfa') ? 'stäfa' : available[0];
+      if (defaultGemeinde) {
+        loadGemeinde(defaultGemeinde);
+      }
     });
   </script>
 </body>
