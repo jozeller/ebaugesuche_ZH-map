@@ -12,6 +12,10 @@ manually from the Actions tab. Confirm that the Actions token has permission
 to write repository contents. The workflow uses Node.js 24 and `npm ci` with
 the committed lockfile; it does not download a browser.
 
+The workflow's commits use `GITHUB_TOKEN`. GitHub Pages does not automatically
+rebuild a branch-published site for those commits, so a separate Pages deployment
+mechanism is required for refreshed data to appear on the live site.
+
 ## Other static hosts
 
 Deploy the repository root, not the `frontend/` directory, so the production
