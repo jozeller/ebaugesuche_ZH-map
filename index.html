@@ -129,8 +129,10 @@
       padding: 14px;
       max-width: 320px;
       z-index: 10;
-      max-height: calc(100vh - 100px);
+      max-height: calc(100vh - 260px);
+      max-height: calc(100dvh - 260px);
       overflow-y: auto;
+      overscroll-behavior: contain;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
       display: none;
     }
@@ -363,14 +365,19 @@
       }
 
       .controls {
-        bottom: 12px;
+        bottom: max(12px, env(safe-area-inset-bottom));
         right: 12px;
-        min-width: 200px;
+        width: min(240px, calc(100vw - 24px));
+        min-width: 0;
       }
 
       .sidebar {
+        top: 64px;
         right: 12px;
+        bottom: calc(184px + env(safe-area-inset-bottom));
+        max-height: none;
         max-width: calc(100vw - 24px);
+        overscroll-behavior: contain;
       }
     }
   </style>
