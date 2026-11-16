@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Baugesuche Stäfa - Karte</title>
   
-  <!-- Leaflet (Free, no token needed) -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <!-- MapLibre GL (Free, Open Source, no token needed) -->
+  <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+  <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
   
   <style>
     * {
@@ -277,51 +277,48 @@
     let currentFeature = null;
     let gesuche = null;
 
-    // Initialize map with SwissTopo WMS (free, no token needed)
+    // Initialize map with MapLibre GL + SwissTopo WMS (free, no token needed)
     function initMap() {
-      map = L.map('map').setView([47.244037, 8.680557], 13);
-
-      // SwissTopo - Pixelkarte Farbe (official Swiss map)
-      L.tileLayer.wms('https://wms.geo.admin.ch/', {
-        layers: 'ch.swisstopo.pixelkarte-farbe',
-        format: 'image/jpeg',
-        attribution: '© swisstopo',
-        minZoom: 8,
-        maxZoom: 18,
-        transparent: false
-      }).addTo(map);
-
-      // Optional: Add satellite layer (SwissImage)
-      const satelliteLayer = L.tileLayer.wms('https://wms.geo.admin.ch/', {
-        layers: 'ch.swisstopo.swissimage-rgb',
-        format: 'image/jpeg',
-        attribution: '© swisstopo SwissImage',
-        minZoom: 8,
-        maxZoom: 18
-      });
-
-      // Layer control
-      const baseLayers = {
-        'Karte': L.tileLayer.wms('https://wms.geo.admin.ch/', {
-          layers: 'ch.swisstopo.pixelkarte-farbe',
-          format: 'image/jpeg',
-          attribution: '© swisstopo',
-          minZoom: 8,
-          maxZoom: 18
-        }),
-        'Luftbild': satelliteLayer
+      const style = {
+        version: 8,
+        sources: {
+          'swisstopo-raster': {
+            type: 'raster',
+            tiles: [
+              'https://wms.geo.admin.ch/?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ch.swisstopo.pixelkarte-farbe&STYLES=&CRS=EPSG:3857&BBOX={bbox-epsg-3857}&WIDTH=256&HEIGHT=256&FORMAT=image/jpeg'
+            ],
+            tileSize: 256,
+            attribution: '© swisstopo'
+          }
+        },
+        layers: [
+          {
+            id: 'swisstopo-layer',
+            type: 'raster',
+            source: 'swisstopo-raster',
+            minzoom: 0,
+            maxzoom: 18
+          }
+        ]
       };
 
-      L.control.layers(baseLayers).addTo(map);
+      map = new maplibregl.Map({
+        container: 'map',
+        style: style,
+        center: [8.680557, 47.244037],
+        zoom: 13,
+        attributionControl: true
+      });
 
-      // Add zoom and fullscreen controls
-      L.control.zoom({ position: 'topleft' }).addTo(map);
+      map.on('load', () => {
+        console.log('Map loaded with MapLibre GL + SwissTopo');
+        loadGesuche();
+      });
 
-      // Add scale
-      L.control.scale().addTo(map);
-
-      // Load data
-      loadGesuche();
+      // Add controls
+      map.addControl(new maplibregl.NavigationControl(), 'top-left');
+      map.addControl(new maplibregl.FullscreenControl(), 'top-right');
+      map.addControl(new maplibregl.ScaleControl({ maxWidth: 200, unit: 'metric' }), 'bottom-right');
 
       // Add event listeners
       document.getElementById('refresh-btn').addEventListener('click', loadGesuche);
@@ -367,32 +364,31 @@
     function addMarker(feature) {
       const props = feature.properties;
       
-      // Create popup content
-      const popupContent = `
-        <h4>${props.nummer || 'N/A'}</h4>
-        <p><strong>${props.adresse}</strong></p>
-        <p>${props.gemeinde}</p>
-        ${props.bautyp ? `<p>Typ: ${props.bautyp}</p>` : ''}
-        ${props.datum ? `<p>Datum: ${props.datum}</p>` : ''}
-        <a href="${props.detailUrl}" target="_blank" rel="noopener" style="display: inline-block; margin-top: 8px; color: #0066cc; text-decoration: none; font-weight: 500;">
-          → Details anzeigen
-        </a>
-      `;
+      // Create marker element with custom icon
+      const el = document.createElement('div');
+      el.className = 'marker';
+      
+      // Create popup
+      const popup = new maplibregl.Popup({ offset: 25 })
+        .setHTML(`
+          <h4>${props.nummer || 'N/A'}</h4>
+          <p><strong>${props.adresse}</strong></p>
+          <p>${props.gemeinde}</p>
+          ${props.bautyp ? `<p>Typ: ${props.bautyp}</p>` : ''}
+          ${props.datum ? `<p>Datum: ${props.datum}</p>` : ''}
+          <a href="${props.detailUrl}" target="_blank" rel="noopener">
+            → Details anzeigen
+          </a>
+        `);
 
-      // Create marker with custom icon
-      const marker = L.marker([feature.geometry.coordinates[1], feature.geometry.coordinates[0]], {
-        icon: L.icon({
-          iconUrl: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDMyIDQwIj48cGF0aCBmaWxsPSIjMTk3NmQyIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiIGQ9Ik0xNiAwQzguMjM2IDAgMiA2LjIzNiAyIDE0YzAgOCAxNCAyNiAxNCAyNnMyMC0xOCAyMC0yNmMwLTcuNzY0LTYuMjM2LTE0LTE0LTE0eiIvPjwvc3ZnPg==',
-          iconSize: [32, 40],
-          iconAnchor: [16, 40],
-          popupAnchor: [0, -40]
-        })
-      })
-        .bindPopup(popupContent)
+      // Create marker
+      const marker = new maplibregl.Marker(el)
+        .setLngLat([feature.geometry.coordinates[0], feature.geometry.coordinates[1]])
+        .setPopup(popup)
         .addTo(map);
 
       // Add click event to show sidebar
-      marker.on('click', () => {
+      el.addEventListener('click', () => {
         showSidebar(feature);
       });
 
@@ -421,7 +417,11 @@
       document.getElementById('sidebar').style.display = 'block';
 
       // Pan to marker
-      map.setView([feature.geometry.coordinates[1], feature.geometry.coordinates[0]], 15);
+      map.flyTo({
+        center: [feature.geometry.coordinates[0], feature.geometry.coordinates[1]],
+        zoom: 15,
+        duration: 800
+      });
     }
 
     function locateUser() {
@@ -434,7 +434,11 @@
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
-          map.setView([latitude, longitude], 16);
+          map.flyTo({
+            center: [longitude, latitude],
+            zoom: 16,
+            duration: 1000
+          });
           showLoading(false);
         },
         (error) => {
