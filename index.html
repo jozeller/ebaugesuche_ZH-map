@@ -272,15 +272,21 @@
 
     /* Marker */
     .marker {
-      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='10' fill='%23222' stroke='white' stroke-width='2'/%3E%3C/svg%3E");
-      background-size: contain;
       width: 32px;
       height: 32px;
       cursor: pointer;
+    }
+
+    .marker::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='10' fill='%23222' stroke='white' stroke-width='2'/%3E%3C/svg%3E");
+      background-size: contain;
       transition: transform 0.2s;
     }
 
-    .marker:hover {
+    .marker:hover::before {
       transform: scale(1.15);
     }
 
