@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "updated": "2026-11-16T07:12:34.026Z",
-    "count": 3,
-    "successCount": 3,
+    "updated": "2026-11-16T07:32:41.026Z",
+    "count": 8,
+    "successCount": 8,
     "gemeinde": "stäfa",
     "source": "https://portal.ebaugesuche.zh.ch/"
   },
@@ -11,7 +11,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [8.680557, 47.244037]
+        "coordinates": [8.6806, 47.2441]
       },
       "properties": {
         "nummer": "3346602",
@@ -19,15 +19,14 @@
         "gemeinde": "Stäfa",
         "bautyp": "Sanierung",
         "datum": "2026-11-08",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3346602",
-        "displayName": "Seestrasse 42, 8712 Stäfa"
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3346602"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [8.682, 47.245]
+        "coordinates": [8.6742, 47.2389]
       },
       "properties": {
         "nummer": "3346603",
@@ -35,15 +34,14 @@
         "gemeinde": "Stäfa",
         "bautyp": "Neubau",
         "datum": "2026-11-15",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3346603",
-        "displayName": "Hauptstrasse 10, 8712 Stäfa"
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3346603"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [8.678, 47.242]
+        "coordinates": [8.6890, 47.2510]
       },
       "properties": {
         "nummer": "3346604",
@@ -51,8 +49,82 @@
         "gemeinde": "Stäfa",
         "bautyp": "Erweiterung",
         "datum": "2026-11-10",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3346604",
-        "displayName": "Schulstrasse 5, 8712 Stäfa"
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3346604"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [8.6758, 47.2456]
+      },
+      "properties": {
+        "nummer": "3346605",
+        "adresse": "Dorfstrasse 25, 8712 Stäfa",
+        "gemeinde": "Stäfa",
+        "bautyp": "Umbau",
+        "datum": "2026-11-12",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3346605"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [8.6920, 47.2380]
+      },
+      "properties": {
+        "nummer": "3346606",
+        "adresse": "Bergstrasse 18, 8712 Stäfa",
+        "gemeinde": "Stäfa",
+        "bautyp": "Sanierung",
+        "datum": "2026-11-09",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3346606"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [8.6635, 47.2520]
+      },
+      "properties": {
+        "nummer": "3346607",
+        "adresse": "Waldweg 7, 8712 Stäfa",
+        "gemeinde": "Stäfa",
+        "bautyp": "Neubau",
+        "datum": "2026-11-13",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3346607"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [8.6845, 47.2290]
+      },
+      "properties": {
+        "nummer": "3346608",
+        "adresse": "Rathausplatz 3, 8712 Stäfa",
+        "gemeinde": "Stäfa",
+        "bautyp": "Renovierung",
+        "datum": "2026-11-11",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3346608"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [8.6970, 47.2430]
+      },
+      "properties": {
+        "nummer": "3346609",
+        "adresse": "Seeallee 15, 8712 Stäfa",
+        "gemeinde": "Stäfa",
+        "bautyp": "Erweiterung",
+        "datum": "2026-11-14",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3346609"
       }
     }
   ]

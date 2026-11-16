@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Baugesuche Stäfa - Karte</title>
+  <title>Baugesuche ZH - Interaktive Karte</title>
   
   <!-- MapLibre GL (Free, Open Source, no token needed) -->
   <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
@@ -17,8 +17,9 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      background: #f5f5f5;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #fafafa;
+      color: #1a1a1a;
     }
 
     #map {
@@ -29,24 +30,74 @@
       left: 0;
     }
 
+    /* Header */
+    .header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(90deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.95) 100%);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      padding: 12px 20px;
+      z-index: 15;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .header-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1a1a1a;
+      letter-spacing: -0.5px;
+    }
+
+    .header-links {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .header-links a {
+      color: #666;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .header-links a:hover {
+      background: rgba(0, 0, 0, 0.05);
+      color: #1a1a1a;
+    }
+
+    /* Adjust map and sidebar for header */
+    #map {
+      padding-top: 50px;
+    }
+
     .sidebar {
       position: absolute;
-      top: 10px;
-      right: 10px;
+      top: 70px;
+      right: 12px;
       background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      padding: 15px;
-      max-width: 350px;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      padding: 16px;
+      max-width: 360px;
       z-index: 10;
-      max-height: 90vh;
+      max-height: calc(100vh - 100px);
       overflow-y: auto;
     }
 
     .sidebar h3 {
-      margin-bottom: 10px;
-      font-size: 16px;
-      color: #333;
+      margin-bottom: 12px;
+      font-size: 15px;
+      color: #1a1a1a;
+      font-weight: 700;
     }
 
     .sidebar p {
@@ -149,10 +200,10 @@
 
     .popup-gemeinde {
       display: inline-block;
-      background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+      background: #2563eb;
       color: white;
       padding: 4px 10px;
-      border-radius: 20px;
+      border-radius: 6px;
       font-size: 11px;
       font-weight: 600;
       margin-bottom: 10px;
@@ -177,7 +228,7 @@
 
     .popup-bautyp {
       display: inline-block;
-      background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+      background: #f59e0b;
       color: white;
       padding: 3px 8px;
       border-radius: 4px;
@@ -197,22 +248,22 @@
       align-items: center;
       gap: 6px;
       color: white;
-      background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+      background: #2563eb;
       text-decoration: none;
-      padding: 10px 16px;
-      border-radius: 8px;
+      padding: 10px 14px;
+      border-radius: 6px;
       margin-top: 12px;
       font-weight: 600;
       font-size: 13px;
-      transition: all 0.3s ease;
+      transition: all 0.2s ease;
       border: none;
       cursor: pointer;
     }
 
     .mapboxgl-popup-content a:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(25, 118, 210, 0.4);
-      background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+      background: #1d4ed8;
     }
 
     .mapboxgl-popup-content a:active {
@@ -220,12 +271,12 @@
     }
 
     .marker {
-      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%231976d2;stop-opacity:1'/%3E%3Cstop offset='100%25' style='stop-color:%231565c0;stop-opacity:1'/%3E%3C/linearGradient%3E%3Cfilter id='shadow' x='-50%25' y='-50%25' width='200%25' height='200%25'%3E%3CfeDropShadow dx='0' dy='2' stdDeviation='3' flood-opacity='0.3'/%3E%3C/filter%3E%3C/defs%3E%3Ccircle cx='20' cy='20' r='13' fill='url(%23grad)' stroke='white' stroke-width='2.5' filter='url(%23shadow)'/%3E%3Cpath d='M20 27C23.866 27 27 23.866 27 20C27 16.134 23.866 13 20 13C16.134 13 13 16.134 13 20C13 23.866 16.134 27 20 27Z' fill='white' opacity='0.3'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='11' fill='%232563eb' stroke='white' stroke-width='2'/%3E%3C/svg%3E");
       background-size: contain;
-      width: 40px;
-      height: 40px;
+      width: 32px;
+      height: 32px;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.2s;
     }
 
     .marker:hover {
@@ -235,68 +286,109 @@
     .controls {
       position: absolute;
       bottom: 20px;
-      right: 20px;
+      right: 12px;
       background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      padding: 12px;
       z-index: 10;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
+      max-width: 320px;
     }
 
     .gemeinde-selector {
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 6px;
     }
 
     .gemeinde-selector label {
       font-size: 12px;
-      font-weight: 600;
-      color: #333;
+      font-weight: 700;
+      color: #1a1a1a;
     }
 
     .gemeinde-selector select {
-      padding: 8px 10px;
+      padding: 8px 12px;
       border: 1px solid #ddd;
-      border-radius: 4px;
+      border-radius: 6px;
       font-size: 13px;
       background: white;
       cursor: pointer;
-      transition: border-color 0.2s;
+      transition: all 0.2s;
+      color: #1a1a1a;
     }
 
     .gemeinde-selector select:hover {
-      border-color: #1976d2;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
     }
 
     .gemeinde-selector select:focus {
       outline: none;
-      border-color: #1976d2;
-      box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.1);
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    }
+
+    .layer-selector {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      border-top: 1px solid #eee;
+      padding-top: 10px;
+    }
+
+    .layer-selector label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+
+    .layer-selector select {
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 13px;
+      background: white;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: #1a1a1a;
+    }
+
+    .layer-selector select:hover {
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    .layer-selector select:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
     }
 
     .controls button {
-      background: #1976d2;
+      background: #2563eb;
       color: white;
       border: none;
-      padding: 10px 15px;
-      border-radius: 4px;
+      padding: 10px 14px;
+      border-radius: 6px;
       cursor: pointer;
       font-size: 13px;
-      font-weight: 500;
-      margin: 5px;
-      transition: background 0.2s;
+      font-weight: 600;
+      transition: all 0.2s;
     }
 
     .controls button:hover {
-      background: #1565c0;
+      background: #1d4ed8;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+      transform: translateY(-1px);
     }
 
     .controls button:active {
-      background: #0d47a1;
+      background: #1e40af;
+      transform: translateY(0);
     }
 
     .loading {
@@ -365,6 +457,14 @@
   </style>
 </head>
 <body>
+  <div class="header">
+    <div class="header-title">🗺️ Baugesuche ZH</div>
+    <div class="header-links">
+      <a href="https://github.com/jozeller/ebaugesuche_ZH-map" target="_blank" rel="noopener">GitHub Repo</a>
+      <a href="https://github.com/jozeller/ebaugesuche_ZH-map#readme" target="_blank" rel="noopener">Über</a>
+    </div>
+  </div>
+
   <div id="map"></div>
   <div class="sidebar" id="sidebar" style="display: none;">
     <h3>Baugesuch Details</h3>
@@ -384,7 +484,7 @@
 
   <div class="controls">
     <div class="gemeinde-selector">
-      <label for="gemeinde-select">Gemeinde:</label>
+      <label for="gemeinde-select">Gemeinde</label>
       <select id="gemeinde-select">
         <option value="stäfa">Stäfa</option>
         <option value="hombrechtikon">Hombrechtikon</option>
@@ -398,6 +498,16 @@
         <option value="rüschlikon">Rüschlikon</option>
       </select>
     </div>
+
+    <div class="layer-selector">
+      <label for="layer-select">Kartenhintergrund</label>
+      <select id="layer-select">
+        <option value="pixelkarte">Pixelkarte</option>
+        <option value="swissimage">Luftbild</option>
+        <option value="osm">OpenStreetMap</option>
+      </select>
+    </div>
+
     <button id="refresh-btn">🔄 Aktualisieren</button>
     <button id="locate-btn">📍 Mein Standort</button>
   </div>
@@ -419,6 +529,35 @@
     let currentFeature = null;
     let gesuche = null;
     let currentGemeinde = 'stäfa';
+    let currentLayer = 'pixelkarte';
+
+    // Map layer styles
+    const mapLayers = {
+      'pixelkarte': {
+        'swisstopo-raster': {
+          type: 'raster',
+          tiles: ['https://wms.geo.admin.ch/?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ch.swisstopo.pixelkarte-farbe&STYLES=&CRS=EPSG:3857&BBOX={bbox-epsg-3857}&WIDTH=256&HEIGHT=256&FORMAT=image/jpeg'],
+          tileSize: 256,
+          attribution: '© swisstopo'
+        }
+      },
+      'swissimage': {
+        'swisstopo-raster': {
+          type: 'raster',
+          tiles: ['https://wms.geo.admin.ch/?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ch.swisstopo.swissimage-rgb&STYLES=&CRS=EPSG:3857&BBOX={bbox-epsg-3857}&WIDTH=256&HEIGHT=256&FORMAT=image/jpeg'],
+          tileSize: 256,
+          attribution: '© swisstopo SwissImage'
+        }
+      },
+      'osm': {
+        'osm-raster': {
+          type: 'raster',
+          tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+          tileSize: 256,
+          attribution: '© OpenStreetMap'
+        }
+      }
+    };
 
     // Gemeinde-Koordinaten für Auto-Zoom
     const gemeindeBounds = {
@@ -436,39 +575,35 @@
 
     // Initialize map with MapLibre GL + SwissTopo WMS (free, no token needed)
     function initMap() {
-      const style = {
-        version: 8,
-        sources: {
-          'swisstopo-raster': {
-            type: 'raster',
-            tiles: [
-              'https://wms.geo.admin.ch/?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ch.swisstopo.pixelkarte-farbe&STYLES=&CRS=EPSG:3857&BBOX={bbox-epsg-3857}&WIDTH=256&HEIGHT=256&FORMAT=image/jpeg'
-            ],
-            tileSize: 256,
-            attribution: '© swisstopo'
-          }
-        },
-        layers: [
-          {
-            id: 'swisstopo-layer',
-            type: 'raster',
-            source: 'swisstopo-raster',
-            minzoom: 0,
-            maxzoom: 18
-          }
-        ]
+      const createStyle = (layer = 'pixelkarte') => {
+        const sourceId = layer === 'osm' ? 'osm-raster' : 'swisstopo-raster';
+        const sources = mapLayers[layer];
+        
+        return {
+          version: 8,
+          sources: sources,
+          layers: [
+            {
+              id: 'base-layer',
+              type: 'raster',
+              source: sourceId,
+              minzoom: 0,
+              maxzoom: 18
+            }
+          ]
+        };
       };
 
       map = new maplibregl.Map({
         container: 'map',
-        style: style,
+        style: createStyle('pixelkarte'),
         center: [8.680557, 47.244037],
         zoom: 13,
         attributionControl: true
       });
 
       map.on('load', () => {
-        console.log('Map loaded with MapLibre GL + SwissTopo');
+        console.log('Map loaded with MapLibre GL');
         loadGesuche();
       });
 
@@ -484,6 +619,42 @@
         currentGemeinde = e.target.value;
         loadGesuche();
       });
+      document.getElementById('layer-select').addEventListener('change', (e) => {
+        changeMapLayer(e.target.value);
+      });
+    }
+
+    function changeMapLayer(layer) {
+      currentLayer = layer;
+      const sourceId = layer === 'osm' ? 'osm-raster' : 'swisstopo-raster';
+      const sources = mapLayers[layer];
+      
+      // Remove old sources
+      try {
+        if (map.getSource('swisstopo-raster')) map.removeSource('swisstopo-raster');
+        if (map.getSource('osm-raster')) map.removeSource('osm-raster');
+      } catch (e) {}
+      
+      // Remove old layer
+      try {
+        if (map.getLayer('base-layer')) map.removeLayer('base-layer');
+      } catch (e) {}
+      
+      // Add new source
+      for (const [sourceId, sourceConfig] of Object.entries(sources)) {
+        if (!map.getSource(sourceId)) {
+          map.addSource(sourceId, sourceConfig);
+        }
+      }
+      
+      // Add new layer
+      map.addLayer({
+        id: 'base-layer',
+        type: 'raster',
+        source: sourceId,
+        minzoom: 0,
+        maxzoom: 18
+      }, 'base-layer');
     }
 
     async function loadGesuche() {
