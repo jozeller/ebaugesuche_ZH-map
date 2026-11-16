@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:41.033Z",
+    "updated": "2026-11-16T09:01:51.722Z",
     "count": 2,
     "successCount": 2,
+    "unmappedCount": 0,
     "gemeinde": "illnau-effretikon",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
@@ -13,8 +14,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.815,
-          47.522
+          8.716883659362793,
+          47.4161376953125
         ]
       },
       "properties": {
@@ -24,7 +25,7 @@
         "bautyp": "Umbau und Vergrösserung Gartenhaus Assek.-Nr. 1428, Breitenacherstrasse 6.2, Illnau, Grundstück Kat.-Nr. IE8124 (Kernzone I)",
         "datum": "2026-10-26",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3296614",
-        "displayName": "illnau-effretikon (BFS center)"
+        "displayName": "Breitenacherstrasse 6.2 8308 Illnau"
       }
     },
     {
@@ -32,8 +33,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.815,
-          47.522
+          8.691671371459961,
+          47.410011291503906
         ]
       },
       "properties": {
@@ -43,7 +44,7 @@
         "bautyp": "Neubau Mobilfunkantenne neben Gebäude Assek.-Nr. 1480, Kindhauserstrasse 21, Effretikon, Kat.-Nr. IE1859 (Landwirtschaftszone)",
         "datum": "2026-10-29",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3307622",
-        "displayName": "illnau-effretikon (BFS center)"
+        "displayName": "Kindhauserstrasse 21 8307 Effretikon"
       }
     }
   ]

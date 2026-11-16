@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:40.612Z",
+    "updated": "2026-11-16T09:01:47.141Z",
     "count": 3,
     "successCount": 3,
+    "unmappedCount": 0,
     "gemeinde": "elsau",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
@@ -13,8 +14,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.673,
-          47.475
+          8.80302619934082,
+          47.507408142089844
         ]
       },
       "properties": {
@@ -24,7 +25,7 @@
         "bautyp": "48/2026 Ilg, PV-Anlage",
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3374288",
-        "displayName": "elsau (BFS center)"
+        "displayName": "Dorfstrasse 22 8352 Elsau"
       }
     },
     {
@@ -32,8 +33,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.673,
-          47.475
+          8.796778678894043,
+          47.49956130981445
         ]
       },
       "properties": {
@@ -43,7 +44,7 @@
         "bautyp": "45/2026 Aytac, Sichtschutzwand und Maschendrahtzaun",
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3383389",
-        "displayName": "elsau (BFS center)"
+        "displayName": "Im Rain 2a 8352 Elsau"
       }
     },
     {
@@ -51,8 +52,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.673,
-          47.475
+          8.800697326660156,
+          47.50511169433594
         ]
       },
       "properties": {
@@ -62,7 +63,7 @@
         "bautyp": "47/2026 Hofer, Anbau Carport bei Gebäude Vers.Nr. 1213",
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3383503",
-        "displayName": "elsau (BFS center)"
+        "displayName": "Dorfstrasse 1c 8352 Elsau"
       }
     }
   ]

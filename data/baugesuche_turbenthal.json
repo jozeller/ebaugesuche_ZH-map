@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:42.040Z",
+    "updated": "2026-11-16T09:02:05.590Z",
     "count": 4,
     "successCount": 4,
+    "unmappedCount": 0,
     "gemeinde": "turbenthal",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
@@ -13,8 +14,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.853,
-          47.575
+          8.83689022064209,
+          47.44140625
         ]
       },
       "properties": {
@@ -24,7 +25,7 @@
         "bautyp": "Erweiterung Büro und Erstellung Carport, Post Immobilien",
         "datum": "2026-11-02",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3327442",
-        "displayName": "turbenthal (BFS center)"
+        "displayName": "Tösstalstrasse 14 8488 Turbenthal"
       }
     },
     {
@@ -32,8 +33,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.853,
-          47.575
+          8.845656394958496,
+          47.43320083618164
         ]
       },
       "properties": {
@@ -43,7 +44,7 @@
         "bautyp": "Anbau Laube mit Balkontüre und Ersatz Dacheindeckung, Schär Eduard",
         "datum": "2026-11-03",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3339744",
-        "displayName": "turbenthal (BFS center)"
+        "displayName": "Käppeliweg 1 8488 Turbenthal"
       }
     },
     {
@@ -51,8 +52,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.853,
-          47.575
+          8.843836784362793,
+          47.43439865112305
         ]
       },
       "properties": {
@@ -62,7 +63,7 @@
         "bautyp": "Aufstellen eines Bürocontainers, Walter Heinz",
         "datum": "2026-11-04",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3343460",
-        "displayName": "turbenthal (BFS center)"
+        "displayName": "Tösswis 15 8488 Turbenthal"
       }
     },
     {
@@ -70,8 +71,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.853,
-          47.575
+          8.840346336364746,
+          47.44206237792969
         ]
       },
       "properties": {
@@ -81,7 +82,7 @@
         "bautyp": "Installation einer Photovoltaikanlage, Vetter Clemens",
         "datum": "2026-11-11",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3374448",
-        "displayName": "turbenthal (BFS center)"
+        "displayName": "Sonnenbergstrasse 9 8488 Turbenthal"
       }
     }
   ]

@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:41.340Z",
+    "updated": "2026-11-16T09:01:55.770Z",
     "count": 1,
     "successCount": 1,
+    "unmappedCount": 0,
     "gemeinde": "niederglatt",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
@@ -13,8 +14,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.514,
-          47.575
+          8.49170970916748,
+          47.49421310424805
         ]
       },
       "properties": {
@@ -24,7 +25,7 @@
         "bautyp": "Dachsanierung Wohnhaus und Scheune",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3311247",
-        "displayName": "niederglatt (BFS center)"
+        "displayName": "Bühlstrasse 21 8172 Niederglatt ZH"
       }
     }
   ]

@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:40.709Z",
+    "updated": "2026-11-16T09:01:48.835Z",
     "count": 1,
     "successCount": 1,
+    "unmappedCount": 0,
     "gemeinde": "glattfelden",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
@@ -13,8 +14,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.555,
-          47.588
+          8.505845069885254,
+          47.55596160888672
         ]
       },
       "properties": {
@@ -24,7 +25,7 @@
         "bautyp": "Abbruch Gebäude Vers.-Nr. 655, Kat.-Nr. 5014, Eichhölzlistrasse 9 und Neubau Mehrfamilienhaus, sowie Neubau Tiefgarage auf Kat.-Nr. 4902, bei Friedenweg 4 (Wohnzone B)",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3314678",
-        "displayName": "glattfelden (BFS center)"
+        "displayName": "Eichhölzlistrasse 9 8192 Glattfelden"
       }
     }
   ]

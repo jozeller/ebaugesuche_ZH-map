@@ -389,16 +389,7 @@
     <div class="control-group">
       <label>Gemeinde</label>
       <select id="gemeinde-select">
-        <option value="stäfa">Stäfa</option>
-        <option value="hombrechtikon">Hombrechtikon</option>
-        <option value="wädenswil">Wädenswil</option>
-        <option value="erlenbach">Erlenbach</option>
-        <option value="meilen">Meilen</option>
-        <option value="herrliberg">Herrliberg</option>
-        <option value="zollikon">Zollikon</option>
-        <option value="männedorf">Männedorf</option>
-        <option value="richterswil">Richterswil</option>
-        <option value="rüschlikon">Rüschlikon</option>
+        <option value="">Gemeinden werden geladen ...</option>
       </select>
     </div>
     <div class="control-group">
@@ -437,7 +428,7 @@
       'swissimage': {
         'swisstopo-raster': {
           type: 'raster',
-          tiles: ['https://wms.geo.admin.ch/?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ch.swisstopo.swissimage-rgb&STYLES=&CRS=EPSG:3857&BBOX={bbox-epsg-3857}&WIDTH=256&HEIGHT=256&FORMAT=image/jpeg'],
+          tiles: ['https://wms.geo.admin.ch/?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ch.swisstopo.swissimage&STYLES=&CRS=EPSG:3857&BBOX={bbox-epsg-3857}&WIDTH=256&HEIGHT=256&FORMAT=image/jpeg'],
           tileSize: 256,
           attribution: '© swisstopo'
         }
@@ -450,19 +441,6 @@
           attribution: '© OpenStreetMap'
         }
       }
-    };
-
-    const gemeindeBounds = {
-      'stäfa': { center: [8.680557, 47.244037], zoom: 13 },
-      'hombrechtikon': { center: [8.598, 47.274], zoom: 13 },
-      'wädenswil': { center: [8.770, 47.220], zoom: 13 },
-      'erlenbach': { center: [8.609, 47.299], zoom: 13 },
-      'meilen': { center: [8.601, 47.309], zoom: 13 },
-      'herrliberg': { center: [8.592, 47.320], zoom: 13 },
-      'zollikon': { center: [8.610, 47.331], zoom: 13 },
-      'männedorf': { center: [8.696, 47.334], zoom: 13 },
-      'richterswil': { center: [8.774, 47.254], zoom: 13 },
-      'rüschlikon': { center: [8.627, 47.285], zoom: 13 }
     };
 
     function createStyle(layer = 'pixelkarte') {
@@ -491,9 +469,7 @@
         attributionControl: true
       });
 
-      map.on('load', () => {
-        loadGesuche();
-      });
+      map.on('load', loadGemeinden);
 
       map.addControl(new maplibregl.NavigationControl(), 'top-left');
       map.addControl(new maplibregl.FullscreenControl(), 'top-right');
@@ -507,6 +483,34 @@
       document.getElementById('layer-select').addEventListener('change', (e) => {
         changeMapLayer(e.target.value);
       });
+    }
+
+    async function loadGemeinden() {
+      try {
+        const response = await fetch('./data/gemeinden.json');
+        if (!response.ok) throw new Error(`Gemeindeliste: HTTP ${response.status}`);
+
+        const gemeinden = await response.json();
+        if (!Array.isArray(gemeinden) || gemeinden.length === 0) {
+          throw new Error('Die Gemeindeliste ist leer oder ungültig.');
+        }
+
+        const select = document.getElementById('gemeinde-select');
+        select.replaceChildren();
+        for (const gemeinde of gemeinden) {
+          const option = document.createElement('option');
+          option.value = gemeinde.slug;
+          option.textContent = gemeinde.name;
+          select.appendChild(option);
+        }
+
+        select.value = 'stäfa';
+        currentGemeinde = select.value;
+        await loadGesuche();
+      } catch (error) {
+        console.error('Fehler beim Laden der Gemeindeliste:', error);
+        showError(`Gemeindeliste konnte nicht geladen werden: ${error.message}`);
+      }
     }
 
     function changeMapLayer(layer) {
@@ -551,20 +555,25 @@
         markers.forEach(marker => marker.remove());
         markers = [];
 
-        gesuche.features.forEach(feature => {
+        const features = gesuche.features || [];
+        features.forEach(feature => {
           addMarker(feature);
         });
 
         const updated = new Date(gesuche.metadata.updated).toLocaleString('de-CH');
+        const locatedCount = features.filter(feature => feature.geometry).length;
         const meta = document.querySelector('.meta');
-        meta.innerHTML = `<strong>${gesuche.metadata.count} Gesuche</strong><div class="timestamp">Aktualisiert: ${updated}</div>`;
+        meta.innerHTML = `<strong>${gesuche.metadata.count} Gesuche</strong><div class="timestamp">${locatedCount} exakt verortet${locatedCount < gesuche.metadata.count ? ` · ${gesuche.metadata.count - locatedCount} ohne exakte Adresse` : ''}<br>Aktualisiert: ${updated}</div>`;
+        showUnlocatedCases(features.filter(feature => !feature.geometry));
 
-        const bounds = gemeindeBounds[currentGemeinde];
-        map.flyTo({
-          center: bounds.center,
-          zoom: bounds.zoom,
-          duration: 1000
-        });
+        const located = features.filter(feature => feature.geometry?.type === 'Point');
+        if (located.length === 1) {
+          map.flyTo({ center: located[0].geometry.coordinates, zoom: 14, duration: 1000 });
+        } else if (located.length > 1) {
+          const bounds = new maplibregl.LngLatBounds();
+          located.forEach(feature => bounds.extend(feature.geometry.coordinates));
+          map.fitBounds(bounds, { padding: 48, maxZoom: 14, duration: 1000 });
+        }
 
         showLoading(false);
       } catch (error) {
@@ -575,6 +584,8 @@
     }
 
     function addMarker(feature) {
+      if (feature.geometry?.type !== 'Point') return;
+
       const props = feature.properties;
       const el = document.createElement('div');
       el.className = 'marker';
@@ -601,6 +612,46 @@
       });
 
       markers.push(marker);
+    }
+
+    function showUnlocatedCases(features) {
+      const sidebar = document.getElementById('sidebar');
+      if (features.length === 0) {
+        sidebar.style.display = 'none';
+        return;
+      }
+
+      sidebar.replaceChildren();
+      const heading = document.createElement('strong');
+      heading.textContent = `${features.length} Gesuche ohne exakte Adresskoordinate`;
+      const meta = document.createElement('div');
+      meta.className = 'meta';
+      meta.appendChild(heading);
+      sidebar.appendChild(meta);
+
+      const list = document.createElement('div');
+      list.className = 'sidebar-content';
+      list.style.display = 'flex';
+      features.slice(0, 20).forEach(feature => {
+        const row = document.createElement('div');
+        row.className = 'sidebar-row';
+        const address = document.createElement('span');
+        address.textContent = feature.properties.adresse;
+        const link = document.createElement('a');
+        link.href = feature.properties.detailUrl;
+        link.target = '_blank';
+        link.rel = 'noopener';
+        link.textContent = '→ Zum Baugesuch';
+        row.append(address, link);
+        list.appendChild(row);
+      });
+      if (features.length > 20) {
+        const more = document.createElement('span');
+        more.textContent = `und ${features.length - 20} weitere`;
+        list.appendChild(more);
+      }
+      sidebar.appendChild(list);
+      sidebar.style.display = 'block';
     }
 
     function showSidebar(feature) {

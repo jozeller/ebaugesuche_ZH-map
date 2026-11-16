@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:42.311Z",
+    "updated": "2026-11-16T09:02:10.046Z",
     "count": 1,
     "successCount": 1,
+    "unmappedCount": 0,
     "gemeinde": "wila",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
@@ -13,8 +14,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.915,
-          47.38
+          8.846399307250977,
+          47.42037582397461
         ]
       },
       "properties": {
@@ -24,7 +25,7 @@
         "bautyp": "Erstellung Pergola/Sitzplatzüberdachung (bereits erstellt) /  Shehu Violeta und Jeton",
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3389626",
-        "displayName": "wila (BFS center)"
+        "displayName": "Huswisstrasse 1 8492 Wila"
       }
     }
   ]

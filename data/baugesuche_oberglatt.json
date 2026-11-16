@@ -1,22 +1,17 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:41.368Z",
+    "updated": "2026-11-16T09:01:56.057Z",
     "count": 1,
-    "successCount": 1,
+    "successCount": 0,
+    "unmappedCount": 1,
     "gemeinde": "oberglatt",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
       "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.485,
-          47.576
-        ]
-      },
+      "geometry": null,
       "properties": {
         "nummer": "3375638",
         "adresse": "Hofacherstrasse 8154 Oberglatt",
@@ -24,7 +19,7 @@
         "bautyp": "Erstellung einer PV-Anlage, neben Gebäude Vers.-Nr. 499, Kat.-Nr. 728, Hofacherstrasse 4.2, 8154 Oberglatt",
         "datum": "2026-11-12",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3375638",
-        "displayName": "oberglatt (BFS center)"
+        "displayName": null
       }
     }
   ]

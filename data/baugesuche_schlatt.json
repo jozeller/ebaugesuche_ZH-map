@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:41.828Z",
+    "updated": "2026-11-16T09:02:01.228Z",
     "count": 2,
     "successCount": 2,
+    "unmappedCount": 0,
     "gemeinde": "schlatt",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
@@ -13,8 +14,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.842,
-          47.545
+          8.827146530151367,
+          47.468929290771484
         ]
       },
       "properties": {
@@ -24,7 +25,7 @@
         "bautyp": "Aufdach Photovoltaikanlage auf Gebäude Vers.Nr. 87",
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3378423",
-        "displayName": "schlatt (BFS center)"
+        "displayName": "Schmiedgasse 2 8418 Schlatt ZH"
       }
     },
     {
@@ -32,8 +33,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.842,
-          47.545
+          8.828529357910156,
+          47.471092224121094
         ]
       },
       "properties": {
@@ -43,7 +44,7 @@
         "bautyp": "Um- & Einbau Kuhstall Ökonomiegebäude in Gebäude Vers.Nr. 57",
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3379216",
-        "displayName": "schlatt (BFS center)"
+        "displayName": "Schiristrasse 2 8418 Schlatt ZH"
       }
     }
   ]

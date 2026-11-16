@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:42.244Z",
+    "updated": "2026-11-16T09:02:09.161Z",
     "count": 3,
     "successCount": 3,
+    "unmappedCount": 0,
     "gemeinde": "wettswilamalbis",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
@@ -13,8 +14,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.459,
-          47.282
+          8.47587776184082,
+          47.331459045410156
         ]
       },
       "properties": {
@@ -24,7 +25,7 @@
         "bautyp": "Baugesuch 2026-90, von Planta Urs, Hirsächersteig 8, Erstellung Pergola",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3303604",
-        "displayName": "wettswilamalbis (BFS center)"
+        "displayName": "Hirsächersteig 8 8907 Wettswil"
       }
     },
     {
@@ -32,8 +33,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.459,
-          47.282
+          8.472890853881836,
+          47.333675384521484
         ]
       },
       "properties": {
@@ -43,7 +44,7 @@
         "bautyp": "Baugesuch 2026-72, Meier Vinzenz, Im Grundächer 44, Installation von 2 Klimaanlagen",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3303899",
-        "displayName": "wettswilamalbis (BFS center)"
+        "displayName": "Im Grundächer 44 8907 Wettswil"
       }
     },
     {
@@ -51,8 +52,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.459,
-          47.282
+          8.4751615524292,
+          47.340972900390625
         ]
       },
       "properties": {
@@ -62,7 +63,7 @@
         "bautyp": "BG 2026-95, Huber Rolf, Bühlerstrasse 16, Umbau und Sanierung EFH",
         "datum": "2026-11-06",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3334268",
-        "displayName": "wettswilamalbis (BFS center)"
+        "displayName": "Bühlerstrasse 16 8907 Wettswil"
       }
     }
   ]

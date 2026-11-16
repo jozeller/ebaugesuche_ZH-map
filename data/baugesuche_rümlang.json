@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:41.772Z",
+    "updated": "2026-11-16T09:02:00.932Z",
     "count": 2,
     "successCount": 2,
+    "unmappedCount": 0,
     "gemeinde": "rümlang",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
@@ -13,8 +14,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.548,
-          47.44
+          8.5433931350708,
+          47.445682525634766
         ]
       },
       "properties": {
@@ -24,7 +25,7 @@
         "bautyp": "Installation einer Klimaanlage mit Innenaufstellung",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3293658",
-        "displayName": "rümlang (BFS center)"
+        "displayName": "Flughofstrasse 124 8153 Rümlang"
       }
     },
     {
@@ -32,8 +33,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.548,
-          47.44
+          8.526060104370117,
+          47.448055267333984
         ]
       },
       "properties": {
@@ -43,7 +44,7 @@
         "bautyp": "Neubau Pool mit Sichtschutzwänden",
         "datum": "2026-11-06",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3326798",
-        "displayName": "rümlang (BFS center)"
+        "displayName": "Katzenrütistrasse 43b 8153 Rümlang"
       }
     }
   ]

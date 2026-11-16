@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:41.926Z",
+    "updated": "2026-11-16T09:02:02.877Z",
     "count": 1,
     "successCount": 1,
+    "unmappedCount": 0,
     "gemeinde": "steinmaur",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
@@ -13,8 +14,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.368,
-          47.552
+          8.445658683776855,
+          47.485870361328125
         ]
       },
       "properties": {
@@ -24,7 +25,7 @@
         "bautyp": "Ersatz Schutzdach und Neubau Werkunterstand",
         "datum": "2026-11-11",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3372709",
-        "displayName": "steinmaur (BFS center)"
+        "displayName": "Steinbruchstrasse 4.2 8162 Steinmaur"
       }
     }
   ]

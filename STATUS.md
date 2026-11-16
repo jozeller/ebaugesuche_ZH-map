@@ -1,88 +1,27 @@
-# 📊 Aktueller Status - eAuflage Multi-Gemeinde Support
+# Daten- und Kartenstatus
 
-## ✅ Implementiert
+## Aktueller Stand (2026-11-16)
 
-### 1. **Frontend Update** (✨ LIVE)
-- [x] Interaktives Dropdown-Menü mit allen eAuflage-Gemeinden
-- [x] **Dynamische Gemeinde-Erkennung** - Zeigt nur Gemeinden an, für die Daten existieren
-- [x] **Stäfa als Default** - Wird automatisch vorausgewählt, wenn verfügbar
-- [x] Responsive Design für Mobile & Desktop
-- [x] Interaktive Karte mit Leaflet/OpenStreetMap
-- [x] Sidebar mit Baugesuch-Details
-- [x] Genaue Mittelpunkte für alle 66 Gemeinden
+- `data/gemeinden.json` enthält die 65 Einträge aus dem bereitgestellten
+  Portal-Export. Die Gemeindeliste wird nicht mehr anhand vorhandener Dateien
+  gefiltert.
+- Der Neuaufbau hat 249 Portal-Einträge aus diesen 65 Gemeinden geladen.
+- 237 Adressen wurden mit Strasse, Hausnummer und Gemeinde exakt über den
+  offiziellen geo.admin.ch SearchServer abgeglichen.
+- 12 Fälle ohne eindeutigen Adress-Treffer bleiben in den Daten, erhalten aber
+  keinen erfundenen Kartenpunkt. Sie werden im Frontend separat angezeigt.
+- Das Luftbild verwendet den getesteten SwissTopo-WMS-Layer
+  `ch.swisstopo.swissimage`.
+- Stäfa ist die Startgemeinde; verortete Fälle bestimmen den Kartenausschnitt.
 
-### 2. **Scripts aktualisiert**
-- [x] `scripts/scraper.js` - Alle 66 eAuflage-Gemeinden konfiguriert
-- [x] `scripts/build.js` - Alle 66 eAuflage-Gemeinden konfiguriert
+## Aktualisieren und prüfen
 
-## 📊 Daten-Status
-
-### Verfügbare Daten (10 Gemeinden)
-```
-✅ Erlenbach
-✅ Herrliberg
-✅ Hombrechtikon
-✅ Meilen
-✅ Männedorf
-✅ Richterswil
-✅ Rüschlikon
-✅ Stäfa (Default)
-✅ Wädenswil
-✅ Zollikon
-```
-
-### Alle 66 eAuflage-Gemeinden (mit Daten-URL)
-```
-https://portal.ebaugesuche.zh.ch/eauflage/{gemeinde-name}
-```
-
-## 🚀 Nächste Schritte
-
-### Option A: Alle Daten scrapen (Langzeitlösung)
 ```bash
-npm run build  # Alle 66 Gemeinden scrapen + geocodieren
-```
-**Problem**: Benötigt Puppeteer mit Chrome-Dependencies (libc6, etc.)
-
-### Option B: Schrittweise erweitern
-```bash
-npm run scrape  # Scrape einzelne Gemeinden
-npm run geocode # Geocodieren
-npm run update  # Alles aktualisieren
+npm run update
+npm test
 ```
 
-### Option C: API-Integration
-Könnte die offizielle eAuflage-API nutzen (wenn vorhanden):
-```
-https://portal.ebaugesuche.zh.ch/api/public/v1/baugesuch?municipality={gemeinde}
-```
-
-## 🎯 Wie das Frontend funktioniert
-
-1. **On Load**: Frontend prüft welche `baugesuche_*.json` Dateien existieren
-2. **Dropdown wird gefüllt**: Nur verfügbare Gemeinden werden angezeigt
-3. **Default Stäfa**: Wird automatisch vorausgewählt
-4. **Fehlergerecht**: Zeigt "Keine Daten verfügbar" für fehlende Dateien
-
-## 📁 Dateistruktur
-```
-data/
-├── baugesuche_stäfa.json ✅
-├── baugesuche_meilen.json ✅
-├── baugesuche_erlenbach.json ✅
-├── ... (7 weitere)
-└── baugesuche_{gemeinde}.json (zu erstellen für die anderen 56)
-```
-
-## 🔄 Automatische Updates
-GitHub Actions führt täglich aus:
-```yaml
-schedule:
-  - cron: '0 6 * * *'  # Täglich 06:00 UTC
-```
-
----
-
-**Frontend Status**: ✅ FUNKTIONIERT MIT VERFÜGBAREN DATEN
-**Daten Status**: 10/66 Gemeinden vorhanden
-**Nächster Step**: Fehlende Daten scrapen
+Die aktuelle Portal-Liste enthält 65 Einträge, nicht 66. Rüschlikon ist in
+diesem Export nicht enthalten; der aktuelle Abruf für diesen Slug liefert
+keine aktiven Veröffentlichungen. Deshalb wird Rüschlikon nicht als
+Portal-Gemeinde ausgegeben.

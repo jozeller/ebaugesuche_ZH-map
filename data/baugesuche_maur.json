@@ -1,22 +1,17 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:41.169Z",
+    "updated": "2026-11-16T09:01:54.304Z",
     "count": 1,
-    "successCount": 1,
+    "successCount": 0,
+    "unmappedCount": 1,
     "gemeinde": "maur",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
       "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.689,
-          47.348
-        ]
-      },
+      "geometry": null,
       "properties": {
         "nummer": "3304370",
         "adresse": "Binzstrasse 8122 Binz",
@@ -24,7 +19,7 @@
         "bautyp": "Gemeinde Maur, Staukanal Jörenbach - Einführung Trennsystem in der Binzstrasse",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3304370",
-        "displayName": "maur (BFS center)"
+        "displayName": null
       }
     }
   ]

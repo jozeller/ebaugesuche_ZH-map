@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:42.556Z",
+    "updated": "2026-11-16T09:02:20.474Z",
     "count": 2,
     "successCount": 2,
+    "unmappedCount": 0,
     "gemeinde": "zumikon",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
@@ -13,8 +14,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.58,
-          47.338
+          8.617732048034668,
+          47.336544036865234
         ]
       },
       "properties": {
@@ -24,7 +25,7 @@
         "bautyp": "FOPW / Austausch Portalantenne (Änderung Ant. Typ), Tunnel, Portal Waltikon",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3308746",
-        "displayName": "zumikon (BFS center)"
+        "displayName": "Morgental 29c 8126 Zumikon"
       }
     },
     {
@@ -32,8 +33,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.58,
-          47.338
+          8.61124038696289,
+          47.33174133300781
         ]
       },
       "properties": {
@@ -43,7 +44,7 @@
         "bautyp": "Erstellung einer Luft/Wasser-Wärmepumpe im Baulinienbereich",
         "datum": "2026-11-06",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3346873",
-        "displayName": "zumikon (BFS center)"
+        "displayName": "Breitenacher 21 8126 Zumikon"
       }
     }
   ]

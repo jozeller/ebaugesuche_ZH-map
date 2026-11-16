@@ -11,7 +11,14 @@ const DATA_DIR = path.join(__dirname, '..', 'data');
 
 const server = http.createServer((req, res) => {
   const parsedUrl = url.parse(req.url, true);
-  let pathname = parsedUrl.pathname;
+  let pathname;
+  try {
+    pathname = decodeURIComponent(parsedUrl.pathname);
+  } catch (error) {
+    res.writeHead(400);
+    res.end('Invalid URL path');
+    return;
+  }
 
   // Handle root
   if (pathname === '/' || pathname === '') {

@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:40.405Z",
+    "updated": "2026-11-16T09:01:44.052Z",
     "count": 1,
     "successCount": 1,
+    "unmappedCount": 0,
     "gemeinde": "dielsdorf",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
@@ -13,8 +14,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.398,
-          47.482
+          8.44625473022461,
+          47.47966384887695
         ]
       },
       "properties": {
@@ -24,7 +25,7 @@
         "bautyp": "Ersatzneubau mit zwei Mehrfamilienhäuser und UN-Garage",
         "datum": "2026-11-06",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3356579",
-        "displayName": "dielsdorf (BFS center)"
+        "displayName": "Bohnackerstrasse 1 8157 Dielsdorf"
       }
     }
   ]

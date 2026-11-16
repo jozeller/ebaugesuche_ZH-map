@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:40.835Z",
+    "updated": "2026-11-16T09:01:49.208Z",
     "count": 1,
     "successCount": 1,
+    "unmappedCount": 0,
     "gemeinde": "hettlingen",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
@@ -13,8 +14,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.803,
-          47.465
+          8.718292236328125,
+          47.5435676574707
         ]
       },
       "properties": {
@@ -24,7 +25,7 @@
         "bautyp": "Biogasanlage",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3314099",
-        "displayName": "hettlingen (BFS center)"
+        "displayName": "Mittelfeld 1 8442 Hettlingen"
       }
     }
   ]

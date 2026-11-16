@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:42.142Z",
+    "updated": "2026-11-16T09:02:07.495Z",
     "count": 5,
-    "successCount": 5,
+    "successCount": 3,
+    "unmappedCount": 2,
     "gemeinde": "wald",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
@@ -13,8 +14,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.948,
-          47.308
+          8.909608840942383,
+          47.26959228515625
         ]
       },
       "properties": {
@@ -24,18 +25,12 @@
         "bautyp": "An- und Umbau Alters- und Pflegeheim Tabor",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3305063",
-        "displayName": "wald (BFS center)"
+        "displayName": "Güntisbergstrasse 18 8636 Wald ZH"
       }
     },
     {
       "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.948,
-          47.308
-        ]
-      },
+      "geometry": null,
       "properties": {
         "nummer": "3305084",
         "adresse": "Scheideggstrasse - 8636 Wald ZH",
@@ -43,7 +38,7 @@
         "bautyp": "Sanierung/Umlegung Schmutzwasserleitung",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3305084",
-        "displayName": "wald (BFS center)"
+        "displayName": null
       }
     },
     {
@@ -51,8 +46,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.948,
-          47.308
+          8.913928985595703,
+          47.27680206298828
         ]
       },
       "properties": {
@@ -62,18 +57,12 @@
         "bautyp": "Erstellen Luft-Wasser Wärmepumpe",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3305242",
-        "displayName": "wald (BFS center)"
+        "displayName": "Bachtelstrasse 22 8636 Wald ZH"
       }
     },
     {
       "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.948,
-          47.308
-        ]
-      },
+      "geometry": null,
       "properties": {
         "nummer": "3369369",
         "adresse": "Feisterbachweg - 8636 Wald ZH",
@@ -81,7 +70,7 @@
         "bautyp": "Sanierung Feisterbachweg mit Ersatz Wasserleitung",
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3369369",
-        "displayName": "wald (BFS center)"
+        "displayName": null
       }
     },
     {
@@ -89,8 +78,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.948,
-          47.308
+          8.9271879196167,
+          47.26496887207031
         ]
       },
       "properties": {
@@ -100,7 +89,7 @@
         "bautyp": "Aufstockung Mehrfamilienhaus",
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3369403",
-        "displayName": "wald (BFS center)"
+        "displayName": "Hauptstrasse 30b 8637 Laupen ZH"
       }
     }
   ]

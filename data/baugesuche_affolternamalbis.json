@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:40.205Z",
+    "updated": "2026-11-16T09:01:42.493Z",
     "count": 1,
     "successCount": 1,
+    "unmappedCount": 0,
     "gemeinde": "affolternamalbis",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
@@ -13,8 +14,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.449,
-          47.257
+          8.451706886291504,
+          47.277587890625
         ]
       },
       "properties": {
@@ -24,7 +25,7 @@
         "bautyp": "Neubau Unterflurcontainer",
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3383131",
-        "displayName": "affolternamalbis (BFS center)"
+        "displayName": "Betpurstrasse 7 8910 Affoltern am Albis"
       }
     }
   ]

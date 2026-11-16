@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:40.675Z",
+    "updated": "2026-11-16T09:01:48.516Z",
     "count": 3,
-    "successCount": 3,
+    "successCount": 2,
+    "unmappedCount": 1,
     "gemeinde": "fällanden",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
@@ -13,8 +14,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.618,
-          47.378
+          8.626150131225586,
+          47.36772537231445
         ]
       },
       "properties": {
@@ -24,18 +25,12 @@
         "bautyp": "Dachsanierung Einfamilienhaus",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3301737",
-        "displayName": "fällanden (BFS center)"
+        "displayName": "Sängglenstrasse 11 8118 Pfaffhausen"
       }
     },
     {
       "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.618,
-          47.378
-        ]
-      },
+      "geometry": null,
       "properties": {
         "nummer": "3337838",
         "adresse": "Rohrwis / Userriet  - 8117 Fällanden",
@@ -43,7 +38,7 @@
         "bautyp": "Chaussierte Fusswegverbreiterung \"Im Rohrwis\"",
         "datum": "2026-11-06",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3337838",
-        "displayName": "fällanden (BFS center)"
+        "displayName": null
       }
     },
     {
@@ -51,8 +46,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.618,
-          47.378
+          8.625511169433594,
+          47.36713409423828
         ]
       },
       "properties": {
@@ -62,7 +57,7 @@
         "bautyp": "Erstellung einer Erdsonden-Wärmepumpe",
         "datum": "2026-11-06",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3359043",
-        "displayName": "fällanden (BFS center)"
+        "displayName": "Sängglenstrasse 6 8118 Pfaffhausen"
       }
     }
   ]

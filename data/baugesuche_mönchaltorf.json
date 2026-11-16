@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:41.269Z",
+    "updated": "2026-11-16T09:01:54.388Z",
     "count": 1,
     "successCount": 1,
+    "unmappedCount": 0,
     "gemeinde": "mönchaltorf",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
@@ -13,8 +14,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.836,
-          47.362
+          8.717806816101074,
+          47.30992889404297
         ]
       },
       "properties": {
@@ -24,7 +25,7 @@
         "bautyp": "Abbruch, Neubau MOE Tiefgarage, Neubau MOE Mehrfamilienhaus, Neubau MOE Gemeindehaus",
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3390379",
-        "displayName": "mönchaltorf (BFS center)"
+        "displayName": "Rällikerstrasse 24 8617 Mönchaltorf"
       }
     }
   ]

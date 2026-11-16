@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:42.453Z",
+    "updated": "2026-11-16T09:02:19.042Z",
     "count": 12,
     "successCount": 12,
+    "unmappedCount": 0,
     "gemeinde": "wädenswil",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
@@ -13,8 +14,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.676,
-          47.196
+          8.682968139648438,
+          47.222190856933594
         ]
       },
       "properties": {
@@ -24,7 +25,7 @@
         "bautyp": "Schutzabklärung Inv.-Nr. 469, Genehmigung Schutzvertrag gemäss § 205 PBG",
         "datum": "2026-10-16",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/1830874",
-        "displayName": "wädenswil (BFS center)"
+        "displayName": "Bollerweg 46 8820 Wädenswil"
       }
     },
     {
@@ -32,8 +33,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.676,
-          47.196
+          8.649765968322754,
+          47.21579360961914
         ]
       },
       "properties": {
@@ -43,7 +44,7 @@
         "bautyp": "Schutzabklärung Inv.-Nr. 541, Genehmigung Inventarentlassung",
         "datum": "2026-10-23",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3263576",
-        "displayName": "wädenswil (BFS center)"
+        "displayName": "Gisibach 2.1 8820 Wädenswil"
       }
     },
     {
@@ -51,8 +52,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.676,
-          47.196
+          8.66009521484375,
+          47.21875
         ]
       },
       "properties": {
@@ -62,7 +63,7 @@
         "bautyp": "Schutzabklärung Inv.-Nr. 567, Genehmigung Inventarentlassung",
         "datum": "2026-10-23",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3278295",
-        "displayName": "wädenswil (BFS center)"
+        "displayName": "Bergweg 7 8820 Wädenswil"
       }
     },
     {
@@ -70,8 +71,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.676,
-          47.196
+          8.674558639526367,
+          47.22880554199219
         ]
       },
       "properties": {
@@ -81,7 +82,7 @@
         "bautyp": "Neubau Reklamenanlage bei Gewerbehaus (teilweise beleuchtet) (bereits erstellt) (Im Inventar Denkmalpflege)",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3316961",
-        "displayName": "wädenswil (BFS center)"
+        "displayName": "Seestrasse 105 8820 Wädenswil"
       }
     },
     {
@@ -89,8 +90,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.676,
-          47.196
+          8.663073539733887,
+          47.22818374633789
         ]
       },
       "properties": {
@@ -100,7 +101,7 @@
         "bautyp": "Ersatzneubau Doppeleinfamilienhaus mit 2 Wohneinheiten",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3321768",
-        "displayName": "wädenswil (BFS center)"
+        "displayName": "Friedheimstrasse 14 8820 Wädenswil"
       }
     },
     {
@@ -108,8 +109,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.676,
-          47.196
+          8.661934852600098,
+          47.186920166015625
         ]
       },
       "properties": {
@@ -119,7 +120,7 @@
         "bautyp": "Umgebungsgestaltung bei Wohnhaus, Gartensitzplatz (bereits erstellt)",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3316560",
-        "displayName": "wädenswil (BFS center)"
+        "displayName": "Untere Laubegg 1 8825 Hütten"
       }
     },
     {
@@ -127,8 +128,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.676,
-          47.196
+          8.663817405700684,
+          47.21540069580078
         ]
       },
       "properties": {
@@ -138,7 +139,7 @@
         "bautyp": "Solaranlage auf Satteldach bei Wohngebäude (Im Inventar Denkmalpflege)",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3321913",
-        "displayName": "wädenswil (BFS center)"
+        "displayName": "Untere Bergstrasse 13 8820 Wädenswil"
       }
     },
     {
@@ -146,8 +147,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.676,
-          47.196
+          8.675076484680176,
+          47.22926712036133
         ]
       },
       "properties": {
@@ -157,7 +158,7 @@
         "bautyp": "Umbau Bahnreisezentrums bei Gewerbegebäude (Im Inventar Denkmalpflege)",
         "datum": "2026-11-06",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3350799",
-        "displayName": "wädenswil (BFS center)"
+        "displayName": "Bahnhofstrasse 4 8820 Wädenswil"
       }
     },
     {
@@ -165,8 +166,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.676,
-          47.196
+          8.660675048828125,
+          47.22211837768555
         ]
       },
       "properties": {
@@ -176,7 +177,7 @@
         "bautyp": "Umbau bei Wohnhaus, Dachsanierung, Fensterersatz in Ochsenauge",
         "datum": "2026-11-06",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3350845",
-        "displayName": "wädenswil (BFS center)"
+        "displayName": "Furthof 3 8820 Wädenswil"
       }
     },
     {
@@ -184,8 +185,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.676,
-          47.196
+          8.666312217712402,
+          47.174110412597656
         ]
       },
       "properties": {
@@ -195,7 +196,7 @@
         "bautyp": "Ersatzneubau bei Reservoir, zwei Wasserkammern mit Schieberhaus (Vorentscheid mit Drittverbindlichkeit)",
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3383810",
-        "displayName": "wädenswil (BFS center)"
+        "displayName": "Weg zur Schanz 22.1 8825 Hütten"
       }
     },
     {
@@ -203,8 +204,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.676,
-          47.196
+          8.656827926635742,
+          47.2305908203125
         ]
       },
       "properties": {
@@ -214,7 +215,7 @@
         "bautyp": "Umbau bei Mehrfamilienhaus, Anpassung Aussen- und Fortluft",
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3383964",
-        "displayName": "wädenswil (BFS center)"
+        "displayName": "Am Gulmenbach 11 8820 Wädenswil"
       }
     },
     {
@@ -222,8 +223,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.676,
-          47.196
+          8.677275657653809,
+          47.22215270996094
         ]
       },
       "properties": {
@@ -233,7 +234,7 @@
         "bautyp": "Neubau 2 Labor-Container bei Hochschule",
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3385862",
-        "displayName": "wädenswil (BFS center)"
+        "displayName": "Müller-Thurgau-Strasse 27 8820 Wädenswil"
       }
     }
   ]

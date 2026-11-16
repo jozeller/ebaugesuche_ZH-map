@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:42.392Z",
+    "updated": "2026-11-16T09:02:16.075Z",
     "count": 22,
-    "successCount": 22,
+    "successCount": 21,
+    "unmappedCount": 1,
     "gemeinde": "winterthur",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
@@ -13,8 +14,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.725,
-          47.502
+          8.703903198242188,
+          47.47638702392578
         ]
       },
       "properties": {
@@ -24,7 +25,7 @@
         "bautyp": "Büro Umbau im 6. Obergeschoss (bereits erstellt)",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3305102",
-        "displayName": "winterthur (BFS center)"
+        "displayName": "Zürcherstrasse 322 8406 Winterthur"
       }
     },
     {
@@ -32,8 +33,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.725,
-          47.502
+          8.735969543457031,
+          47.49858093261719
         ]
       },
       "properties": {
@@ -43,7 +44,7 @@
         "bautyp": "Einbau Kleinwohnung im Waschhaus (bereits erstellt)",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3305118",
-        "displayName": "winterthur (BFS center)"
+        "displayName": "Adlerstrasse 8 8400 Winterthur"
       }
     },
     {
@@ -51,8 +52,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.725,
-          47.502
+          8.715394020080566,
+          47.497169494628906
         ]
       },
       "properties": {
@@ -62,7 +63,7 @@
         "bautyp": "Umnutzung Gewerbebereich im Erdgeschoss durch Einbau eines Gastronomiebetriebes (Rojda Pizza&Kebab)",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3305145",
-        "displayName": "winterthur (BFS center)"
+        "displayName": "Zürcherstrasse 32a 8400 Winterthur"
       }
     },
     {
@@ -70,8 +71,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.725,
-          47.502
+          8.758040428161621,
+          47.50165939331055
         ]
       },
       "properties": {
@@ -81,7 +82,7 @@
         "bautyp": "Neubau Lagerplatz",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3305180",
-        "displayName": "winterthur (BFS center)"
+        "displayName": "Sulzerallee 19 8404 Winterthur"
       }
     },
     {
@@ -89,8 +90,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.725,
-          47.502
+          8.764533996582031,
+          47.51658630371094
         ]
       },
       "properties": {
@@ -100,7 +101,7 @@
         "bautyp": "Neubau Einfamilienhaus",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3305219",
-        "displayName": "winterthur (BFS center)"
+        "displayName": "Schoorenstrasse 11 8404 Winterthur"
       }
     },
     {
@@ -108,8 +109,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.725,
-          47.502
+          8.756816864013672,
+          47.48588943481445
         ]
       },
       "properties": {
@@ -119,7 +120,7 @@
         "bautyp": "Heizungssanierung: Ersatz der Gasheizung durch eine Luft/Wasser-Wärmepumpe (aussen aufgestellt)",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3305231",
-        "displayName": "winterthur (BFS center)"
+        "displayName": "Tösstalstrasse 224a 8405 Winterthur"
       }
     },
     {
@@ -127,8 +128,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.725,
-          47.502
+          8.726875305175781,
+          47.50156784057617
         ]
       },
       "properties": {
@@ -138,7 +139,7 @@
         "bautyp": "Umnutzung Gewerberaum in Geschosswohnung",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3327901",
-        "displayName": "winterthur (BFS center)"
+        "displayName": "Theaterstrasse 2 8400 Winterthur"
       }
     },
     {
@@ -146,8 +147,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.725,
-          47.502
+          8.714609146118164,
+          47.50953674316406
         ]
       },
       "properties": {
@@ -157,7 +158,7 @@
         "bautyp": "Ausbau des Estrichs zu zwei 2.5-Zimmer-Wohnungen, Erstellung von je zwei Dachgauben, vier Dachflächenfenstern auf der Ost- und fünf auf der Westseite, einer Zugangstreppe auf der Ostseite und eines Schopfes auf der Westseite",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3328373",
-        "displayName": "winterthur (BFS center)"
+        "displayName": "Ausserdorfstrasse 15 8400 Winterthur"
       }
     },
     {
@@ -165,8 +166,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.725,
-          47.502
+          8.725500106811523,
+          47.5080451965332
         ]
       },
       "properties": {
@@ -176,7 +177,7 @@
         "bautyp": "Heizungssanierung: Ersatz der Gasheizung durch eine Luft/Wasser-Wärmepumpe (aussen aufgestellt) und Velounterstand",
         "datum": "2026-11-06",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3344588",
-        "displayName": "winterthur (BFS center)"
+        "displayName": "Blatterstrasse 5 8400 Winterthur"
       }
     },
     {
@@ -184,8 +185,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.725,
-          47.502
+          8.764918327331543,
+          47.485713958740234
         ]
       },
       "properties": {
@@ -195,7 +196,7 @@
         "bautyp": "Einbau Klimagerät",
         "datum": "2026-11-06",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3344609",
-        "displayName": "winterthur (BFS center)"
+        "displayName": "Kanzleistrasse 36 8405 Winterthur"
       }
     },
     {
@@ -203,8 +204,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.725,
-          47.502
+          8.737550735473633,
+          47.49912643432617
         ]
       },
       "properties": {
@@ -214,7 +215,7 @@
         "bautyp": "Velounterstand",
         "datum": "2026-11-06",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3344627",
-        "displayName": "winterthur (BFS center)"
+        "displayName": "Palmstrasse 21 8400 Winterthur"
       }
     },
     {
@@ -222,8 +223,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.725,
-          47.502
+          8.76681900024414,
+          47.50552749633789
         ]
       },
       "properties": {
@@ -233,7 +234,7 @@
         "bautyp": "Heizungssanierung: Ersatz der durch eine Luft/Wasser-Wärmepumpe (aussen aufgestellt)",
         "datum": "2026-11-06",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3344744",
-        "displayName": "winterthur (BFS center)"
+        "displayName": "Rümikerstrasse 12 8409 Winterthur"
       }
     },
     {
@@ -241,8 +242,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.725,
-          47.502
+          8.784668922424316,
+          47.484554290771484
         ]
       },
       "properties": {
@@ -252,7 +253,7 @@
         "bautyp": "Südseitiges Nebengebäude: Geräteschuppen, Holzlager und Velounterstand",
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3361513",
-        "displayName": "winterthur (BFS center)"
+        "displayName": "Köhlbergstrasse 76 8405 Winterthur"
       }
     },
     {
@@ -260,8 +261,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.725,
-          47.502
+          8.743124961853027,
+          47.5003547668457
         ]
       },
       "properties": {
@@ -271,7 +272,7 @@
         "bautyp": "Ersatzbau der bestehenden Garage",
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3361532",
-        "displayName": "winterthur (BFS center)"
+        "displayName": "Geiselweidstrasse 13.1 8400 Winterthur"
       }
     },
     {
@@ -279,8 +280,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.725,
-          47.502
+          8.723407745361328,
+          47.499412536621094
         ]
       },
       "properties": {
@@ -290,18 +291,12 @@
         "bautyp": "Fassadenänderung mit neuer Fenstereinteilung für Ausgabenfenster, neuer Sonnenschutz",
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3361554",
-        "displayName": "winterthur (BFS center)"
+        "displayName": "Bahnhofplatz 5 8400 Winterthur"
       }
     },
     {
       "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.725,
-          47.502
-        ]
-      },
+      "geometry": null,
       "properties": {
         "nummer": "3361567",
         "adresse": "Guggenbühlstrasse (nördlich Nr. 1) 8404 Winterthur",
@@ -309,7 +304,7 @@
         "bautyp": "EKZ Römertor: 2-geschossiges Container-Provisorium für Drogerie für ca. 15 Monate auf bestehendem Parkplatz",
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3361567",
-        "displayName": "winterthur (BFS center)"
+        "displayName": null
       }
     },
     {
@@ -317,8 +312,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.725,
-          47.502
+          8.692877769470215,
+          47.511070251464844
         ]
       },
       "properties": {
@@ -328,7 +323,7 @@
         "bautyp": "Klimagerät (Splittgerät) - bereits erstellt",
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3361586",
-        "displayName": "winterthur (BFS center)"
+        "displayName": "Riedhofstrasse 11 8408 Winterthur"
       }
     },
     {
@@ -336,8 +331,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.725,
-          47.502
+          8.68289852142334,
+          47.504642486572266
         ]
       },
       "properties": {
@@ -347,7 +342,7 @@
         "bautyp": "Erstellung einer ca. 360 m² grossen Ausstellungsfläche mit zwei Pergola-Ausstellungsmodellen, Bürocontainer sowie den dazugehörigen Parkierungs- und Erschliessungsflächen (bereits erstellt)",
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3361599",
-        "displayName": "winterthur (BFS center)"
+        "displayName": "Wieshofstrasse 115 8408 Winterthur"
       }
     },
     {
@@ -355,8 +350,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.725,
-          47.502
+          8.689594268798828,
+          47.511539459228516
         ]
       },
       "properties": {
@@ -366,7 +361,7 @@
         "bautyp": "Anbau Werk 2",
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3361612",
-        "displayName": "winterthur (BFS center)"
+        "displayName": "Wülflingerstrasse 285 8408 Winterthur"
       }
     },
     {
@@ -374,8 +369,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.725,
-          47.502
+          8.711471557617188,
+          47.4911994934082
         ]
       },
       "properties": {
@@ -385,7 +380,7 @@
         "bautyp": "3 neue Dachaufbauten (1 x Ersatz), 4 Dachflächenfenster (2 x Ersatz), 2 Oberlichter (Treppenhaus), Dämmung best. Dachaufbaute, Haus Nr. 22: Fensterersatz, 1 x Fenstertüre statt Fenster mit 2 Stufen zu Garten, Velounterstand, offener Parkplatz",
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3361639",
-        "displayName": "winterthur (BFS center)"
+        "displayName": "Ankerstrasse 22 8406 Winterthur"
       }
     },
     {
@@ -393,8 +388,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.725,
-          47.502
+          8.758926391601562,
+          47.510807037353516
         ]
       },
       "properties": {
@@ -404,7 +399,7 @@
         "bautyp": "Sanierung Einkaufszentrum Römertor: Reversible Kältemaschinen zum Kühlen und Heizen",
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3361655",
-        "displayName": "winterthur (BFS center)"
+        "displayName": "Guggenbühlstrasse 1 8404 Winterthur"
       }
     },
     {
@@ -412,8 +407,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.725,
-          47.502
+          8.696320533752441,
+          47.48352813720703
         ]
       },
       "properties": {
@@ -423,7 +418,7 @@
         "bautyp": "Anbau gedeckter Sitzplatz",
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3361669",
-        "displayName": "winterthur (BFS center)"
+        "displayName": "Hedy-Hahnloser-Strasse 94 8406 Winterthur"
       }
     }
   ]

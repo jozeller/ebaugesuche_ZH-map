@@ -4,73 +4,7 @@ const path = require('path');
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
 const PORTAL_URL = 'https://portal.ebaugesuche.zh.ch';
-const GEMEINDEN = [
-  'adliswil',
-  'affolternamalbis',
-  'bassersdorf',
-  'brütten',
-  'bubikon',
-  'buchs',
-  'bülach',
-  'dielsdorf',
-  'dietlikon',
-  'dübendorf',
-  'dürnten',
-  'egg',
-  'elgg',
-  'elsau',
-  'fällanden',
-  'glattfelden',
-  'gossau',
-  'greifensee',
-  'hettlingen',
-  'hinwil',
-  'hochfelden',
-  'horgen',
-  'illnau-effretikon',
-  'kilchberg',
-  'küsnacht',
-  'langnauamalbis',
-  'maur',
-  'meilen',
-  'mönchaltorf',
-  'neftenbach',
-  'niederglatt',
-  'oberglatt',
-  'oberrieden',
-  'obfelden',
-  'oetwilanderlimmat',
-  'opfikon',
-  'ossingen',
-  'pfungen',
-  'pfäffikon',
-  'rafz',
-  'regensdorf',
-  'richterswil',
-  'russikon',
-  'rümlang',
-  'schlatt',
-  'seegräben',
-  'stadel',
-  'steinmaur',
-  'stäfa',
-  'thalwil',
-  'turbenthal',
-  'uetikonamsee',
-  'urdorf',
-  'wald',
-  'weiningen',
-  'weisslingen',
-  'wettswilamalbis',
-  'wetzikon',
-  'wila',
-  'winterthur',
-  'wädenswil',
-  'zell',
-  'zollikon',
-  'zumikon',
-  'zürich'
-];
+const GEMEINDEN = require('../data/gemeinden.json').map(({ slug }) => slug);
 
 if (!fs.existsSync(DATA_DIR)) {
   fs.mkdirSync(DATA_DIR, { recursive: true });
@@ -80,8 +14,12 @@ function mapPublication(publication, gemeinde) {
   const municipality = publication.activity?.construction?.commune?.name;
   const street = publication.streetConstruction?.trim();
   const number = publication.streetNumberConstruction?.trim();
+  const zip = /^\d{4}$/.test(String(publication.zipCodeConstruction || ''))
+    ? String(publication.zipCodeConstruction)
+    : '';
+  const city = String(publication.cityConstruction || '').trim().replace(/^0\s+/, '');
   const address = [street, number && !street?.split(/\s+/).includes(number) ? number : null,
-    publication.zipCodeConstruction, publication.cityConstruction]
+    zip, city]
     .filter(Boolean)
     .join(' ');
 

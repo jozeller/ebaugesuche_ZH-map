@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:41.534Z",
+    "updated": "2026-11-16T09:01:57.789Z",
     "count": 1,
     "successCount": 1,
+    "unmappedCount": 0,
     "gemeinde": "ossingen",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
@@ -13,8 +14,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.895,
-          47.565
+          8.73519229888916,
+          47.61542892456055
         ]
       },
       "properties": {
@@ -24,7 +25,7 @@
         "bautyp": "Pergola mit Lamellendach und Ganzglas-Schiebeanlagen",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3324539",
-        "displayName": "ossingen (BFS center)"
+        "displayName": "Löberen 10 8475 Ossingen"
       }
     }
   ]

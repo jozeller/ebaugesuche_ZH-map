@@ -189,12 +189,12 @@
 </head>
 <body>
   <div class="container">
-    <h1>🗺️ Baugesuche Stäfa</h1>
+    <h1>🗺️ Baugesuche Kanton Zürich</h1>
     <p class="subtitle">Interaktive Karte der öffentlichen Baugesuche</p>
 
     <div class="description">
       <p>
-        Diese Anwendung zeigt alle aktuellen Baugesuche der Gemeinde Stäfa auf einer interaktiven Karte.
+        Diese Anwendung zeigt die veröffentlichten Baugesuche der 65 Gemeinden im Portal-Export auf einer interaktiven Karte.
         Die Daten werden täglich automatisch vom Portal ebaugesuche.zh.ch aktualisiert.
       </p>
     </div>
@@ -211,7 +211,7 @@
       </div>
       <div class="feature">
         <h3>📍 Geocoding</h3>
-        <p>Adressen werden automatisch zu Koordinaten konvertiert</p>
+        <p>Nur exakt zugeordnete Adressen erhalten einen Kartenpunkt</p>
       </div>
       <div class="feature">
         <h3>🔄 Täglich aktualisiert</h3>
@@ -234,16 +234,16 @@
     <div class="info">
       <h4>ℹ️ Über diese Karte</h4>
       <p><strong>Datenquelle:</strong> <a href="https://portal.ebaugesuche.zh.ch/" target="_blank" style="color: #1976d2; text-decoration: underline;">portal.ebaugesuche.zh.ch</a></p>
-      <p><strong>Karten-Tiles:</strong> SwissTopo, OpenStreetMap</p>
+      <p><strong>Karten-Tiles:</strong> SwissTopo und OpenStreetMap</p>
       <p><strong>Aktualisierung:</strong> Täglich um 06:00 UTC</p>
-      <p><strong>Technologie:</strong> Mapbox GL, Node.js, Puppeteer, OSM Nominatim</p>
+      <p><strong>Koordinaten:</strong> geo.admin.ch SearchServer</p>
+      <p><strong>Technologie:</strong> Leaflet, Node.js, GitHub Actions</p>
     </div>
 
     <div class="tech-stack">
-      <span class="badge">🗺️ Mapbox GL</span>
+      <span class="badge">🗺️ Leaflet</span>
       <span class="badge">🇨🇭 SwissTopo</span>
-      <span class="badge">🤖 Puppeteer</span>
-      <span class="badge">📍 OSM Nominatim</span>
+      <span class="badge">📍 geo.admin.ch</span>
       <span class="badge">⚙️ Node.js</span>
       <span class="badge">🚀 GitHub Actions</span>
     </div>

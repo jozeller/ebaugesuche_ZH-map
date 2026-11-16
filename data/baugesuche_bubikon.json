@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:40.309Z",
+    "updated": "2026-11-16T09:01:43.415Z",
     "count": 1,
     "successCount": 1,
+    "unmappedCount": 0,
     "gemeinde": "bubikon",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
@@ -13,8 +14,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.906,
-          47.182
+          8.813783645629883,
+          47.260860443115234
         ]
       },
       "properties": {
@@ -24,7 +25,7 @@
         "bautyp": "Erstellen einer Luft-/Wasser-Wärmepumpe beim Gebäude Vers.-Nr. 1338",
         "datum": "2026-11-06",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3344361",
-        "displayName": "bubikon (BFS center)"
+        "displayName": "Widenswil 1 8608 Bubikon"
       }
     }
   ]

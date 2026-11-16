@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:41.669Z",
+    "updated": "2026-11-16T09:01:58.979Z",
     "count": 1,
     "successCount": 1,
+    "unmappedCount": 0,
     "gemeinde": "regensdorf",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
@@ -13,8 +14,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.432,
-          47.456
+          8.470515251159668,
+          47.436561584472656
         ]
       },
       "properties": {
@@ -24,7 +25,7 @@
         "bautyp": "Dachsanierung und Vergrösserung der Dachflächenfenster, Gebäude Vers.-Nr. 735",
         "datum": "2026-11-06",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3332729",
-        "displayName": "regensdorf (BFS center)"
+        "displayName": "Ringstrasse 21 8105 Regensdorf"
       }
     }
   ]

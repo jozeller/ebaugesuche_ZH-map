@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:41.966Z",
+    "updated": "2026-11-16T09:02:04.213Z",
     "count": 6,
     "successCount": 6,
+    "unmappedCount": 0,
     "gemeinde": "stäfa",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
@@ -13,8 +14,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.686,
-          47.248
+          8.718033790588379,
+          47.24762725830078
         ]
       },
       "properties": {
@@ -24,7 +25,7 @@
         "bautyp": "Werkstatt zwischen Haupthaus und Garage (bereits erstellt), Vers.-Nr. 1589, Rainstrasse 67, Kat.-Nr. 5016, 8712 Stäfa",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3302326",
-        "displayName": "stäfa (BFS center)"
+        "displayName": "Rainstrasse 67 8712 Stäfa"
       }
     },
     {
@@ -32,8 +33,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.686,
-          47.248
+          8.732831001281738,
+          47.239013671875
         ]
       },
       "properties": {
@@ -43,7 +44,7 @@
         "bautyp": "Graberweiterung Friedhof, bei Vers.-Nr. 618, Schmittenbachstrasse 10 (Friedhofshalle), Kat.-Nr. 5492, 8712 Stäfa",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3303714",
-        "displayName": "stäfa (BFS center)"
+        "displayName": "Schmittenbachstrasse 10 8712 Stäfa"
       }
     },
     {
@@ -51,8 +52,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.686,
-          47.248
+          8.720964431762695,
+          47.2393798828125
         ]
       },
       "properties": {
@@ -62,7 +63,7 @@
         "bautyp": "Luft-Wasser-Wärmepumpe, Vers.-Nr. 823, Spittelstrasse 16, Kat.-Nr. 139, 8712 Stäfa",
         "datum": "2026-11-06",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3322621",
-        "displayName": "stäfa (BFS center)"
+        "displayName": "Spittelstrasse 16 8712 Stäfa"
       }
     },
     {
@@ -70,8 +71,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.686,
-          47.248
+          8.726666450500488,
+          47.24640655517578
         ]
       },
       "properties": {
@@ -81,7 +82,7 @@
         "bautyp": "Luft-Wasser-Wärmepumpe, Vers.-Nr. 1881, Bergstrasse 89, Kat.-Nr. 5451, 8712 Stäfa",
         "datum": "2026-11-06",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3336593",
-        "displayName": "stäfa (BFS center)"
+        "displayName": "Bergstrasse 89 8712 Stäfa"
       }
     },
     {
@@ -89,8 +90,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.686,
-          47.248
+          8.731061935424805,
+          47.23805236816406
         ]
       },
       "properties": {
@@ -100,7 +101,7 @@
         "bautyp": "Luft-Wasser-Wärmepumpe, Vers.-Nr. 1504 (Inventarobjekt), Kreuzstrasse 45, Kat.-Nr. 746, 8712 Stäfa",
         "datum": "2026-11-06",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3338497",
-        "displayName": "stäfa (BFS center)"
+        "displayName": "Kreuzstrasse 45 8712 Stäfa"
       }
     },
     {
@@ -108,8 +109,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.686,
-          47.248
+          8.75385856628418,
+          47.23799133300781
         ]
       },
       "properties": {
@@ -119,7 +120,7 @@
         "bautyp": "Schulraumprovisorium, Vers.-Nr. NEUBAU, Moritzbergstrasse, Kat.-Nr. 10118, 8713 Uerikon",
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3346602",
-        "displayName": "stäfa (BFS center)"
+        "displayName": "Moritzbergstrasse 45 8713 Uerikon"
       }
     }
   ]

@@ -1,156 +1,47 @@
-# 🗺️ Baugesuche ZH - Interaktive Karte
+# Baugesuche Zürich
 
-Interaktive Karte der öffentlichen Baugesuche des Kantons Zürich, aktuell für Stäfa. Mit SwissTopo-Hintergrund, täglicher automatischer Aktualisierung und Links zu den offiziellen Baugesuch-Details.
+Interaktive Karte öffentlicher Baugesuche aus dem eAuflage-Portal des Kantons
+Zürich. Die Portal-Liste in `data/gemeinden.json` ist die gemeinsame Quelle
+für die aktuell 65 Gemeinden.
 
-**Live Demo:** [ebaugesuche-zh.github.io](https://jozeller.github.io/ebaugesuche_ZH-map)
+Die produktive GitHub-Pages-Seite verwendet [`index.html`](./index.html). Der
+lokale Server (`npm start`) liefert [`frontend/index.html`](./frontend/index.html).
+Beide Karten zeigen das SwissTopo-Luftbild und die vollständige Gemeindeliste;
+Stäfa ist die Startgemeinde.
 
-> 🤖 **Dieses Projekt wurde vollständig von AI (GitHub Copilot) generiert.** Siehe [AI-GENERATED.md](./AI-GENERATED.md) für Details.
+## Daten und Koordinaten
 
-## 🚀 Features
+Der Scraper lädt Veröffentlichungen aus dem offiziellen Portal. Adressen
+werden mit dem geo.admin.ch SearchServer geprüft. Nur Treffer mit passender
+Strasse, Hausnummer und Gemeinde erhalten einen Kartenpunkt. Nicht exakt
+verortbare Fälle bleiben in den Daten und werden ohne falschen Ersatzpunkt
+angezeigt. Details stehen in [GEOCODING.md](./GEOCODING.md).
 
-- **Interaktive Karte** mit Mapbox GL / Leaflet
-- **SwissTopo Kartenhintergrund** für präzise Lokalisierung
-- **Tägliche Aktualisierung** via GitHub Actions
-- **OSM Nominatim Geocoding** - Adressen → Koordinaten
-- **Tooltips & Links** zu Baugesuch-Details
-- **Responsive Design** - Desktop & Mobile
-- **Offline-Ready** - Daten werden gecacht
-
-## 📋 Anforderungen
-
-- Node.js 18+
-- npm
-
-## 🛠️ Installation & Setup
+## Lokal starten
 
 ```bash
-# 1. Repository klonen
-git clone https://github.com/jozeller/ebaugesuche_ZH-map.git
-cd ebaugesuche_ZH-map
-
-# 2. Dependencies installieren
 npm install
-
-# 3. Build starten (scrape + geocode + build)
-npm run build
+npm start
 ```
 
-## 📊 Datenfluss
+Danach `http://localhost:8080` öffnen.
 
-```
-1. Scraper (Portal-API)
-   └─> Lädt /api/public/publications/v1/commune/{gemeinde}
-   └─> Extrakt: Nummer, Adresse, Bautyp, Datum
-
-2. Geocoder (OSM Nominatim)
-   └─> Konvertiert Adressen zu Koordinaten (lon/lat)
-   └─> Prüft, dass das Ergebnis zur Gemeinde gehört
-   └─> Rate-Limited: 1 req/sec
-
-3. Builder
-   └─> Kombiniert Daten
-   └─> Exportiert als GeoJSON
-   └─> Speichert in: data/baugesuche_{gemeinde}.json
-
-4. Frontend (Mapbox GL)
-   └─> Lädt baugesuche_{gemeinde}.json
-   └─> Zeigt Marker auf Karte
-   └─> Tooltips mit Details
-```
-
-## 🔄 Manuelle Aktualisierung
+## Daten aktualisieren und Tests ausführen
 
 ```bash
-# Kompletter Build für alle konfigurierten Gemeinden
-npm run build
-
-# Gezielter Neuaufbau einzelner Gemeinden
-npm run build -- bassersdorf stäfa
-
-# Nur Portal-Daten abrufen
-npm run scrape -- bassersdorf stäfa
-
-# Nur geocoden
-npm run geocode
+npm run update
+npm test
 ```
 
-## 📁 Dateistruktur
+`npm run update` fragt das Portal für alle Gemeinden im Katalog ab und
+aktualisiert die GeoJSON-Dateien. Die GitHub-Actions-Datei führt diesen
+Aktualisierungslauf täglich aus und committet geänderte Datendateien.
 
-```
-ebaugesuche_ZH-map/
-├── frontend/
-│   └── index.html          # Karten-Interface (Mapbox GL)
-├── scripts/
-│   ├── scraper.js          # Offizielle Portal-API abrufen
-│   ├── geocoder.js         # OSM Geocoding
-│   └── build.js            # Orchestrierung
-├── data/
-│   ├── gesuche-raw-{gemeinde}.json    # Ungefilterte Portal-Daten (lokal)
-│   ├── gesuche-geocoded-{gemeinde}.json  # Mit Koordinaten (lokal)
-│   └── baugesuche.json     # GeoJSON (für Frontend)
-├── .github/workflows/
-│   └── daily-update.yml    # GitHub Actions Workflow
-└── package.json
-```
+## Wichtige Dateien
 
-## 🗺️ Frontend
-
-Die Frontend-Seite (`frontend/index.html`) zeigt:
-- **Interaktive Karte** mit SwissTopo-Tiles
-- **Marker** für jedes Baugesuch
-- **Sidebar** mit Details beim Klick
-- **Popup-Tooltips** bei Hover
-- **Links** zu offiziellen Baugesuch-Seiten
-
-### Features:
-- 🔄 Manuelles Refresh der Daten
-- 📍 Geolocation ("Mein Standort")
-- 📱 Responsive auf Mobile
-- ⏰ Zeitstempel der letzten Aktualisierung
-
-## 🔄 Automatische Aktualisierung
-
-GitHub Actions läuft täglich um **06:00 UTC** (08:00 CEST):
-- Scrape, Geocoding, Build
-- Committed Änderungen nach `data/baugesuche.json`
-- Workflow kann manuell getriggert werden
-
-Trigger im `.github/workflows/daily-update.yml`:
-```yaml
-on:
-  schedule:
-    - cron: '0 6 * * *'  # Täglich 06:00 UTC
-  workflow_dispatch:     # Manuell triggerbar
-```
-
-## 🌍 Multi-Gemeinde Support (Zukunft)
-
-Aktuell nur Stäfa, aber erweiterbar auf:
-- Alle ZH Gemeinden
-- Konfigurierbar via URL-Parameter
-
-## 🔐 API Keys
-
-- **Mapbox GL**: Optional (kostenlos bis zu einem Limit)
-- **OSM Nominatim**: Kostenlos (rate-limited, ~1 req/sec)
-- **SwissTopo**: Kostenlos (Bildkacheln)
-
-## 📝 Lizenz
-
-MIT
-
-## 🤝 Beitragen
-
-Gerne PRs für:
-- Weitere Gemeinden
-- Bessere Geocoding-Strategie
-- UI/UX Verbesserungen
-- Performance-Optimierungen
-
-## 📧 Kontakt
-
-Issues & Requests via GitHub Issues
-
----
-
-**Hinweis**: Dieses Projekt scrape Daten vom offiziellen Portal `ebaugesuche.zh.ch` - respektiert deren ToS und rate limits.
+- `data/gemeinden.json`: Portal-Gemeindekatalog mit Slugs und Anzeigenamen
+- `data/baugesuche_<slug>.json`: Veröffentlichungen je Gemeinde
+- `data/baugesuche.json`: zusätzliche Startdatei für Stäfa
+- `scripts/scraper.js`, `scripts/geocoder.js`: Portalimport und Adressprüfung
+- `scripts/build-optimized.js`: gemeinsamer Datenaufbau
+- `index.html`, `frontend/index.html`: produktive und lokale Kartenansicht

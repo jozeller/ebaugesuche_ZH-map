@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:40.279Z",
+    "updated": "2026-11-16T09:01:43.376Z",
     "count": 1,
     "successCount": 1,
+    "unmappedCount": 0,
     "gemeinde": "brütten",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
@@ -13,8 +14,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.385,
-          47.538
+          8.673727989196777,
+          47.47334289550781
         ]
       },
       "properties": {
@@ -24,7 +25,7 @@
         "bautyp": "Fassaden- und Dachsanierung (inkl. Indach-PV-Analge), Strehlgasse 4 + 6",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3323478",
-        "displayName": "brütten (BFS center)"
+        "displayName": "Strehlgasse 4 8311 Brütten"
       }
     }
   ]

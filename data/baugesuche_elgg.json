@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:40.575Z",
+    "updated": "2026-11-16T09:01:46.583Z",
     "count": 6,
     "successCount": 6,
+    "unmappedCount": 0,
     "gemeinde": "elgg",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
@@ -13,8 +14,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.87,
-          47.385
+          8.83549690246582,
+          47.48438262939453
         ]
       },
       "properties": {
@@ -24,7 +25,7 @@
         "bautyp": "s33/26, Müller, PV Anlage Aufdach",
         "datum": "2026-10-29",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3307423",
-        "displayName": "elgg (BFS center)"
+        "displayName": "Wenzikon 19 8354 Hofstetten ZH"
       }
     },
     {
@@ -32,8 +33,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.87,
-          47.385
+          8.864114761352539,
+          47.49088668823242
         ]
       },
       "properties": {
@@ -43,7 +44,7 @@
         "bautyp": "s35/26, Fricker, PV-Anlage Aufdach",
         "datum": "2026-10-29",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3307497",
-        "displayName": "elgg (BFS center)"
+        "displayName": "Haldenstrasse 6 8353 Elgg"
       }
     },
     {
@@ -51,8 +52,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.87,
-          47.385
+          8.864803314208984,
+          47.50218200683594
         ]
       },
       "properties": {
@@ -62,7 +63,7 @@
         "bautyp": "58/26, Gföhler, Gartenumgestaltung mit Bio-Pool",
         "datum": "2026-11-05",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3339966",
-        "displayName": "elgg (BFS center)"
+        "displayName": "Hertenstrasse 12c 8353 Elgg"
       }
     },
     {
@@ -70,8 +71,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.87,
-          47.385
+          8.885663986206055,
+          47.45880126953125
         ]
       },
       "properties": {
@@ -81,7 +82,7 @@
         "bautyp": "69/26, Zwicky, Umgebungsarbeiten",
         "datum": "2026-11-05",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3339977",
-        "displayName": "elgg (BFS center)"
+        "displayName": "Huggenberg 40 8354 Hofstetten ZH"
       }
     },
     {
@@ -89,8 +90,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.87,
-          47.385
+          8.83200740814209,
+          47.49611282348633
         ]
       },
       "properties": {
@@ -100,7 +101,7 @@
         "bautyp": "wta29/26, Krenger, Klimaanlage",
         "datum": "2026-11-05",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3339990",
-        "displayName": "elgg (BFS center)"
+        "displayName": "Dorfstrasse 18 8354 Dickbuch"
       }
     },
     {
@@ -108,8 +109,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.87,
-          47.385
+          8.854279518127441,
+          47.473541259765625
         ]
       },
       "properties": {
@@ -119,7 +120,7 @@
         "bautyp": "46/26, Gurtner, Fassadenänderung durch Einbau Fenstertüre",
         "datum": "2026-11-07",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3354291",
-        "displayName": "elgg (BFS center)"
+        "displayName": "Alpstrasse 6 8354 Hofstetten ZH"
       }
     }
   ]

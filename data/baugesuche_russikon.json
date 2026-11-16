@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:41.740Z",
+    "updated": "2026-11-16T09:02:00.633Z",
     "count": 3,
     "successCount": 3,
+    "unmappedCount": 0,
     "gemeinde": "russikon",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
@@ -13,8 +14,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.868,
-          47.368
+          8.769491195678711,
+          47.39961624145508
         ]
       },
       "properties": {
@@ -24,7 +25,7 @@
         "bautyp": "Umbau Einfamilienhaus (Vorentscheid mit Drittverbindlichkeit)",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3304095",
-        "displayName": "russikon (BFS center)"
+        "displayName": "Im Hundbüel 1 8332 Russikon"
       }
     },
     {
@@ -32,8 +33,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.868,
-          47.368
+          8.775227546691895,
+          47.39921569824219
         ]
       },
       "properties": {
@@ -43,7 +44,7 @@
         "bautyp": "Beheizung Naturpool",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3332558",
-        "displayName": "russikon (BFS center)"
+        "displayName": "Wettsteinstrasse 61a 8332 Russikon"
       }
     },
     {
@@ -51,8 +52,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.868,
-          47.368
+          8.762746810913086,
+          47.40614700317383
         ]
       },
       "properties": {
@@ -62,7 +63,7 @@
         "bautyp": "Erstellung von Parkplätzen sowie Stützmauer beim Gebäude Vers.-Nr. 750",
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3373828",
-        "displayName": "russikon (BFS center)"
+        "displayName": "Stuketenstrasse 11 8332 Rumlikon"
       }
     }
   ]

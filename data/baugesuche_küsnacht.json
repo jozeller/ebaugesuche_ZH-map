@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:41.103Z",
+    "updated": "2026-11-16T09:01:52.577Z",
     "count": 3,
     "successCount": 3,
+    "unmappedCount": 0,
     "gemeinde": "küsnacht",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
@@ -13,8 +14,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.595,
-          47.335
+          8.580467224121094,
+          47.31865310668945
         ]
       },
       "properties": {
@@ -24,7 +25,7 @@
         "bautyp": "Bahnhofstrasse 2a / Aufstockung und Ersatzneubau Wohn- und Geschäftshaus",
         "datum": "2026-10-29",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3288395",
-        "displayName": "küsnacht (BFS center)"
+        "displayName": "Bahnhofstrasse 2a 8700 Küsnacht ZH"
       }
     },
     {
@@ -32,8 +33,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.595,
-          47.335
+          8.578274726867676,
+          47.32587432861328
         ]
       },
       "properties": {
@@ -43,7 +44,7 @@
         "bautyp": "Zürichstrasse 81 und 83 / Energetische Sanierung und Vergrösserung der Balkone",
         "datum": "2026-10-29",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3288558",
-        "displayName": "küsnacht (BFS center)"
+        "displayName": "Zürichstrasse 81 8700 Küsnacht ZH"
       }
     },
     {
@@ -51,8 +52,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.595,
-          47.335
+          8.589648246765137,
+          47.31918716430664
         ]
       },
       "properties": {
@@ -62,7 +63,7 @@
         "bautyp": "Schützenweg 2 / Abbruch Vers.-Nr. 1835",
         "datum": "2026-11-12",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3350030",
-        "displayName": "küsnacht (BFS center)"
+        "displayName": "Schützenweg 2 8700 Küsnacht ZH"
       }
     }
   ]

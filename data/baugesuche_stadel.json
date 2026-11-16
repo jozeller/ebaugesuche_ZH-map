@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:41.897Z",
+    "updated": "2026-11-16T09:02:02.839Z",
     "count": 1,
     "successCount": 1,
+    "unmappedCount": 0,
     "gemeinde": "stadel",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
@@ -13,8 +14,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.42,
-          47.622
+          8.46565055847168,
+          47.53712844848633
         ]
       },
       "properties": {
@@ -24,7 +25,7 @@
         "bautyp": "Installation einer Klimaanlage",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3314764",
-        "displayName": "stadel (BFS center)"
+        "displayName": "Weierstrasse 12 8175 Windlach"
       }
     }
   ]

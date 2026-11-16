@@ -1,22 +1,17 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:41.867Z",
+    "updated": "2026-11-16T09:02:02.804Z",
     "count": 5,
-    "successCount": 5,
+    "successCount": 3,
+    "unmappedCount": 2,
     "gemeinde": "seegräben",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
       "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.87,
-          47.358
-        ]
-      },
+      "geometry": null,
       "properties": {
         "nummer": "3314781",
         "adresse": "Hinter Weid 8607 Aathal-Seegräben",
@@ -24,7 +19,7 @@
         "bautyp": "Einzäunung Obstanlage",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3314781",
-        "displayName": "seegräben (BFS center)"
+        "displayName": null
       }
     },
     {
@@ -32,8 +27,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.87,
-          47.358
+          8.769098281860352,
+          47.33518981933594
         ]
       },
       "properties": {
@@ -43,7 +38,7 @@
         "bautyp": "Arealversorgung Aathal",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3315390",
-        "displayName": "seegräben (BFS center)"
+        "displayName": "Zürichstrasse 19 8607 Aathal-Seegräben"
       }
     },
     {
@@ -51,8 +46,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.87,
-          47.358
+          8.763684272766113,
+          47.34440612792969
         ]
       },
       "properties": {
@@ -62,7 +57,7 @@
         "bautyp": "Neubau Remise",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3325134",
-        "displayName": "seegräben (BFS center)"
+        "displayName": "Usterstrasse 33 8607 Aathal-Seegräben"
       }
     },
     {
@@ -70,8 +65,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.87,
-          47.358
+          8.77532958984375,
+          47.334266662597656
         ]
       },
       "properties": {
@@ -81,18 +76,12 @@
         "bautyp": "Aretshaldenstrasse 53, 8607 Seegräben, Rohner, PVA",
         "datum": "2026-11-03",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3330928",
-        "displayName": "seegräben (BFS center)"
+        "displayName": "Aretshaldenstrasse 53 8607 Aathal-Seegräben"
       }
     },
     {
       "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.87,
-          47.358
-        ]
-      },
+      "geometry": null,
       "properties": {
         "nummer": "3357599",
         "adresse": "Gstalderstrasse 8607 Aathal-Seegräben",
@@ -100,7 +89,7 @@
         "bautyp": "Neubau PVA, Gstalderstrasse 59, 8607 Aathal-Seegräben",
         "datum": "2026-11-05",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3357599",
-        "displayName": "seegräben (BFS center)"
+        "displayName": null
       }
     }
   ]

@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:41.404Z",
+    "updated": "2026-11-16T09:01:56.613Z",
     "count": 3,
     "successCount": 3,
+    "unmappedCount": 0,
     "gemeinde": "oberrieden",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
@@ -13,8 +14,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.68,
-          47.216
+          8.572138786315918,
+          47.27589797973633
         ]
       },
       "properties": {
@@ -24,7 +25,7 @@
         "bautyp": "Ersatzneubau eines Mehfamilienhauses",
         "datum": "2026-10-29",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3321557",
-        "displayName": "oberrieden (BFS center)"
+        "displayName": "Im Huebacher 3 8942 Oberrieden"
       }
     },
     {
@@ -32,8 +33,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.68,
-          47.216
+          8.57766056060791,
+          47.27237319946289
         ]
       },
       "properties": {
@@ -43,7 +44,7 @@
         "bautyp": "850 Fassadensanierung Doppelwohnhaus Bleierstrasse 30, 8942 Oberrieden",
         "datum": "2026-11-02",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3323355",
-        "displayName": "oberrieden (BFS center)"
+        "displayName": "Bleierstrasse 30 8942 Oberrieden"
       }
     },
     {
@@ -51,8 +52,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.68,
-          47.216
+          8.577628135681152,
+          47.279808044433594
         ]
       },
       "properties": {
@@ -62,7 +63,7 @@
         "bautyp": "Ersatzneubau von zwei Mehrfamilienhäuser",
         "datum": "2026-11-10",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3364702",
-        "displayName": "oberrieden (BFS center)"
+        "displayName": "Fachstrasse 12 8942 Oberrieden"
       }
     }
   ]

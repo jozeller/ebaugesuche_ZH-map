@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:41.441Z",
+    "updated": "2026-11-16T09:01:57.427Z",
     "count": 3,
-    "successCount": 3,
+    "successCount": 2,
+    "unmappedCount": 1,
     "gemeinde": "obfelden",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
@@ -13,8 +14,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.438,
-          47.278
+          8.422866821289062,
+          47.25953674316406
         ]
       },
       "properties": {
@@ -24,18 +25,12 @@
         "bautyp": "Ersatz des bestehenden Planschbeckens in CNS inkl. Beckenverrohrung beim Freibad Obfelden, Vers.-Nr. 1575",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3317004",
-        "displayName": "obfelden (BFS center)"
+        "displayName": "Wolserstrasse 71b 8912 Obfelden"
       }
     },
     {
       "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.438,
-          47.278
-        ]
-      },
+      "geometry": null,
       "properties": {
         "nummer": "3367037",
         "adresse": "Wolserbach 8912 Obfelden",
@@ -43,7 +38,7 @@
         "bautyp": "Ersatzneubau des bestehenden Bachdurchlasses 010-011 (Wolserbach), Dorfstrasse",
         "datum": "2026-11-03",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3367037",
-        "displayName": "obfelden (BFS center)"
+        "displayName": null
       }
     },
     {
@@ -51,8 +46,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.438,
-          47.278
+          8.431428909301758,
+          47.25985336303711
         ]
       },
       "properties": {
@@ -62,7 +57,7 @@
         "bautyp": "Um- und Anbau EFH, Vers.-Nr. 349, Kat.-Nr. 1644, Ankenrain 2, W1/26",
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3371289",
-        "displayName": "obfelden (BFS center)"
+        "displayName": "Ankenrain 2 8912 Obfelden"
       }
     }
   ]

@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:41.569Z",
+    "updated": "2026-11-16T09:01:58.087Z",
     "count": 2,
     "successCount": 2,
+    "unmappedCount": 0,
     "gemeinde": "pfungen",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
@@ -13,8 +14,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.78,
-          47.585
+          8.651712417602539,
+          47.517642974853516
         ]
       },
       "properties": {
@@ -24,7 +25,7 @@
         "bautyp": "Neubau Coop Tankstelle mit Shop",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3320285",
-        "displayName": "pfungen (BFS center)"
+        "displayName": "Dammstrasse 6.1 8422 Pfungen"
       }
     },
     {
@@ -32,8 +33,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.78,
-          47.585
+          8.644719123840332,
+          47.51057052612305
         ]
       },
       "properties": {
@@ -43,7 +44,7 @@
         "bautyp": "Neubau 2 Terrassenhäuser und vier Reiheneinfamilienhäuser sowie Tiefgarage",
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3389703",
-        "displayName": "pfungen (BFS center)"
+        "displayName": "Spöristrasse 1.1 8422 Pfungen"
       }
     }
   ]

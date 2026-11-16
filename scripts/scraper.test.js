@@ -37,6 +37,19 @@ test('does not duplicate a house number already included in the portal street', 
   assert.equal(result.adresse, 'Rainstrasse 67 8712 Stäfa');
 });
 
+test('omits invalid zero postal codes from geocoding addresses', () => {
+  const result = mapPublication({
+    id: 3356137,
+    activity: { construction: { commune: { name: 'Wetzikon (ZH)' } } },
+    streetConstruction: 'Guyer-Zeller-Strasse',
+    streetNumberConstruction: '2',
+    zipCodeConstruction: '0',
+    cityConstruction: '0 Unterwetzikon'
+  }, 'wetzikon');
+
+  assert.equal(result.adresse, 'Guyer-Zeller-Strasse 2 Unterwetzikon');
+});
+
 test('rejects portal records without municipality identity', () => {
   assert.throws(() => mapPublication({
     id: 1,

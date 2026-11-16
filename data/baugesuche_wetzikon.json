@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:42.279Z",
+    "updated": "2026-11-16T09:02:10.006Z",
     "count": 3,
     "successCount": 3,
+    "unmappedCount": 0,
     "gemeinde": "wetzikon",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
@@ -13,8 +14,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.828,
-          47.322
+          8.840483665466309,
+          47.3322868347168
         ]
       },
       "properties": {
@@ -24,7 +25,7 @@
         "bautyp": "Sanierung Quellen Chämptnerwald - 2. Etappe",
         "datum": "2026-10-30",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3326946",
-        "displayName": "wetzikon (BFS center)"
+        "displayName": "Tösstalstrasse 189 8623 Wetzikon ZH"
       }
     },
     {
@@ -32,8 +33,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.828,
-          47.322
+          8.77198314666748,
+          47.32851028442383
         ]
       },
       "properties": {
@@ -43,7 +44,7 @@
         "bautyp": "Abbruch Gebäude Vers.-Nrn. 2823, 4886, 3595, 1145 Schönenwerdstrasse 60, 60.1, 70.1 und 70.2 und Neubau von 5 Reiheneinfamilienhäusern mit 14 Wohneinheiten (b. Natur- und Landschaftsschutzobjekt 7.19)",
         "datum": "2026-11-06",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/2209375",
-        "displayName": "wetzikon (BFS center)"
+        "displayName": "Schönenwerdstrasse 60 8620 Wetzikon ZH"
       }
     },
     {
@@ -51,18 +52,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.828,
-          47.322
+          8.794098854064941,
+          47.31477355957031
         ]
       },
       "properties": {
         "nummer": "3356137",
-        "adresse": "Guyer-Zeller-Strasse 2 0 Unterwetzikon",
+        "adresse": "Guyer-Zeller-Strasse 2 Unterwetzikon",
         "gemeinde": "Wetzikon (ZH)",
         "bautyp": "Neubau Wohn- und Geschäftshaus mit Tiefgarage sowie Umbau und Aufstockung Fabrikgebäude Vers. Nr. 1626, Seidenhof Wetzikon, Kat. Nr. 10750, Guyer-Zeller-Strasse 2/4/6/8 (Denkmalschutzobjekt u. b. Natur- u. Landschaftsinventar)",
         "datum": "2026-11-06",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3356137",
-        "displayName": "wetzikon (BFS center)"
+        "displayName": "Guyer-Zeller-Strasse 2 8620 Wetzikon ZH"
       }
     }
   ]

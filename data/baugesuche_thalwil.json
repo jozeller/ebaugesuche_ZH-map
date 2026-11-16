@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:42.002Z",
+    "updated": "2026-11-16T09:02:04.771Z",
     "count": 3,
     "successCount": 3,
+    "unmappedCount": 0,
     "gemeinde": "thalwil",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
@@ -13,8 +14,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.592,
-          47.266
+          8.553861618041992,
+          47.292144775390625
         ]
       },
       "properties": {
@@ -24,7 +25,7 @@
         "bautyp": "BE 2026.177 Umbau auf UFC und Erweiterung Sammelstelle",
         "datum": "2026-11-06",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3346075",
-        "displayName": "thalwil (BFS center)"
+        "displayName": "Säumerstrasse 35 8800 Thalwil"
       }
     },
     {
@@ -32,8 +33,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.592,
-          47.266
+          8.560306549072266,
+          47.301143646240234
         ]
       },
       "properties": {
@@ -43,7 +44,7 @@
         "bautyp": "BE 2026.184 Erstellung Photovoltaikanlage (GP Marbach)",
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3378311",
-        "displayName": "thalwil (BFS center)"
+        "displayName": "Im Marbach 24 8800 Thalwil"
       }
     },
     {
@@ -51,8 +52,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.592,
-          47.266
+          8.555282592773438,
+          47.30078125
         ]
       },
       "properties": {
@@ -62,7 +63,7 @@
         "bautyp": "BE 2025.136-02 Innere Umbauten EFH, Erstellung Aussengeländer, Dachflächenfenster, Chromstahlkamin über Dach und PV-Anlage (Projektänderung Wintergarten)",
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3379487",
-        "displayName": "thalwil (BFS center)"
+        "displayName": "Alpenstrasse 43 8800 Thalwil"
       }
     }
   ]

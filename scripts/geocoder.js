@@ -1,164 +1,216 @@
 const fetch = require('node-fetch');
 const fs = require('fs');
 const path = require('path');
-const { getCoordinates } = require('./gemeinden-coordinator');
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
-const NOMINATIM_URL = 'https://nominatim.openstreetmap.org/search';
-const DELAY_MS = 2000; // Rate limit: increased to 2 seconds to avoid 429 errors
+const SEARCH_URL = 'https://api3.geo.admin.ch/rest/services/api/SearchServer';
+const MUNICIPALITIES = require('../data/gemeinden.json');
+const MUNICIPALITIES_BY_SLUG = new Map(
+  MUNICIPALITIES.map(municipality => [municipality.slug, municipality])
+);
+const REQUEST_DELAY_MS = 250;
 
-async function delay(ms) {
+function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function normalizePlace(place) {
-  return place
+function normalize(value) {
+  return value
+    .toLowerCase()
+    .replace(/ä/g, 'ae')
+    .replace(/ö/g, 'oe')
+    .replace(/ü/g, 'ue')
+    .replace(/ß/g, 'ss')
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
-    .toLowerCase()
     .replace(/[^a-z0-9]/g, '');
 }
 
-async function geocodeAddress(address, gemeinde = 'Stäfa') {
-  try {
-    const searchString = `${address}, ${gemeinde}, Zürich, Switzerland`;
-    
-    const params = new URLSearchParams({
-      q: searchString,
-      format: 'json',
-      addressdetails: '1',
-      limit: 1,
-      countrycodes: 'ch'
-    });
+function selectExactAddress(results, address, gemeinde) {
+  const municipality = MUNICIPALITIES_BY_SLUG.get(gemeinde);
+  if (!municipality) return null;
 
-    const response = await fetch(`${NOMINATIM_URL}?${params}`, {
-      headers: {
-        'User-Agent': 'ebaugesuche-zh-map'
-      }
-    });
+  const zipMatch = address.match(/\b([1-9]\d{3})\b/);
+  const addressPrefix = (zipMatch ? address.slice(0, zipMatch.index) : address)
+    .replace(/^\s*(bei|nahe)\s+/i, '')
+    .replace(/\s*\([^)]*\)\s*/g, ' ')
+    .trim();
+  const streetMatch = addressPrefix.match(/^(.+?)\s+(\d+(?:\.\d+)?[a-z]?)(?:\s|[+/,;-]|$)/i);
+  const expectedStreet = normalize(streetMatch ? streetMatch[1] : addressPrefix);
+  const expectedNumber = streetMatch ? normalize(streetMatch[2]) : null;
+  const expectedZip = zipMatch?.[1];
+  const expectedMunicipality = normalize(municipality.name);
 
-    if (!response.ok) {
-      console.error(`  ❌ OSM API error: ${response.status}`);
-      return null;
+  const exactMatches = results.filter(result => {
+    const attrs = result.attrs || {};
+    const rawDetail = String(attrs.detail || '').replace(/<[^>]*>/g, '');
+    const detailZipMatch = rawDetail.match(/\b([1-9]\d{3})\b/);
+    const candidateAddress = (detailZipMatch
+      ? rawDetail.slice(0, detailZipMatch.index)
+      : rawDetail).trim();
+    const detail = normalize(rawDetail);
+    if (attrs.origin !== 'address'
+      || !detail.startsWith(expectedStreet)
+      || !detail.includes(expectedMunicipality)) {
+      return false;
     }
 
-    const results = await response.json();
-
-    if (results.length === 0) {
-      console.log(`  ⚠️  No results for: ${searchString}`);
-      return null;
+    const candidateMatch = candidateAddress.match(/^(.+?)\s+(\d+(?:\.\d+)?[a-z]?)$/i);
+    if (expectedNumber) {
+      return candidateMatch
+        && normalize(candidateMatch[1]) === expectedStreet
+        && normalize(candidateMatch[2]) === expectedNumber;
     }
 
-    const result = results[0];
-    const placeNames = Object.values(result.address || {})
-      .filter(value => typeof value === 'string')
-      .map(normalizePlace);
-    if (!placeNames.includes(normalizePlace(gemeinde))) {
-      console.error(`  ❌ Geocoding result is outside ${gemeinde}: ${result.display_name}`);
-      return null;
-    }
+    return normalize(candidateAddress) === expectedStreet;
+  });
 
-    const lat = Number(result.lat);
-    const lon = Number(result.lon);
-    if (!Number.isFinite(lat) || !Number.isFinite(lon)) {
-      console.error(`  ❌ Invalid coordinates for: ${searchString}`);
-      return null;
-    }
-
-    return {
-      lat,
-      lon,
-      displayName: result.display_name
-    };
-
-  } catch (error) {
-    console.error(`  ❌ Geocoding error for "${address}":`, error.message);
-    return null;
-  }
+  return exactMatches.find(result => expectedZip && normalize(result.attrs.detail).includes(expectedZip))
+    || exactMatches[0]
+    || null;
 }
 
-async function geocodeGesuche(gemeinde = 'stäfa') {
+function buildSearchQueries(address, municipality) {
+  const zipMatch = address.match(/\b([1-9]\d{3})\b/);
+  const prefix = (zipMatch ? address.slice(0, zipMatch.index) : address)
+    .replace(/^\s*(bei|nahe)\s+/i, '')
+    .replace(/\s*\([^)]*\)\s*/g, ' ')
+    .trim();
+  const suffix = zipMatch
+    ? `${zipMatch[1]} ${address.slice(zipMatch.index + zipMatch[0].length).trim()}`
+    : municipality.name;
+  const queries = [address, `${prefix} ${suffix}`];
+  const placeParts = prefix.split(/\s*\/\s*/).map(part => part.trim()).filter(Boolean);
+
+  for (const part of placeParts) {
+    const correctedSpelling = part.replace(/([a-z])\1{2,}/gi, '$1$1');
+    const streetMatch = correctedSpelling.match(/^(.+?)\s+(\d+(?:\.\d+)?[a-z]?)(?:\s|[+/,;-]|$)/i);
+    if (!streetMatch) {
+      queries.push(`${correctedSpelling} ${suffix}`.trim());
+      continue;
+    }
+
+    const street = streetMatch[1];
+    const numbers = [...correctedSpelling.slice(street.length).matchAll(/\b(\d+(?:\.\d+)?[a-z]?)\b/gi)]
+      .map(match => match[1]);
+    for (const number of new Set(numbers)) {
+      queries.push(`${street} ${number} ${suffix}`.trim());
+    }
+  }
+
+  return [...new Set(queries)];
+}
+
+async function geocodeAddress(address, gemeinde) {
+  const municipality = MUNICIPALITIES_BY_SLUG.get(gemeinde);
+  if (!municipality) {
+    throw new Error(`Unknown municipality: ${gemeinde}`);
+  }
+
+  for (const query of buildSearchQueries(address, municipality)) {
+    const params = new URLSearchParams({
+      searchText: query,
+      type: 'locations',
+      origins: 'address',
+      limit: '10'
+    });
+
+    for (let attempt = 1; attempt <= 4; attempt++) {
+      const response = await fetch(`${SEARCH_URL}?${params}`, {
+        headers: {
+          Accept: 'application/json',
+          'User-Agent': 'ebaugesuche-zh-map/1.1'
+        },
+        timeout: 15000
+      });
+
+      if (response.status === 429 || response.status >= 500) {
+        if (attempt === 4) {
+          throw new Error(`SwissTopo geocoder returned HTTP ${response.status}`);
+        }
+        await delay(attempt * 1000);
+        continue;
+      }
+
+      if (response.status === 400) {
+        console.warn(`  ⚠️ SwissTopo rejected the address query: ${query}`);
+        break;
+      }
+
+      if (!response.ok) {
+        throw new Error(`SwissTopo geocoder returned HTTP ${response.status}`);
+      }
+
+      const data = await response.json();
+      if (!Array.isArray(data.results)) {
+        throw new Error('SwissTopo geocoder returned an invalid response');
+      }
+
+      const match = selectExactAddress(data.results, query, gemeinde);
+      if (match) {
+        const lat = Number(match.attrs.lat);
+        const lon = Number(match.attrs.lon);
+        if (!Number.isFinite(lat) || !Number.isFinite(lon)) {
+          throw new Error(`SwissTopo geocoder returned invalid coordinates for "${address}"`);
+        }
+
+        return {
+          lat,
+          lon,
+          displayName: String(match.attrs.label).replace(/<[^>]*>/g, '')
+        };
+      }
+      break;
+    }
+
+    await delay(REQUEST_DELAY_MS);
+  }
+
+  return null;
+}
+
+async function geocodeGesuche(gemeinde) {
   const inputFile = path.join(DATA_DIR, `gesuche-raw-${gemeinde}.json`);
-  
   if (!fs.existsSync(inputFile)) {
-    console.error(`❌ File not found: ${inputFile}`);
-    console.log('   Run "npm run scrape" first');
-    process.exit(1);
+    throw new Error(`File not found: ${inputFile}. Run the scraper first.`);
   }
 
-  console.log('🔍 Loading Baugesuche from:', inputFile);
-  const gesuche = JSON.parse(fs.readFileSync(inputFile, 'utf-8'));
-
-  console.log(`📍 Geocoding ${gesuche.length} addresses...\n`);
-
-  // Get fallback coordinates from BFS
-  const fallbackCoords = getCoordinates(gemeinde);
-
+  const gesuche = JSON.parse(fs.readFileSync(inputFile, 'utf8'));
   const geocoded = [];
-  let retryCount = 0;
-  const maxRetries = 3;
 
+  console.log(`📍 Checking ${gesuche.length} addresses for ${gemeinde}...`);
   for (let i = 0; i < gesuche.length; i++) {
-    const g = gesuche[i];
-    console.log(`[${i + 1}/${gesuche.length}] ${g.adresse || 'N/A'}`);
+    const gesuch = gesuche[i];
+    const coords = await geocodeAddress(gesuch.adresse, gemeinde);
+    geocoded.push({
+      ...gesuch,
+      lat: coords?.lat ?? null,
+      lon: coords?.lon ?? null,
+      displayName: coords?.displayName ?? null
+    });
 
-    let coords = await geocodeAddress(g.adresse, g.gemeinde || gemeinde);
-
-    // If geocoding fails and we have retries left, try again
-    if (!coords && retryCount < maxRetries) {
-      console.log(`  ⚠️  Retrying (${retryCount + 1}/${maxRetries})...`);
-      retryCount++;
-      await delay(3000); // longer delay before retry
-      coords = await geocodeAddress(g.adresse, g.gemeinde || gemeinde);
-      if (coords) retryCount = 0; // reset on success
+    if (!coords) {
+      console.warn(`  ⚠️ No exact address match: ${gesuch.adresse}`);
     }
-
-    // Fallback to BFS coordinates if Nominatim fails
-    if (!coords && fallbackCoords) {
-      console.log(`  📍 Using BFS fallback coordinates for ${gemeinde}`);
-      coords = {
-        lat: fallbackCoords[0],
-        lon: fallbackCoords[1],
-        displayName: `${gemeinde} (BFS center)`
-      };
-    }
-
-    if (coords) {
-      geocoded.push({
-        ...g,
-        lat: coords.lat,
-        lon: coords.lon,
-        displayName: coords.displayName
-      });
-    } else {
-      geocoded.push({
-        ...g,
-        lat: null,
-        lon: null,
-        displayName: null
-      });
-    }
-
-    // Rate limiting
-    if (i < gesuche.length - 1) {
-      await delay(DELAY_MS);
-    }
+    if (i < gesuche.length - 1) await delay(REQUEST_DELAY_MS);
   }
 
-  // Save geocoded data
   const outputPath = path.join(DATA_DIR, `gesuche-geocoded-${gemeinde}.json`);
   fs.writeFileSync(outputPath, JSON.stringify(geocoded, null, 2));
-
-  const successCount = geocoded.filter(g => g.lat !== null).length;
-  console.log(`\n✅ Geocoding complete for ${gemeinde}`);
-  console.log(`   ✓ Successfully geocoded: ${successCount}/${gesuche.length}`);
-  console.log(`   📁 Saved to: ${outputPath}`);
-
+  console.log(`✅ Exact address matches: ${geocoded.filter(g => g.lat !== null).length}/${gesuche.length}`);
   return geocoded;
 }
 
 if (require.main === module) {
-  geocodeGesuche();
+  geocodeGesuche(process.argv[2] || 'stäfa').catch(error => {
+    console.error('❌ Geocoding failed:', error.message);
+    process.exitCode = 1;
+  });
 }
 
-module.exports = { geocodeGesuche, geocodeAddress };
+module.exports = {
+  geocodeGesuche,
+  geocodeAddress,
+  selectExactAddress,
+  buildSearchQueries
+};

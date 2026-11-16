@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:40.467Z",
+    "updated": "2026-11-16T09:01:44.128Z",
     "count": 1,
     "successCount": 1,
+    "unmappedCount": 0,
     "gemeinde": "dübendorf",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
@@ -13,8 +14,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.627,
-          47.418
+          8.618728637695312,
+          47.400962829589844
         ]
       },
       "properties": {
@@ -24,7 +25,7 @@
         "bautyp": "Nutzungsänderung zweier Räume im EG zu Büro",
         "datum": "2026-11-06",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3341321",
-        "displayName": "dübendorf (BFS center)"
+        "displayName": "Grundstrasse 22 8600 Dübendorf"
       }
     }
   ]

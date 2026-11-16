@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:41.503Z",
+    "updated": "2026-11-16T09:01:57.752Z",
     "count": 1,
     "successCount": 1,
+    "unmappedCount": 0,
     "gemeinde": "opfikon",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
@@ -13,8 +14,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.585,
-          47.405
+          8.57144832611084,
+          47.43675994873047
         ]
       },
       "properties": {
@@ -24,7 +25,7 @@
         "bautyp": "Neubau Tesla Ladestation inklusive Trafostation",
         "datum": "2026-11-12",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3379534",
-        "displayName": "opfikon (BFS center)"
+        "displayName": "Hohenbühlstrasse 10.1 8152 Opfikon"
       }
     }
   ]

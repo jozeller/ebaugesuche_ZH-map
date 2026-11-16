@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-16T08:42:40.172Z",
+    "updated": "2026-11-16T09:01:42.455Z",
     "count": 10,
     "successCount": 10,
+    "unmappedCount": 0,
     "gemeinde": "adliswil",
     "source": "https://portal.ebaugesuche.zh.ch/",
-    "geocodingMethod": "BFS Municipality Center"
+    "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
     {
@@ -13,8 +14,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.515,
-          47.248
+          8.533037185668945,
+          47.313167572021484
         ]
       },
       "properties": {
@@ -24,7 +25,7 @@
         "bautyp": "Wohnüberbauung am Chräbsbach",
         "datum": "2026-10-26",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3213731",
-        "displayName": "adliswil (BFS center)"
+        "displayName": "Badstrasse 2 8134 Adliswil"
       }
     },
     {
@@ -32,8 +33,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.515,
-          47.248
+          8.521541595458984,
+          47.30946350097656
         ]
       },
       "properties": {
@@ -43,7 +44,7 @@
         "bautyp": "Ersatzneubau Säntisstrasse 18 8134 Adliswil",
         "datum": "2026-10-29",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3296290",
-        "displayName": "adliswil (BFS center)"
+        "displayName": "Säntisstrasse 18 8134 Adliswil"
       }
     },
     {
@@ -51,8 +52,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.515,
-          47.248
+          8.517979621887207,
+          47.31254196166992
         ]
       },
       "properties": {
@@ -62,7 +63,7 @@
         "bautyp": "Nachträglicher Einbau einer Split-Klimaanlage (1. OG) mit verdeckter Aufstellung des Außengeräts",
         "datum": "2026-10-29",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3317875",
-        "displayName": "adliswil (BFS center)"
+        "displayName": "Hofernweg 18 8134 Adliswil"
       }
     },
     {
@@ -70,8 +71,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.515,
-          47.248
+          8.523588180541992,
+          47.31610107421875
         ]
       },
       "properties": {
@@ -81,7 +82,7 @@
         "bautyp": "Sanierung und Anpassungen MFH Austrasse 29, 31",
         "datum": "2026-10-29",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3318055",
-        "displayName": "adliswil (BFS center)"
+        "displayName": "Austrasse 29 8134 Adliswil"
       }
     },
     {
@@ -89,8 +90,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.515,
-          47.248
+          8.525420188903809,
+          47.31235885620117
         ]
       },
       "properties": {
@@ -100,7 +101,7 @@
         "bautyp": "Albisstrasse 2 und 4",
         "datum": "2026-10-29",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3318147",
-        "displayName": "adliswil (BFS center)"
+        "displayName": "Albisstrasse 2 8134 Adliswil"
       }
     },
     {
@@ -108,8 +109,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.515,
-          47.248
+          8.521562576293945,
+          47.31296157836914
         ]
       },
       "properties": {
@@ -119,7 +120,7 @@
         "bautyp": "Multisplit Klimaanlage zur Kühlung Einfamilienhaus",
         "datum": "2026-11-04",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3337709",
-        "displayName": "adliswil (BFS center)"
+        "displayName": "Rellstenstrasse 9 8134 Adliswil"
       }
     },
     {
@@ -127,8 +128,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.515,
-          47.248
+          8.525369644165039,
+          47.30265808105469
         ]
       },
       "properties": {
@@ -138,7 +139,7 @@
         "bautyp": "REFH, Sihlaustrasse 13, 8134 Adliswil, LWWP",
         "datum": "2026-11-06",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3357393",
-        "displayName": "adliswil (BFS center)"
+        "displayName": "Sihlaustrasse 13 8134 Adliswil"
       }
     },
     {
@@ -146,8 +147,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.515,
-          47.248
+          8.518401145935059,
+          47.31144714355469
         ]
       },
       "properties": {
@@ -157,7 +158,7 @@
         "bautyp": "Umbau Doppelhaushälfte, Hofernweg 20, 8134 Adliswil ZH",
         "datum": "2026-11-10",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3357443",
-        "displayName": "adliswil (BFS center)"
+        "displayName": "Hofernweg 20 8134 Adliswil"
       }
     },
     {
@@ -165,8 +166,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.515,
-          47.248
+          8.530609130859375,
+          47.31672286987305
         ]
       },
       "properties": {
@@ -176,7 +177,7 @@
         "bautyp": "Umgestaltung Garten",
         "datum": "2026-11-09",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3362364",
-        "displayName": "adliswil (BFS center)"
+        "displayName": "Lebernstrasse 29 8134 Adliswil"
       }
     },
     {
@@ -184,8 +185,8 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.515,
-          47.248
+          8.523209571838379,
+          47.31842041015625
         ]
       },
       "properties": {
@@ -195,7 +196,7 @@
         "bautyp": "Gewerbebau Soodstrasse 53+55 Adliswil, Umplatzierung Entsorgung",
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3369240",
-        "displayName": "adliswil (BFS center)"
+        "displayName": "Soodstrasse 53 8134 Adliswil"
       }
     }
   ]
