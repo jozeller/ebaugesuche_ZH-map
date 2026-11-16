@@ -38,7 +38,8 @@
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(8px);
       border-bottom: 1px solid #e0e0e0;
-      padding: 14px 20px;
+      padding: 4px 20px;
+      min-height: 56px;
       z-index: 15;
       display: flex;
       justify-content: space-between;
@@ -68,9 +69,70 @@
       color: #222;
     }
 
+    .unlocated-summary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      min-width: 44px;
+      height: 44px;
+      color: #b45309;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 700;
+      list-style: none;
+    }
+
+    .unlocated-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .unlocated-icon {
+      display: grid;
+      place-items: center;
+      width: 23px;
+      height: 23px;
+      border-radius: 50%;
+      background: #e87500;
+      color: white;
+      font-size: 17px;
+    }
+
+    .unlocated-panel {
+      position: absolute;
+      top: 100%;
+      right: 12px;
+      width: min(320px, calc(100vw - 24px));
+      max-height: min(60vh, 500px);
+      max-height: min(60dvh, 500px);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      padding: 14px;
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      font-size: 13px;
+    }
+
+    .unlocated-panel h2 {
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .unlocated-panel a {
+      display: inline-block;
+      margin: 4px 0 12px;
+      color: #9a4600;
+    }
+
     #map .maplibregl-ctrl-top-left {
-      top: 64px;
+      top: 60px;
       left: 12px;
+    }
+
+    #map .maplibregl-ctrl-top-right {
+      top: 60px;
     }
 
     /* Controls */
@@ -142,6 +204,22 @@
       font-size: 14px;
       color: #222;
       font-weight: 700;
+    }
+
+    .sidebar-close {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      width: 44px;
+      height: 44px;
+      border: 0;
+      background: transparent;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .sidebar .meta {
+      padding-right: 44px;
     }
 
     .sidebar-content {
@@ -339,7 +417,7 @@
 
     @media (max-width: 768px) {
       .header {
-        padding: 12px 16px;
+        padding: 4px 12px;
       }
 
       .header-title {
@@ -347,23 +425,47 @@
       }
 
       .header-links {
-        gap: 12px;
+        gap: 8px;
       }
 
       .controls {
-        bottom: max(12px, env(safe-area-inset-bottom));
-        right: 12px;
-        width: min(240px, calc(100vw - 24px));
+        top: 64px;
+        bottom: auto;
+        left: 60px;
+        right: 8px;
+        width: auto;
+        min-width: 0;
+        flex-direction: row;
+        gap: 8px;
+        padding: 8px;
+      }
+
+      .control-group {
+        flex: 1;
         min-width: 0;
       }
 
+      .control-group select {
+        width: 100%;
+        min-height: 44px;
+        font-size: 16px;
+      }
+
+      #map .maplibregl-ctrl-top-left {
+        top: 60px;
+        left: 0;
+      }
+
+      #map .maplibregl-ctrl-top-right {
+        top: 145px;
+      }
+
       .sidebar {
-        top: 64px;
-        right: 12px;
-        bottom: calc(184px + env(safe-area-inset-bottom));
-        max-height: none;
+        top: 145px;
+        right: 55px;
+        max-height: 35vh;
+        max-height: 35dvh;
         max-width: calc(100vw - 24px);
-        overscroll-behavior: contain;
       }
     }
   </style>
@@ -374,17 +476,22 @@
   <div class="header">
     <div class="header-title">Baugesuche ZH</div>
     <div class="header-links">
+      <details id="unlocated-notices">
+        <summary class="unlocated-summary" aria-label="Gesuche ohne exakte Adresskoordinate">
+          <span class="unlocated-icon" aria-hidden="true">!</span>
+          <span id="unlocated-count">0</span>
+        </summary>
+        <div class="unlocated-panel">
+          <h2 id="unlocated-heading">Gesuche ohne exakte Adresskoordinate</h2>
+          <div id="unlocated-list"></div>
+        </div>
+      </details>
       <a href="https://github.com/jozeller/ebaugesuche_ZH-map" target="_blank">GitHub</a>
       <a href="https://portal.ebaugesuche.zh.ch/" target="_blank">Portal</a>
     </div>
   </div>
 
-  <div id="sidebar" class="sidebar">
-    <div class="meta">
-      <strong>-</strong>
-      <div class="timestamp">Lädt...</div>
-    </div>
-  </div>
+  <div id="sidebar" class="sidebar"></div>
 
   <div class="controls">
     <div class="control-group">
@@ -417,6 +524,7 @@
     let gemeinden = [];
     let currentGemeinde = 'stäfa';
     let currentLayer = 'swissimage';
+    let loadSequence = 0;
 
     const mapLayers = {
       'pixelkarte': {
@@ -529,6 +637,7 @@
     }
 
     async function loadGesuche() {
+      const request = ++loadSequence;
       try {
         showLoading(true);
 
@@ -542,6 +651,7 @@
           }
           return response.json();
         }));
+        if (request !== loadSequence) return;
         const features = datasets.flatMap(data => data.features || []);
         const latestUpdate = datasets
           .map(data => data.metadata.updated)
@@ -565,11 +675,7 @@
           addMarker(feature);
         });
 
-        const formattedUpdated = new Date(gesuche.metadata.updated).toLocaleString('de-CH');
-        const locatedCount = features.filter(feature => feature.geometry).length;
-        const meta = document.querySelector('.meta');
-        const scope = currentGemeinde === 'alle' ? ' in allen Gemeinden' : '';
-        meta.innerHTML = `<strong>${gesuche.metadata.count} Gesuche${scope}</strong><div class="timestamp">${locatedCount} exakt verortet${locatedCount < gesuche.metadata.count ? ` · ${gesuche.metadata.count - locatedCount} ohne exakte Adresse` : ''}<br>Aktualisiert: ${formattedUpdated}</div>`;
+        document.getElementById('sidebar').style.display = 'none';
         showUnlocatedCases(features.filter(feature => !feature.geometry));
 
         const located = features.filter(feature => feature.geometry?.type === 'Point');
@@ -583,6 +689,7 @@
 
         showLoading(false);
       } catch (error) {
+        if (request !== loadSequence) return;
         console.error('Fehler:', error);
         showLoading(false);
         showError(`Fehler beim Laden: ${error.message}`);
@@ -618,24 +725,24 @@
     }
 
     function showUnlocatedCases(features) {
-      const sidebar = document.getElementById('sidebar');
+      const notices = document.getElementById('unlocated-notices');
+      const count = document.getElementById('unlocated-count');
+      const heading = document.getElementById('unlocated-heading');
+      const list = document.getElementById('unlocated-list');
+      notices.open = false;
+      count.textContent = features.length;
+      notices.querySelector('summary').setAttribute(
+        'aria-label', `${features.length} Gesuche ohne exakte Adresskoordinate`
+      );
+      heading.textContent = `${features.length} Gesuche ohne exakte Adresskoordinate`;
+      list.replaceChildren();
+
       if (features.length === 0) {
-        sidebar.style.display = 'none';
+        list.textContent = 'Keine Gesuche ohne exakte Adresskoordinate.';
         return;
       }
 
-      sidebar.replaceChildren();
-      const heading = document.createElement('strong');
-      heading.textContent = `${features.length} Gesuche ohne exakte Adresskoordinate`;
-      const meta = document.createElement('div');
-      meta.className = 'meta';
-      meta.appendChild(heading);
-      sidebar.appendChild(meta);
-
-      const list = document.createElement('div');
-      list.className = 'sidebar-content';
-      list.style.display = 'flex';
-      features.slice(0, 20).forEach(feature => {
+      features.forEach(feature => {
         const row = document.createElement('div');
         row.className = 'sidebar-row';
         const address = document.createElement('span');
@@ -648,13 +755,6 @@
         row.append(address, link);
         list.appendChild(row);
       });
-      if (features.length > 20) {
-        const more = document.createElement('span');
-        more.textContent = `und ${features.length - 20} weitere`;
-        list.appendChild(more);
-      }
-      sidebar.appendChild(list);
-      sidebar.style.display = 'block';
     }
 
     function showSidebar(feature) {
@@ -662,6 +762,7 @@
       const sidebar = document.getElementById('sidebar');
       
       sidebar.innerHTML = `
+        <button type="button" class="sidebar-close" aria-label="Details schliessen">×</button>
         <div class="meta">
           <strong>${props.nummer}</strong>
           <div class="timestamp">Geladene Details</div>
@@ -688,6 +789,9 @@
       `;
       
       sidebar.style.display = 'block';
+      sidebar.querySelector('.sidebar-close').addEventListener('click', () => {
+        sidebar.style.display = 'none';
+      });
 
       map.flyTo({
         center: feature.geometry.coordinates,

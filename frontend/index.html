@@ -27,6 +27,7 @@
     }
 
     .header {
+      position: relative;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
       padding: 15px 20px;
@@ -96,7 +97,60 @@
     .info-text {
       font-size: 0.9em;
       opacity: 0.95;
-      white-space: nowrap;
+    }
+
+    .unlocated-summary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      min-width: 44px;
+      height: 44px;
+      cursor: pointer;
+      font-weight: 700;
+      list-style: none;
+    }
+
+    .unlocated-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .unlocated-icon {
+      display: grid;
+      place-items: center;
+      width: 23px;
+      height: 23px;
+      border-radius: 50%;
+      background: #e87500;
+      color: white;
+    }
+
+    .unlocated-panel {
+      position: absolute;
+      top: 100%;
+      right: 12px;
+      width: min(320px, calc(100vw - 24px));
+      max-height: min(60vh, 500px);
+      max-height: min(60dvh, 500px);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      padding: 14px;
+      background: white;
+      color: #333;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      font-size: 13px;
+    }
+
+    .unlocated-panel h2 {
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .unlocated-panel a {
+      display: inline-block;
+      margin: 4px 0 12px;
+      color: #9a4600;
     }
 
     .map-container {
@@ -217,30 +271,35 @@
 
     @media (max-width: 768px) {
       .header-content {
-        flex-direction: column;
-        align-items: stretch;
+        gap: 8px;
       }
 
       .controls {
-        flex-direction: column;
-        gap: 10px;
+        gap: 8px;
+        flex: 1;
       }
 
       .control-group {
-        flex-direction: column;
+        flex: 1;
+        min-width: 0;
       }
 
       select {
         width: 100%;
+        min-width: 0;
+        min-height: 44px;
+      }
+
+      .info-text {
+        flex-basis: 100%;
       }
 
       .sidebar {
-        max-width: calc(100% - 20px);
-        max-height: 300px;
+        display: none;
       }
 
       .header h1 {
-        font-size: 1.4em;
+        font-size: 1.1em;
       }
     }
   </style>
@@ -251,6 +310,16 @@
       <div class="header-content">
         <h1>🗺️ Baugesuche ZH</h1>
         <div class="controls">
+          <details id="unlocated-notices">
+            <summary class="unlocated-summary" aria-label="Gesuche ohne exakte Adresskoordinate">
+              <span class="unlocated-icon" aria-hidden="true">!</span>
+              <span id="unlocated-count">0</span>
+            </summary>
+            <div class="unlocated-panel">
+              <h2 id="unlocated-heading">Gesuche ohne exakte Adresskoordinate</h2>
+              <div id="unlocated-list"></div>
+            </div>
+          </details>
           <div class="control-group">
             <label for="gemeinde-select">Gemeinde:</label>
             <select id="gemeinde-select">
@@ -280,6 +349,7 @@
     let currentMarkers = [];
     let currentData = null;
     let osmLayer, aerialLayer, layerControl;
+    let loadSequence = 0;
 
     // Initialize map
     function initMap() {
@@ -330,6 +400,7 @@
 
     // Load data for selected Gemeinde
     async function loadGemeinde(gemeinde) {
+      const request = ++loadSequence;
       const infoText = document.getElementById('info-text');
       const sidebarContent = document.getElementById('sidebar-content');
 
@@ -344,6 +415,7 @@
           }
           return response.json();
         }));
+        if (request !== loadSequence) return;
         const features = datasets.flatMap(data => data.features || []);
         currentData = {
           metadata: {
@@ -411,7 +483,8 @@
         infoText.textContent = `${currentData.metadata.count} Baugesuche in ${scope} (${successCount} exakt verortet)`;
 
         // Update sidebar
-        renderSidebar(features);
+        renderSidebar(features.filter(feature => feature.geometry?.type === 'Point'));
+        showUnlocatedCases(features.filter(feature => !feature.geometry));
 
         // Fit map to bounds if there are features
         const locatedFeatures = features.filter(feature => feature.geometry?.type === 'Point');
@@ -423,10 +496,42 @@
         }
 
       } catch (error) {
+        if (request !== loadSequence) return;
         console.error('Error loading Gemeinde:', error);
         infoText.textContent = `Fehler beim Laden: ${error.message}`;
         sidebarContent.innerHTML = `<div class="empty-state">Keine Daten verfügbar</div>`;
       }
+    }
+
+    function showUnlocatedCases(features) {
+      const notices = document.getElementById('unlocated-notices');
+      const list = document.getElementById('unlocated-list');
+      notices.open = false;
+      document.getElementById('unlocated-count').textContent = features.length;
+      notices.querySelector('summary').setAttribute(
+        'aria-label', `${features.length} Gesuche ohne exakte Adresskoordinate`
+      );
+      document.getElementById('unlocated-heading').textContent =
+        `${features.length} Gesuche ohne exakte Adresskoordinate`;
+      list.replaceChildren();
+
+      if (features.length === 0) {
+        list.textContent = 'Keine Gesuche ohne exakte Adresskoordinate.';
+        return;
+      }
+
+      features.forEach(feature => {
+        const row = document.createElement('div');
+        const address = document.createElement('div');
+        address.textContent = feature.properties.adresse;
+        const link = document.createElement('a');
+        link.href = feature.properties.detailUrl;
+        link.target = '_blank';
+        link.rel = 'noopener';
+        link.textContent = '→ Zum Baugesuch';
+        row.append(address, link);
+        list.appendChild(row);
+      });
     }
 
     // Render sidebar content

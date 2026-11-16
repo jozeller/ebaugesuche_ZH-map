@@ -94,3 +94,55 @@ test('local map starts with the aerial layer', () => {
   assert.equal(addedLayers.length, 1);
   assert.equal(addedLayers[0].options.layers, 'ch.swisstopo.swissimage');
 });
+
+for (const file of ['index.html', 'frontend/index.html']) {
+  test(`${file}: unlocated cases stay in the closed header notice`, () => {
+    const { html, script } = pageScript(file);
+    const elements = new Map();
+    const summary = { setAttribute(name, value) { this[name] = value; } };
+    const makeElement = () => ({
+      children: [],
+      textContent: '',
+      replaceChildren() { this.children = []; this.textContent = ''; },
+      append(...children) { this.children.push(...children); },
+      appendChild(child) { this.children.push(child); }
+    });
+    const notices = { open: true, querySelector() { return summary; } };
+    elements.set('unlocated-notices', notices);
+    for (const id of ['unlocated-count', 'unlocated-heading', 'unlocated-list']) {
+      elements.set(id, makeElement());
+    }
+    const context = vm.createContext({
+      window: { addEventListener() {} },
+      document: {
+        getElementById(id) { return elements.get(id) || makeElement(); },
+        createElement() { return makeElement(); }
+      }
+    });
+    // The local page attaches its select listener as the script loads.
+    const getElementById = context.document.getElementById;
+    context.document.getElementById = id => {
+      if (id === 'gemeinde-select') return { addEventListener() {} };
+      return getElementById(id);
+    };
+    vm.runInContext(script, context);
+
+    assert.match(html, /<details id="unlocated-notices">/);
+    const features = Array.from({ length: 25 }, (_, i) => ({
+      properties: { adresse: `Adresse ${i}`, detailUrl: `https://example.com/${i}` }
+    }));
+    context.showUnlocatedCases(features);
+    assert.equal(notices.open, false);
+    assert.equal(elements.get('unlocated-count').textContent, 25);
+    assert.equal(summary['aria-label'], '25 Gesuche ohne exakte Adresskoordinate');
+    assert.equal(elements.get('unlocated-list').children.length, 25);
+    assert.equal(elements.get('unlocated-list').children[0].children[0].textContent, 'Adresse 0');
+
+    notices.open = true;
+    context.showUnlocatedCases([]);
+    assert.equal(notices.open, false);
+    assert.equal(elements.get('unlocated-count').textContent, 0);
+    assert.equal(elements.get('unlocated-list').children.length, 0);
+    assert.match(elements.get('unlocated-list').textContent, /Keine Gesuche/);
+  });
+}

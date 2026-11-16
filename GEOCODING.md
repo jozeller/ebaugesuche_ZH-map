@@ -13,7 +13,8 @@ as substitutes for missing address coordinates.
 If no exact address result is available, the record remains in the GeoJSON with
 `geometry: null`. The map does not place a misleading marker; the record is
 shown in the unlocated-address list instead. GeoJSON point coordinates are
-stored in `[longitude, latitude]` order.
+stored in `[longitude, latitude]` order. Open the orange exclamation mark in
+the map header to view the list; it is closed by default.
 
 Rebuild all portal data with:
 
