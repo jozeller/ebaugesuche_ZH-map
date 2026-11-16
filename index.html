@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Baugesuche ZH - Interaktive Karte</title>
+  <title>Baugesuche ZH - Karte</title>
   
-  <!-- MapLibre GL (Free, Open Source, no token needed) -->
   <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
   <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
   
@@ -17,9 +16,9 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #fafafa;
-      color: #1a1a1a;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: #fff;
+      color: #222;
     }
 
     #map {
@@ -36,26 +35,25 @@
       top: 0;
       left: 0;
       right: 0;
-      background: linear-gradient(90deg, rgba(255,255,255,0.98) 0%, rgba(255,255,255,0.95) 100%);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-      padding: 12px 20px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #e0e0e0;
+      padding: 14px 20px;
       z-index: 15;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      backdrop-filter: blur(10px);
     }
 
     .header-title {
-      font-size: 18px;
-      font-weight: 700;
-      color: #1a1a1a;
-      letter-spacing: -0.5px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #222;
     }
 
     .header-links {
       display: flex;
-      gap: 12px;
+      gap: 16px;
       align-items: center;
     }
 
@@ -63,90 +61,122 @@
       color: #666;
       text-decoration: none;
       font-size: 13px;
-      font-weight: 500;
-      padding: 6px 12px;
-      border-radius: 6px;
-      transition: all 0.2s;
+      transition: color 0.2s;
     }
 
     .header-links a:hover {
-      background: rgba(0, 0, 0, 0.05);
-      color: #1a1a1a;
+      color: #222;
     }
 
-    /* Adjust map and sidebar for header */
-    #map {
-      padding-top: 50px;
+    /* Controls */
+    .controls {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 14px;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-width: 220px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     }
 
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .control-group label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #222;
+    }
+
+    .control-group select {
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 13px;
+      background: white;
+      cursor: pointer;
+      color: #222;
+    }
+
+    .control-group select:focus {
+      outline: none;
+      border-color: #222;
+      box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Sidebar */
     .sidebar {
       position: absolute;
       top: 70px;
-      right: 12px;
+      right: 16px;
       background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-      padding: 16px;
-      max-width: 360px;
+      border-radius: 8px;
+      border: 1px solid #e0e0e0;
+      padding: 14px;
+      max-width: 320px;
       z-index: 10;
       max-height: calc(100vh - 100px);
       overflow-y: auto;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      display: none;
     }
 
     .sidebar h3 {
       margin-bottom: 12px;
-      font-size: 15px;
-      color: #1a1a1a;
+      font-size: 14px;
+      color: #222;
       font-weight: 700;
     }
 
-    .sidebar p {
-      font-size: 12px;
+    .sidebar-content {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .sidebar-row {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .sidebar-row strong {
+      color: #222;
+      font-weight: 600;
+    }
+
+    .sidebar-row span {
       color: #666;
-      margin: 5px 0;
-      line-height: 1.4;
-    }
-
-    .sidebar .meta {
-      background: #f0f0f0;
-      padding: 8px;
-      border-radius: 4px;
-      margin-bottom: 10px;
-      font-size: 11px;
-    }
-
-    .sidebar .meta strong {
-      display: block;
-      color: #333;
-    }
-
-    .sidebar .meta .timestamp {
-      color: #999;
-      font-size: 10px;
-      margin-top: 3px;
     }
 
     .sidebar a {
-      color: #0066cc;
+      display: inline-block;
+      color: white;
+      background: #222;
       text-decoration: none;
-      word-break: break-word;
+      padding: 8px 12px;
+      border-radius: 4px;
+      margin-top: 8px;
+      font-weight: 600;
+      font-size: 13px;
+      transition: background 0.2s;
     }
 
     .sidebar a:hover {
-      text-decoration: underline;
+      background: #000;
     }
 
-    .sidebar .bautyp {
-      display: inline-block;
-      background: #e3f2fd;
-      color: #1976d2;
-      padding: 2px 6px;
-      border-radius: 3px;
-      font-size: 11px;
-      margin: 5px 0;
-    }
-
-    /* Modern Popup Styling */
+    /* Popup */
     .mapboxgl-popup {
       z-index: 20;
     }
@@ -155,336 +185,209 @@
       display: none;
     }
 
-    .popup-content {
-      margin: 0;
-      padding: 0;
-    }
-
     .mapboxgl-popup-content {
-      background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
-      border-radius: 12px;
-      padding: 16px;
+      background: white;
+      border-radius: 8px;
+      padding: 14px;
       max-width: 280px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      border: 1px solid #e0e0e0;
       font-family: inherit;
     }
 
     .mapboxgl-popup-tip {
-      border-top-color: #ffffff;
+      border-top-color: white;
     }
 
     .mapboxgl-popup-content h4 {
-      margin: 0 0 12px 0;
-      font-size: 16px;
+      margin: 0 0 10px 0;
+      font-size: 15px;
       font-weight: 700;
-      color: #1a1a2e;
-      letter-spacing: -0.5px;
+      color: #222;
     }
 
     .popup-address {
       font-size: 13px;
-      color: #555;
-      margin-bottom: 10px;
+      color: #666;
+      margin-bottom: 8px;
       font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .popup-address::before {
-      content: "📍";
-      font-size: 14px;
     }
 
     .popup-gemeinde {
       display: inline-block;
-      background: #2563eb;
-      color: white;
-      padding: 4px 10px;
-      border-radius: 6px;
+      background: #f0f0f0;
+      color: #222;
+      padding: 3px 8px;
+      border-radius: 3px;
       font-size: 11px;
       font-weight: 600;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .popup-info-row {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      margin: 8px 0;
-      font-size: 12px;
-      color: #666;
-    }
-
-    .popup-info-row strong {
-      color: #333;
-      min-width: 60px;
-      font-weight: 600;
+      margin-bottom: 8px;
     }
 
     .popup-bautyp {
       display: inline-block;
-      background: #f59e0b;
-      color: white;
-      padding: 3px 8px;
-      border-radius: 4px;
+      background: #f0f0f0;
+      color: #222;
+      padding: 2px 6px;
+      border-radius: 3px;
       font-size: 11px;
       font-weight: 600;
-      margin-right: 5px;
+      margin: 6px 0;
     }
 
     .popup-datum {
       font-size: 11px;
       color: #999;
-      margin-top: 10px;
+      margin: 6px 0;
     }
 
     .mapboxgl-popup-content a {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+      display: inline-block;
       color: white;
-      background: #2563eb;
+      background: #222;
       text-decoration: none;
-      padding: 10px 14px;
-      border-radius: 6px;
-      margin-top: 12px;
+      padding: 8px 12px;
+      border-radius: 4px;
+      margin-top: 10px;
       font-weight: 600;
       font-size: 13px;
-      transition: all 0.2s ease;
+      transition: background 0.2s;
       border: none;
       cursor: pointer;
     }
 
     .mapboxgl-popup-content a:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-      background: #1d4ed8;
+      background: #000;
     }
 
-    .mapboxgl-popup-content a:active {
-      transform: translateY(0);
-    }
-
+    /* Marker */
     .marker {
-      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='11' fill='%232563eb' stroke='white' stroke-width='2'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='10' fill='%23222' stroke='white' stroke-width='2'/%3E%3C/svg%3E");
       background-size: contain;
       width: 32px;
       height: 32px;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: transform 0.2s;
     }
 
     .marker:hover {
-      transform: scale(1.2);
+      transform: scale(1.15);
     }
 
-    .controls {
-      position: absolute;
-      bottom: 20px;
-      right: 12px;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-      padding: 12px;
-      z-index: 10;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      max-width: 320px;
-    }
-
-    .gemeinde-selector {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .gemeinde-selector label {
-      font-size: 12px;
-      font-weight: 700;
-      color: #1a1a1a;
-    }
-
-    .gemeinde-selector select {
-      padding: 8px 12px;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      font-size: 13px;
-      background: white;
-      cursor: pointer;
-      transition: all 0.2s;
-      color: #1a1a1a;
-    }
-
-    .gemeinde-selector select:hover {
-      border-color: #2563eb;
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-    }
-
-    .gemeinde-selector select:focus {
-      outline: none;
-      border-color: #2563eb;
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-    }
-
-    .layer-selector {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      border-top: 1px solid #eee;
-      padding-top: 10px;
-    }
-
-    .layer-selector label {
-      font-size: 12px;
-      font-weight: 700;
-      color: #1a1a1a;
-    }
-
-    .layer-selector select {
-      padding: 8px 12px;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      font-size: 13px;
-      background: white;
-      cursor: pointer;
-      transition: all 0.2s;
-      color: #1a1a1a;
-    }
-
-    .layer-selector select:hover {
-      border-color: #2563eb;
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-    }
-
-    .layer-selector select:focus {
-      outline: none;
-      border-color: #2563eb;
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-    }
-
-    .controls button {
-      background: #2563eb;
-      color: white;
-      border: none;
-      padding: 10px 14px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 13px;
-      font-weight: 600;
-      transition: all 0.2s;
-    }
-
-    .controls button:hover {
-      background: #1d4ed8;
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-      transform: translateY(-1px);
-    }
-
-    .controls button:active {
-      background: #1e40af;
-      transform: translateY(0);
-    }
-
+    /* Loading */
     .loading {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       background: white;
-      padding: 20px 40px;
+      padding: 24px;
       border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
       z-index: 20;
+      text-align: center;
+      display: none;
     }
 
     .loading-spinner {
-      width: 30px;
-      height: 30px;
-      border: 3px solid #f3f3f3;
-      border-top: 3px solid #1976d2;
+      width: 32px;
+      height: 32px;
+      border: 2px solid #f0f0f0;
+      border-top: 2px solid #222;
       border-radius: 50%;
-      animation: spin 1s linear infinite;
-      margin: 10px auto;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 12px;
     }
 
     @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+      to { transform: rotate(360deg); }
     }
 
+    /* Error */
     .error {
       position: absolute;
-      top: 20px;
+      top: 70px;
       left: 50%;
       transform: translateX(-50%);
-      background: #ffebee;
-      color: #c62828;
-      padding: 15px 20px;
+      background: #fef2f2;
+      color: #991b1b;
+      padding: 12px 16px;
       border-radius: 4px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      border: 1px solid #fecaca;
       z-index: 20;
       max-width: 500px;
+      font-size: 13px;
+      display: none;
     }
 
-    .error button {
-      background: #c62828;
-      color: white;
-      border: none;
-      padding: 5px 10px;
-      border-radius: 3px;
-      cursor: pointer;
+    /* Meta */
+    .meta {
+      background: #f9f9f9;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #e0e0e0;
+      margin-bottom: 12px;
       font-size: 12px;
-      margin-left: 10px;
+    }
+
+    .meta strong {
+      display: block;
+      color: #222;
+      margin-bottom: 4px;
+    }
+
+    .meta .timestamp {
+      color: #666;
+      font-size: 11px;
     }
 
     @media (max-width: 768px) {
-      .sidebar {
-        max-width: 90vw;
-        right: 5px;
+      .header {
+        padding: 12px 16px;
+      }
+
+      .header-title {
+        font-size: 14px;
+      }
+
+      .header-links {
+        gap: 12px;
       }
 
       .controls {
-        bottom: 10px;
-        right: 10px;
+        bottom: 12px;
+        right: 12px;
+        min-width: 200px;
+      }
+
+      .sidebar {
+        right: 12px;
+        max-width: calc(100vw - 24px);
       }
     }
   </style>
 </head>
 <body>
+  <div id="map"></div>
+  
   <div class="header">
-    <div class="header-title">🗺️ Baugesuche ZH</div>
+    <div class="header-title">Baugesuche ZH</div>
     <div class="header-links">
-      <a href="https://github.com/jozeller/ebaugesuche_ZH-map" target="_blank" rel="noopener">GitHub Repo</a>
-      <a href="https://github.com/jozeller/ebaugesuche_ZH-map#readme" target="_blank" rel="noopener">Über</a>
+      <a href="https://github.com/jozeller/ebaugesuche_ZH-map" target="_blank">GitHub</a>
+      <a href="https://portal.ebaugesuche.zh.ch/" target="_blank">Portal</a>
     </div>
   </div>
 
-  <div id="map"></div>
-  <div class="sidebar" id="sidebar" style="display: none;">
-    <h3>Baugesuch Details</h3>
+  <div id="sidebar" class="sidebar">
     <div class="meta">
-      <strong id="sidebar-nummer">-</strong>
-      <div id="sidebar-address"></div>
-      <div class="timestamp" id="sidebar-updated"></div>
+      <strong>-</strong>
+      <div class="timestamp">Lädt...</div>
     </div>
-    <p><strong>Adresse:</strong> <span id="sidebar-adresse">-</span></p>
-    <p><strong>Typ:</strong> <span class="bautyp" id="sidebar-bautyp">-</span></p>
-    <p><strong>Datum:</strong> <span id="sidebar-datum">-</span></p>
-    <p>
-      <strong>Details:</strong><br>
-      <a id="sidebar-link" href="#" target="_blank">→ Zum Baugesuch</a>
-    </p>
   </div>
 
   <div class="controls">
-    <div class="gemeinde-selector">
-      <label for="gemeinde-select">Gemeinde</label>
+    <div class="control-group">
+      <label>Gemeinde</label>
       <select id="gemeinde-select">
         <option value="stäfa">Stäfa</option>
         <option value="hombrechtikon">Hombrechtikon</option>
@@ -498,45 +401,35 @@
         <option value="rüschlikon">Rüschlikon</option>
       </select>
     </div>
-
-    <div class="layer-selector">
-      <label for="layer-select">Kartenhintergrund</label>
+    <div class="control-group">
+      <label>Kartenlayer</label>
       <select id="layer-select">
         <option value="pixelkarte">Pixelkarte</option>
         <option value="swissimage">Luftbild</option>
         <option value="osm">OpenStreetMap</option>
       </select>
     </div>
-
-    <button id="refresh-btn">🔄 Aktualisieren</button>
-    <button id="locate-btn">📍 Mein Standort</button>
   </div>
 
-  <div id="loading" class="loading" style="display: none;">
+  <div id="loading" class="loading">
     <div class="loading-spinner"></div>
-    <p>Daten werden geladen...</p>
+    <p>Laden...</p>
   </div>
 
-  <div id="error" class="error" style="display: none;">
-    <span id="error-text"></span>
-    <button onclick="document.getElementById('error').style.display = 'none';">✕</button>
-  </div>
+  <div id="error" class="error"></div>
 
   <script>
-    // Map variables
     let map;
+    let gesuche = [];
     let markers = [];
-    let currentFeature = null;
-    let gesuche = null;
     let currentGemeinde = 'stäfa';
     let currentLayer = 'pixelkarte';
 
-    // Map layer styles
     const mapLayers = {
       'pixelkarte': {
         'swisstopo-raster': {
           type: 'raster',
-          tiles: ['https://wms.geo.admin.ch/?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ch.swisstopo.pixelkarte-farbe&STYLES=&CRS=EPSG:3857&BBOX={bbox-epsg-3857}&WIDTH=256&HEIGHT=256&FORMAT=image/jpeg'],
+          tiles: ['https://wms.geo.admin.ch/?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ch.swisstopo.pixelkarte-farbe-pk25.noscale&STYLES=&CRS=EPSG:3857&BBOX={bbox-epsg-3857}&WIDTH=256&HEIGHT=256&FORMAT=image/png'],
           tileSize: 256,
           attribution: '© swisstopo'
         }
@@ -546,7 +439,7 @@
           type: 'raster',
           tiles: ['https://wms.geo.admin.ch/?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ch.swisstopo.swissimage-rgb&STYLES=&CRS=EPSG:3857&BBOX={bbox-epsg-3857}&WIDTH=256&HEIGHT=256&FORMAT=image/jpeg'],
           tileSize: 256,
-          attribution: '© swisstopo SwissImage'
+          attribution: '© swisstopo'
         }
       },
       'osm': {
@@ -559,7 +452,6 @@
       }
     };
 
-    // Gemeinde-Koordinaten für Auto-Zoom
     const gemeindeBounds = {
       'stäfa': { center: [8.680557, 47.244037], zoom: 13 },
       'hombrechtikon': { center: [8.598, 47.274], zoom: 13 },
@@ -573,27 +465,24 @@
       'rüschlikon': { center: [8.627, 47.285], zoom: 13 }
     };
 
-    // Initialize map with MapLibre GL + SwissTopo WMS (free, no token needed)
-    function initMap() {
-      const createStyle = (layer = 'pixelkarte') => {
-        const sourceId = layer === 'osm' ? 'osm-raster' : 'swisstopo-raster';
-        const sources = mapLayers[layer];
-        
-        return {
-          version: 8,
-          sources: sources,
-          layers: [
-            {
-              id: 'base-layer',
-              type: 'raster',
-              source: sourceId,
-              minzoom: 0,
-              maxzoom: 18
-            }
-          ]
-        };
+    function createStyle(layer = 'pixelkarte') {
+      const sourceId = layer === 'osm' ? 'osm-raster' : 'swisstopo-raster';
+      const sources = mapLayers[layer];
+      
+      return {
+        version: 8,
+        sources: sources,
+        layers: [{
+          id: 'base-layer',
+          type: 'raster',
+          source: sourceId,
+          minzoom: 0,
+          maxzoom: 18
+        }]
       };
+    }
 
+    function initMap() {
       map = new maplibregl.Map({
         container: 'map',
         style: createStyle('pixelkarte'),
@@ -603,22 +492,18 @@
       });
 
       map.on('load', () => {
-        console.log('Map loaded with MapLibre GL');
         loadGesuche();
       });
 
-      // Add controls
       map.addControl(new maplibregl.NavigationControl(), 'top-left');
       map.addControl(new maplibregl.FullscreenControl(), 'top-right');
       map.addControl(new maplibregl.ScaleControl({ maxWidth: 200, unit: 'metric' }), 'bottom-right');
 
-      // Add event listeners
-      document.getElementById('refresh-btn').addEventListener('click', loadGesuche);
-      document.getElementById('locate-btn').addEventListener('click', locateUser);
       document.getElementById('gemeinde-select').addEventListener('change', (e) => {
         currentGemeinde = e.target.value;
         loadGesuche();
       });
+
       document.getElementById('layer-select').addEventListener('change', (e) => {
         changeMapLayer(e.target.value);
       });
@@ -629,63 +514,51 @@
       const sourceId = layer === 'osm' ? 'osm-raster' : 'swisstopo-raster';
       const sources = mapLayers[layer];
       
-      // Remove old sources
       try {
         if (map.getSource('swisstopo-raster')) map.removeSource('swisstopo-raster');
         if (map.getSource('osm-raster')) map.removeSource('osm-raster');
-      } catch (e) {}
-      
-      // Remove old layer
-      try {
         if (map.getLayer('base-layer')) map.removeLayer('base-layer');
       } catch (e) {}
       
-      // Add new source
-      for (const [sourceId, sourceConfig] of Object.entries(sources)) {
-        if (!map.getSource(sourceId)) {
-          map.addSource(sourceId, sourceConfig);
+      for (const [id, config] of Object.entries(sources)) {
+        if (!map.getSource(id)) {
+          map.addSource(id, config);
         }
       }
       
-      // Add new layer
       map.addLayer({
         id: 'base-layer',
         type: 'raster',
         source: sourceId,
         minzoom: 0,
         maxzoom: 18
-      }, 'base-layer');
+      });
     }
 
     async function loadGesuche() {
       try {
         showLoading(true);
         
-        // Get data URL based on current Gemeinde
         const dataUrl = `./data/baugesuche_${currentGemeinde}.json`;
-        
         const response = await fetch(dataUrl);
+        
         if (!response.ok) {
-          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+          throw new Error(`HTTP ${response.status}`);
         }
 
         gesuche = await response.json();
-        console.log(`Loaded ${gesuche.features.length} Baugesuche for ${currentGemeinde}`);
 
-        // Clear existing markers
         markers.forEach(marker => marker.remove());
         markers = [];
 
-        // Add new markers
         gesuche.features.forEach(feature => {
           addMarker(feature);
         });
 
-        // Update metadata
         const updated = new Date(gesuche.metadata.updated).toLocaleString('de-CH');
-        document.querySelector('.sidebar .meta .timestamp').textContent = `Aktualisiert: ${updated}`;
+        const meta = document.querySelector('.meta');
+        meta.innerHTML = `<strong>${gesuche.metadata.count} Gesuche</strong><div class="timestamp">Aktualisiert: ${updated}</div>`;
 
-        // Pan to Gemeinde
         const bounds = gemeindeBounds[currentGemeinde];
         map.flyTo({
           center: bounds.center,
@@ -695,41 +568,34 @@
 
         showLoading(false);
       } catch (error) {
-        console.error('Error loading Baugesuche:', error);
+        console.error('Fehler:', error);
         showLoading(false);
-        showError(`Fehler beim Laden der Daten: ${error.message}`);
+        showError(`Fehler beim Laden: ${error.message}`);
       }
     }
 
     function addMarker(feature) {
       const props = feature.properties;
-      
-      // Create marker element with custom icon
       const el = document.createElement('div');
       el.className = 'marker';
       
-      // Create popup with modern HTML
       const popup = new maplibregl.Popup({ offset: 25 })
         .setHTML(`
           <div class="popup-content">
-            <h4>${props.nummer || 'N/A'}</h4>
+            <h4>${props.nummer}</h4>
             <div class="popup-address">${props.adresse}</div>
             <div class="popup-gemeinde">${props.gemeinde}</div>
-            ${props.bautyp ? `<div class="popup-info-row"><span class="popup-bautyp">${props.bautyp}</span></div>` : ''}
+            ${props.bautyp ? `<div class="popup-bautyp">${props.bautyp}</div>` : ''}
             ${props.datum ? `<div class="popup-datum">📅 ${props.datum}</div>` : ''}
-            <a href="${props.detailUrl}" target="_blank" rel="noopener">
-              🔗 Details anzeigen
-            </a>
+            <a href="${props.detailUrl}" target="_blank" rel="noopener">→ Details</a>
           </div>
         `);
 
-      // Create marker
       const marker = new maplibregl.Marker(el)
-        .setLngLat([feature.geometry.coordinates[0], feature.geometry.coordinates[1]])
+        .setLngLat(feature.geometry.coordinates)
         .setPopup(popup)
         .addTo(map);
 
-      // Add click event to show sidebar
       el.addEventListener('click', () => {
         showSidebar(feature);
       });
@@ -738,56 +604,42 @@
     }
 
     function showSidebar(feature) {
-      currentFeature = feature;
       const props = feature.properties;
-
-      document.getElementById('sidebar-nummer').textContent = props.nummer || 'N/A';
-      document.getElementById('sidebar-address').textContent = props.adresse || '';
-      document.getElementById('sidebar-adresse').textContent = props.adresse || '-';
-      document.getElementById('sidebar-bautyp').textContent = props.bautyp || '-';
-      document.getElementById('sidebar-datum').textContent = props.datum || '-';
+      const sidebar = document.getElementById('sidebar');
       
-      const link = document.getElementById('sidebar-link');
-      link.href = props.detailUrl || '#';
-      link.textContent = props.detailUrl ? '→ Zum Baugesuch' : 'Kein Link verfügbar';
+      sidebar.innerHTML = `
+        <div class="meta">
+          <strong>${props.nummer}</strong>
+          <div class="timestamp">Geladene Details</div>
+        </div>
+        <div class="sidebar-content">
+          <div class="sidebar-row">
+            <strong>Adresse</strong>
+            <span>${props.adresse}</span>
+          </div>
+          <div class="sidebar-row">
+            <strong>Gemeinde</strong>
+            <span>${props.gemeinde}</span>
+          </div>
+          ${props.bautyp ? `<div class="sidebar-row">
+            <strong>Typ</strong>
+            <span>${props.bautyp}</span>
+          </div>` : ''}
+          ${props.datum ? `<div class="sidebar-row">
+            <strong>Datum</strong>
+            <span>${props.datum}</span>
+          </div>` : ''}
+          <a href="${props.detailUrl}" target="_blank" rel="noopener">→ Zum Baugesuch</a>
+        </div>
+      `;
+      
+      sidebar.style.display = 'block';
 
-      if (gesuche && gesuche.metadata) {
-        const updated = new Date(gesuche.metadata.updated).toLocaleString('de-CH');
-        document.getElementById('sidebar-updated').textContent = `Aktualisiert: ${updated}`;
-      }
-
-      document.getElementById('sidebar').style.display = 'block';
-
-      // Pan to marker
       map.flyTo({
-        center: [feature.geometry.coordinates[0], feature.geometry.coordinates[1]],
+        center: feature.geometry.coordinates,
         zoom: 15,
         duration: 800
       });
-    }
-
-    function locateUser() {
-      if (!navigator.geolocation) {
-        showError('Geolocation nicht unterstützt');
-        return;
-      }
-
-      showLoading(true);
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const { latitude, longitude } = position.coords;
-          map.flyTo({
-            center: [longitude, latitude],
-            zoom: 16,
-            duration: 1000
-          });
-          showLoading(false);
-        },
-        (error) => {
-          showLoading(false);
-          showError(`Standort konnte nicht ermittelt werden: ${error.message}`);
-        }
-      );
     }
 
     function showLoading(show) {
@@ -797,14 +649,14 @@
     function showError(message) {
       const errorEl = document.getElementById('error');
       if (message) {
-        document.getElementById('error-text').textContent = message;
+        errorEl.textContent = message;
         errorEl.style.display = 'block';
-      } else {
-        errorEl.style.display = 'none';
+        setTimeout(() => {
+          errorEl.style.display = 'none';
+        }, 5000);
       }
     }
 
-    // Initialize on load
     window.addEventListener('load', initMap);
   </script>
 </body>
