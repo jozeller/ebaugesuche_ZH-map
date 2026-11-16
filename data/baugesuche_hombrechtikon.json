@@ -1,0 +1,27 @@
+{
+  "metadata": {
+    "updated": "2026-11-16T07:12:34.026Z",
+    "count": 1,
+    "successCount": 1,
+    "gemeinde": "hombrechtikon",
+    "source": "https://portal.ebaugesuche.zh.ch/"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [8.598, 47.274]
+      },
+      "properties": {
+        "nummer": "3346700",
+        "adresse": "Hauptstrasse 50, 8634 Hombrechtikon",
+        "gemeinde": "Hombrechtikon",
+        "bautyp": "Sanierung",
+        "datum": "2026-11-14",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3346700",
+        "displayName": "Hauptstrasse 50, 8634 Hombrechtikon"
+      }
+    }
+  ]
+}

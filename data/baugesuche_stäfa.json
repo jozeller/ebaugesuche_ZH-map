@@ -1,0 +1,59 @@
+{
+  "metadata": {
+    "updated": "2026-11-16T07:12:34.026Z",
+    "count": 3,
+    "successCount": 3,
+    "gemeinde": "stäfa",
+    "source": "https://portal.ebaugesuche.zh.ch/"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [8.680557, 47.244037]
+      },
+      "properties": {
+        "nummer": "3346602",
+        "adresse": "Seestrasse 42, 8712 Stäfa",
+        "gemeinde": "Stäfa",
+        "bautyp": "Sanierung",
+        "datum": "2026-11-08",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3346602",
+        "displayName": "Seestrasse 42, 8712 Stäfa"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [8.682, 47.245]
+      },
+      "properties": {
+        "nummer": "3346603",
+        "adresse": "Hauptstrasse 10, 8712 Stäfa",
+        "gemeinde": "Stäfa",
+        "bautyp": "Neubau",
+        "datum": "2026-11-15",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3346603",
+        "displayName": "Hauptstrasse 10, 8712 Stäfa"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [8.678, 47.242]
+      },
+      "properties": {
+        "nummer": "3346604",
+        "adresse": "Schulstrasse 5, 8712 Stäfa",
+        "gemeinde": "Stäfa",
+        "bautyp": "Erweiterung",
+        "datum": "2026-11-10",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3346604",
+        "displayName": "Schulstrasse 5, 8712 Stäfa"
+      }
+    }
+  ]
+}

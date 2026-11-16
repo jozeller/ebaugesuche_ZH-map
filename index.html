@@ -104,6 +104,11 @@
       display: none;
     }
 
+    .popup-content {
+      margin: 0;
+      padding: 0;
+    }
+
     .mapboxgl-popup-content {
       background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
       border-radius: 12px;
@@ -525,26 +530,6 @@
       }
     }
 
-        // Add new markers
-        gesuche.features.forEach(feature => {
-          addMarker(feature);
-        });
-
-        // Update metadata
-        const updated = new Date(gesuche.metadata.updated).toLocaleString('de-CH');
-        const infoText = `${gesuche.features.length} Baugesuche • Aktualisiert: ${updated}`;
-        console.log(infoText);
-
-        showLoading(false);
-        showError(null);
-
-      } catch (error) {
-        console.error('Error loading gesuche:', error);
-        showLoading(false);
-        showError(`Fehler beim Laden der Daten: ${error.message}`);
-      }
-    }
-
     function addMarker(feature) {
       const props = feature.properties;
       
@@ -552,17 +537,19 @@
       const el = document.createElement('div');
       el.className = 'marker';
       
-      // Create popup
+      // Create popup with modern HTML
       const popup = new maplibregl.Popup({ offset: 25 })
         .setHTML(`
-          <h4>${props.nummer || 'N/A'}</h4>
-          <p><strong>${props.adresse}</strong></p>
-          <p>${props.gemeinde}</p>
-          ${props.bautyp ? `<p>Typ: ${props.bautyp}</p>` : ''}
-          ${props.datum ? `<p>Datum: ${props.datum}</p>` : ''}
-          <a href="${props.detailUrl}" target="_blank" rel="noopener">
-            → Details anzeigen
-          </a>
+          <div class="popup-content">
+            <h4>${props.nummer || 'N/A'}</h4>
+            <div class="popup-address">${props.adresse}</div>
+            <div class="popup-gemeinde">${props.gemeinde}</div>
+            ${props.bautyp ? `<div class="popup-info-row"><span class="popup-bautyp">${props.bautyp}</span></div>` : ''}
+            ${props.datum ? `<div class="popup-datum">📅 ${props.datum}</div>` : ''}
+            <a href="${props.detailUrl}" target="_blank" rel="noopener">
+              🔗 Details anzeigen
+            </a>
+          </div>
         `);
 
       // Create marker
