@@ -53,8 +53,8 @@ async function geocodeAddress(address, gemeinde = 'Stäfa') {
   }
 }
 
-async function geocodeGesuche(gesuchePath = null) {
-  const inputFile = gesuchePath || path.join(DATA_DIR, 'gesuche-raw.json');
+async function geocodeGesuche(gemeinde = 'stäfa') {
+  const inputFile = path.join(DATA_DIR, `gesuche-raw-${gemeinde}.json`);
   
   if (!fs.existsSync(inputFile)) {
     console.error(`❌ File not found: ${inputFile}`);
@@ -72,7 +72,7 @@ async function geocodeGesuche(gesuchePath = null) {
     const g = gesuche[i];
     console.log(`[${i + 1}/${gesuche.length}] ${g.adresse || 'N/A'}`);
 
-    const coords = await geocodeAddress(g.adresse, g.gemeinde);
+    const coords = await geocodeAddress(g.adresse, gemeinde);
 
     if (coords) {
       geocoded.push({
@@ -97,11 +97,11 @@ async function geocodeGesuche(gesuchePath = null) {
   }
 
   // Save geocoded data
-  const outputPath = path.join(DATA_DIR, 'gesuche-geocoded.json');
+  const outputPath = path.join(DATA_DIR, `gesuche-geocoded-${gemeinde}.json`);
   fs.writeFileSync(outputPath, JSON.stringify(geocoded, null, 2));
 
   const successCount = geocoded.filter(g => g.lat !== null).length;
-  console.log(`\n✅ Geocoding complete`);
+  console.log(`\n✅ Geocoding complete for ${gemeinde}`);
   console.log(`   ✓ Successfully geocoded: ${successCount}/${gesuche.length}`);
   console.log(`   📁 Saved to: ${outputPath}`);
 

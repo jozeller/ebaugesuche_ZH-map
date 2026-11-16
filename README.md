@@ -4,6 +4,8 @@ Interaktive Karte der öffentlichen Baugesuche des Kantons Zürich, aktuell für
 
 **Live Demo:** [ebaugesuche-zh.github.io](https://jozeller.github.io/ebaugesuche_ZH-map)
 
+> 🤖 **Dieses Projekt wurde vollständig von AI (GitHub Copilot) generiert.** Siehe [AI-GENERATED.md](./AI-GENERATED.md) für Details.
+
 ## 🚀 Features
 
 - **Interaktive Karte** mit Mapbox GL / Leaflet

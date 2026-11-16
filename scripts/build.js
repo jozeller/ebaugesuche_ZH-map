@@ -4,41 +4,46 @@ const { scrapeGesuche } = require('./scraper');
 const { geocodeGesuche } = require('./geocoder');
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
+const GEMEINDEN = [
+  'stäfa',
+  'hombrechtikon',
+  'wädenswil',
+  'erlenbach',
+  'meilen',
+  'herrliberg',
+  'zollikon',
+  'männedorf',
+  'richterswil',
+  'rüschlikon'
+];
 
-async function build() {
-  console.log('🚀 Starting build process...\n');
+async function buildGemeinde(gemeinde) {
+  console.log(`\n🏘️  Building for: ${gemeinde}`);
+  console.log('═══════════════════════════════════════\n');
 
   try {
     // Step 1: Scrape
-    console.log('═══════════════════════════════════════');
     console.log('Step 1: Scraping Baugesuche');
-    console.log('═══════════════════════════════════════\n');
-    
-    const gesuche = await scrapeGesuche();
+    const gesuche = await scrapeGesuche(gemeinde);
 
     if (gesuche.length === 0) {
-      console.log('⚠️  No Baugesuche found!');
-      process.exit(1);
+      console.log(`⚠️  No Baugesuche found for ${gemeinde}`);
+      return null;
     }
 
     // Step 2: Geocode
-    console.log('\n═══════════════════════════════════════');
     console.log('Step 2: Geocoding Addresses');
-    console.log('═══════════════════════════════════════\n');
-    
-    const geocoded = await geocodeGesuche();
+    const geocoded = await geocodeGesuche(gemeinde);
 
     // Step 3: Prepare final data
-    console.log('\n═══════════════════════════════════════');
     console.log('Step 3: Preparing Final Data');
-    console.log('═══════════════════════════════════════\n');
 
     const finalData = {
       metadata: {
         updated: new Date().toISOString(),
         count: geocoded.length,
         successCount: geocoded.filter(g => g.lat !== null).length,
-        gemeinde: 'Stäfa',
+        gemeinde: gemeinde,
         source: 'https://portal.ebaugesuche.zh.ch/'
       },
       features: geocoded
@@ -61,16 +66,49 @@ async function build() {
         }))
     };
 
-    const outputPath = path.join(DATA_DIR, 'baugesuche.json');
+    const outputPath = path.join(DATA_DIR, `baugesuche_${gemeinde}.json`);
     fs.writeFileSync(outputPath, JSON.stringify(finalData, null, 2));
 
-    console.log(`✅ Build complete!`);
+    console.log(`✅ Build complete for ${gemeinde}!`);
     console.log(`   📊 Total entries: ${geocoded.length}`);
     console.log(`   📍 Mapped entries: ${finalData.features.length}`);
-    console.log(`   🗓️  Updated: ${finalData.metadata.updated}`);
-    console.log(`   📁 Output: ${outputPath}\n`);
+    console.log(`   📁 Output: ${outputPath}`);
 
     return finalData;
+
+  } catch (error) {
+    console.error(`❌ Build failed for ${gemeinde}:`, error);
+    return null;
+  }
+}
+
+async function build() {
+  console.log('🚀 Starting build process for all Gemeinden...\n');
+
+  try {
+    const results = {};
+    
+    for (const gemeinde of GEMEINDEN) {
+      try {
+        const result = await buildGemeinde(gemeinde);
+        if (result) {
+          results[gemeinde] = result;
+        }
+      } catch (error) {
+        console.error(`❌ Error building ${gemeinde}:`, error.message);
+      }
+    }
+
+    console.log('\n═══════════════════════════════════════');
+    console.log('📊 BUILD SUMMARY');
+    console.log('═══════════════════════════════════════\n');
+    
+    for (const [gemeinde, data] of Object.entries(results)) {
+      console.log(`✅ ${gemeinde}: ${data.features.length} entries`);
+    }
+
+    console.log(`\n🎉 Build complete! Processed ${Object.keys(results).length} Gemeinden\n`);
+    return results;
 
   } catch (error) {
     console.error('❌ Build failed:', error);

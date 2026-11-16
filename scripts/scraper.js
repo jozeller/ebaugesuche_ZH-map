@@ -2,15 +2,27 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 const path = require('path');
 
-const PORTAL_URL = 'https://portal.ebaugesuche.zh.ch/eauflage/stäfa';
 const DATA_DIR = path.join(__dirname, '..', 'data');
+const GEMEINDEN = [
+  'stäfa',
+  'hombrechtikon',
+  'wädenswil',
+  'erlenbach',
+  'meilen',
+  'herrliberg',
+  'zollikon',
+  'männedorf',
+  'richterswil',
+  'rüschlikon'
+];
 
 if (!fs.existsSync(DATA_DIR)) {
   fs.mkdirSync(DATA_DIR, { recursive: true });
 }
 
-async function scrapeGesuche() {
-  console.log('🔄 Starting scraper for:', PORTAL_URL);
+async function scrapeGesuche(gemeinde = 'stäfa') {
+  const PORTAL_URL = `https://portal.ebaugesuche.zh.ch/eauflage/${gemeinde}`;
+  console.log(`🔄 Starting scraper for ${gemeinde}:`, PORTAL_URL);
 
   let browser;
   const allGesuche = [];
@@ -124,10 +136,10 @@ async function scrapeGesuche() {
 
     await browser.close();
 
-    // Save raw scraped data
-    const outputPath = path.join(DATA_DIR, 'gesuche-raw.json');
+    // Save raw scraped data (per Gemeinde)
+    const outputPath = path.join(DATA_DIR, `gesuche-raw-${gemeinde}.json`);
     fs.writeFileSync(outputPath, JSON.stringify(allGesuche, null, 2));
-    console.log(`\n✅ Scraped ${allGesuche.length} Baugesuche`);
+    console.log(`\n✅ Scraped ${allGesuche.length} Baugesuche for ${gemeinde}`);
     console.log(`📁 Saved to: ${outputPath}`);
 
     return allGesuche;
@@ -140,7 +152,16 @@ async function scrapeGesuche() {
 }
 
 if (require.main === module) {
-  scrapeGesuche();
+  (async () => {
+    for (const gemeinde of GEMEINDEN) {
+      try {
+        await scrapeGesuche(gemeinde);
+      } catch (error) {
+        console.error(`❌ Failed to scrape ${gemeinde}:`, error.message);
+      }
+    }
+    console.log('\n✅ All Gemeinden scraped!');
+  })();
 }
 
 module.exports = { scrapeGesuche };
