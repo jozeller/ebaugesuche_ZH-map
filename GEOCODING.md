@@ -14,8 +14,8 @@ Die Anwendung hat einen **vollständigen Workflow** für echte Geocodierung:
 ```
 ┌─────────────────────────────────────────────────────┐
 │ 1. SCRAPER                                          │
-│    Holt echte Daten von:                            │
-│    https://portal.ebaugesuche.zh.ch/eauflage/{gemeinde} │
+│    Holt echte Daten vom Portal-API:                 │
+│    /api/public/publications/v1/commune/{gemeinde}   │
 │    Output: gesuche-raw-{gemeinde}.json              │
 └─────────────────┬───────────────────────────────────┘
                   │
@@ -23,7 +23,7 @@ Die Anwendung hat einen **vollständigen Workflow** für echte Geocodierung:
 ┌─────────────────────────────────────────────────────┐
 │ 2. GEOCODER (OSM/Nominatim)                         │
 │    Geocodiert jede Adresse:                         │
-│    Input:  "Hauptstrasse 42, Stäfa, Zurich"        │
+│    Input:  "Rainstrasse 67, 8712 Stäfa"             │
 │    Output: {lat: 47.244, lon: 8.681}                │
 │    Rate-Limited: 1 req/sec                          │
 └─────────────────┬───────────────────────────────────┘
@@ -89,14 +89,17 @@ marker.setLngLat([8.6816, 47.2445])  // ✓ Correct
 ## Scripts für echte Daten
 
 ```bash
-# Scrape von Portal (eine Gemeinde)
-npm run scrape  # scraper.js
+# Scrape von Portal (eine oder mehrere Gemeinden)
+npm run scrape -- bassersdorf stäfa
 
 # Geocode geraspelte Daten (eine Gemeinde)
 npm run geocode  # geocoder.js
 
-# Alles automatisch für alle Gemeinden
-npm run build  # build.js (scrape + geocode + GeoJSON)
+# Alles automatisch für ausgewählte Gemeinden
+npm run build -- bassersdorf stäfa
+
+# Ohne Argumente werden alle konfigurierten Gemeinden verarbeitet.
+npm run build
 
 # Im Production
 npm run update  # = npm run build
@@ -108,28 +111,26 @@ npm run update  # = npm run build
 - **Accuracy**: ±100m (häufig genauer)
 - **Coverage**: ~99% in der Schweiz
 - **Lizenz**: ODbL (Open Data)
+- **Gemeindeprüfung**: Ergebnisse ohne passenden Orts-/Gemeindenamen werden nicht als Marker übernommen.
 
-## Aktuelle Test-Daten
+## Datenstatus
 
-Die aktuellen Daten sind **Fantasie-Adressen mit realistischen Koordinaten**:
-- ✓ Echte Gemeinde-Zentren (Bundesamt für Landestopographie)
-- ✓ Realistische Verteilung (±500m von Zentrum)
-- ✓ Keine Marker im See
-- ✓ Format korrekt
+Der Scraper lädt veröffentlichte Einträge aus der offiziellen eAuflage-API. Nicht
+gefundene oder einer anderen Gemeinde zugeordnete Geocoding-Ergebnisse werden
+nicht als Kartenmarker ausgegeben.
 
-Zum Aktivieren von echten Daten:
+Gezielter Neuaufbau:
 ```bash
-npm run build
+npm run build -- bassersdorf stäfa
 ```
 
 ## Adress-Validierung
 
-Vor Geocodierung wird geprüft:
-1. Adresse nicht leer
-2. Enthält Straße + Nummer
-3. Gemeinde bekannt
+Vor der Geocodierung wird die Gemeinde aus dem Portal-Datensatz übernommen. Die
+Nominatim-Antwort muss zusätzlich einen passenden Orts- oder Gemeindenamen und
+gültige Koordinaten enthalten.
 
 Nicht-geocodierbare Adressen:
 - Werden mit `lat: null, lon: null` gespeichert
 - Erscheinen nicht auf der Karte
-- Logged in der Build-Summary
+- Werden in der Ausgabe protokolliert

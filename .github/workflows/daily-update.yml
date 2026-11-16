@@ -32,10 +32,10 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           
-          if git diff --quiet data/baugesuche.json; then
+          if [ -z "$(git status --porcelain -- data/baugesuche*.json)" ]; then
             echo "No changes detected in data"
           else
-            git add data/baugesuche.json
+            git add data/baugesuche*.json
             git commit -m "chore: update baugesuche data [skip ci]"
             git push
           fi

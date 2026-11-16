@@ -1,8 +1,9 @@
-const puppeteer = require('puppeteer');
+const fetch = require('node-fetch');
 const fs = require('fs');
 const path = require('path');
 
 const DATA_DIR = path.join(__dirname, '..', 'data');
+const PORTAL_URL = 'https://portal.ebaugesuche.zh.ch';
 const GEMEINDEN = [
   'adliswil',
   'affolternamalbis',
@@ -75,148 +76,77 @@ if (!fs.existsSync(DATA_DIR)) {
   fs.mkdirSync(DATA_DIR, { recursive: true });
 }
 
-async function scrapeGesuche(gemeinde = 'stäfa') {
-  const PORTAL_URL = `https://portal.ebaugesuche.zh.ch/eauflage/${gemeinde}`;
-  console.log(`🔄 Starting scraper for ${gemeinde}:`, PORTAL_URL);
+function mapPublication(publication, gemeinde) {
+  const municipality = publication.activity?.construction?.commune?.name;
+  const street = publication.streetConstruction?.trim();
+  const number = publication.streetNumberConstruction?.trim();
+  const address = [street, number && !street?.split(/\s+/).includes(number) ? number : null,
+    publication.zipCodeConstruction, publication.cityConstruction]
+    .filter(Boolean)
+    .join(' ');
 
-  let browser;
-  const allGesuche = [];
-
-  try {
-    browser = await puppeteer.launch({
-      headless: 'new',
-      args: ['--no-sandbox', '--disable-setuid-sandbox']
-    });
-
-    const page = await browser.newPage();
-    page.setDefaultNavigationTimeout(60000);
-
-    let pageNum = 1;
-    let hasMorePages = true;
-
-    while (hasMorePages) {
-      const url = pageNum === 1 ? PORTAL_URL : `${PORTAL_URL}?page=${pageNum}`;
-      console.log(`📄 Scraping page ${pageNum}: ${url}`);
-
-      try {
-        await page.goto(url, { waitUntil: 'networkidle2', timeout: 60000 });
-        
-        // Wait for content to load
-        await page.waitForSelector('.ebau-gesuch-list, table, .gesuch-item', {
-          timeout: 10000
-        }).catch(() => {
-          console.log('⚠️  Content selector not found, trying alternative selectors');
-        });
-
-        // Extract data using multiple possible selectors
-        const pageData = await page.evaluate(() => {
-          const gesuche = [];
-          
-          // Try multiple selectors
-          const rows = document.querySelectorAll(
-            'table tbody tr, .gesuch-row, .gesuch-item, [data-gesuch-id]'
-          );
-
-          rows.forEach((row) => {
-            try {
-              const cells = row.querySelectorAll('td, [data-field]');
-              if (cells.length === 0) return;
-
-              // Extract text from cells
-              let nummer = '';
-              let adresse = '';
-              let gemeinde = '';
-              let bautyp = '';
-              let datum = '';
-              let detailLink = '';
-
-              // Try to find link to detail page
-              const link = row.querySelector('a[href*="detail"]');
-              if (link) {
-                detailLink = link.href;
-                const match = link.href.match(/\/detail\/(\d+)/);
-                if (match) {
-                  nummer = match[1];
-                }
-              }
-
-              // Extract address info from cells
-              cells.forEach((cell, idx) => {
-                const text = cell.textContent.trim();
-                if (idx === 0 && !nummer) nummer = text;
-                if (idx === 1) adresse = text;
-                if (idx === 2) gemeinde = text;
-                if (idx === 3) bautyp = text;
-                if (idx === 4) datum = text;
-              });
-
-              if (nummer || adresse) {
-                gesuche.push({
-                  nummer: nummer || '',
-                  adresse: adresse || '',
-                  gemeinde: gemeinde || 'Stäfa',
-                  bautyp: bautyp || '',
-                  datum: datum || '',
-                  detailUrl: detailLink || ''
-                });
-              }
-            } catch (err) {
-              console.error('Error parsing row:', err.message);
-            }
-          });
-
-          return gesuche;
-        });
-
-        console.log(`✅ Found ${pageData.length} entries on page ${pageNum}`);
-        allGesuche.push(...pageData);
-
-        // Check for next page
-        const nextPageExists = await page.evaluate(() => {
-          // Look for "next" button or pagination
-          const nextBtn = document.querySelector(
-            'a[rel="next"], .pagination .next, button:contains("Next")'
-          );
-          return nextBtn !== null;
-        });
-
-        hasMorePages = nextPageExists && allGesuche.length < 1000; // Safety limit
-        pageNum++;
-
-      } catch (error) {
-        console.error(`❌ Error on page ${pageNum}:`, error.message);
-        hasMorePages = false;
-      }
-    }
-
-    await browser.close();
-
-    // Save raw scraped data (per Gemeinde)
-    const outputPath = path.join(DATA_DIR, `gesuche-raw-${gemeinde}.json`);
-    fs.writeFileSync(outputPath, JSON.stringify(allGesuche, null, 2));
-    console.log(`\n✅ Scraped ${allGesuche.length} Baugesuche for ${gemeinde}`);
-    console.log(`📁 Saved to: ${outputPath}`);
-
-    return allGesuche;
-
-  } catch (error) {
-    console.error('❌ Fatal error:', error);
-    if (browser) await browser.close();
-    process.exit(1);
+  if (!publication.id || !municipality || !address) {
+    throw new Error(`Invalid publication record returned for ${gemeinde}`);
   }
+
+  return {
+    nummer: String(publication.id),
+    adresse: address,
+    gemeinde: municipality,
+    bautyp: publication.title || '',
+    datum: publication.publicationFrom
+      ? new Date(publication.publicationFrom).toISOString().slice(0, 10)
+      : '',
+    detailUrl: `${PORTAL_URL}/eauflage/detail/${publication.id}`
+  };
+}
+
+async function scrapeGesuche(gemeinde = 'stäfa') {
+  const url = `${PORTAL_URL}/api/public/publications/v1/commune/${encodeURIComponent(gemeinde)}`;
+  console.log(`🔄 Fetching portal API for ${gemeinde}: ${url}`);
+
+  const response = await fetch(url, {
+    headers: { Accept: 'application/json' },
+    timeout: 30000
+  });
+
+  if (!response.ok) {
+    throw new Error(`Portal API returned HTTP ${response.status} for ${gemeinde}`);
+  }
+
+  const publications = await response.json();
+  if (!Array.isArray(publications)) {
+    throw new Error(`Portal API returned an invalid response for ${gemeinde}`);
+  }
+
+  const gesuche = publications.map(publication => mapPublication(publication, gemeinde));
+  const outputPath = path.join(DATA_DIR, `gesuche-raw-${gemeinde}.json`);
+  fs.writeFileSync(outputPath, JSON.stringify(gesuche, null, 2));
+  console.log(`✅ Retrieved ${gesuche.length} Baugesuche for ${gemeinde}`);
+  console.log(`📁 Saved to: ${outputPath}`);
+
+  return gesuche;
+}
+
+function parseGemeinden(args) {
+  if (args.length === 0) return GEMEINDEN;
+  const unknown = args.filter(gemeinde => !GEMEINDEN.includes(gemeinde));
+  if (unknown.length > 0) {
+    throw new Error(`Unknown Gemeinde(s): ${unknown.join(', ')}`);
+  }
+  return args;
 }
 
 if (require.main === module) {
   (async () => {
-    for (const gemeinde of GEMEINDEN) {
-      try {
-        await scrapeGesuche(gemeinde);
-      } catch (error) {
-        console.error(`❌ Failed to scrape ${gemeinde}:`, error.message);
-      }
+    const gemeinden = parseGemeinden(process.argv.slice(2));
+    for (const gemeinde of gemeinden) {
+      await scrapeGesuche(gemeinde);
     }
-    console.log('\n✅ All Gemeinden scraped!');
-  })();
+  })().catch(error => {
+    console.error('❌ Scraping failed:', error.message);
+    process.exitCode = 1;
+  });
 }
 
-module.exports = { scrapeGesuche };
+module.exports = { scrapeGesuche, mapPublication, GEMEINDEN, parseGemeinden };

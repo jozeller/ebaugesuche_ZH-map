@@ -1,0 +1,87 @@
+{
+  "metadata": {
+    "updated": "2026-11-16T08:15:13.530Z",
+    "count": 4,
+    "successCount": 4,
+    "gemeinde": "bassersdorf",
+    "source": "https://portal.ebaugesuche.zh.ch/"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.6210539,
+          47.4470422
+        ]
+      },
+      "properties": {
+        "nummer": "3349540",
+        "adresse": "Grundhaldenstrasse 28 8303 Bassersdorf",
+        "gemeinde": "Bassersdorf",
+        "bautyp": "Erstellung unbeheizter Wintergarten",
+        "datum": "2026-11-05",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3349540",
+        "displayName": "28, Grundhaldenstrasse, Baltenswil, Bassersdorf, Bezirk Bülach, Zürich, 8303, Schweiz / Suisse / Svizzera / Svizra"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.6423397,
+          47.4344838
+        ]
+      },
+      "properties": {
+        "nummer": "3349778",
+        "adresse": "Schinenwisenweg 10.1 8303 Bassersdorf",
+        "gemeinde": "Bassersdorf",
+        "bautyp": "Ersatzbau Güllentrog (nicht ausgesteckt)",
+        "datum": "2026-11-05",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3349778",
+        "displayName": "Schinenwisenweg, Baltenswil, Bassersdorf, Bezirk Bülach, Zürich, 8303, Schweiz / Suisse / Svizzera / Svizra"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.6210567,
+          47.4480885
+        ]
+      },
+      "properties": {
+        "nummer": "3349908",
+        "adresse": "Rebenweg 37 8303 Bassersdorf",
+        "gemeinde": "Bassersdorf",
+        "bautyp": "Sichtschutz (nicht ausgesteckt)",
+        "datum": "2026-11-05",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3349908",
+        "displayName": "37, Rebenweg, Baltenswil, Bassersdorf, Bezirk Bülach, Zürich, 8303, Schweiz / Suisse / Svizzera / Svizra"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.6318869,
+          47.4414673
+        ]
+      },
+      "properties": {
+        "nummer": "3349952",
+        "adresse": "Im Lindenacher 23 8303 Bassersdorf",
+        "gemeinde": "Bassersdorf",
+        "bautyp": "Sichtschutz (nicht ausgesteckt)",
+        "datum": "2026-11-05",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3349952",
+        "displayName": "23, Im Lindenacher, Baltenswil, Bassersdorf, Bezirk Bülach, Zürich, 8303, Schweiz / Suisse / Svizzera / Svizra"
+      }
+    }
+  ]
+}

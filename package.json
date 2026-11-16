@@ -8,6 +8,7 @@
     "geocode": "node scripts/geocoder.js",
     "build": "node scripts/build.js",
     "update": "npm run build",
+    "test": "node --test scripts/scraper.test.js",
     "start": "node scripts/server.js",
     "dev": "node scripts/server.js"
   },

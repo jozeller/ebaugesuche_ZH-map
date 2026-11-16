@@ -76,103 +76,104 @@ async function buildGemeinde(gemeinde) {
   console.log(`\n🏘️  Building for: ${gemeinde}`);
   console.log('═══════════════════════════════════════\n');
 
-  try {
-    // Step 1: Scrape
-    console.log('Step 1: Scraping Baugesuche');
-    const gesuche = await scrapeGesuche(gemeinde);
+  console.log('Step 1: Fetching Baugesuche');
+  await scrapeGesuche(gemeinde);
 
-    if (gesuche.length === 0) {
-      console.log(`⚠️  No Baugesuche found for ${gemeinde}`);
-      return null;
-    }
+  // Step 2: Geocode
+  console.log('Step 2: Geocoding Addresses');
+  const geocoded = await geocodeGesuche(gemeinde);
 
-    // Step 2: Geocode
-    console.log('Step 2: Geocoding Addresses');
-    const geocoded = await geocodeGesuche(gemeinde);
+  // Step 3: Prepare final data
+  console.log('Step 3: Preparing Final Data');
 
-    // Step 3: Prepare final data
-    console.log('Step 3: Preparing Final Data');
+  const finalData = {
+    metadata: {
+      updated: new Date().toISOString(),
+      count: geocoded.length,
+      successCount: geocoded.filter(g => g.lat !== null).length,
+      gemeinde: gemeinde,
+      source: 'https://portal.ebaugesuche.zh.ch/'
+    },
+    features: geocoded
+      .filter(g => g.lat !== null && g.lon !== null)
+      .map(g => ({
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: [g.lon, g.lat]
+        },
+        properties: {
+          nummer: g.nummer,
+          adresse: g.adresse,
+          gemeinde: g.gemeinde,
+          bautyp: g.bautyp,
+          datum: g.datum,
+          detailUrl: g.detailUrl,
+          displayName: g.displayName
+        }
+      }))
+  };
 
-    const finalData = {
-      metadata: {
-        updated: new Date().toISOString(),
-        count: geocoded.length,
-        successCount: geocoded.filter(g => g.lat !== null).length,
-        gemeinde: gemeinde,
-        source: 'https://portal.ebaugesuche.zh.ch/'
-      },
-      features: geocoded
-        .filter(g => g.lat !== null && g.lon !== null)
-        .map(g => ({
-          type: 'Feature',
-          geometry: {
-            type: 'Point',
-            coordinates: [g.lon, g.lat]
-          },
-          properties: {
-            nummer: g.nummer,
-            adresse: g.adresse,
-            gemeinde: g.gemeinde,
-            bautyp: g.bautyp,
-            datum: g.datum,
-            detailUrl: g.detailUrl,
-            displayName: g.displayName
-          }
-        }))
-    };
-
-    const outputPath = path.join(DATA_DIR, `baugesuche_${gemeinde}.json`);
-    fs.writeFileSync(outputPath, JSON.stringify(finalData, null, 2));
-
-    console.log(`✅ Build complete for ${gemeinde}!`);
-    console.log(`   📊 Total entries: ${geocoded.length}`);
-    console.log(`   📍 Mapped entries: ${finalData.features.length}`);
-    console.log(`   📁 Output: ${outputPath}`);
-
-    return finalData;
-
-  } catch (error) {
-    console.error(`❌ Build failed for ${gemeinde}:`, error);
-    return null;
+  const outputPath = path.join(DATA_DIR, `baugesuche_${gemeinde}.json`);
+  fs.writeFileSync(outputPath, JSON.stringify(finalData, null, 2));
+  if (gemeinde === 'stäfa') {
+    fs.writeFileSync(path.join(DATA_DIR, 'baugesuche.json'), JSON.stringify(finalData, null, 2));
   }
+
+  console.log(`✅ Build complete for ${gemeinde}!`);
+  console.log(`   📊 Total entries: ${geocoded.length}`);
+  console.log(`   📍 Mapped entries: ${finalData.features.length}`);
+  console.log(`   📁 Output: ${outputPath}`);
+
+  return finalData;
 }
 
-async function build() {
-  console.log('🚀 Starting build process for all Gemeinden...\n');
+async function build(gemeinden = GEMEINDEN) {
+  console.log(`🚀 Starting build process for ${gemeinden.length} Gemeinden...\n`);
 
-  try {
-    const results = {};
-    
-    for (const gemeinde of GEMEINDEN) {
-      try {
-        const result = await buildGemeinde(gemeinde);
-        if (result) {
-          results[gemeinde] = result;
-        }
-      } catch (error) {
-        console.error(`❌ Error building ${gemeinde}:`, error.message);
-      }
+  const results = {};
+  const failures = [];
+
+  for (const gemeinde of gemeinden) {
+    try {
+      results[gemeinde] = await buildGemeinde(gemeinde);
+    } catch (error) {
+      console.error(`❌ Error building ${gemeinde}:`, error.message);
+      failures.push(gemeinde);
     }
 
-    console.log('\n═══════════════════════════════════════');
-    console.log('📊 BUILD SUMMARY');
-    console.log('═══════════════════════════════════════\n');
-    
-    for (const [gemeinde, data] of Object.entries(results)) {
-      console.log(`✅ ${gemeinde}: ${data.features.length} entries`);
-    }
-
-    console.log(`\n🎉 Build complete! Processed ${Object.keys(results).length} Gemeinden\n`);
-    return results;
-
-  } catch (error) {
-    console.error('❌ Build failed:', error);
-    process.exit(1);
   }
+
+  console.log('\n═══════════════════════════════════════');
+  console.log('📊 BUILD SUMMARY');
+  console.log('═══════════════════════════════════════\n');
+
+  for (const [gemeinde, data] of Object.entries(results)) {
+    console.log(`✅ ${gemeinde}: ${data.features.length} entries`);
+  }
+
+  console.log(`\n🎉 Build complete! Processed ${Object.keys(results).length} Gemeinden\n`);
+  if (failures.length > 0) {
+    throw new Error(`Build failed for: ${failures.join(', ')}`);
+  }
+
+  return results;
+}
+
+function parseGemeinden(args) {
+  if (args.length === 0) return GEMEINDEN;
+  const unknown = args.filter(gemeinde => !GEMEINDEN.includes(gemeinde));
+  if (unknown.length > 0) {
+    throw new Error(`Unknown Gemeinde(s): ${unknown.join(', ')}`);
+  }
+  return args;
 }
 
 if (require.main === module) {
-  build();
+  build(parseGemeinden(process.argv.slice(2))).catch(error => {
+    console.error('❌ Build failed:', error.message);
+    process.exitCode = 1;
+  });
 }
 
-module.exports = { build };
+module.exports = { build, buildGemeinde, parseGemeinden };

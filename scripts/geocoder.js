@@ -10,14 +10,22 @@ async function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+function normalizePlace(place) {
+  return place
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, '');
+}
+
 async function geocodeAddress(address, gemeinde = 'Stäfa') {
   try {
-    // Build search string with city context
     const searchString = `${address}, ${gemeinde}, Zürich, Switzerland`;
     
     const params = new URLSearchParams({
       q: searchString,
       format: 'json',
+      addressdetails: '1',
       limit: 1,
       countrycodes: 'ch'
     });
@@ -41,9 +49,24 @@ async function geocodeAddress(address, gemeinde = 'Stäfa') {
     }
 
     const result = results[0];
+    const placeNames = Object.values(result.address || {})
+      .filter(value => typeof value === 'string')
+      .map(normalizePlace);
+    if (!placeNames.includes(normalizePlace(gemeinde))) {
+      console.error(`  ❌ Geocoding result is outside ${gemeinde}: ${result.display_name}`);
+      return null;
+    }
+
+    const lat = Number(result.lat);
+    const lon = Number(result.lon);
+    if (!Number.isFinite(lat) || !Number.isFinite(lon)) {
+      console.error(`  ❌ Invalid coordinates for: ${searchString}`);
+      return null;
+    }
+
     return {
-      lat: parseFloat(result.lat),
-      lon: parseFloat(result.lon),
+      lat,
+      lon,
       displayName: result.display_name
     };
 
@@ -72,7 +95,7 @@ async function geocodeGesuche(gemeinde = 'stäfa') {
     const g = gesuche[i];
     console.log(`[${i + 1}/${gesuche.length}] ${g.adresse || 'N/A'}`);
 
-    const coords = await geocodeAddress(g.adresse, gemeinde);
+    const coords = await geocodeAddress(g.adresse, g.gemeinde || gemeinde);
 
     if (coords) {
       geocoded.push({

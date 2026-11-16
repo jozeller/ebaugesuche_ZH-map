@@ -8,3 +8,5 @@ build/
 
 # Keep generated data files
 # data/ is committed to git for serving on GitHub Pages
+data/gesuche-raw-*.json
+data/gesuche-geocoded-*.json

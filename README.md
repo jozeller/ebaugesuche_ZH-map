@@ -38,21 +38,22 @@ npm run build
 ## 📊 Datenfluss
 
 ```
-1. Scraper (Puppeteer)
-   └─> Lädt https://portal.ebaugesuche.zh.ch/eauflage/stäfa
+1. Scraper (Portal-API)
+   └─> Lädt /api/public/publications/v1/commune/{gemeinde}
    └─> Extrakt: Nummer, Adresse, Bautyp, Datum
 
 2. Geocoder (OSM Nominatim)
-   └─> Konvertiert Adressen zu Koordinaten (lat/lon)
+   └─> Konvertiert Adressen zu Koordinaten (lon/lat)
+   └─> Prüft, dass das Ergebnis zur Gemeinde gehört
    └─> Rate-Limited: 1 req/sec
 
 3. Builder
    └─> Kombiniert Daten
    └─> Exportiert als GeoJSON
-   └─> Speichert in: data/baugesuche.json
+   └─> Speichert in: data/baugesuche_{gemeinde}.json
 
 4. Frontend (Mapbox GL)
-   └─> Lädt baugesuche.json
+   └─> Lädt baugesuche_{gemeinde}.json
    └─> Zeigt Marker auf Karte
    └─> Tooltips mit Details
 ```
@@ -60,11 +61,14 @@ npm run build
 ## 🔄 Manuelle Aktualisierung
 
 ```bash
-# Kompletter Build (scrape + geocode)
+# Kompletter Build für alle konfigurierten Gemeinden
 npm run build
 
-# Nur scrapen
-npm run scrape
+# Gezielter Neuaufbau einzelner Gemeinden
+npm run build -- bassersdorf stäfa
+
+# Nur Portal-Daten abrufen
+npm run scrape -- bassersdorf stäfa
 
 # Nur geocoden
 npm run geocode
@@ -77,12 +81,12 @@ ebaugesuche_ZH-map/
 ├── frontend/
 │   └── index.html          # Karten-Interface (Mapbox GL)
 ├── scripts/
-│   ├── scraper.js          # Puppeteer: Portal scrapen
+│   ├── scraper.js          # Offizielle Portal-API abrufen
 │   ├── geocoder.js         # OSM Geocoding
 │   └── build.js            # Orchestrierung
 ├── data/
-│   ├── gesuche-raw.json    # Ungefilterte Scrape-Daten
-│   ├── gesuche-geocoded.json  # Mit Koordinaten
+│   ├── gesuche-raw-{gemeinde}.json    # Ungefilterte Portal-Daten (lokal)
+│   ├── gesuche-geocoded-{gemeinde}.json  # Mit Koordinaten (lokal)
 │   └── baugesuche.json     # GeoJSON (für Frontend)
 ├── .github/workflows/
 │   └── daily-update.yml    # GitHub Actions Workflow

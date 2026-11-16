@@ -31,7 +31,7 @@ ebaugesuche_ZH-map/
 ├── frontend/
 │   └── index.html              # Main app (Mapbox GL)
 ├── scripts/
-│   ├── scraper.js              # Puppeteer scraper
+│   ├── scraper.js              # Offizielle Portal-API
 │   ├── geocoder.js             # OSM geocoding
 │   ├── build.js                # Build orchestration
 │   └── server.js               # Dev/prod HTTP server
@@ -82,21 +82,24 @@ npm run dev
 ### 2. Full Build Cycle (with real scraping)
 
 ```bash
-# Run complete build (takes 5-10 minutes)
+# Run complete build (all configured municipalities)
 npm run build
+
+# Or rebuild selected municipalities only:
+npm run build -- bassersdorf stäfa
 
 # This runs:
 # 1. scripts/scraper.js
-#    → Scrapes https://portal.ebaugesuche.zh.ch/eauflage/stäfa
-#    → Saves to data/gesuche-raw.json
+#    → Fetches /api/public/publications/v1/commune/{gemeinde}
+#    → Saves to data/gesuche-raw-{gemeinde}.json
 #
 # 2. scripts/geocoder.js
 #    → Geocodes addresses with OSM Nominatim
-#    → Saves to data/gesuche-geocoded.json
+#    → Saves to data/gesuche-geocoded-{gemeinde}.json
 #
 # 3. scripts/build.js
 #    → Combines data
-#    → Exports GeoJSON to data/baugesuche.json
+#    → Exports GeoJSON to data/baugesuche_{gemeinde}.json
 
 npm run dev
 # Visit http://localhost:8080 with new data
