@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "updated": "2026-11-16T09:43:53.393Z",
-    "count": 3,
-    "successCount": 3,
+    "updated": "2026-11-17T15:20:21.856Z",
+    "count": 4,
+    "successCount": 4,
     "unmappedCount": 0,
     "gemeinde": "oberrieden",
     "source": "https://portal.ebaugesuche.zh.ch/",
@@ -64,6 +64,25 @@
         "datum": "2026-11-10",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3364702",
         "displayName": "Fachstrasse 12 8942 Oberrieden"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.58053207397461,
+          47.27570724487305
+        ]
+      },
+      "properties": {
+        "nummer": "3399984",
+        "adresse": "Fachstrasse 47 8942 Oberrieden",
+        "gemeinde": "Oberrieden",
+        "bautyp": "Ersatzneubau eines Mehrfamilienhauses mit Tiefgarage",
+        "datum": "2026-11-17",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3399984",
+        "displayName": "Fachstrasse 47 8942 Oberrieden"
       }
     }
   ]

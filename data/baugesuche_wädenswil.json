@@ -1,33 +1,14 @@
 {
   "metadata": {
-    "updated": "2026-11-16T09:44:42.941Z",
-    "count": 12,
-    "successCount": 12,
+    "updated": "2026-11-17T15:21:08.266Z",
+    "count": 11,
+    "successCount": 11,
     "unmappedCount": 0,
     "gemeinde": "wädenswil",
     "source": "https://portal.ebaugesuche.zh.ch/",
     "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.682968139648438,
-          47.222190856933594
-        ]
-      },
-      "properties": {
-        "nummer": "1830874",
-        "adresse": "Bollerweg 46 8820 Wädenswil",
-        "gemeinde": "Wädenswil",
-        "bautyp": "Schutzabklärung Inv.-Nr. 469, Genehmigung Schutzvertrag gemäss § 205 PBG",
-        "datum": "2026-10-16",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/1830874",
-        "displayName": "Bollerweg 46 8820 Wädenswil"
-      }
-    },
     {
       "type": "Feature",
       "geometry": {

@@ -1,33 +1,14 @@
 {
   "metadata": {
-    "updated": "2026-11-16T09:43:18.214Z",
-    "count": 10,
-    "successCount": 10,
+    "updated": "2026-11-17T15:19:48.196Z",
+    "count": 9,
+    "successCount": 9,
     "unmappedCount": 0,
     "gemeinde": "adliswil",
     "source": "https://portal.ebaugesuche.zh.ch/",
     "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.533037185668945,
-          47.313167572021484
-        ]
-      },
-      "properties": {
-        "nummer": "3213731",
-        "adresse": "Badstrasse 2 8134 Adliswil",
-        "gemeinde": "Adliswil",
-        "bautyp": "Wohnüberbauung am Chräbsbach",
-        "datum": "2026-10-26",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3213731",
-        "displayName": "Badstrasse 2 8134 Adliswil"
-      }
-    },
     {
       "type": "Feature",
       "geometry": {

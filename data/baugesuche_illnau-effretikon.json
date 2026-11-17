@@ -1,33 +1,14 @@
 {
   "metadata": {
-    "updated": "2026-11-16T09:43:41.930Z",
-    "count": 2,
-    "successCount": 2,
+    "updated": "2026-11-17T15:20:10.408Z",
+    "count": 1,
+    "successCount": 1,
     "unmappedCount": 0,
     "gemeinde": "illnau-effretikon",
     "source": "https://portal.ebaugesuche.zh.ch/",
     "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.716883659362793,
-          47.4161376953125
-        ]
-      },
-      "properties": {
-        "nummer": "3296614",
-        "adresse": "Breitenacherstrasse 6.2 8308 Illnau",
-        "gemeinde": "Illnau-Effretikon",
-        "bautyp": "Umbau und Vergrösserung Gartenhaus Assek.-Nr. 1428, Breitenacherstrasse 6.2, Illnau, Grundstück Kat.-Nr. IE8124 (Kernzone I)",
-        "datum": "2026-10-26",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3296614",
-        "displayName": "Breitenacherstrasse 6.2 8308 Illnau"
-      }
-    },
     {
       "type": "Feature",
       "geometry": {
