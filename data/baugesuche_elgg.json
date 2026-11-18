@@ -1,52 +1,14 @@
 {
   "metadata": {
-    "updated": "2026-11-17T15:19:59.260Z",
-    "count": 6,
-    "successCount": 6,
+    "updated": "2026-11-18T14:54:35.764Z",
+    "count": 4,
+    "successCount": 4,
     "unmappedCount": 0,
     "gemeinde": "elgg",
     "source": "https://portal.ebaugesuche.zh.ch/",
     "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.83549690246582,
-          47.48438262939453
-        ]
-      },
-      "properties": {
-        "nummer": "3307423",
-        "adresse": "Wenzikon 19 8354 Hofstetten ZH",
-        "gemeinde": "Elgg",
-        "bautyp": "s33/26, Müller, PV Anlage Aufdach",
-        "datum": "2026-10-29",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3307423",
-        "displayName": "Wenzikon 19 8354 Hofstetten ZH"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.864114761352539,
-          47.49088668823242
-        ]
-      },
-      "properties": {
-        "nummer": "3307497",
-        "adresse": "Haldenstrasse 6 8353 Elgg",
-        "gemeinde": "Elgg",
-        "bautyp": "s35/26, Fricker, PV-Anlage Aufdach",
-        "datum": "2026-10-29",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3307497",
-        "displayName": "Haldenstrasse 6 8353 Elgg"
-      }
-    },
     {
       "type": "Feature",
       "geometry": {

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updated": "2026-11-17T15:19:56.734Z",
+    "updated": "2026-11-18T14:54:34.290Z",
     "count": 2,
     "successCount": 2,
     "unmappedCount": 0,
@@ -9,25 +9,6 @@
     "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.693085670471191,
-          47.29640197753906
-        ]
-      },
-      "properties": {
-        "nummer": "3309736",
-        "adresse": "Forchstrasse 105 8132 Egg b. Zürich",
-        "gemeinde": "Egg",
-        "bautyp": "Plattenbelag und mobiler Unterstand (bereits bestehend)",
-        "datum": "2026-10-28",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3309736",
-        "displayName": "Forchstrasse 105 8132 Egg b. Zürich"
-      }
-    },
     {
       "type": "Feature",
       "geometry": {
@@ -45,6 +26,25 @@
         "datum": "2026-11-04",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3339378",
         "displayName": "Löwenstrasse 1 8133 Esslingen"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.68889045715332,
+          47.31108474731445
+        ]
+      },
+      "properties": {
+        "nummer": "3404829",
+        "adresse": "Ober Halden 11 + 12 8132 Hinteregg",
+        "gemeinde": "Egg",
+        "bautyp": "Verlängerung der kantonalen Bewilligung der Asylunterkunft (BVV-Nr. 25-2163 vom 28.07.2025)",
+        "datum": "2026-11-18",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3404829",
+        "displayName": "Ober Halden 11 8132 Hinteregg"
       }
     }
   ]

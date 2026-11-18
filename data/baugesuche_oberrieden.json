@@ -1,33 +1,14 @@
 {
   "metadata": {
-    "updated": "2026-11-17T15:20:21.856Z",
+    "updated": "2026-11-18T14:54:55.938Z",
     "count": 4,
-    "successCount": 4,
-    "unmappedCount": 0,
+    "successCount": 3,
+    "unmappedCount": 1,
     "gemeinde": "oberrieden",
     "source": "https://portal.ebaugesuche.zh.ch/",
     "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.572138786315918,
-          47.27589797973633
-        ]
-      },
-      "properties": {
-        "nummer": "3321557",
-        "adresse": "Im Huebacher 3 8942 Oberrieden",
-        "gemeinde": "Oberrieden",
-        "bautyp": "Ersatzneubau eines Mehfamilienhauses",
-        "datum": "2026-10-29",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3321557",
-        "displayName": "Im Huebacher 3 8942 Oberrieden"
-      }
-    },
     {
       "type": "Feature",
       "geometry": {
@@ -83,6 +64,19 @@
         "datum": "2026-11-17",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3399984",
         "displayName": "Fachstrasse 47 8942 Oberrieden"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "nummer": "3270615",
+        "adresse": "Püntstrasse 10a 8942 Oberrieden",
+        "gemeinde": "Oberrieden",
+        "bautyp": "Erweiterung Schulanlage Pünt, Oberrieden 3.Etappe",
+        "datum": "2026-11-18",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3270615",
+        "displayName": null
       }
     }
   ]

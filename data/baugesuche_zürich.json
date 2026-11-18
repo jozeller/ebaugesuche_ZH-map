@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "updated": "2026-11-17T15:21:38.772Z",
-    "count": 60,
-    "successCount": 59,
+    "updated": "2026-11-18T14:56:03.690Z",
+    "count": 59,
+    "successCount": 58,
     "unmappedCount": 1,
     "gemeinde": "zürich",
     "source": "https://portal.ebaugesuche.zh.ch/",
@@ -704,25 +704,6 @@
         "datum": "2026-11-06",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/2602203",
         "displayName": "General-Guisan-Quai 20 8002 Zürich"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.514486312866211,
-          47.41655349731445
-        ]
-      },
-      "properties": {
-        "nummer": "3316604",
-        "adresse": "In Böden 22 8046 Zürich",
-        "gemeinde": "Zürich",
-        "bautyp": "Ersatzneubau 2 MFH, In Böden 22 & Riedhaldenstrasse 79, 8046 Zürich Affoltern",
-        "datum": "2026-11-06",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3316604",
-        "displayName": "In Böden 22 8046 Zürich"
       }
     },
     {
