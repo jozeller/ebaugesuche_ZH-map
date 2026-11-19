@@ -1,90 +1,14 @@
 {
   "metadata": {
-    "updated": "2026-11-18T14:54:27.003Z",
-    "count": 9,
-    "successCount": 9,
+    "updated": "2026-11-19T15:00:33.327Z",
+    "count": 5,
+    "successCount": 5,
     "unmappedCount": 0,
     "gemeinde": "adliswil",
     "source": "https://portal.ebaugesuche.zh.ch/",
     "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.521541595458984,
-          47.30946350097656
-        ]
-      },
-      "properties": {
-        "nummer": "3296290",
-        "adresse": "Säntisstrasse 18 8134 Adliswil",
-        "gemeinde": "Adliswil",
-        "bautyp": "Ersatzneubau Säntisstrasse 18 8134 Adliswil",
-        "datum": "2026-10-29",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3296290",
-        "displayName": "Säntisstrasse 18 8134 Adliswil"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.517979621887207,
-          47.31254196166992
-        ]
-      },
-      "properties": {
-        "nummer": "3317875",
-        "adresse": "Hofernweg 18 8134 Adliswil",
-        "gemeinde": "Adliswil",
-        "bautyp": "Nachträglicher Einbau einer Split-Klimaanlage (1. OG) mit verdeckter Aufstellung des Außengeräts",
-        "datum": "2026-10-29",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3317875",
-        "displayName": "Hofernweg 18 8134 Adliswil"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.523588180541992,
-          47.31610107421875
-        ]
-      },
-      "properties": {
-        "nummer": "3318055",
-        "adresse": "Austrasse 29 8134 Adliswil",
-        "gemeinde": "Adliswil",
-        "bautyp": "Sanierung und Anpassungen MFH Austrasse 29, 31",
-        "datum": "2026-10-29",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3318055",
-        "displayName": "Austrasse 29 8134 Adliswil"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.525420188903809,
-          47.31235885620117
-        ]
-      },
-      "properties": {
-        "nummer": "3318147",
-        "adresse": "Albisstrasse 2 8134 Adliswil",
-        "gemeinde": "Adliswil",
-        "bautyp": "Albisstrasse 2 und 4",
-        "datum": "2026-10-29",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3318147",
-        "displayName": "Albisstrasse 2 8134 Adliswil"
-      }
-    },
     {
       "type": "Feature",
       "geometry": {

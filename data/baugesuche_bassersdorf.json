@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "updated": "2026-11-18T14:54:28.830Z",
-    "count": 4,
-    "successCount": 4,
+    "updated": "2026-11-19T15:00:35.801Z",
+    "count": 5,
+    "successCount": 5,
     "unmappedCount": 0,
     "gemeinde": "bassersdorf",
     "source": "https://portal.ebaugesuche.zh.ch/",
@@ -83,6 +83,25 @@
         "datum": "2026-11-05",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3349952",
         "displayName": "Im Lindenacher 23 8303 Bassersdorf"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.62116527557373,
+          47.44693374633789
+        ]
+      },
+      "properties": {
+        "nummer": "3413914",
+        "adresse": "Grundhaldenstrasse 26 8303 Bassersdorf",
+        "gemeinde": "Bassersdorf",
+        "bautyp": "Anbau an bestehendes Einfamilienhaus",
+        "datum": "2026-11-19",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3413914",
+        "displayName": "Grundhaldenstrasse 26 8303 Bassersdorf"
       }
     }
   ]

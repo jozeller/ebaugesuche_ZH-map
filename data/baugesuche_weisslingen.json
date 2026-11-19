@@ -1,52 +1,14 @@
 {
   "metadata": {
-    "updated": "2026-11-18T14:55:18.990Z",
-    "count": 5,
-    "successCount": 5,
+    "updated": "2026-11-19T15:01:32.945Z",
+    "count": 3,
+    "successCount": 3,
     "unmappedCount": 0,
     "gemeinde": "weisslingen",
     "source": "https://portal.ebaugesuche.zh.ch/",
     "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.768353462219238,
-          47.422271728515625
-        ]
-      },
-      "properties": {
-        "nummer": "3307034",
-        "adresse": "Tüffi 9 8484 Theilingen",
-        "gemeinde": "Weisslingen",
-        "bautyp": "Carport-Verbreiterung, Tüffi 9, GVZ-Nr. 1445, Kat.-Nr. 2521, Kernzone Weiler",
-        "datum": "2026-10-29",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3307034",
-        "displayName": "Tüffi 9 8484 Theilingen"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.789481163024902,
-          47.429866790771484
-        ]
-      },
-      "properties": {
-        "nummer": "3308823",
-        "adresse": "Neschwilerstrasse 71.1 8484 Neschwil",
-        "gemeinde": "Weisslingen",
-        "bautyp": "Abbruch Schopf und Neubau Ökonomiegebäude, Neschwilerstr. 71.1, GVZ-Nr. 123, Kat.-Nr. 2622, Kernzone Weiler",
-        "datum": "2026-10-29",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3308823",
-        "displayName": "Neschwilerstrasse 71.1 8484 Neschwil"
-      }
-    },
     {
       "type": "Feature",
       "geometry": {

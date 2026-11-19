@@ -1,32 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-18T14:54:45.391Z",
-    "count": 1,
-    "successCount": 1,
+    "updated": "2026-11-19T15:00:54.919Z",
+    "count": 0,
+    "successCount": 0,
     "unmappedCount": 0,
     "gemeinde": "illnau-effretikon",
     "source": "https://portal.ebaugesuche.zh.ch/",
     "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
-  "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.691671371459961,
-          47.410011291503906
-        ]
-      },
-      "properties": {
-        "nummer": "3307622",
-        "adresse": "Kindhauserstrasse 21 8307 Effretikon",
-        "gemeinde": "Illnau-Effretikon",
-        "bautyp": "Neubau Mobilfunkantenne neben Gebäude Assek.-Nr. 1480, Kindhauserstrasse 21, Effretikon, Kat.-Nr. IE1859 (Landwirtschaftszone)",
-        "datum": "2026-10-29",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3307622",
-        "displayName": "Kindhauserstrasse 21 8307 Effretikon"
-      }
-    }
-  ]
+  "features": []
 }

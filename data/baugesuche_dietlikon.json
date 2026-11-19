@@ -1,32 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-18T14:54:31.743Z",
-    "count": 1,
-    "successCount": 1,
+    "updated": "2026-11-19T15:00:39.252Z",
+    "count": 0,
+    "successCount": 0,
     "unmappedCount": 0,
     "gemeinde": "dietlikon",
     "source": "https://portal.ebaugesuche.zh.ch/",
     "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
-  "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.615065574645996,
-          47.42647933959961
-        ]
-      },
-      "properties": {
-        "nummer": "3307745",
-        "adresse": "Oberdorfstrasse 9 8305 Dietlikon",
-        "gemeinde": "Dietlikon",
-        "bautyp": "Erstellung eines Doppeleinfamilienhauses",
-        "datum": "2026-10-29",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3307745",
-        "displayName": "Oberdorfstrasse 9 8305 Dietlikon"
-      }
-    }
-  ]
+  "features": []
 }

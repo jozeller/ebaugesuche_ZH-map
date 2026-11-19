@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "updated": "2026-11-18T14:55:14.333Z",
-    "count": 1,
-    "successCount": 1,
+    "updated": "2026-11-19T15:01:28.454Z",
+    "count": 3,
+    "successCount": 3,
     "unmappedCount": 0,
     "gemeinde": "urdorf",
     "source": "https://portal.ebaugesuche.zh.ch/",
@@ -26,6 +26,44 @@
         "datum": "2026-11-12",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3373750",
         "displayName": "Gartenstrasse 8 8902 Urdorf"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.433398246765137,
+          47.3887825012207
+        ]
+      },
+      "properties": {
+        "nummer": "3406604",
+        "adresse": "In der Weid 10 8902 Urdorf",
+        "gemeinde": "Urdorf",
+        "bautyp": "Umbau EFH und Anbau Wintergarten",
+        "datum": "2026-11-19",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3406604",
+        "displayName": "In der Weid 10 8902 Urdorf"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.430244445800781,
+          47.37966537475586
+        ]
+      },
+      "properties": {
+        "nummer": "3412680",
+        "adresse": "In der Breiti 2, 4, 6, Weihermattstrasse 51, 53, 55, 57, 59, 59.1, 61, 63, 65, Uitikonerstrasse 38.1, 40, 2, 44, 46, 48, 50 8902 Urdorf",
+        "gemeinde": "Urdorf",
+        "bautyp": "Überbauung Weihermatt: Abbruch 11 Wohngebäude, Tiefgaragen, Kindergarten und Neubau 11 Wohngebäude mit Tiefgaragen und Kindergarten",
+        "datum": "2026-11-19",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3412680",
+        "displayName": "In der Breiti 2 8902 Urdorf"
       }
     }
   ]
