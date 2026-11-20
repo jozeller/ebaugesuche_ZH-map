@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:00:39.621Z",
-    "count": 1,
-    "successCount": 1,
+    "updated": "2026-11-20T14:43:13.468Z",
+    "count": 5,
+    "successCount": 5,
     "unmappedCount": 0,
     "gemeinde": "dübendorf",
     "source": "https://portal.ebaugesuche.zh.ch/",
@@ -26,6 +26,82 @@
         "datum": "2026-11-06",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3341321",
         "displayName": "Grundstrasse 22 8600 Dübendorf"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.609848976135254,
+          47.39325714111328
+        ]
+      },
+      "properties": {
+        "nummer": "3387449",
+        "adresse": "Hurdackerstrasse 29 8600 Dübendorf",
+        "gemeinde": "Dübendorf",
+        "bautyp": "Ersatz und Erweiterung Sichtschutzelemente",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3387449",
+        "displayName": "Hurdackerstrasse 29 8600 Dübendorf"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.614450454711914,
+          47.4010009765625
+        ]
+      },
+      "properties": {
+        "nummer": "3387577",
+        "adresse": "Ueberlandstrasse 151 8600 Dübendorf",
+        "gemeinde": "Dübendorf",
+        "bautyp": "Antennenaustausch bei bestehender Mobilfunkanlage-Salt Mobile-ZH_0157A",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3387577",
+        "displayName": "Ueberlandstrasse 151 8600 Dübendorf"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.630780220031738,
+          47.392539978027344
+        ]
+      },
+      "properties": {
+        "nummer": "3387646",
+        "adresse": "Frickenstrasse 20 8600 Dübendorf",
+        "gemeinde": "Dübendorf",
+        "bautyp": "Einbau Klimaanlage und Vergrösserung einer Fenstertür ",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3387646",
+        "displayName": "Frickenstrasse 20 8600 Dübendorf"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.615837097167969,
+          47.406959533691406
+        ]
+      },
+      "properties": {
+        "nummer": "3387935",
+        "adresse": "Im Brand 15 8600 Dübendorf",
+        "gemeinde": "Dübendorf",
+        "bautyp": "Neubau Doppelgarage",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3387935",
+        "displayName": "Im Brand 15 8600 Dübendorf"
       }
     }
   ]

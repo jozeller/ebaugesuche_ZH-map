@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:02:22.986Z",
-    "count": 59,
-    "successCount": 58,
-    "unmappedCount": 1,
+    "updated": "2026-11-20T14:44:32.284Z",
+    "count": 55,
+    "successCount": 55,
+    "unmappedCount": 0,
     "gemeinde": "zürich",
     "source": "https://portal.ebaugesuche.zh.ch/",
     "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
@@ -64,342 +64,6 @@
         "datum": "2026-11-06",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3316519",
         "displayName": "Kornhausstrasse 34 8006 Zürich"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.549127578735352,
-          47.36622619628906
-        ]
-      },
-      "properties": {
-        "nummer": "3286205",
-        "adresse": "Kreuzbühlstrasse 1 8008 Zürich",
-        "gemeinde": "Zürich",
-        "bautyp": "Innen- und Aussenbestuhlung Confiseur Bachmann",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3286205",
-        "displayName": "Kreuzbühlstrasse 1 8008 Zürich"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.514163970947266,
-          47.39655685424805
-        ]
-      },
-      "properties": {
-        "nummer": "3286220",
-        "adresse": "Limmattalstrasse 8 8049 Zürich",
-        "gemeinde": "Zürich",
-        "bautyp": "Erstellung Split-Klimaanlage zur Klimatisierung 2. Obergeschoss",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3286220",
-        "displayName": "Limmattalstrasse 8 8049 Zürich"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.528250694274902,
-          47.341712951660156
-        ]
-      },
-      "properties": {
-        "nummer": "3286265",
-        "adresse": "Butzenstrasse 16 8038 Zürich",
-        "gemeinde": "Zürich",
-        "bautyp": "Umbau Butzenstrasse 16",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3286265",
-        "displayName": "Butzenstrasse 16 8038 Zürich"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.534744262695312,
-          47.36116027832031
-        ]
-      },
-      "properties": {
-        "nummer": "3286280",
-        "adresse": "Mythenquai 20 8002 Zürich",
-        "gemeinde": "Zürich",
-        "bautyp": "Lake Abänderungseingabe in Anzeigeverfahren Umgebungsarbeiten Gem. Auflagen in BE 1929/19",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3286280",
-        "displayName": "Mythenquai 20 8002 Zürich"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.514957427978516,
-          47.37569046020508
-        ]
-      },
-      "properties": {
-        "nummer": "3286297",
-        "adresse": "Zentralstrasse 150 8003 Zürich",
-        "gemeinde": "Zürich",
-        "bautyp": "Sanierung Wohnhaus",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3286297",
-        "displayName": "Zentralstrasse 150 8003 Zürich"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.551752090454102,
-          47.382083892822266
-        ]
-      },
-      "properties": {
-        "nummer": "3286312",
-        "adresse": "Gladbachstrasse 38 8044 Zürich",
-        "gemeinde": "Zürich",
-        "bautyp": "843B Gladbachstrasse Zürich",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3286312",
-        "displayName": "Gladbachstrasse 38 8044 Zürich"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.504985809326172,
-          47.40092849731445
-        ]
-      },
-      "properties": {
-        "nummer": "3286318",
-        "adresse": "Brunnwiesenstrasse 30 8049 Zürich",
-        "gemeinde": "Zürich",
-        "bautyp": "Umbau MFH mit Anbau, Brunnwiesenstrasse 30, 8049 Zürich",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3286318",
-        "displayName": "Brunnwiesenstrasse 30 8049 Zürich"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.505227088928223,
-          47.394187927246094
-        ]
-      },
-      "properties": {
-        "nummer": "3286324",
-        "adresse": "Hardturmstrasse 400 8005 Zürich",
-        "gemeinde": "Zürich",
-        "bautyp": "Schule Am Wasser - Pavillon Hardturm",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3286324",
-        "displayName": "Hardturmstrasse 400 8005 Zürich"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.542311668395996,
-          47.4163818359375
-        ]
-      },
-      "properties": {
-        "nummer": "3286349",
-        "adresse": "Eggbühlstrasse 28 8050 Zürich",
-        "gemeinde": "Zürich",
-        "bautyp": "Kühlgerät für Lüftungsanlage DKSH & Medinova Eggbühlstrasse Innenausbau Büro",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3286349",
-        "displayName": "Eggbühlstrasse 28 8050 Zürich"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.539031028747559,
-          47.336761474609375
-        ]
-      },
-      "properties": {
-        "nummer": "3286363",
-        "adresse": "Seestrasse 520 8038 Zürich",
-        "gemeinde": "Zürich",
-        "bautyp": "Luft Wasser Wärmepumpe",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3286363",
-        "displayName": "Seestrasse 520 8038 Zürich"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.536437034606934,
-          47.37166213989258
-        ]
-      },
-      "properties": {
-        "nummer": "3286386",
-        "adresse": "Pelikanstrasse 18 8001 Zürich",
-        "gemeinde": "Zürich",
-        "bautyp": "Sanierung Lüftungs- und Kälteanlagen Innenhof",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3286386",
-        "displayName": "Pelikanstrasse 18 8001 Zürich"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.560726165771484,
-          47.3674201965332
-        ]
-      },
-      "properties": {
-        "nummer": "3286423",
-        "adresse": "Asylstrasse 68 8032 Zürich",
-        "gemeinde": "Zürich",
-        "bautyp": "Umbau MFH Asylstrasse 68",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3286423",
-        "displayName": "Asylstrasse 68 8032 Zürich"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.545268058776855,
-          47.367881774902344
-        ]
-      },
-      "properties": {
-        "nummer": "3286431",
-        "adresse": "Torgasse 4 8001 Zürich",
-        "gemeinde": "Zürich",
-        "bautyp": "Nutzungsänderung Arztpraxis um eine Nebenwirtschaft (Café/Bar), AUMAR, Torgasse 4, 8001 Zürich",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3286431",
-        "displayName": "Torgasse 4 8001 Zürich"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.487350463867188,
-          47.40336227416992
-        ]
-      },
-      "properties": {
-        "nummer": "3286443",
-        "adresse": "Limmattalstrasse 331 8049 Zürich",
-        "gemeinde": "Zürich",
-        "bautyp": "Limmattalstrasse 331, 8049 Zürich ZH",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3286443",
-        "displayName": "Limmattalstrasse 331 8049 Zürich"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.537522315979004,
-          47.41141128540039
-        ]
-      },
-      "properties": {
-        "nummer": "3286460",
-        "adresse": "Birchstrasse 149 8050 Zürich",
-        "gemeinde": "Zürich",
-        "bautyp": "Dekontamination Altlasten OE6541",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3286460",
-        "displayName": "Birchstrasse 149 8050 Zürich"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.551712036132812,
-          47.4111213684082
-        ]
-      },
-      "properties": {
-        "nummer": "3286473",
-        "adresse": "Wallisellenstrasse 45 8050 Zürich",
-        "gemeinde": "Zürich",
-        "bautyp": "V2_PVA_ZH_Wallisellenstrasse 45_Hallenstadion",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3286473",
-        "displayName": "Wallisellenstrasse 45 8050 Zürich"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": null,
-      "properties": {
-        "nummer": "1456909",
-        "adresse": "Schlösslistrasse anstelle 29 8044 Zürich",
-        "gemeinde": "Zürich",
-        "bautyp": "Austauschpläne zu dem vom 5. September 2025–25. September 2025 ausgeschriebenem Projekt, Ersatzneubau Mehrfamilienhaus mit 8 Wohnungen, Tiefgarage mit 8 Abstellplätzen, Autolift, PV-Anlage auf Flachdach",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/1456909",
-        "displayName": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.538111686706543,
-          47.373329162597656
-        ]
-      },
-      "properties": {
-        "nummer": "3291218",
-        "adresse": "Bahnhofstrasse 63 8001 Zürich",
-        "gemeinde": "Zürich",
-        "bautyp": "Bahnhofstrasse 63",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3291218",
-        "displayName": "Bahnhofstrasse 63 8001 Zürich"
       }
     },
     {
@@ -1122,6 +786,272 @@
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3352298",
         "displayName": "Ohmstrasse 11 8050 Zürich"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.550317764282227,
+          47.40943145751953
+        ]
+      },
+      "properties": {
+        "nummer": "3382167",
+        "adresse": "Dörflistrasse 80 8050 Zürich",
+        "gemeinde": "Zürich",
+        "bautyp": "Elektro-Ladestation mit 2 Ladeparkplätzen und 1 Besucherparkplatz im Freien",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3382167",
+        "displayName": "Dörflistrasse 80 8050 Zürich"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.508262634277344,
+          47.398231506347656
+        ]
+      },
+      "properties": {
+        "nummer": "3382313",
+        "adresse": "Ottenbergstrasse 52 8049 Zürich",
+        "gemeinde": "Zürich",
+        "bautyp": "EFH - Ottenbergstrasse 52, 8049 Zürich",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3382313",
+        "displayName": "Ottenbergstrasse 52 8049 Zürich"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.49345874786377,
+          47.40224838256836
+        ]
+      },
+      "properties": {
+        "nummer": "3382340",
+        "adresse": "Limmattalstrasse 247 8049 Zürich",
+        "gemeinde": "Zürich",
+        "bautyp": "Erneuerung Küche/Bad, Ersatz Haustechnik",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3382340",
+        "displayName": "Limmattalstrasse 247 8049 Zürich"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.519704818725586,
+          47.429473876953125
+        ]
+      },
+      "properties": {
+        "nummer": "3382346",
+        "adresse": "Reckenholzstrasse 208 8046 Zürich",
+        "gemeinde": "Zürich",
+        "bautyp": "Zürich Agroscope M-Unterstände",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3382346",
+        "displayName": "Reckenholzstrasse 208 8046 Zürich"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.49548625946045,
+          47.381805419921875
+        ]
+      },
+      "properties": {
+        "nummer": "3382365",
+        "adresse": "Flüelastrasse 29 8047 Zürich",
+        "gemeinde": "Zürich",
+        "bautyp": "Umverlegung Entsorgungsstation und Entsiegelung von Flächen",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3382365",
+        "displayName": "Flüelastrasse 29 8047 Zürich"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.498778343200684,
+          47.38414764404297
+        ]
+      },
+      "properties": {
+        "nummer": "3382372",
+        "adresse": "Rudenzweg 47 8048 Zürich",
+        "gemeinde": "Zürich",
+        "bautyp": "Rudenzweg 47, 47a",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3382372",
+        "displayName": "Rudenzweg 47 8048 Zürich"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.545312881469727,
+          47.37455368041992
+        ]
+      },
+      "properties": {
+        "nummer": "3382404",
+        "adresse": "Mühlegasse 25 8001 Zürich",
+        "gemeinde": "Zürich",
+        "bautyp": "Lüftung montieren",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3382404",
+        "displayName": "Mühlegasse 25 8001 Zürich"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.538317680358887,
+          47.37187576293945
+        ]
+      },
+      "properties": {
+        "nummer": "3382426",
+        "adresse": "Bahnhofstrasse 45 8001 Zürich",
+        "gemeinde": "Zürich",
+        "bautyp": "Boulevardcafé Bar45, Bahnhofstrasse 45, 8001 Zürich",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3382426",
+        "displayName": "Bahnhofstrasse 45 8001 Zürich"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.53774356842041,
+          47.369102478027344
+        ]
+      },
+      "properties": {
+        "nummer": "3382428",
+        "adresse": "Talstrasse 27 8001 Zürich",
+        "gemeinde": "Zürich",
+        "bautyp": "SUVA, Talstrasse 27 / Bleicherweg 8, 8001 Zürich",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3382428",
+        "displayName": "Talstrasse 27 8001 Zürich"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.508790016174316,
+          47.38025665283203
+        ]
+      },
+      "properties": {
+        "nummer": "3382438",
+        "adresse": "Norastrasse 20 8004 Zürich",
+        "gemeinde": "Zürich",
+        "bautyp": "Schulanlage Albisriederplatz Allwetterplatz",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3382438",
+        "displayName": "Norastrasse 20 8004 Zürich"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.548378944396973,
+          47.361263275146484
+        ]
+      },
+      "properties": {
+        "nummer": "3382464",
+        "adresse": "Seegartenstrasse 2 8008 Zürich",
+        "gemeinde": "Zürich",
+        "bautyp": "Einbau Dachwohnung und Dachsanierung",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3382464",
+        "displayName": "Seegartenstrasse 2 8008 Zürich"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.488786697387695,
+          47.392581939697266
+        ]
+      },
+      "properties": {
+        "nummer": "3382573",
+        "adresse": "Max-Högger-Strasse 81 8048 Zürich",
+        "gemeinde": "Zürich",
+        "bautyp": "UBS VZA1, im Gestaltungsplanperimeter \"Areal VZA1\"",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3382573",
+        "displayName": "Max-Högger-Strasse 81 8048 Zürich"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.530174255371094,
+          47.34323501586914
+        ]
+      },
+      "properties": {
+        "nummer": "3382597",
+        "adresse": "Albisstrasse 52 8038 Zürich",
+        "gemeinde": "Zürich",
+        "bautyp": "Umnutzung Laden (Nebenwirtschaft im Innern) zu Gastronomiebetrieb",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3382597",
+        "displayName": "Albisstrasse 52 8038 Zürich"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.537458419799805,
+          47.37632369995117
+        ]
+      },
+      "properties": {
+        "nummer": "3389203",
+        "adresse": "Löwenstrasse 51 8001 Zürich",
+        "gemeinde": "Zürich",
+        "bautyp": "KOPIE Installation von zwei Klimaanlagen, Löwenstrasse 51, Zürich",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3389203",
+        "displayName": "Löwenstrasse 51 8001 Zürich"
       }
     }
   ]

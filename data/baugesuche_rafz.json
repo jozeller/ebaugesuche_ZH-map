@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:01:11.926Z",
-    "count": 3,
-    "successCount": 3,
+    "updated": "2026-11-20T14:43:37.300Z",
+    "count": 4,
+    "successCount": 4,
     "unmappedCount": 0,
     "gemeinde": "rafz",
     "source": "https://portal.ebaugesuche.zh.ch/",
@@ -64,6 +64,25 @@
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3386764",
         "displayName": "Im Boden 11.2 8197 Rafz"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.53564167022705,
+          47.61277389526367
+        ]
+      },
+      "properties": {
+        "nummer": "3420050",
+        "adresse": "Brüelgass 11a 8197 Rafz",
+        "gemeinde": "Rafz",
+        "bautyp": "Neubau Geräteschuppen",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3420050",
+        "displayName": "Brüelgass 11a 8197 Rafz"
       }
     }
   ]

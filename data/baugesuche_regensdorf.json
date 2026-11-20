@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:01:12.285Z",
-    "count": 1,
-    "successCount": 1,
+    "updated": "2026-11-20T14:43:37.915Z",
+    "count": 2,
+    "successCount": 2,
     "unmappedCount": 0,
     "gemeinde": "regensdorf",
     "source": "https://portal.ebaugesuche.zh.ch/",
@@ -26,6 +26,25 @@
         "datum": "2026-11-06",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3332729",
         "displayName": "Ringstrasse 21 8105 Regensdorf"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.463085174560547,
+          47.429264068603516
+        ]
+      },
+      "properties": {
+        "nummer": "3353190",
+        "adresse": "Kapellstrasse 7 8105 Regensdorf",
+        "gemeinde": "Regensdorf",
+        "bautyp": "Abbruch Gebäude Vers.-Nr. 689 und Teil-Abbruch 2896, Neubau Mehrfamilienhaus",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3353190",
+        "displayName": "Kapellstrasse 7 8105 Regensdorf"
       }
     }
   ]

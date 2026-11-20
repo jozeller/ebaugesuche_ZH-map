@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:01:00.130Z",
+    "updated": "2026-11-20T14:43:25.616Z",
     "count": 1,
-    "successCount": 0,
-    "unmappedCount": 1,
+    "successCount": 1,
+    "unmappedCount": 0,
     "gemeinde": "maur",
     "source": "https://portal.ebaugesuche.zh.ch/",
     "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
@@ -11,15 +11,21 @@
   "features": [
     {
       "type": "Feature",
-      "geometry": null,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.657234191894531,
+          47.347591400146484
+        ]
+      },
       "properties": {
-        "nummer": "3304370",
-        "adresse": "Binzstrasse 8122 Binz",
+        "nummer": "3388085",
+        "adresse": "Gmeindacherweg 4a.1 8124 Maur",
         "gemeinde": "Maur",
-        "bautyp": "Gemeinde Maur, Staukanal Jörenbach - Einführung Trennsystem in der Binzstrasse",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3304370",
-        "displayName": null
+        "bautyp": "Salt Mobile SA, Antennenaustausch an best. Mobilfunkanlage «ZH_0648F»",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3388085",
+        "displayName": "Gmeindacherweg 4a.1 8124 Maur"
       }
     }
   ]

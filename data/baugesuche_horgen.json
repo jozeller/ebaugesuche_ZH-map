@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:00:54.743Z",
-    "count": 2,
-    "successCount": 2,
+    "updated": "2026-11-20T14:43:23.772Z",
+    "count": 3,
+    "successCount": 3,
     "unmappedCount": 0,
     "gemeinde": "horgen",
     "source": "https://portal.ebaugesuche.zh.ch/",
@@ -45,6 +45,25 @@
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3378351",
         "displayName": "Gehrenstrasse 29 8810 Horgen"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.58986759185791,
+          47.258758544921875
+        ]
+      },
+      "properties": {
+        "nummer": "3407299",
+        "adresse": "Oberdorfstrasse 50 8810 Horgen",
+        "gemeinde": "Horgen",
+        "bautyp": "Luft-/Wasser-Wärmepumpe (aussen aufgestellt; > 2 m³)",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3407299",
+        "displayName": "Oberdorfstrasse 50 8810 Horgen"
       }
     }
   ]

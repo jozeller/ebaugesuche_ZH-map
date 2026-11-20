@@ -1,71 +1,14 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:00:53.007Z",
-    "count": 6,
-    "successCount": 6,
+    "updated": "2026-11-20T14:43:22.551Z",
+    "count": 4,
+    "successCount": 4,
     "unmappedCount": 0,
     "gemeinde": "hinwil",
     "source": "https://portal.ebaugesuche.zh.ch/",
     "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.817846298217773,
-          47.3087272644043
-        ]
-      },
-      "properties": {
-        "nummer": "3310562",
-        "adresse": "Wildbachstrasse 18 8340 Hinwil",
-        "gemeinde": "Hinwil",
-        "bautyp": "Instandstellung und Erhöhung Stalldach am Gebäude Vers.-Nr. 1886",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3310562",
-        "displayName": "Wildbachstrasse 18 8340 Hinwil"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.831681251525879,
-          47.30438232421875
-        ]
-      },
-      "properties": {
-        "nummer": "3313367",
-        "adresse": "Zürichstrasse 74, 76 und 76.2 8340 Hinwil",
-        "gemeinde": "Hinwil",
-        "bautyp": "Abbruch Gebäude Vers.-Nrn. 2348 und 1810 und Neubau eines Betriebs- und Bürogebäudes sowie eines Carportes, einer Aussenanlage mit Pavillon und einer Trafostation",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3313367",
-        "displayName": "Zürichstrasse 74 8340 Hinwil"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.849337577819824,
-          47.306148529052734
-        ]
-      },
-      "properties": {
-        "nummer": "3313615",
-        "adresse": "Brünneliweid 7.2 8340 Hinwil",
-        "gemeinde": "Hinwil",
-        "bautyp": "Anbau eines Velounterstandes am Gebäude Vers.-Nr. 2007 auf Grundstück Kat.-Nr. 7952, Brünneliweid 7.2, Hinwil (W/1.6)",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3313615",
-        "displayName": "Brünneliweid 7.2 8340 Hinwil"
-      }
-    },
     {
       "type": "Feature",
       "geometry": {
@@ -121,6 +64,25 @@
         "datum": "2026-11-06",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3349504",
         "displayName": "Bachtelstrasse 63.1 8342 Wernetshausen"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.857659339904785,
+          47.289859771728516
+        ]
+      },
+      "properties": {
+        "nummer": "3414972",
+        "adresse": "Kiesacker 8 8340 Hinwil",
+        "gemeinde": "Hinwil",
+        "bautyp": "Neubau einer Mobilfunkanlage auf dem Gebäude Vers.-Nr. 2083",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3414972",
+        "displayName": "Kiesacker 8 8340 Hinwil"
       }
     }
   ]

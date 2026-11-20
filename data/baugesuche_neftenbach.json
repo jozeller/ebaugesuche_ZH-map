@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:01:03.443Z",
-    "count": 5,
-    "successCount": 5,
+    "updated": "2026-11-20T14:43:29.259Z",
+    "count": 6,
+    "successCount": 6,
     "unmappedCount": 0,
     "gemeinde": "neftenbach",
     "source": "https://portal.ebaugesuche.zh.ch/",
@@ -102,6 +102,25 @@
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3349356",
         "displayName": "Dättlikonstrasse 3.2 8413 Neftenbach"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.663653373718262,
+          47.52842712402344
+        ]
+      },
+      "properties": {
+        "nummer": "3383532",
+        "adresse": "Wartgutstrasse 38a 8413 Neftenbach",
+        "gemeinde": "Neftenbach",
+        "bautyp": "Klimaanlage mit Splitgerät",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3383532",
+        "displayName": "Wartgutstrasse 38a 8413 Neftenbach"
       }
     }
   ]

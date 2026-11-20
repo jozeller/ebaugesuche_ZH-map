@@ -1,33 +1,14 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:01:08.029Z",
-    "count": 3,
-    "successCount": 2,
+    "updated": "2026-11-20T14:43:33.835Z",
+    "count": 4,
+    "successCount": 3,
     "unmappedCount": 1,
     "gemeinde": "obfelden",
     "source": "https://portal.ebaugesuche.zh.ch/",
     "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.422866821289062,
-          47.25953674316406
-        ]
-      },
-      "properties": {
-        "nummer": "3317004",
-        "adresse": "Wolserstrasse 71b 8912 Obfelden",
-        "gemeinde": "Obfelden",
-        "bautyp": "Ersatz des bestehenden Planschbeckens in CNS inkl. Beckenverrohrung beim Freibad Obfelden, Vers.-Nr. 1575",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3317004",
-        "displayName": "Wolserstrasse 71b 8912 Obfelden"
-      }
-    },
     {
       "type": "Feature",
       "geometry": null,
@@ -58,6 +39,44 @@
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3371289",
         "displayName": "Ankenrain 2 8912 Obfelden"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.415543556213379,
+          47.2612419128418
+        ]
+      },
+      "properties": {
+        "nummer": "3387241",
+        "adresse": "Im Bächler 6 8912 Obfelden",
+        "gemeinde": "Obfelden",
+        "bautyp": "Erstellung PV-Aufdachanlagen, Vers.-Nr. 1669, Kat.-Nr. 4281, Im Bächler 6, K2/36",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3387241",
+        "displayName": "Im Bächler 6 8912 Obfelden"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.431207656860352,
+          47.265506744384766
+        ]
+      },
+      "properties": {
+        "nummer": "3414204",
+        "adresse": "Alte Landstrasse 25.1 8912 Obfelden",
+        "gemeinde": "Obfelden",
+        "bautyp": "Abstellen von drei Foodtrucks auf dem Postareal als Zwischennutzung, Kat.-Nr. 4898, Dorfstrasse 30.1, K3/36 (priv. GP Postareal)",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3414204",
+        "displayName": "Alte Landstrasse 25.1 8912 Obfelden"
       }
     }
   ]

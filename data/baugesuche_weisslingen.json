@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:01:32.945Z",
-    "count": 3,
-    "successCount": 3,
+    "updated": "2026-11-20T14:43:52.311Z",
+    "count": 5,
+    "successCount": 5,
     "unmappedCount": 0,
     "gemeinde": "weisslingen",
     "source": "https://portal.ebaugesuche.zh.ch/",
@@ -64,6 +64,44 @@
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3379172",
         "displayName": "Rennweg 30a.1 8484 Theilingen"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.778554916381836,
+          47.44016647338867
+        ]
+      },
+      "properties": {
+        "nummer": "3411932",
+        "adresse": "Dettenried 54 8484 Weisslingen",
+        "gemeinde": "Weisslingen",
+        "bautyp": "Schallschutzerweiterung, Dettenried 54, GVZ-Nr. 80, Kat.-Nr. 1700, Kernzone Weiler",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3411932",
+        "displayName": "Dettenried 54 8484 Weisslingen"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.781608581542969,
+          47.425594329833984
+        ]
+      },
+      "properties": {
+        "nummer": "3412728",
+        "adresse": "Lendikon 70 8484 Weisslingen",
+        "gemeinde": "Weisslingen",
+        "bautyp": "Umbau Erdgeschoss / Einbau zusätzl. Scheunentor, Lendikon 70, GVZ-Nr. 221, Kat.-Nr. 1975, Kernzone Weiler",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3412728",
+        "displayName": "Lendikon 70 8484 Weisslingen"
       }
     }
   ]

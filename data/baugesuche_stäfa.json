@@ -1,52 +1,14 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:01:23.073Z",
-    "count": 6,
-    "successCount": 6,
+    "updated": "2026-11-20T14:43:45.177Z",
+    "count": 4,
+    "successCount": 4,
     "unmappedCount": 0,
     "gemeinde": "stäfa",
     "source": "https://portal.ebaugesuche.zh.ch/",
     "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.718033790588379,
-          47.24762725830078
-        ]
-      },
-      "properties": {
-        "nummer": "3302326",
-        "adresse": "Rainstrasse 67 8712 Stäfa",
-        "gemeinde": "Stäfa",
-        "bautyp": "Werkstatt zwischen Haupthaus und Garage (bereits erstellt), Vers.-Nr. 1589, Rainstrasse 67, Kat.-Nr. 5016, 8712 Stäfa",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3302326",
-        "displayName": "Rainstrasse 67 8712 Stäfa"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.732831001281738,
-          47.239013671875
-        ]
-      },
-      "properties": {
-        "nummer": "3303714",
-        "adresse": "Schmittenbachstrasse 10 8712 Stäfa",
-        "gemeinde": "Stäfa",
-        "bautyp": "Graberweiterung Friedhof, bei Vers.-Nr. 618, Schmittenbachstrasse 10 (Friedhofshalle), Kat.-Nr. 5492, 8712 Stäfa",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3303714",
-        "displayName": "Schmittenbachstrasse 10 8712 Stäfa"
-      }
-    },
     {
       "type": "Feature",
       "geometry": {

@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:00:41.283Z",
-    "count": 4,
-    "successCount": 4,
+    "updated": "2026-11-20T14:43:15.291Z",
+    "count": 5,
+    "successCount": 5,
     "unmappedCount": 0,
     "gemeinde": "dürnten",
     "source": "https://portal.ebaugesuche.zh.ch/",
@@ -83,6 +83,25 @@
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3390508",
         "displayName": "Langrütistrasse 94 8635 Dürnten"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.862303733825684,
+          47.28043746948242
+        ]
+      },
+      "properties": {
+        "nummer": "3421478",
+        "adresse": "Kafigasse 19 8635 Dürnten",
+        "gemeinde": "Dürnten",
+        "bautyp": "Neue Dachgaube und innere Umbauten (kommunales Inventarobjekt Nr. 122)",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3421478",
+        "displayName": "Kafigasse 19 8635 Dürnten"
       }
     }
   ]

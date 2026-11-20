@@ -1,32 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:00:36.321Z",
-    "count": 1,
-    "successCount": 1,
+    "updated": "2026-11-20T14:43:09.229Z",
+    "count": 0,
+    "successCount": 0,
     "unmappedCount": 0,
     "gemeinde": "brütten",
     "source": "https://portal.ebaugesuche.zh.ch/",
     "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
-  "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.673727989196777,
-          47.47334289550781
-        ]
-      },
-      "properties": {
-        "nummer": "3323478",
-        "adresse": "Strehlgasse 4+6 8311 Brütten",
-        "gemeinde": "Brütten",
-        "bautyp": "Fassaden- und Dachsanierung (inkl. Indach-PV-Analge), Strehlgasse 4 + 6",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3323478",
-        "displayName": "Strehlgasse 4 8311 Brütten"
-      }
-    }
-  ]
+  "features": []
 }

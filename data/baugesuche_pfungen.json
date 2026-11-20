@@ -1,33 +1,14 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:01:09.745Z",
-    "count": 2,
-    "successCount": 2,
+    "updated": "2026-11-20T14:43:34.568Z",
+    "count": 1,
+    "successCount": 1,
     "unmappedCount": 0,
     "gemeinde": "pfungen",
     "source": "https://portal.ebaugesuche.zh.ch/",
     "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.651712417602539,
-          47.517642974853516
-        ]
-      },
-      "properties": {
-        "nummer": "3320285",
-        "adresse": "Dammstrasse 6.1 8422 Pfungen",
-        "gemeinde": "Pfungen",
-        "bautyp": "Neubau Coop Tankstelle mit Shop",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3320285",
-        "displayName": "Dammstrasse 6.1 8422 Pfungen"
-      }
-    },
     {
       "type": "Feature",
       "geometry": {

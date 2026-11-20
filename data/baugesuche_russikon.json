@@ -1,33 +1,14 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:01:15.682Z",
-    "count": 3,
-    "successCount": 3,
+    "updated": "2026-11-20T14:43:40.363Z",
+    "count": 2,
+    "successCount": 2,
     "unmappedCount": 0,
     "gemeinde": "russikon",
     "source": "https://portal.ebaugesuche.zh.ch/",
     "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.769491195678711,
-          47.39961624145508
-        ]
-      },
-      "properties": {
-        "nummer": "3304095",
-        "adresse": "Im Hundbüel 1 8332 Russikon",
-        "gemeinde": "Russikon",
-        "bautyp": "Umbau Einfamilienhaus (Vorentscheid mit Drittverbindlichkeit)",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3304095",
-        "displayName": "Im Hundbüel 1 8332 Russikon"
-      }
-    },
     {
       "type": "Feature",
       "geometry": {

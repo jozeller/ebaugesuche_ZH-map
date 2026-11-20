@@ -1,65 +1,14 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:01:19.842Z",
-    "count": 5,
-    "successCount": 3,
-    "unmappedCount": 2,
+    "updated": "2026-11-20T14:43:42.850Z",
+    "count": 2,
+    "successCount": 1,
+    "unmappedCount": 1,
     "gemeinde": "seegräben",
     "source": "https://portal.ebaugesuche.zh.ch/",
     "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
-    {
-      "type": "Feature",
-      "geometry": null,
-      "properties": {
-        "nummer": "3314781",
-        "adresse": "Hinter Weid 8607 Aathal-Seegräben",
-        "gemeinde": "Seegräben",
-        "bautyp": "Einzäunung Obstanlage",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3314781",
-        "displayName": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.769098281860352,
-          47.33518981933594
-        ]
-      },
-      "properties": {
-        "nummer": "3315390",
-        "adresse": "Zürichstrasse 19 8607 Aathal-Seegräben",
-        "gemeinde": "Seegräben",
-        "bautyp": "Arealversorgung Aathal",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3315390",
-        "displayName": "Zürichstrasse 19 8607 Aathal-Seegräben"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.763684272766113,
-          47.34440612792969
-        ]
-      },
-      "properties": {
-        "nummer": "3325134",
-        "adresse": "Usterstrasse 33 8607 Aathal-Seegräben",
-        "gemeinde": "Seegräben",
-        "bautyp": "Neubau Remise",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3325134",
-        "displayName": "Usterstrasse 33 8607 Aathal-Seegräben"
-      }
-    },
     {
       "type": "Feature",
       "geometry": {

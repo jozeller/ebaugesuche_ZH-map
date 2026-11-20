@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:01:52.736Z",
-    "count": 11,
-    "successCount": 11,
+    "updated": "2026-11-20T14:44:08.694Z",
+    "count": 13,
+    "successCount": 13,
     "unmappedCount": 0,
     "gemeinde": "wädenswil",
     "source": "https://portal.ebaugesuche.zh.ch/",
@@ -45,82 +45,6 @@
         "datum": "2026-10-23",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3278295",
         "displayName": "Bergweg 7 8820 Wädenswil"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.674558639526367,
-          47.22880554199219
-        ]
-      },
-      "properties": {
-        "nummer": "3316961",
-        "adresse": "Seestrasse 105 8820 Wädenswil",
-        "gemeinde": "Wädenswil",
-        "bautyp": "Neubau Reklamenanlage bei Gewerbehaus (teilweise beleuchtet) (bereits erstellt) (Im Inventar Denkmalpflege)",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3316961",
-        "displayName": "Seestrasse 105 8820 Wädenswil"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.663073539733887,
-          47.22818374633789
-        ]
-      },
-      "properties": {
-        "nummer": "3321768",
-        "adresse": "Friedheimstrasse 14 8820 Wädenswil",
-        "gemeinde": "Wädenswil",
-        "bautyp": "Ersatzneubau Doppeleinfamilienhaus mit 2 Wohneinheiten",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3321768",
-        "displayName": "Friedheimstrasse 14 8820 Wädenswil"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.661934852600098,
-          47.186920166015625
-        ]
-      },
-      "properties": {
-        "nummer": "3316560",
-        "adresse": "Untere Laubegg  1 8825 Hütten",
-        "gemeinde": "Wädenswil",
-        "bautyp": "Umgebungsgestaltung bei Wohnhaus, Gartensitzplatz (bereits erstellt)",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3316560",
-        "displayName": "Untere Laubegg 1 8825 Hütten"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.663817405700684,
-          47.21540069580078
-        ]
-      },
-      "properties": {
-        "nummer": "3321913",
-        "adresse": "Untere Bergstrasse 13 8820 Wädenswil",
-        "gemeinde": "Wädenswil",
-        "bautyp": "Solaranlage auf Satteldach bei Wohngebäude (Im Inventar Denkmalpflege)",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3321913",
-        "displayName": "Untere Bergstrasse 13 8820 Wädenswil"
       }
     },
     {
@@ -216,6 +140,120 @@
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3385862",
         "displayName": "Müller-Thurgau-Strasse 27 8820 Wädenswil"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.67275619506836,
+          47.22513198852539
+        ]
+      },
+      "properties": {
+        "nummer": "3420232",
+        "adresse": "Schlossbergstrasse 30 8820 Wädenswil",
+        "gemeinde": "Wädenswil",
+        "bautyp": "Solaranlage mit Energiespeicher und E-Ladestation bei Wohnhaus",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3420232",
+        "displayName": "Schlossbergstrasse 30 8820 Wädenswil"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.675223350524902,
+          47.22703552246094
+        ]
+      },
+      "properties": {
+        "nummer": "3420528",
+        "adresse": "Buckstrasse 3 8820 Wädenswil",
+        "gemeinde": "Wädenswil",
+        "bautyp": "Nutzungsänderung Wohnen zu Kurzzeitvermietung (Inventar Denkmalpflege)",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3420528",
+        "displayName": "Buckstrasse 3 8820 Wädenswil"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.676867485046387,
+          47.219482421875
+        ]
+      },
+      "properties": {
+        "nummer": "3420959",
+        "adresse": "Neuguetstrasse 3 8820 Wädenswil",
+        "gemeinde": "Wädenswil",
+        "bautyp": "Luft-Wasser-Wärmepumpe bei Mehrfamilienhaus im Freien",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3420959",
+        "displayName": "Neuguetstrasse 3 8820 Wädenswil"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.668740272521973,
+          47.17593002319336
+        ]
+      },
+      "properties": {
+        "nummer": "3421199",
+        "adresse": "Dorfstrasse 43 8825 Hütten",
+        "gemeinde": "Wädenswil",
+        "bautyp": "Umbau bestehende Garage bei Wohngebäude",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3421199",
+        "displayName": "Dorfstrasse 43 8825 Hütten"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.682694435119629,
+          47.22028350830078
+        ]
+      },
+      "properties": {
+        "nummer": "3421573",
+        "adresse": "Säntisrain 6 8820 Wädenswil",
+        "gemeinde": "Wädenswil",
+        "bautyp": "Energetische Fassadensanierung, Fensterersatz und Terrassenerweiterung bei Einfamilienhaus",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3421573",
+        "displayName": "Säntisrain 6 8820 Wädenswil"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.684858322143555,
+          47.22031784057617
+        ]
+      },
+      "properties": {
+        "nummer": "3425857",
+        "adresse": "Einsiedlerstrasse  30a 8820 Wädenswil",
+        "gemeinde": "Wädenswil",
+        "bautyp": "Reklamenanlage (Signaletik) bei Gewerbeareal (Campus Reidbach) (Im Inventar Denkmalpflege)",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3425857",
+        "displayName": "Einsiedlerstrasse 30a 8820 Wädenswil"
       }
     }
   ]

@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:00:49.776Z",
-    "count": 1,
-    "successCount": 1,
+    "updated": "2026-11-20T14:43:21.205Z",
+    "count": 2,
+    "successCount": 2,
     "unmappedCount": 0,
     "gemeinde": "hettlingen",
     "source": "https://portal.ebaugesuche.zh.ch/",
@@ -14,18 +14,37 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.718292236328125,
-          47.5435676574707
+          8.716362953186035,
+          47.54679870605469
         ]
       },
       "properties": {
-        "nummer": "3314099",
-        "adresse": "Mittelfeld 1 8442 Hettlingen",
+        "nummer": "3413074",
+        "adresse": "Ahornweg 4 8442 Hettlingen",
         "gemeinde": "Hettlingen",
-        "bautyp": "Biogasanlage",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3314099",
-        "displayName": "Mittelfeld 1 8442 Hettlingen"
+        "bautyp": "Ersatzneubau EFH",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3413074",
+        "displayName": "Ahornweg 4 8442 Hettlingen"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.7064847946167,
+          47.54647445678711
+        ]
+      },
+      "properties": {
+        "nummer": "3416945",
+        "adresse": "Bachweg 11 8442 Hettlingen",
+        "gemeinde": "Hettlingen",
+        "bautyp": "Anpassung von Öffnungszeiten der Burgtrotte",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3416945",
+        "displayName": "Bachweg 11 8442 Hettlingen"
       }
     }
   ]

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:01:55.181Z",
+    "updated": "2026-11-20T14:44:11.048Z",
     "count": 4,
     "successCount": 4,
     "unmappedCount": 0,
@@ -9,25 +9,6 @@
     "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.61754322052002,
-          47.346229553222656
-        ]
-      },
-      "properties": {
-        "nummer": "3303270",
-        "adresse": "Sennhofstrasse 47 8125 Zollikerberg",
-        "gemeinde": "Zollikon",
-        "bautyp": "Boccia-Bahn bei Einfamilienhaus (bereits erstellt)",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3303270",
-        "displayName": "Sennhofstrasse 47 8125 Zollikerberg"
-      }
-    },
     {
       "type": "Feature",
       "geometry": {
@@ -83,6 +64,25 @@
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3373632",
         "displayName": "Alte Landstrasse 67 8702 Zollikon"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.599437713623047,
+          47.34487533569336
+        ]
+      },
+      "properties": {
+        "nummer": "3398673",
+        "adresse": "Hohfurenstrasse 1 8125 Zollikerberg",
+        "gemeinde": "Zollikon",
+        "bautyp": "Generationenpark bei reformierter Kirche Zollikerberg (im Inventar Denkmalpflege)",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3398673",
+        "displayName": "Hohfurenstrasse 1 8125 Zollikerberg"
       }
     }
   ]

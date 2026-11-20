@@ -1,65 +1,14 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:00:59.525Z",
-    "count": 4,
-    "successCount": 3,
-    "unmappedCount": 1,
+    "updated": "2026-11-20T14:43:25.372Z",
+    "count": 2,
+    "successCount": 2,
+    "unmappedCount": 0,
     "gemeinde": "langnauamalbis",
     "source": "https://portal.ebaugesuche.zh.ch/",
     "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
-    {
-      "type": "Feature",
-      "geometry": null,
-      "properties": {
-        "nummer": "3289430",
-        "adresse": "bei Haslenstrasse o.Nr. 8135 Langnau am Albis",
-        "gemeinde": "Langnau am Albis",
-        "bautyp": "Neubau Mehrfamilienhaus",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3289430",
-        "displayName": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.54359245300293,
-          47.28123092651367
-        ]
-      },
-      "properties": {
-        "nummer": "3291574",
-        "adresse": "Sihltalstrasse 130 8135 Langnau am Albis",
-        "gemeinde": "Langnau am Albis",
-        "bautyp": "Neubau Werkhof Sihlhof",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3291574",
-        "displayName": "Sihltalstrasse 130 8135 Langnau am Albis"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.539413452148438,
-          47.288780212402344
-        ]
-      },
-      "properties": {
-        "nummer": "3303931",
-        "adresse": "Neue Dorfstrasse 24 8135 Langnau am Albis",
-        "gemeinde": "Langnau am Albis",
-        "bautyp": "Umbau Gewerberaum",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3303931",
-        "displayName": "Neue Dorfstrasse 24 8135 Langnau am Albis"
-      }
-    },
     {
       "type": "Feature",
       "geometry": {
@@ -77,6 +26,25 @@
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3379766",
         "displayName": "Eggwiesweg 2 8135 Langnau am Albis"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.54343032836914,
+          47.289981842041016
+        ]
+      },
+      "properties": {
+        "nummer": "3405796",
+        "adresse": "Sihltalstrasse 79 8135 Langnau am Albis",
+        "gemeinde": "Langnau am Albis",
+        "bautyp": "Sanierung 4 MFH",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3405796",
+        "displayName": "Sihltalstrasse 79 8135 Langnau am Albis"
       }
     }
   ]

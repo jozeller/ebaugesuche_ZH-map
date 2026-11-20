@@ -1,32 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:01:31.453Z",
-    "count": 1,
-    "successCount": 1,
+    "updated": "2026-11-20T14:43:50.508Z",
+    "count": 0,
+    "successCount": 0,
     "unmappedCount": 0,
     "gemeinde": "weiningen",
     "source": "https://portal.ebaugesuche.zh.ch/",
     "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
-  "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.43576717376709,
-          47.42188262939453
-        ]
-      },
-      "properties": {
-        "nummer": "3313448",
-        "adresse": "Friedhofstrasse 9.1 8104 Weiningen ZH",
-        "gemeinde": "Weiningen (ZH)",
-        "bautyp": "Erstellung von fünf Abstellplätzen",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3313448",
-        "displayName": "Friedhofstrasse 9.1 8104 Weiningen ZH"
-      }
-    }
-  ]
+  "features": []
 }

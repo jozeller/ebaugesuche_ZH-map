@@ -1,33 +1,14 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:00:53.951Z",
-    "count": 2,
-    "successCount": 2,
+    "updated": "2026-11-20T14:43:22.786Z",
+    "count": 1,
+    "successCount": 1,
     "unmappedCount": 0,
     "gemeinde": "hochfelden",
     "source": "https://portal.ebaugesuche.zh.ch/",
     "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.5169038772583,
-          47.522422790527344
-        ]
-      },
-      "properties": {
-        "nummer": "3313947",
-        "adresse": "Willenhofstrasse 6 8182 Hochfelden",
-        "gemeinde": "Hochfelden",
-        "bautyp": "Aufteilung einer Wohneinheit in zwei Wohnungen",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3313947",
-        "displayName": "Willenhofstrasse 6 8182 Hochfelden"
-      }
-    },
     {
       "type": "Feature",
       "geometry": {

@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:01:36.274Z",
+    "updated": "2026-11-20T14:43:54.728Z",
     "count": 3,
     "successCount": 3,
     "unmappedCount": 0,
@@ -9,25 +9,6 @@
     "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.840483665466309,
-          47.3322868347168
-        ]
-      },
-      "properties": {
-        "nummer": "3326946",
-        "adresse": "bei Tösstalstrasse 189 8620 Wetzikon ZH",
-        "gemeinde": "Wetzikon (ZH)",
-        "bautyp": "Sanierung Quellen Chämptnerwald - 2. Etappe",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3326946",
-        "displayName": "Tösstalstrasse 189 8623 Wetzikon ZH"
-      }
-    },
     {
       "type": "Feature",
       "geometry": {
@@ -64,6 +45,25 @@
         "datum": "2026-11-06",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3356137",
         "displayName": "Guyer-Zeller-Strasse 2 8620 Wetzikon ZH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.804402351379395,
+          47.322811126708984
+        ]
+      },
+      "properties": {
+        "nummer": "3413782",
+        "adresse": "Spitalstrasse 92 Oberwetzikon",
+        "gemeinde": "Wetzikon (ZH)",
+        "bautyp": "Projektänderung 3 (Revisionsunterlagen) zu Abbruch Gebäude Vers. Nrn. 2119 und 3986, Neubau Mehrfamilienhaus Vers. Nr. 5622, Kat. Nr. 4824, Spitalstrasse 92 (bei Natur- und Landschaftsschutzinventar 7.13)",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3413782",
+        "displayName": "Spitalstrasse 92 8620 Wetzikon ZH"
       }
     }
   ]

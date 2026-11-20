@@ -1,166 +1,14 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:01:47.369Z",
-    "count": 22,
-    "successCount": 21,
+    "updated": "2026-11-20T14:44:03.766Z",
+    "count": 21,
+    "successCount": 20,
     "unmappedCount": 1,
     "gemeinde": "winterthur",
     "source": "https://portal.ebaugesuche.zh.ch/",
     "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.703903198242188,
-          47.47638702392578
-        ]
-      },
-      "properties": {
-        "nummer": "3305102",
-        "adresse": "Zürcherstrasse 322 8406 Winterthur",
-        "gemeinde": "Winterthur",
-        "bautyp": "Büro Umbau im 6. Obergeschoss (bereits erstellt)",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3305102",
-        "displayName": "Zürcherstrasse 322 8406 Winterthur"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.735969543457031,
-          47.49858093261719
-        ]
-      },
-      "properties": {
-        "nummer": "3305118",
-        "adresse": "Adlerstrasse 8 8400 Winterthur",
-        "gemeinde": "Winterthur",
-        "bautyp": "Einbau Kleinwohnung im Waschhaus (bereits erstellt)",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3305118",
-        "displayName": "Adlerstrasse 8 8400 Winterthur"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.715394020080566,
-          47.497169494628906
-        ]
-      },
-      "properties": {
-        "nummer": "3305145",
-        "adresse": "Zürcherstrasse 32a 8400 Winterthur",
-        "gemeinde": "Winterthur",
-        "bautyp": "Umnutzung Gewerbebereich im Erdgeschoss durch Einbau eines Gastronomiebetriebes (Rojda Pizza&Kebab)",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3305145",
-        "displayName": "Zürcherstrasse 32a 8400 Winterthur"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.758040428161621,
-          47.50165939331055
-        ]
-      },
-      "properties": {
-        "nummer": "3305180",
-        "adresse": "Sulzerallee 19 8404 Winterthur",
-        "gemeinde": "Winterthur",
-        "bautyp": "Neubau Lagerplatz",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3305180",
-        "displayName": "Sulzerallee 19 8404 Winterthur"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.764533996582031,
-          47.51658630371094
-        ]
-      },
-      "properties": {
-        "nummer": "3305219",
-        "adresse": "Schoorenstrasse 11 8404 Winterthur",
-        "gemeinde": "Winterthur",
-        "bautyp": "Neubau Einfamilienhaus",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3305219",
-        "displayName": "Schoorenstrasse 11 8404 Winterthur"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.756816864013672,
-          47.48588943481445
-        ]
-      },
-      "properties": {
-        "nummer": "3305231",
-        "adresse": "Tösstalstrasse 224a 8405 Winterthur",
-        "gemeinde": "Winterthur",
-        "bautyp": "Heizungssanierung: Ersatz der Gasheizung durch eine Luft/Wasser-Wärmepumpe (aussen aufgestellt)",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3305231",
-        "displayName": "Tösstalstrasse 224a 8405 Winterthur"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.726875305175781,
-          47.50156784057617
-        ]
-      },
-      "properties": {
-        "nummer": "3327901",
-        "adresse": "Theaterstrasse 2 8400 Winterthur",
-        "gemeinde": "Winterthur",
-        "bautyp": "Umnutzung Gewerberaum in Geschosswohnung",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3327901",
-        "displayName": "Theaterstrasse 2 8400 Winterthur"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.714609146118164,
-          47.50953674316406
-        ]
-      },
-      "properties": {
-        "nummer": "3328373",
-        "adresse": "Ausserdorfstrasse 15 8400 Winterthur",
-        "gemeinde": "Winterthur",
-        "bautyp": "Ausbau des Estrichs zu zwei 2.5-Zimmer-Wohnungen, Erstellung von je zwei Dachgauben, vier Dachflächenfenstern auf der Ost- und fünf auf der Westseite, einer Zugangstreppe auf der Ostseite und eines Schopfes auf der Westseite",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3328373",
-        "displayName": "Ausserdorfstrasse 15 8400 Winterthur"
-      }
-    },
     {
       "type": "Feature",
       "geometry": {
@@ -419,6 +267,139 @@
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3361669",
         "displayName": "Hedy-Hahnloser-Strasse 94 8406 Winterthur"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.711755752563477,
+          47.50982666015625
+        ]
+      },
+      "properties": {
+        "nummer": "3402227",
+        "adresse": "Weinbergstrasse 37 8400 Winterthur",
+        "gemeinde": "Winterthur",
+        "bautyp": "Projektergänzung zu BPV-Nr. 2026/287: Heizungssanierung - Ersatz der Ölheizung durch eine Luft/Wasser-Wärmepumpe (aussen aufgestellt)",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3402227",
+        "displayName": "Weinbergstrasse 37 8400 Winterthur"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.72358512878418,
+          47.49239730834961
+        ]
+      },
+      "properties": {
+        "nummer": "3402238",
+        "adresse": "Sonnenbergstrasse 15 8400 Winterthur",
+        "gemeinde": "Winterthur",
+        "bautyp": "Heizungssanierung: Ersatz der Gasheizung durch eine Luft/Wasser-Wärmepumpe (aussen aufgestellt)",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3402238",
+        "displayName": "Sonnenbergstrasse 15 8400 Winterthur"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.768134117126465,
+          47.50192642211914
+        ]
+      },
+      "properties": {
+        "nummer": "3402462",
+        "adresse": "Solarstrasse 27 8404 Winterthur",
+        "gemeinde": "Winterthur",
+        "bautyp": "Ausbau eines Gewerberaumes zu mehreren kleinere Gewerberäumen (teilw. bereits erstellt)",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3402462",
+        "displayName": "Solarstrasse 27 8404 Winterthur"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.776849746704102,
+          47.471717834472656
+        ]
+      },
+      "properties": {
+        "nummer": "3402493",
+        "adresse": "Hirtenweg 27 8405 Winterthur",
+        "gemeinde": "Winterthur",
+        "bautyp": "Abbruch Einfamilienhaus (Assek-Nr. 894)",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3402493",
+        "displayName": "Hirtenweg 27 8405 Winterthur"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.721407890319824,
+          47.5024299621582
+        ]
+      },
+      "properties": {
+        "nummer": "3402515",
+        "adresse": "Neuwiesenstrasse 20 8400 Winterthur",
+        "gemeinde": "Winterthur",
+        "bautyp": "Einbau einer Split-Klimaanlage",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3402515",
+        "displayName": "Neuwiesenstrasse 20 8400 Winterthur"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.758040428161621,
+          47.50165939331055
+        ]
+      },
+      "properties": {
+        "nummer": "3402443",
+        "adresse": "Sulzerallee 19 8404 Winterthur",
+        "gemeinde": "Winterthur",
+        "bautyp": "Neubau Trainingscenter WinGD Ltd (inkl. Velounterstand und Aufhebung von 3 Parkplätzen)",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3402443",
+        "displayName": "Sulzerallee 19 8404 Winterthur"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.735899925231934,
+          47.49738693237305
+        ]
+      },
+      "properties": {
+        "nummer": "3402398",
+        "adresse": "Adlerstrasse 2 8400 Winterthur",
+        "gemeinde": "Winterthur",
+        "bautyp": "Erweiterungsneubau Alterszentrum Adlergarten, Umbau Gärtnerstrasse 1, Abbruch Personalhaus 2, Provisorium während der Bauzeit",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3402398",
+        "displayName": "Adlerstrasse 2 8400 Winterthur"
       }
     }
   ]

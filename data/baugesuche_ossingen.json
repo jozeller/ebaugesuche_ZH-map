@@ -1,32 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:01:08.945Z",
-    "count": 1,
-    "successCount": 1,
+    "updated": "2026-11-20T14:43:34.322Z",
+    "count": 0,
+    "successCount": 0,
     "unmappedCount": 0,
     "gemeinde": "ossingen",
     "source": "https://portal.ebaugesuche.zh.ch/",
     "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
-  "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.73519229888916,
-          47.61542892456055
-        ]
-      },
-      "properties": {
-        "nummer": "3324539",
-        "adresse": "Löberen 10 8475 Ossingen",
-        "gemeinde": "Ossingen",
-        "bautyp": "Pergola mit Lamellendach und Ganzglas-Schiebeanlagen",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3324539",
-        "displayName": "Löberen 10 8475 Ossingen"
-      }
-    }
-  ]
+  "features": []
 }

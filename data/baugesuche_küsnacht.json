@@ -1,52 +1,14 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:00:56.957Z",
-    "count": 3,
-    "successCount": 3,
+    "updated": "2026-11-20T14:43:24.747Z",
+    "count": 1,
+    "successCount": 1,
     "unmappedCount": 0,
     "gemeinde": "küsnacht",
     "source": "https://portal.ebaugesuche.zh.ch/",
     "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.580467224121094,
-          47.31865310668945
-        ]
-      },
-      "properties": {
-        "nummer": "3288395",
-        "adresse": "Bahnhofstrasse 2a 8700 Küsnacht",
-        "gemeinde": "Küsnacht (ZH)",
-        "bautyp": "Bahnhofstrasse 2a / Aufstockung und Ersatzneubau Wohn- und Geschäftshaus",
-        "datum": "2026-10-29",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3288395",
-        "displayName": "Bahnhofstrasse 2a 8700 Küsnacht ZH"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.578274726867676,
-          47.32587432861328
-        ]
-      },
-      "properties": {
-        "nummer": "3288558",
-        "adresse": "Zürichstrasse 81 8700 Küsnacht",
-        "gemeinde": "Küsnacht (ZH)",
-        "bautyp": "Zürichstrasse 81 und 83 / Energetische Sanierung und Vergrösserung der Balkone",
-        "datum": "2026-10-29",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3288558",
-        "displayName": "Zürichstrasse 81 8700 Küsnacht ZH"
-      }
-    },
     {
       "type": "Feature",
       "geometry": {

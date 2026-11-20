@@ -1,33 +1,14 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:00:49.056Z",
-    "count": 2,
-    "successCount": 2,
+    "updated": "2026-11-20T14:43:20.364Z",
+    "count": 1,
+    "successCount": 1,
     "unmappedCount": 0,
     "gemeinde": "gossau",
     "source": "https://portal.ebaugesuche.zh.ch/",
     "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.758153915405273,
-          47.30492401123047
-        ]
-      },
-      "properties": {
-        "nummer": "3321731",
-        "adresse": "Laufenbachstrasse 1-11 8625 Gossau ZH",
-        "gemeinde": "Gossau (ZH)",
-        "bautyp": "Neubau 4 MFH mit Gewerbeflächen, Neubau Pavillon und Erstellung Sammelstelle",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3321731",
-        "displayName": "Laufenbachstrasse 1 8625 Gossau ZH"
-      }
-    },
     {
       "type": "Feature",
       "geometry": {

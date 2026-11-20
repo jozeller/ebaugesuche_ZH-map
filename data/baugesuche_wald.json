@@ -1,65 +1,14 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:01:31.066Z",
-    "count": 5,
-    "successCount": 3,
-    "unmappedCount": 2,
+    "updated": "2026-11-20T14:43:50.385Z",
+    "count": 2,
+    "successCount": 1,
+    "unmappedCount": 1,
     "gemeinde": "wald",
     "source": "https://portal.ebaugesuche.zh.ch/",
     "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.909608840942383,
-          47.26959228515625
-        ]
-      },
-      "properties": {
-        "nummer": "3305063",
-        "adresse": "Güntisbergstrasse 18 8636 Wald ZH",
-        "gemeinde": "Wald (ZH)",
-        "bautyp": "An- und Umbau Alters- und Pflegeheim Tabor",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3305063",
-        "displayName": "Güntisbergstrasse 18 8636 Wald ZH"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": null,
-      "properties": {
-        "nummer": "3305084",
-        "adresse": "Scheideggstrasse - 8636 Wald ZH",
-        "gemeinde": "Wald (ZH)",
-        "bautyp": "Sanierung/Umlegung Schmutzwasserleitung",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3305084",
-        "displayName": null
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.913928985595703,
-          47.27680206298828
-        ]
-      },
-      "properties": {
-        "nummer": "3305242",
-        "adresse": "Bachtelstrasse 22 8636 Wald ZH",
-        "gemeinde": "Wald (ZH)",
-        "bautyp": "Erstellen Luft-Wasser Wärmepumpe",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3305242",
-        "displayName": "Bachtelstrasse 22 8636 Wald ZH"
-      }
-    },
     {
       "type": "Feature",
       "geometry": null,

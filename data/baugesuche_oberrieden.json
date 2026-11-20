@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:01:06.567Z",
-    "count": 4,
-    "successCount": 3,
+    "updated": "2026-11-20T14:43:32.167Z",
+    "count": 5,
+    "successCount": 4,
     "unmappedCount": 1,
     "gemeinde": "oberrieden",
     "source": "https://portal.ebaugesuche.zh.ch/",
@@ -77,6 +77,25 @@
         "datum": "2026-11-18",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3270615",
         "displayName": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.57798957824707,
+          47.27348327636719
+        ]
+      },
+      "properties": {
+        "nummer": "3423003",
+        "adresse": "Püntstrasse 9.1 8942 Oberrieden",
+        "gemeinde": "Oberrieden",
+        "bautyp": "Erstellung PV-Anlage ",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3423003",
+        "displayName": "Püntstrasse 9.1 8942 Oberrieden"
       }
     }
   ]

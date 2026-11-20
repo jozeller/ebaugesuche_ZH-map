@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:01:03.812Z",
+    "updated": "2026-11-20T14:43:29.501Z",
     "count": 1,
     "successCount": 1,
     "unmappedCount": 0,
@@ -14,18 +14,18 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          8.49170970916748,
-          47.49421310424805
+          8.499216079711914,
+          47.48878479003906
         ]
       },
       "properties": {
-        "nummer": "3311247",
-        "adresse": "Bühlstrasse 21 + 21.2 8172 Niederglatt",
+        "nummer": "3408905",
+        "adresse": "Kirchrainstrasse 1 8172 Niederglatt",
         "gemeinde": "Niederglatt",
-        "bautyp": "Dachsanierung Wohnhaus und Scheune",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3311247",
-        "displayName": "Bühlstrasse 21 8172 Niederglatt ZH"
+        "bautyp": "Erstellung Luft-Wasser Wärmepumpe (auf Flachdach)",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3408905",
+        "displayName": "Kirchrainstrasse 1 8172 Niederglatt ZH"
       }
     }
   ]

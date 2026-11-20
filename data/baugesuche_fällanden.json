@@ -1,33 +1,14 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:00:47.404Z",
-    "count": 3,
-    "successCount": 2,
+    "updated": "2026-11-20T14:43:19.993Z",
+    "count": 2,
+    "successCount": 1,
     "unmappedCount": 1,
     "gemeinde": "fällanden",
     "source": "https://portal.ebaugesuche.zh.ch/",
     "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.626150131225586,
-          47.36772537231445
-        ]
-      },
-      "properties": {
-        "nummer": "3301737",
-        "adresse": "Sängglenstrasse 11 8118 Pfaffhausen",
-        "gemeinde": "Fällanden",
-        "bautyp": "Dachsanierung Einfamilienhaus",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3301737",
-        "displayName": "Sängglenstrasse 11 8118 Pfaffhausen"
-      }
-    },
     {
       "type": "Feature",
       "geometry": null,

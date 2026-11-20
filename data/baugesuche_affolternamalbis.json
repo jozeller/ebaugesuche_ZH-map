@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:00:33.700Z",
-    "count": 1,
-    "successCount": 1,
+    "updated": "2026-11-20T14:43:07.385Z",
+    "count": 3,
+    "successCount": 3,
     "unmappedCount": 0,
     "gemeinde": "affolternamalbis",
     "source": "https://portal.ebaugesuche.zh.ch/",
@@ -26,6 +26,44 @@
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3383131",
         "displayName": "Betpurstrasse 7 8910 Affoltern am Albis"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.455209732055664,
+          47.2757682800293
+        ]
+      },
+      "properties": {
+        "nummer": "3397381",
+        "adresse": "Oetlistal 5a 8910 Affoltern am Albis",
+        "gemeinde": "Affoltern am Albis",
+        "bautyp": "Neubau Sichtschutzwand (bereits ausgeführt)",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3397381",
+        "displayName": "Oetlistal 5a 8910 Affoltern am Albis"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.456121444702148,
+          47.281986236572266
+        ]
+      },
+      "properties": {
+        "nummer": "3417531",
+        "adresse": "Mühlebergstrasse 23 8910 Affoltern am Albis",
+        "gemeinde": "Affoltern am Albis",
+        "bautyp": "Erstellung freistehende Sonnenmarkise",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3417531",
+        "displayName": "Mühlebergstrasse 23 8910 Affoltern am Albis"
       }
     }
   ]

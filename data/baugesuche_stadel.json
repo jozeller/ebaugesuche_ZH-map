@@ -1,32 +1,12 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:01:20.208Z",
-    "count": 1,
-    "successCount": 1,
+    "updated": "2026-11-20T14:43:42.972Z",
+    "count": 0,
+    "successCount": 0,
     "unmappedCount": 0,
     "gemeinde": "stadel",
     "source": "https://portal.ebaugesuche.zh.ch/",
     "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
-  "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.46565055847168,
-          47.53712844848633
-        ]
-      },
-      "properties": {
-        "nummer": "3314764",
-        "adresse": "Weierstrasse 12 8175 Windlach",
-        "gemeinde": "Stadel",
-        "bautyp": "Installation einer Klimaanlage",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3314764",
-        "displayName": "Weierstrasse 12 8175 Windlach"
-      }
-    }
-  ]
+  "features": []
 }

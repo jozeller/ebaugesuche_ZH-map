@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:01:53.531Z",
-    "count": 2,
-    "successCount": 2,
+    "updated": "2026-11-20T14:44:09.691Z",
+    "count": 3,
+    "successCount": 3,
     "unmappedCount": 0,
     "gemeinde": "zell",
     "source": "https://portal.ebaugesuche.zh.ch/",
@@ -45,6 +45,25 @@
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3369118",
         "displayName": "Garten 4 8487 Zell ZH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.773690223693848,
+          47.45581817626953
+        ]
+      },
+      "properties": {
+        "nummer": "3411792",
+        "adresse": "Bruggwiesenstrasse 2 8483 Kollbrunn",
+        "gemeinde": "Zell (ZH)",
+        "bautyp": "Abbruch Wohngebäude",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3411792",
+        "displayName": "Bruggwiesenstrasse 2 8483 Kollbrunn"
       }
     }
   ]

@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:01:20.568Z",
-    "count": 1,
-    "successCount": 1,
+    "updated": "2026-11-20T14:43:43.586Z",
+    "count": 2,
+    "successCount": 2,
     "unmappedCount": 0,
     "gemeinde": "steinmaur",
     "source": "https://portal.ebaugesuche.zh.ch/",
@@ -26,6 +26,25 @@
         "datum": "2026-11-11",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3372709",
         "displayName": "Steinbruchstrasse 4.2 8162 Steinmaur"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.456075668334961,
+          47.4986572265625
+        ]
+      },
+      "properties": {
+        "nummer": "3418988",
+        "adresse": "Tobelstrasse 5.2 8162 Steinmaur",
+        "gemeinde": "Steinmaur",
+        "bautyp": "Ersatzbau EFH, Tobelstrasse 5, Steinmaur",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3418988",
+        "displayName": "Tobelstrasse 5.2 8162 Steinmaur"
       }
     }
   ]

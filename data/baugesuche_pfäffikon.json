@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:01:10.693Z",
-    "count": 2,
-    "successCount": 2,
+    "updated": "2026-11-20T14:43:35.946Z",
+    "count": 4,
+    "successCount": 4,
     "unmappedCount": 0,
     "gemeinde": "pfäffikon",
     "source": "https://portal.ebaugesuche.zh.ch/",
@@ -45,6 +45,44 @@
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3388030",
         "displayName": "Tumbelenstrasse 60a 8330 Pfäffikon ZH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.780978202819824,
+          47.36408996582031
+        ]
+      },
+      "properties": {
+        "nummer": "3421909",
+        "adresse": "Seequai 1.1 8330 Pfäffikon ZH",
+        "gemeinde": "Pfäffikon",
+        "bautyp": "Gebäude Unterhalt Bootsvermietung",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3421909",
+        "displayName": "Seequai 1.1 8330 Pfäffikon ZH"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.781830787658691,
+          47.36597442626953
+        ]
+      },
+      "properties": {
+        "nummer": "3423077",
+        "adresse": "Rappengasse 1 8330 Pfäffikon ZH",
+        "gemeinde": "Pfäffikon",
+        "bautyp": "Werbetafeln (bereits erstellt) beim Gebäude Vers.-Nr. 0782 (kommunales Inventar H19)",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3423077",
+        "displayName": "Rappengasse 1 8330 Pfäffikon ZH"
       }
     }
   ]

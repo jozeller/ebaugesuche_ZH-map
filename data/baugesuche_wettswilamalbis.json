@@ -1,52 +1,14 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:01:34.438Z",
-    "count": 3,
-    "successCount": 3,
+    "updated": "2026-11-20T14:43:53.266Z",
+    "count": 2,
+    "successCount": 2,
     "unmappedCount": 0,
     "gemeinde": "wettswilamalbis",
     "source": "https://portal.ebaugesuche.zh.ch/",
     "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.47587776184082,
-          47.331459045410156
-        ]
-      },
-      "properties": {
-        "nummer": "3303604",
-        "adresse": "Hirsächersteig 8 8907 Wettswil",
-        "gemeinde": "Wettswil am Albis",
-        "bautyp": "Baugesuch 2026-90, von Planta Urs, Hirsächersteig 8, Erstellung Pergola",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3303604",
-        "displayName": "Hirsächersteig 8 8907 Wettswil"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.472890853881836,
-          47.333675384521484
-        ]
-      },
-      "properties": {
-        "nummer": "3303899",
-        "adresse": "Im Grundächer 44 8907 Wettswil a.A.",
-        "gemeinde": "Wettswil am Albis",
-        "bautyp": "Baugesuch 2026-72, Meier Vinzenz, Im Grundächer 44, Installation von 2 Klimaanlagen",
-        "datum": "2026-10-30",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3303899",
-        "displayName": "Im Grundächer 44 8907 Wettswil"
-      }
-    },
     {
       "type": "Feature",
       "geometry": {
@@ -64,6 +26,25 @@
         "datum": "2026-11-06",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3334268",
         "displayName": "Bühlerstrasse 16 8907 Wettswil"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.479208946228027,
+          47.33655548095703
+        ]
+      },
+      "properties": {
+        "nummer": "3407124",
+        "adresse": "Oberhausenstrasse 67 8907 Wettswil a.A.",
+        "gemeinde": "Wettswil am Albis",
+        "bautyp": "BG 2026-93, Stella Daniela, Oberhausenstrasse 67, Gartenumänderung",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3407124",
+        "displayName": "Oberhausenstrasse 67 8907 Wettswil"
       }
     }
   ]

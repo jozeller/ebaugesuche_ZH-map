@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "updated": "2026-11-19T15:00:38.459Z",
-    "count": 2,
-    "successCount": 2,
+    "updated": "2026-11-20T14:43:11.085Z",
+    "count": 4,
+    "successCount": 4,
     "unmappedCount": 0,
     "gemeinde": "bülach",
     "source": "https://portal.ebaugesuche.zh.ch/",
@@ -45,6 +45,44 @@
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3369659",
         "displayName": "Feldstrasse 63 8180 Bülach"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.53244400024414,
+          47.52882766723633
+        ]
+      },
+      "properties": {
+        "nummer": "3387824",
+        "adresse": "Schützenmattstrasse 46 8180 Bülach",
+        "gemeinde": "Bülach",
+        "bautyp": "Ersatz Velounterstand",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3387824",
+        "displayName": "Schützenmattstrasse 46 8180 Bülach"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.540836334228516,
+          47.51875686645508
+        ]
+      },
+      "properties": {
+        "nummer": "3399694",
+        "adresse": "Marktgasse 7 8180 Bülach",
+        "gemeinde": "Bülach",
+        "bautyp": "Umnutzung Gewerbe zu 4 Wohnungen im 1. OG",
+        "datum": "2026-11-20",
+        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3399694",
+        "displayName": "Marktgasse 7 8180 Bülach"
       }
     }
   ]
