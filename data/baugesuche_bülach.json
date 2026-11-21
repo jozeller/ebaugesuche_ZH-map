@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "updated": "2026-11-20T14:43:11.085Z",
+    "updated": "2026-11-21T13:59:11.914Z",
     "count": 4,
-    "successCount": 4,
-    "unmappedCount": 0,
+    "successCount": 3,
+    "unmappedCount": 1,
     "gemeinde": "bülach",
     "source": "https://portal.ebaugesuche.zh.ch/",
     "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
@@ -30,13 +30,7 @@
     },
     {
       "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.537260055541992,
-          47.51108932495117
-        ]
-      },
+      "geometry": null,
       "properties": {
         "nummer": "3369659",
         "adresse": "Feldstrasse 63 8180 Bülach",
@@ -44,7 +38,7 @@
         "bautyp": "Neubau Betriebsgebäude Habegger AG",
         "datum": "2026-11-13",
         "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3369659",
-        "displayName": "Feldstrasse 63 8180 Bülach"
+        "displayName": null
       }
     },
     {
