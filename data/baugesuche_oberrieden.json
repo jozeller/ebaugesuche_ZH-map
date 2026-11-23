@@ -1,33 +1,14 @@
 {
   "metadata": {
-    "updated": "2026-11-22T13:53:11.646Z",
-    "count": 5,
-    "successCount": 4,
+    "updated": "2026-11-23T17:01:14.444Z",
+    "count": 4,
+    "successCount": 3,
     "unmappedCount": 1,
     "gemeinde": "oberrieden",
     "source": "https://portal.ebaugesuche.zh.ch/",
     "geocodingSource": "SwissTopo SearchServer (exact address matches only)"
   },
   "features": [
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          8.57766056060791,
-          47.27237319946289
-        ]
-      },
-      "properties": {
-        "nummer": "3323355",
-        "adresse": "Bleierstrasse 30 8942 Oberrieden",
-        "gemeinde": "Oberrieden",
-        "bautyp": "850 Fassadensanierung Doppelwohnhaus Bleierstrasse 30, 8942 Oberrieden",
-        "datum": "2026-11-02",
-        "detailUrl": "https://portal.ebaugesuche.zh.ch/eauflage/detail/3323355",
-        "displayName": "Bleierstrasse 30 8942 Oberrieden"
-      }
-    },
     {
       "type": "Feature",
       "geometry": {
