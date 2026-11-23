@@ -313,6 +313,8 @@ class BaugesucheApp {
       
       this.map.once('style.load', () => {
         this.setupMapControls(); // Re-add controls after style change
+        // Clear cached markers after style change since sources are removed
+        this.clearMarkers();
         this.addAllMarkers();
         this.setupMapClickHandlers();
       });
@@ -366,8 +368,11 @@ class BaugesucheApp {
     
     if (!this.map) return;
     
-    // Stelle sicher, dass die Source existiert
-    if (!this.map.getSource('gesuche-source')) {
+    const sourceExists = this.map.getSource('gesuche-source');
+    const layerExists = this.map.getLayer('gesuche-layer');
+    
+    // Add source if it doesn't exist
+    if (!sourceExists) {
       this.map.addSource('gesuche-source', {
         type: 'geojson',
         data: {
@@ -375,27 +380,27 @@ class BaugesucheApp {
           features: features
         }
       });
-      
-      // Füge auch den Layer hinzu, wenn er nicht existiert
-      if (!this.map.getLayer('gesuche-layer')) {
-        this.map.addLayer({
-          id: 'gesuche-layer',
-          type: 'circle',
-          source: 'gesuche-source',
-          paint: {
-            'circle-radius': 6,
-            'circle-color': '#FF6B6B',
-            'circle-opacity': 0.8,
-            'circle-stroke-width': 2,
-            'circle-stroke-color': '#FFFFFF'
-          }
-        });
-      }
     } else {
-      // Source existiert, nur Daten aktualisieren
+      // Update data if source exists
       this.map.getSource('gesuche-source').setData({
         type: 'FeatureCollection',
         features: features
+      });
+    }
+    
+    // Add layer if it doesn't exist
+    if (!layerExists) {
+      this.map.addLayer({
+        id: 'gesuche-layer',
+        type: 'circle',
+        source: 'gesuche-source',
+        paint: {
+          'circle-radius': 6,
+          'circle-color': '#FF6B6B',
+          'circle-opacity': 0.8,
+          'circle-stroke-width': 2,
+          'circle-stroke-color': '#FFFFFF'
+        }
       });
     }
 
