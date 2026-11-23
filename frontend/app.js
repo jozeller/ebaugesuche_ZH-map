@@ -279,6 +279,7 @@ class BaugesucheApp {
       }
 
       this.populateSelects();
+      this.applyUrlParameters();
       await this.loadGesuche();
     } catch (error) {
       console.error('Fehler beim Laden der Gemeinden:', error);
@@ -312,6 +313,21 @@ class BaugesucheApp {
     });
 
     this.currentGemeinde = 'alle';
+  }
+
+  applyUrlParameters() {
+    const params = new URLSearchParams(window.location.search);
+    const gemeinde = params.get('gemeinde');
+    
+    if (gemeinde) {
+      // Check if the requested gemeinde exists
+      const exists = this.gemeinden.some(g => g.slug === gemeinde);
+      if (exists) {
+        this.currentGemeinde = gemeinde;
+        document.getElementById('gemeinde-select').value = gemeinde;
+        document.getElementById('gemeinde-select-mobile').value = gemeinde;
+      }
+    }
   }
 
   filterGemeindeSelect(selectId, searchText) {
@@ -354,8 +370,7 @@ class BaugesucheApp {
       
       this.map.once('style.load', () => {
         this.setupMapControls(); // Re-add controls after style change
-        // Clear cached markers after style change since sources are removed
-        this.clearMarkers();
+        // Reload markers - don't clear, just re-add them
         this.addAllMarkers();
         this.setupMapClickHandlers();
       });
