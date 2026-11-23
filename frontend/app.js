@@ -401,15 +401,22 @@ class BaugesucheApp {
     if (this.map) {
       this.map.setStyle(this.createStyle(layer));
       
-      this.map.once('style.load', () => {
-        this.setupMapControls(); // Re-add controls after style change
+      // Wait for style to fully load before re-adding markers
+      const onStyleData = () => {
+        // Only proceed when style is fully loaded (not just loaded)
+        if (!this.map.isStyleLoaded()) return;
+        
+        this.map.off('styledata', onStyleData);
+        this.setupMapControls();
         this.setupMapClickHandlers();
         
-        // Reload markers and data after style is fully loaded
+        // Re-add markers after style is fully ready
         if (this.gesuche && this.gesuche.length > 0) {
           this.addAllMarkers();
         }
-      });
+      };
+      
+      this.map.on('styledata', onStyleData);
     }
   }
 
@@ -460,44 +467,48 @@ class BaugesucheApp {
     
     if (!this.map) return;
     
-    const sourceExists = this.map.getSource('gesuche-source');
-    const layerExists = this.map.getLayer('gesuche-layer');
-    
-    // Add source if it doesn't exist
-    if (!sourceExists) {
-      this.map.addSource('gesuche-source', {
-        type: 'geojson',
-        data: {
+    try {
+      const sourceExists = this.map.getSource('gesuche-source');
+      const layerExists = this.map.getLayer('gesuche-layer');
+      
+      // Add source if it doesn't exist
+      if (!sourceExists) {
+        this.map.addSource('gesuche-source', {
+          type: 'geojson',
+          data: {
+            type: 'FeatureCollection',
+            features: features
+          }
+        });
+      } else {
+        // Update data if source exists
+        this.map.getSource('gesuche-source').setData({
           type: 'FeatureCollection',
           features: features
-        }
-      });
-    } else {
-      // Update data if source exists
-      this.map.getSource('gesuche-source').setData({
-        type: 'FeatureCollection',
-        features: features
-      });
-    }
-    
-    // Add layer if it doesn't exist
-    if (!layerExists) {
-      this.map.addLayer({
-        id: 'gesuche-layer',
-        type: 'circle',
-        source: 'gesuche-source',
-        paint: {
-          'circle-radius': 6,
-          'circle-color': '#FF6B6B',
-          'circle-opacity': 0.8,
-          'circle-stroke-width': 2,
-          'circle-stroke-color': '#FFFFFF'
-        }
-      });
-    }
+        });
+      }
+      
+      // Add layer if it doesn't exist
+      if (!layerExists) {
+        this.map.addLayer({
+          id: 'gesuche-layer',
+          type: 'circle',
+          source: 'gesuche-source',
+          paint: {
+            'circle-radius': 6,
+            'circle-color': '#FF6B6B',
+            'circle-opacity': 0.8,
+            'circle-stroke-width': 2,
+            'circle-stroke-color': '#FFFFFF'
+          }
+        });
+      }
 
-    const unlocatedCount = this.gesuche.filter(f => !f.geometry).length;
-    this.updateNotificationBadge(unlocatedCount);
+      const unlocatedCount = this.gesuche.filter(f => !f.geometry).length;
+      this.updateNotificationBadge(unlocatedCount);
+    } catch (error) {
+      console.error('Error adding markers:', error);
+    }
   }
 
   updateNotificationBadge(count) {
