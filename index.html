@@ -58,6 +58,65 @@
       align-items: center;
     }
 
+    .info-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #f0f0f0;
+      border: 1px solid #ddd;
+      cursor: help;
+      font-size: 14px;
+      font-weight: 700;
+      color: #666;
+      transition: all 0.2s;
+      position: relative;
+    }
+
+    .info-button:hover {
+      background: #e0e0e0;
+      color: #222;
+    }
+
+    .info-tooltip {
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #222;
+      color: white;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: normal;
+      white-space: normal;
+      margin-bottom: 8px;
+      z-index: 50;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s;
+      min-width: 240px;
+      text-align: left;
+      line-height: 1.5;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .info-button:hover .info-tooltip {
+      opacity: 1;
+    }
+
+    .info-tooltip::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-top-color: #222;
+    }
+
     .header-links a {
       color: #666;
       text-decoration: none;
@@ -206,7 +265,7 @@
       background: white;
       border-radius: 8px;
       padding: 18px 48px 14px 14px;
-      max-width: 280px;
+      max-width: 320px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
       border: 1px solid #e0e0e0;
       font-family: inherit;
@@ -228,14 +287,15 @@
       color: #666;
       margin-bottom: 8px;
       font-weight: 500;
+      line-height: 1.4;
     }
 
     .popup-gemeinde {
       display: inline-block;
-      background: #f0f0f0;
-      color: #222;
-      padding: 3px 8px;
-      border-radius: 3px;
+      background: #2563eb;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
       font-size: 11px;
       font-weight: 600;
       margin-bottom: 8px;
@@ -252,13 +312,58 @@
       margin: 6px 0;
     }
 
-    .popup-datum {
-      font-size: 11px;
-      color: #999;
-      margin: 6px 0;
+    /* Marker Styling */
+    .maplibregl-marker {
+      transition: transform 0.2s, filter 0.2s;
     }
 
-    .maplibregl-popup-content a {
+    .maplibregl-marker:hover {
+      transform: scale(1.2);
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
+    }
+
+    .custom-marker {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: #2563eb;
+      border: 3px solid white;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .custom-marker.hovered {
+      background: #1d4ed8;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .cluster-marker {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      background: #3b82f6;
+      border: 3px solid white;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 700;
+      color: white;
+      transition: transform 0.2s;
+    }
+
+    .cluster-marker:hover {
+      transform: scale(1.1);
+      background: #2563eb;
+    }
       display: inline-block;
       color: white;
       background: #222;
@@ -336,6 +441,22 @@
         gap: 8px;
       }
 
+      .info-tooltip {
+        min-width: 200px;
+        bottom: auto;
+        top: 100%;
+        margin-bottom: 0;
+        margin-top: 8px;
+      }
+
+      .info-tooltip::after {
+        top: auto;
+        bottom: 100%;
+        border: 5px solid transparent;
+        border-top-color: transparent;
+        border-bottom-color: #222;
+      }
+
       .controls {
         top: 64px;
         bottom: auto;
@@ -375,8 +496,17 @@
   <div id="map"></div>
   
   <div class="header">
-    <div class="header-title">Baugesuche ZH</div>
+    <div class="header-title">eBaugesuche ZH</div>
     <div class="header-links">
+      <button class="info-button" title="Informationen zur Karte">
+        ℹ
+        <div class="info-tooltip">
+          <strong>Öffentliche Auflage</strong><br>
+          Kt. Zürich - angeschlossene Gemeinden<br>
+          <br>
+          <strong>⚠ Keine Gewähr</strong>
+        </div>
+      </button>
       <details id="unlocated-notices" hidden>
         <summary class="unlocated-summary" aria-label="Gesuche ohne exakte Adresskoordinate">
           <span class="unlocated-icon" aria-hidden="true">!</span>
@@ -387,8 +517,8 @@
           <div id="unlocated-list"></div>
         </div>
       </details>
-      <a href="https://github.com/jozeller/ebaugesuche_ZH-map" target="_blank">GitHub</a>
       <a href="https://portal.ebaugesuche.zh.ch/" target="_blank">Portal</a>
+      <a href="https://github.com/jozeller/ebaugesuche_ZH-map" target="_blank">GitHub</a>
     </div>
   </div>
 
@@ -421,9 +551,10 @@
     let gesuche = [];
     let markers = [];
     let gemeinden = [];
-    let currentGemeinde = 'stäfa';
+    let currentGemeinde = 'alle';
     let currentLayer = 'swissimage';
     let loadSequence = 0;
+    let isClustered = false;
 
     const mapLayers = {
       'pixelkarte': {
@@ -508,7 +639,7 @@
         select.replaceChildren();
         const allOption = document.createElement('option');
         allOption.value = 'alle';
-        allOption.textContent = 'Alle Gemeinden';
+        allOption.textContent = `Alle Gemeinden (${gemeinden.length})`;
         select.appendChild(allOption);
         for (const gemeinde of gemeinden) {
           const option = document.createElement('option');
@@ -517,7 +648,7 @@
           select.appendChild(option);
         }
 
-        select.value = 'stäfa';
+        select.value = 'alle';
         currentGemeinde = select.value;
         await loadGesuche();
       } catch (error) {
@@ -574,6 +705,8 @@
           addMarker(feature);
         });
 
+        setupClustering(features);
+
         showUnlocatedCases(features.filter(feature => !feature.geometry));
 
         const located = features.filter(feature => feature.geometry?.type === 'Point');
@@ -598,6 +731,15 @@
       if (feature.geometry?.type !== 'Point') return;
 
       const props = feature.properties;
+      
+      // Create custom marker element with better styling
+      const markerEl = document.createElement('div');
+      markerEl.className = 'custom-marker';
+      markerEl.innerHTML = '📍';
+      markerEl.style.width = '36px';
+      markerEl.style.height = '36px';
+      markerEl.style.fontSize = '20px';
+
       const popup = new maplibregl.Popup({ offset: 25 })
         .setHTML(`
           <div class="popup-content">
@@ -610,12 +752,20 @@
           </div>
         `);
 
-      const marker = new maplibregl.Marker()
+      const marker = new maplibregl.Marker({
+        element: markerEl,
+        scale: 1
+      })
         .setLngLat(feature.geometry.coordinates)
         .setPopup(popup)
         .addTo(map);
 
       markers.push(marker);
+    }
+
+    function setupClustering(features) {
+      // Clustering ist optional für bessere Performance bei vielen Markern
+      // Für jetzt: Markercluster wird in Zukunft mit separater Bibliothek implementiert
     }
 
     function showUnlocatedCases(features) {

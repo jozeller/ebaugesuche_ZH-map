@@ -4,8 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Baugesuche ZH - Karte</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  
+  <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+  <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
+  
   <style>
     * {
       margin: 0;
@@ -14,89 +16,116 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background: #f5f5f5;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: #fff;
+      color: #222;
     }
 
-    .container {
-      display: flex;
+    #map {
+      width: 100%;
       height: 100vh;
-      flex-direction: column;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
 
+    /* Header */
     .header {
-      position: relative;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      padding: 15px 20px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      z-index: 100;
-    }
-
-    .header-content {
-      max-width: 1400px;
-      margin: 0 auto;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #e0e0e0;
+      padding: 4px 20px;
+      min-height: 56px;
+      z-index: 15;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .header h1 {
-      font-size: 1.8em;
-      margin: 0;
-      display: flex;
       align-items: center;
-      gap: 10px;
     }
 
-    .controls {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .control-group {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .control-group label {
+    .header-title {
+      font-size: 16px;
       font-weight: 600;
-      white-space: nowrap;
+      color: #222;
     }
 
-    select {
-      padding: 8px 12px;
-      border: 2px solid white;
-      border-radius: 4px;
-      background: rgba(255, 255, 255, 0.9);
-      color: #333;
-      font-size: 1em;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      min-width: 180px;
+    .header-links {
+      display: flex;
+      gap: 16px;
+      align-items: center;
     }
 
-    select:hover {
-      background: white;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    .info-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #f0f0f0;
+      border: 1px solid #ddd;
+      cursor: help;
+      font-size: 14px;
+      font-weight: 700;
+      color: #666;
+      transition: all 0.2s;
+      position: relative;
     }
 
-    select:focus {
-      outline: none;
-      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+    .info-button:hover {
+      background: #e0e0e0;
+      color: #222;
     }
 
-    .info-text {
-      font-size: 0.9em;
-      opacity: 0.95;
+    .info-tooltip {
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #222;
+      color: white;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: normal;
+      white-space: normal;
+      margin-bottom: 8px;
+      z-index: 50;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s;
+      min-width: 240px;
+      text-align: left;
+      line-height: 1.5;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .info-button:hover .info-tooltip {
+      opacity: 1;
+    }
+
+    .info-tooltip::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-top-color: #222;
+    }
+
+    .header-links a {
+      color: #666;
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.2s;
+    }
+
+    .header-links a:hover {
+      color: #222;
     }
 
     .unlocated-summary {
@@ -106,7 +135,9 @@
       gap: 4px;
       min-width: 44px;
       height: 44px;
+      color: #b45309;
       cursor: pointer;
+      font-size: 15px;
       font-weight: 700;
       list-style: none;
     }
@@ -123,6 +154,7 @@
       border-radius: 50%;
       background: #e87500;
       color: white;
+      font-size: 17px;
     }
 
     .unlocated-panel {
@@ -136,9 +168,9 @@
       overscroll-behavior: contain;
       padding: 14px;
       background: white;
-      color: #333;
+      border: 1px solid #e0e0e0;
       border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
       font-size: 13px;
     }
 
@@ -153,130 +185,288 @@
       color: #9a4600;
     }
 
-    .map-container {
-      flex: 1;
-      position: relative;
-      overflow: hidden;
+    #map .maplibregl-ctrl-top-left {
+      top: 60px;
+      left: 12px;
     }
 
-    #map {
-      width: 100%;
-      height: 100%;
+    #map .maplibregl-ctrl-top-right {
+      top: 60px;
     }
 
-    .sidebar {
+    /* Controls */
+    .controls {
       position: absolute;
-      left: 10px;
-      top: 10px;
+      bottom: 16px;
+      right: 16px;
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 14px;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-width: 220px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .control-group label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #222;
+    }
+
+    .control-group select {
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 13px;
+      background: white;
+      cursor: pointer;
+      color: #222;
+    }
+
+    .control-group select:focus {
+      outline: none;
+      border-color: #222;
+      box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
+    }
+
+    .sidebar-row {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .sidebar-row span {
+      color: #666;
+    }
+
+    /* Popup */
+    .maplibregl-popup {
+      z-index: 20;
+    }
+
+    .maplibregl-popup-close-button {
+      width: 44px;
+      height: 44px;
+      font-size: 28px;
+      line-height: 40px;
+    }
+
+    .maplibregl-popup-content {
       background: white;
       border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-      padding: 15px;
-      max-width: 300px;
-      max-height: 80%;
-      overflow-y: auto;
-      z-index: 200;
+      padding: 18px 48px 14px 14px;
+      max-width: 320px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      border: 1px solid #e0e0e0;
+      font-family: inherit;
     }
 
-    .sidebar h3 {
-      margin-top: 0;
-      margin-bottom: 12px;
-      color: #667eea;
-      font-size: 1.1em;
+    .maplibregl-popup-tip {
+      border-top-color: white;
     }
 
-    .sidebar-content {
-      display: none;
+    .maplibregl-popup-content h4 {
+      margin: 0 0 10px 0;
+      font-size: 15px;
+      font-weight: 700;
+      color: #222;
     }
 
-    .sidebar-content.active {
-      display: block;
-    }
-
-    .gesuch-item {
-      border-bottom: 1px solid #eee;
-      padding-bottom: 12px;
-      margin-bottom: 12px;
-    }
-
-    .gesuch-item:last-child {
-      border-bottom: none;
-    }
-
-    .gesuch-item .nummer {
-      font-weight: 600;
-      color: #667eea;
-      margin-bottom: 4px;
-    }
-
-    .gesuch-item .adresse {
-      font-size: 0.95em;
-      margin-bottom: 4px;
-    }
-
-    .gesuch-item .bautyp {
-      font-size: 0.85em;
+    .popup-address {
+      font-size: 13px;
       color: #666;
-      margin-bottom: 4px;
+      margin-bottom: 8px;
+      font-weight: 500;
+      line-height: 1.4;
     }
 
-    .gesuch-item .datum {
-      font-size: 0.85em;
-      color: #999;
+    .popup-gemeinde {
+      display: inline-block;
+      background: #2563eb;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
       margin-bottom: 8px;
     }
 
-    .gesuch-item a {
+    .popup-bautyp {
       display: inline-block;
-      background: #667eea;
+      background: #f0f0f0;
+      color: #222;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 11px;
+      font-weight: 600;
+      margin: 6px 0;
+    }
+
+    /* Marker Styling */
+    .maplibregl-marker {
+      transition: transform 0.2s, filter 0.2s;
+    }
+
+    .maplibregl-marker:hover {
+      transform: scale(1.2);
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
+    }
+
+    .custom-marker {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: #2563eb;
+      border: 3px solid white;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: bold;
       color: white;
-      padding: 6px 12px;
-      border-radius: 4px;
+    }
+
+    .custom-marker.hovered {
+      background: #1d4ed8;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .cluster-marker {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      background: #3b82f6;
+      border: 3px solid white;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 700;
+      color: white;
+      transition: transform 0.2s;
+    }
+
+    .cluster-marker:hover {
+      transform: scale(1.1);
+      background: #2563eb;
+    }
+      display: inline-block;
+      color: white;
+      background: #222;
       text-decoration: none;
-      font-size: 0.85em;
-      transition: all 0.3s ease;
+      padding: 8px 12px;
+      border-radius: 4px;
+      margin-top: 10px;
+      font-weight: 600;
+      font-size: 13px;
+      transition: background 0.2s;
+      border: none;
+      cursor: pointer;
     }
 
-    .gesuch-item a:hover {
-      background: #764ba2;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    .maplibregl-popup-content a:hover {
+      background: #000;
     }
 
-    .empty-state {
-      text-align: center;
-      padding: 20px;
-      color: #999;
-    }
-
-    .leaflet-popup-content {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    }
-
-    .leaflet-popup-close-button {
-      width: 44px !important;
-      height: 44px !important;
-      font-size: 30px !important;
-      line-height: 40px !important;
-    }
-
-    .leaflet-popup-content-wrapper {
-      padding-right: 22px;
-    }
-
+    /* Loading */
     .loading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 24px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+      z-index: 20;
       text-align: center;
-      padding: 20px;
-      color: #667eea;
+      display: none;
+    }
+
+    .loading-spinner {
+      width: 32px;
+      height: 32px;
+      border: 2px solid #f0f0f0;
+      border-top: 2px solid #222;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 12px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Error */
+    .error {
+      position: absolute;
+      top: 70px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fef2f2;
+      color: #991b1b;
+      padding: 12px 16px;
+      border-radius: 4px;
+      border: 1px solid #fecaca;
+      z-index: 20;
+      max-width: 500px;
+      font-size: 13px;
+      display: none;
     }
 
     @media (max-width: 768px) {
-      .header-content {
+      .header {
+        padding: 4px 12px;
+      }
+
+      .header-title {
+        font-size: 14px;
+      }
+
+      .header-links {
         gap: 8px;
       }
 
+      .info-tooltip {
+        min-width: 200px;
+        bottom: auto;
+        top: 100%;
+        margin-bottom: 0;
+        margin-top: 8px;
+      }
+
+      .info-tooltip::after {
+        top: auto;
+        bottom: 100%;
+        border: 5px solid transparent;
+        border-top-color: transparent;
+        border-bottom-color: #222;
+      }
+
       .controls {
+        top: 64px;
+        bottom: auto;
+        left: 60px;
+        right: 8px;
+        width: auto;
+        min-width: 0;
+        flex-direction: row;
         gap: 8px;
-        flex: 1;
+        padding: 8px;
       }
 
       .control-group {
@@ -284,132 +474,208 @@
         min-width: 0;
       }
 
-      select {
+      .control-group select {
         width: 100%;
-        min-width: 0;
         min-height: 44px;
+        font-size: 16px;
       }
 
-      .info-text {
-        flex-basis: 100%;
+      #map .maplibregl-ctrl-top-left {
+        top: 60px;
+        left: 0;
       }
 
-      .sidebar {
-        display: none;
+      #map .maplibregl-ctrl-top-right {
+        top: 145px;
       }
 
-      .header h1 {
-        font-size: 1.1em;
-      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <div class="header-content">
-        <h1>🗺️ Baugesuche ZH</h1>
-        <div class="controls">
-          <details id="unlocated-notices" hidden>
-            <summary class="unlocated-summary" aria-label="Gesuche ohne exakte Adresskoordinate">
-              <span class="unlocated-icon" aria-hidden="true">!</span>
-              <span id="unlocated-count">0</span>
-            </summary>
-            <div class="unlocated-panel">
-              <h2 id="unlocated-heading">Gesuche ohne exakte Adresskoordinate</h2>
-              <div id="unlocated-list"></div>
-            </div>
-          </details>
-          <div class="control-group">
-            <label for="gemeinde-select">Gemeinde:</label>
-            <select id="gemeinde-select">
-              <option>Lädt Gemeinden...</option>
-            </select>
-          </div>
-          <div class="info-text" id="info-text">Lädt...</div>
+  <div id="map"></div>
+  
+  <div class="header">
+    <div class="header-title">eBaugesuche ZH</div>
+    <div class="header-links">
+      <button class="info-button" title="Informationen zur Karte">
+        ℹ
+        <div class="info-tooltip">
+          <strong>Öffentliche Auflage</strong><br>
+          Kt. Zürich - angeschlossene Gemeinden<br>
+          <br>
+          <strong>⚠ Keine Gewähr</strong>
         </div>
-      </div>
-    </div>
-
-    <div class="map-container">
-      <div id="map"></div>
-      <div class="sidebar">
-        <h3 id="sidebar-title">Baugesuche</h3>
-        <div id="sidebar-content" class="sidebar-content active">
-          <div class="loading">Lädt Baugesuche...</div>
+      </button>
+      <details id="unlocated-notices" hidden>
+        <summary class="unlocated-summary" aria-label="Gesuche ohne exakte Adresskoordinate">
+          <span class="unlocated-icon" aria-hidden="true">!</span>
+          <span id="unlocated-count">0</span>
+        </summary>
+        <div class="unlocated-panel">
+          <h2 id="unlocated-heading">Gesuche ohne exakte Adresskoordinate</h2>
+          <div id="unlocated-list"></div>
         </div>
-      </div>
+      </details>
+      <a href="https://portal.ebaugesuche.zh.ch/" target="_blank">Portal</a>
+      <a href="https://github.com/jozeller/ebaugesuche_ZH-map" target="_blank">GitHub</a>
     </div>
   </div>
 
+  <div class="controls">
+    <div class="control-group">
+      <label>Gemeinde</label>
+      <select id="gemeinde-select">
+        <option value="">Gemeinden werden geladen ...</option>
+      </select>
+    </div>
+    <div class="control-group">
+      <label>Kartenlayer</label>
+      <select id="layer-select">
+        <option value="pixelkarte">Pixelkarte</option>
+        <option value="swissimage" selected>Luftbild</option>
+        <option value="osm">OpenStreetMap</option>
+      </select>
+    </div>
+  </div>
+
+  <div id="loading" class="loading">
+    <div class="loading-spinner"></div>
+    <p>Laden...</p>
+  </div>
+
+  <div id="error" class="error"></div>
+
   <script>
-    let GEMEINDEN = [];
-
     let map;
-    let currentMarkers = [];
-    let currentData = null;
-    let osmLayer, aerialLayer, layerControl;
+    let gesuche = [];
+    let markers = [];
+    let gemeinden = [];
+    let currentGemeinde = 'alle';
+    let currentLayer = 'swissimage';
     let loadSequence = 0;
+    let isClustered = false;
 
-    // Initialize map
+    const mapLayers = {
+      'pixelkarte': {
+        'swisstopo-raster': {
+          type: 'raster',
+          tiles: ['https://wms.geo.admin.ch/?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ch.swisstopo.pixelkarte-farbe-pk25.noscale&STYLES=&CRS=EPSG:3857&BBOX={bbox-epsg-3857}&WIDTH=256&HEIGHT=256&FORMAT=image/png'],
+          tileSize: 256,
+          attribution: '© swisstopo'
+        }
+      },
+      'swissimage': {
+        'swisstopo-raster': {
+          type: 'raster',
+          tiles: ['https://wms.geo.admin.ch/?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ch.swisstopo.swissimage&STYLES=&CRS=EPSG:3857&BBOX={bbox-epsg-3857}&WIDTH=256&HEIGHT=256&FORMAT=image/jpeg'],
+          tileSize: 256,
+          attribution: '© swisstopo'
+        }
+      },
+      'osm': {
+        'osm-raster': {
+          type: 'raster',
+          tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+          tileSize: 256,
+          attribution: '© OpenStreetMap'
+        }
+      }
+    };
+
+    function createStyle(layer = 'swissimage') {
+      const sourceId = layer === 'osm' ? 'osm-raster' : 'swisstopo-raster';
+      const sources = mapLayers[layer];
+      
+      return {
+        version: 8,
+        sources: sources,
+        layers: [{
+          id: 'base-layer',
+          type: 'raster',
+          source: sourceId,
+          minzoom: 0,
+          maxzoom: 18
+        }]
+      };
+    }
+
     function initMap() {
-      map = L.map('map').setView([47.2476, 8.7180], 13);
-
-      // OpenStreetMap layer
-      osmLayer = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors',
-        maxZoom: 19,
-        minZoom: 8
+      map = new maplibregl.Map({
+        container: 'map',
+        style: createStyle(currentLayer),
+        center: [8.680557, 47.244037],
+        zoom: 13,
+        attributionControl: true
       });
 
-      // SwissTopo Orthofoto layer (aerial imagery)
-      aerialLayer = L.tileLayer.wms('https://wms.geo.admin.ch/', {
-        layers: 'ch.swisstopo.swissimage',
-        styles: '',
-        format: 'image/jpeg',
-        version: '1.3.0',
-        transparent: false,
-        attribution: '© swisstopo',
-        maxZoom: 19,
-        minZoom: 8,
-        crs: L.CRS.EPSG3857
-      }).addTo(map);
+      map.on('load', loadGemeinden);
 
-      // Layer control
-      const baseLayers = {
-        'OpenStreetMap': osmLayer,
-        'Luftbild (SwissTopo)': aerialLayer
-      };
-      
-      layerControl = L.control.layers(baseLayers, {}, {
-        position: 'topright',
-        collapsed: true
-      }).addTo(map);
+      map.addControl(new maplibregl.NavigationControl(), 'top-left');
+      map.addControl(new maplibregl.FullscreenControl(), 'top-right');
+      map.addControl(new maplibregl.ScaleControl({ maxWidth: 200, unit: 'metric' }), 'bottom-right');
 
-      // Add geolocation control
-      L.control.scale().addTo(map);
+      document.getElementById('gemeinde-select').addEventListener('change', (e) => {
+        currentGemeinde = e.target.value;
+        loadGesuche();
+      });
+
+      document.getElementById('layer-select').addEventListener('change', (e) => {
+        changeMapLayer(e.target.value);
+      });
     }
 
-    // Format date
-    function formatDate(dateStr) {
-      if (!dateStr) return '';
-      const date = new Date(dateStr);
-      if (isNaN(date)) return dateStr;
-      return date.toLocaleDateString('de-CH');
-    }
-
-    // Load data for selected Gemeinde
-    async function loadGemeinde(gemeinde) {
-      const request = ++loadSequence;
-      const infoText = document.getElementById('info-text');
-      const sidebarContent = document.getElementById('sidebar-content');
-
+    async function loadGemeinden() {
       try {
-        infoText.textContent = `Lädt Daten für ${gemeinde}...`;
+        const response = await fetch('./data/gemeinden.json');
+        if (!response.ok) throw new Error(`Gemeindeliste: HTTP ${response.status}`);
 
-        const selectedGemeinden = gemeinde === 'alle' ? GEMEINDEN : [gemeinde];
-        const datasets = await Promise.all(selectedGemeinden.map(async slug => {
-          const response = await fetch(`../data/baugesuche_${slug}.json`);
+        gemeinden = await response.json();
+        if (!Array.isArray(gemeinden) || gemeinden.length === 0) {
+          throw new Error('Die Gemeindeliste ist leer oder ungültig.');
+        }
+
+        const select = document.getElementById('gemeinde-select');
+        select.replaceChildren();
+        const allOption = document.createElement('option');
+        allOption.value = 'alle';
+        allOption.textContent = `Alle Gemeinden (${gemeinden.length})`;
+        select.appendChild(allOption);
+        for (const gemeinde of gemeinden) {
+          const option = document.createElement('option');
+          option.value = gemeinde.slug;
+          option.textContent = gemeinde.name;
+          select.appendChild(option);
+        }
+
+        select.value = 'alle';
+        currentGemeinde = select.value;
+        await loadGesuche();
+      } catch (error) {
+        console.error('Fehler beim Laden der Gemeindeliste:', error);
+        showError(`Gemeindeliste konnte nicht geladen werden: ${error.message}`);
+      }
+    }
+
+    function changeMapLayer(layer) {
+      if (!mapLayers[layer]) {
+        showError(`Unbekannter Kartenlayer: ${layer}`);
+        return;
+      }
+      currentLayer = layer;
+      map.setStyle(createStyle(layer));
+    }
+
+    async function loadGesuche() {
+      const request = ++loadSequence;
+      try {
+        showLoading(true);
+
+        const slugs = currentGemeinde === 'alle'
+          ? gemeinden.map(gemeinde => gemeinde.slug)
+          : [currentGemeinde];
+        const datasets = await Promise.all(slugs.map(async slug => {
+          const response = await fetch(`./data/baugesuche_${slug}.json`);
           if (!response.ok) {
             throw new Error(`${slug}: HTTP ${response.status}`);
           }
@@ -417,88 +683,103 @@
         }));
         if (request !== loadSequence) return;
         const features = datasets.flatMap(data => data.features || []);
-        currentData = {
+        const latestUpdate = datasets
+          .map(data => data.metadata.updated)
+          .sort()
+          .at(-1);
+        gesuche = {
           metadata: {
             count: datasets.reduce((total, data) => total + data.metadata.count, 0),
             successCount: datasets.reduce((total, data) => (
               total + (data.metadata.successCount ?? data.features.filter(feature => feature.geometry).length)
-            ), 0)
+            ), 0),
+            updated: latestUpdate
           },
           features
         };
 
-        // Clear existing markers
-        currentMarkers.forEach(marker => map.removeLayer(marker));
-        currentMarkers = [];
+        markers.forEach(marker => marker.remove());
+        markers = [];
 
-        // Add markers
         features.forEach(feature => {
-          if (feature.geometry?.type !== 'Point') return;
-          const { coordinates } = feature.geometry;
-          const { properties } = feature;
-          const [lon, lat] = coordinates;
-
-          const marker = L.circleMarker([lat, lon], {
-            radius: 8,
-            fillColor: '#667eea',
-            color: '#764ba2',
-            weight: 2,
-            opacity: 0.8,
-            fillOpacity: 0.7
-          });
-
-          const popupContent = `
-            <div style="font-size: 0.9em;">
-              <strong>${properties.nummer}</strong><br>
-              ${properties.adresse}<br>
-              <small>${properties.bautyp}</small><br>
-              <small style="color: #666;">${formatDate(properties.datum)}</small><br>
-              <a href="${properties.detailUrl}" target="_blank" style="color: #667eea; text-decoration: underline;">Zur Seite →</a>
-            </div>
-          `;
-
-          marker.bindPopup(popupContent);
-          marker.addTo(map);
-          currentMarkers.push(marker);
+          addMarker(feature);
         });
 
-        // Update info text
-        const successCount = currentData.metadata.successCount ?? features.filter(feature => feature.geometry).length;
-        const scope = gemeinde === 'alle' ? 'allen Gemeinden' : gemeinde;
-        infoText.textContent = `${currentData.metadata.count} Baugesuche in ${scope} (${successCount} exakt verortet)`;
+        setupClustering(features);
 
-        // Update sidebar
-        renderSidebar(features.filter(feature => feature.geometry?.type === 'Point'));
         showUnlocatedCases(features.filter(feature => !feature.geometry));
 
-        // Fit map to bounds if there are features
-        const locatedFeatures = features.filter(feature => feature.geometry?.type === 'Point');
-        if (locatedFeatures.length > 0) {
-          const bounds = L.latLngBounds(
-            locatedFeatures.map(f => [f.geometry.coordinates[1], f.geometry.coordinates[0]])
-          );
-          map.fitBounds(bounds, { padding: [50, 50], maxZoom: 15 });
+        const located = features.filter(feature => feature.geometry?.type === 'Point');
+        if (located.length === 1) {
+          map.flyTo({ center: located[0].geometry.coordinates, zoom: 14, duration: 1000 });
+        } else if (located.length > 1) {
+          const bounds = new maplibregl.LngLatBounds();
+          located.forEach(feature => bounds.extend(feature.geometry.coordinates));
+          map.fitBounds(bounds, { padding: 48, maxZoom: 14, duration: 1000 });
         }
 
+        showLoading(false);
       } catch (error) {
         if (request !== loadSequence) return;
-        console.error('Error loading Gemeinde:', error);
-        infoText.textContent = `Fehler beim Laden: ${error.message}`;
-        sidebarContent.innerHTML = `<div class="empty-state">Keine Daten verfügbar</div>`;
+        console.error('Fehler:', error);
+        showLoading(false);
+        showError(`Fehler beim Laden: ${error.message}`);
       }
+    }
+
+    function addMarker(feature) {
+      if (feature.geometry?.type !== 'Point') return;
+
+      const props = feature.properties;
+      
+      // Create custom marker element with better styling
+      const markerEl = document.createElement('div');
+      markerEl.className = 'custom-marker';
+      markerEl.innerHTML = '📍';
+      markerEl.style.width = '36px';
+      markerEl.style.height = '36px';
+      markerEl.style.fontSize = '20px';
+
+      const popup = new maplibregl.Popup({ offset: 25 })
+        .setHTML(`
+          <div class="popup-content">
+            <h4>${props.nummer}</h4>
+            <div class="popup-address">${props.adresse}</div>
+            <div class="popup-gemeinde">${props.gemeinde}</div>
+            ${props.bautyp ? `<div class="popup-bautyp">${props.bautyp}</div>` : ''}
+            ${props.datum ? `<div class="popup-datum">📅 ${props.datum}</div>` : ''}
+            <a href="${props.detailUrl}" target="_blank" rel="noopener">→ Details</a>
+          </div>
+        `);
+
+      const marker = new maplibregl.Marker({
+        element: markerEl,
+        scale: 1
+      })
+        .setLngLat(feature.geometry.coordinates)
+        .setPopup(popup)
+        .addTo(map);
+
+      markers.push(marker);
+    }
+
+    function setupClustering(features) {
+      // Clustering ist optional für bessere Performance bei vielen Markern
+      // Für jetzt: Markercluster wird in Zukunft mit separater Bibliothek implementiert
     }
 
     function showUnlocatedCases(features) {
       const notices = document.getElementById('unlocated-notices');
+      const count = document.getElementById('unlocated-count');
+      const heading = document.getElementById('unlocated-heading');
       const list = document.getElementById('unlocated-list');
       notices.open = false;
       notices.hidden = features.length === 0;
-      document.getElementById('unlocated-count').textContent = features.length;
+      count.textContent = features.length;
       notices.querySelector('summary').setAttribute(
         'aria-label', `${features.length} Gesuche ohne exakte Adresskoordinate`
       );
-      document.getElementById('unlocated-heading').textContent =
-        `${features.length} Gesuche ohne exakte Adresskoordinate`;
+      heading.textContent = `${features.length} Gesuche ohne exakte Adresskoordinate`;
       list.replaceChildren();
 
       if (features.length === 0) {
@@ -508,7 +789,8 @@
 
       features.forEach(feature => {
         const row = document.createElement('div');
-        const address = document.createElement('div');
+        row.className = 'sidebar-row';
+        const address = document.createElement('span');
         address.textContent = feature.properties.adresse;
         const link = document.createElement('a');
         link.href = feature.properties.detailUrl;
@@ -520,98 +802,22 @@
       });
     }
 
-    // Render sidebar content
-    function renderSidebar(features) {
-      const sidebarContent = document.getElementById('sidebar-content');
-      const sidebarTitle = document.getElementById('sidebar-title');
-
-      sidebarTitle.textContent = `Baugesuche (${features.length})`;
-
-      if (features.length === 0) {
-        sidebarContent.innerHTML = '<div class="empty-state">Keine Baugesuche gefunden</div>';
-        return;
-      }
-
-      let html = '';
-      features.slice(0, 20).forEach(feature => {
-        const { properties } = feature;
-        html += `
-          <div class="gesuch-item">
-            <div class="nummer">${properties.nummer}</div>
-            <div class="adresse"><strong>${properties.adresse}</strong></div>
-            <div class="bautyp">${properties.bautyp}</div>
-            <div class="datum">${formatDate(properties.datum)}</div>
-            <a href="${properties.detailUrl}" target="_blank">Details →</a>
-          </div>
-        `;
-      });
-
-      if (features.length > 20) {
-        html += `<div class="empty-state"><em>... und ${features.length - 20} weitere</em></div>`;
-      }
-
-      sidebarContent.innerHTML = html;
+    function showLoading(show) {
+      document.getElementById('loading').style.display = show ? 'block' : 'none';
     }
 
-    // Event listeners
-    document.getElementById('gemeinde-select').addEventListener('change', (e) => {
-      const gemeinde = e.target.value;
-      loadGemeinde(gemeinde);
-    });
-
-    // Load the complete portal list, including municipalities with no current cases
-    async function detectAvailableGemeinden() {
-      const response = await fetch('../data/gemeinden.json');
-      if (!response.ok) {
-        throw new Error(`Gemeindeliste konnte nicht geladen werden (HTTP ${response.status})`);
+    function showError(message) {
+      const errorEl = document.getElementById('error');
+      if (message) {
+        errorEl.textContent = message;
+        errorEl.style.display = 'block';
+        setTimeout(() => {
+          errorEl.style.display = 'none';
+        }, 5000);
       }
-
-      const portalGemeinden = await response.json();
-      if (!Array.isArray(portalGemeinden) || portalGemeinden.length === 0) {
-        throw new Error('Die Gemeindeliste ist leer oder ungültig');
-      }
-
-      GEMEINDEN = portalGemeinden.map(gemeinde => gemeinde.slug);
-      
-      // Update dropdown
-      const select = document.getElementById('gemeinde-select');
-      select.innerHTML = '';
-      const allOption = document.createElement('option');
-      allOption.value = 'alle';
-      allOption.textContent = 'Alle Gemeinden';
-      select.appendChild(allOption);
-      
-      portalGemeinden.forEach(gemeinde => {
-        const option = document.createElement('option');
-        option.value = gemeinde.slug;
-        option.textContent = gemeinde.name;
-        select.appendChild(option);
-      });
-      
-      console.log(`Loaded ${portalGemeinden.length} portal municipalities`);
-      return GEMEINDEN;
     }
 
-    // Initialize on load
-    window.addEventListener('load', async () => {
-      initMap();
-      
-      // Detect available Gemeinden first
-      let available;
-      try {
-        available = await detectAvailableGemeinden();
-      } catch (error) {
-        document.getElementById('info-text').textContent = error.message;
-        return;
-      }
-      
-      // Load default (Stäfa if available, otherwise first available)
-      const defaultGemeinde = available.includes('stäfa') ? 'stäfa' : available[0];
-      if (defaultGemeinde) {
-        document.getElementById('gemeinde-select').value = defaultGemeinde;
-        loadGemeinde(defaultGemeinde);
-      }
-    });
+    window.addEventListener('load', initMap);
   </script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 # Baugesuche Zürich
 
 > **🤖 KI-Hinweis:** Dieses Projekt wurde mit GitHub Copilot KI-generiert –
-> einschließlich Code und Dokumentation. Bitte prüfe den Code vor einem
+> einschliesslich Code und Dokumentation. Bitte prüfe den Code vor einem
 > produktiven Einsatz und beachte die Nutzungsbedingungen des eAuflage-Portals.
 > [Weitere Informationen zur KI-Generierung](./AI-GENERATED.md).
 
