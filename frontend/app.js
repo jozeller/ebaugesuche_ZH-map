@@ -403,8 +403,8 @@ class BaugesucheApp {
       
       this.map.once('style.load', () => {
         this.setupMapControls(); // Re-add controls after style change
-        // Reload markers - don't clear, just re-add them
-        this.addAllMarkers();
+        // Reload data and markers after style change
+        this.loadGesuche();
         this.setupMapClickHandlers();
       });
     }
