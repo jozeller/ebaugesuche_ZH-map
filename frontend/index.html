@@ -85,22 +85,22 @@
       bottom: 100%;
       left: 50%;
       transform: translateX(-50%);
-      background: #222;
+      background: #1f2937;
       color: white;
       padding: 12px 14px;
       border-radius: 6px;
       font-size: 13px;
       font-weight: normal;
       white-space: normal;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       z-index: 50;
       pointer-events: none;
       opacity: 0;
       transition: opacity 0.2s;
-      min-width: 240px;
+      min-width: 260px;
       text-align: left;
       line-height: 1.5;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     }
 
     .info-button:hover .info-tooltip {
@@ -113,8 +113,8 @@
       top: 100%;
       left: 50%;
       transform: translateX(-50%);
-      border: 5px solid transparent;
-      border-top-color: #222;
+      border: 6px solid transparent;
+      border-top-color: #1f2937;
     }
 
     .header-links a {
@@ -132,14 +132,19 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 4px;
+      gap: 6px;
       min-width: 44px;
       height: 44px;
-      color: #b45309;
+      color: #c26e0a;
       cursor: pointer;
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 700;
       list-style: none;
+      transition: color 0.2s;
+    }
+
+    .unlocated-summary:hover {
+      color: #a35a08;
     }
 
     .unlocated-summary::-webkit-details-marker {
@@ -149,12 +154,14 @@
     .unlocated-icon {
       display: grid;
       place-items: center;
-      width: 23px;
-      height: 23px;
+      width: 24px;
+      height: 24px;
       border-radius: 50%;
-      background: #e87500;
+      background: #ea8c14;
       color: white;
-      font-size: 17px;
+      font-size: 14px;
+      font-weight: bold;
+      flex-shrink: 0;
     }
 
     .unlocated-panel {
@@ -182,7 +189,14 @@
     .unlocated-panel a {
       display: inline-block;
       margin: 4px 0 12px;
-      color: #9a4600;
+      color: #ea8c14;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .unlocated-panel a:hover {
+      color: #c26e0a;
     }
 
     #map .maplibregl-ctrl-top-left {
@@ -264,28 +278,31 @@
     .maplibregl-popup-content {
       background: white;
       border-radius: 8px;
-      padding: 18px 48px 14px 14px;
+      padding: 16px 44px 14px 14px;
       max-width: 320px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-      border: 1px solid #e0e0e0;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+      border: 1px solid #e5e7eb;
       font-family: inherit;
-    }
-
-    .maplibregl-popup-tip {
-      border-top-color: white;
     }
 
     .maplibregl-popup-content h4 {
       margin: 0 0 10px 0;
       font-size: 15px;
       font-weight: 700;
-      color: #222;
+      color: #1f2937;
+      word-break: break-word;
+    }
+
+    .popup-content {
+      font-size: 13px;
+      color: #4b5563;
+      line-height: 1.5;
     }
 
     .popup-address {
       font-size: 13px;
-      color: #666;
-      margin-bottom: 8px;
+      color: #374151;
+      margin-bottom: 10px;
       font-weight: 500;
       line-height: 1.4;
     }
@@ -303,70 +320,26 @@
 
     .popup-bautyp {
       display: inline-block;
-      background: #f0f0f0;
-      color: #222;
-      padding: 2px 6px;
-      border-radius: 3px;
+      background: #f3f4f6;
+      color: #374151;
+      padding: 3px 7px;
+      border-radius: 4px;
       font-size: 11px;
       font-weight: 600;
       margin: 6px 0;
+      margin-left: 6px;
     }
 
-    /* Marker Styling */
-    .maplibregl-marker {
-      transition: transform 0.2s, filter 0.2s;
+    .popup-datum {
+      font-size: 12px;
+      color: #6b7280;
+      margin: 6px 0;
     }
 
-    .maplibregl-marker:hover {
-      transform: scale(1.2);
-      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
-    }
-
-    .custom-marker {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 36px;
-      height: 36px;
-      background: #2563eb;
-      border: 3px solid white;
-      border-radius: 50%;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-      cursor: pointer;
-      font-size: 18px;
-      font-weight: bold;
-      color: white;
-    }
-
-    .custom-marker.hovered {
-      background: #1d4ed8;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    }
-
-    .cluster-marker {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 48px;
-      height: 48px;
-      background: #3b82f6;
-      border: 3px solid white;
-      border-radius: 50%;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-      cursor: pointer;
-      font-size: 16px;
-      font-weight: 700;
-      color: white;
-      transition: transform 0.2s;
-    }
-
-    .cluster-marker:hover {
-      transform: scale(1.1);
-      background: #2563eb;
-    }
+    .maplibregl-popup-content a {
       display: inline-block;
       color: white;
-      background: #222;
+      background: #2563eb;
       text-decoration: none;
       padding: 8px 12px;
       border-radius: 4px;
@@ -379,7 +352,19 @@
     }
 
     .maplibregl-popup-content a:hover {
-      background: #000;
+      background: #1d4ed8;
+    }
+
+    /* Marker wrapper styling - override MapLibre defaults */
+    .maplibregl-marker {
+      transition: transform 0.2s, filter 0.2s !important;
+      filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.25)) !important;
+      width: auto !important;
+      height: auto !important;
+    }
+
+    .maplibregl-marker:hover {
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35)) !important;
     }
 
     /* Loading */
@@ -452,9 +437,8 @@
       .info-tooltip::after {
         top: auto;
         bottom: 100%;
-        border: 5px solid transparent;
-        border-top-color: transparent;
-        border-bottom-color: #222;
+        border: 6px solid transparent;
+        border-bottom-color: #1f2937;
       }
 
       .controls {
@@ -501,9 +485,10 @@
       <button class="info-button" title="Informationen zur Karte">
         ℹ
         <div class="info-tooltip">
-          <strong>Öffentliche Auflage</strong><br>
-          Kt. Zürich - angeschlossene Gemeinden<br>
+          <strong>Öffentliche Baugesuche</strong><br>
+          Kanton Zürich – angeschlossene Gemeinden<br>
           <br>
+          Datenquelle: eBaugesuche-Portal ZH<br>
           <strong>⚠ Keine Gewähr</strong>
         </div>
       </button>
@@ -517,7 +502,7 @@
           <div id="unlocated-list"></div>
         </div>
       </details>
-      <a href="https://portal.ebaugesuche.zh.ch/" target="_blank">Portal</a>
+      <a href="https://portal.ebaugesuche.zh.ch/" target="_blank" title="Zum eBaugesuche-Portal">eBaugesuche-Portal</a>
       <a href="https://github.com/jozeller/ebaugesuche_ZH-map" target="_blank">GitHub</a>
     </div>
   </div>
@@ -606,7 +591,8 @@
         style: createStyle(currentLayer),
         center: [8.680557, 47.244037],
         zoom: 13,
-        attributionControl: true
+        attributionControl: true,
+        performanceMetricsCollection: false
       });
 
       map.on('load', loadGemeinden);
@@ -614,6 +600,17 @@
       map.addControl(new maplibregl.NavigationControl(), 'top-left');
       map.addControl(new maplibregl.FullscreenControl(), 'top-right');
       map.addControl(new maplibregl.ScaleControl({ maxWidth: 200, unit: 'metric' }), 'bottom-right');
+
+      // Optimize rendering on zoom changes for clustering
+      let zoomTimeout;
+      map.on('zoom', () => {
+        clearTimeout(zoomTimeout);
+        zoomTimeout = setTimeout(() => {
+          if (gesuche.features) {
+            setupClustering(gesuche.features);
+          }
+        }, 500);
+      });
 
       document.getElementById('gemeinde-select').addEventListener('change', (e) => {
         currentGemeinde = e.target.value;
@@ -732,15 +729,19 @@
 
       const props = feature.properties;
       
-      // Create custom marker element with better styling
+      // Create custom marker element - simple, lightweight for performance
       const markerEl = document.createElement('div');
       markerEl.className = 'custom-marker';
       markerEl.innerHTML = '📍';
-      markerEl.style.width = '36px';
-      markerEl.style.height = '36px';
-      markerEl.style.fontSize = '20px';
+      markerEl.style.width = '32px';
+      markerEl.style.height = '32px';
+      markerEl.style.fontSize = '18px';
+      markerEl.style.willChange = 'transform';
+      // Important: Remove any default MapLibre wrapper styling
+      markerEl.style.margin = '0';
+      markerEl.style.padding = '0';
 
-      const popup = new maplibregl.Popup({ offset: 25 })
+      const popup = new maplibregl.Popup({ offset: 25, maxWidth: 300 })
         .setHTML(`
           <div class="popup-content">
             <h4>${props.nummer}</h4>
@@ -748,24 +749,115 @@
             <div class="popup-gemeinde">${props.gemeinde}</div>
             ${props.bautyp ? `<div class="popup-bautyp">${props.bautyp}</div>` : ''}
             ${props.datum ? `<div class="popup-datum">📅 ${props.datum}</div>` : ''}
-            <a href="${props.detailUrl}" target="_blank" rel="noopener">→ Details</a>
+            <a href="${props.detailUrl}" target="_blank" rel="noopener">→ Details im eBaugesuche-Portal</a>
           </div>
         `);
 
       const marker = new maplibregl.Marker({
         element: markerEl,
-        scale: 1
+        anchor: 'center',
+        scale: 1,
+        offset: [0, -16]
       })
         .setLngLat(feature.geometry.coordinates)
         .setPopup(popup)
         .addTo(map);
 
+      // Add hover effect without expensive DOM manipulation
+      markerEl.addEventListener('mouseenter', () => {
+        markerEl.classList.add('hovered');
+      });
+      markerEl.addEventListener('mouseleave', () => {
+        markerEl.classList.remove('hovered');
+      });
+
       markers.push(marker);
     }
 
     function setupClustering(features) {
-      // Clustering ist optional für bessere Performance bei vielen Markern
-      // Für jetzt: Markercluster wird in Zukunft mit separater Bibliothek implementiert
+      // Clustering improves performance by grouping markers at certain zoom levels
+      const located = features.filter(f => f.geometry?.type === 'Point');
+      
+      // Simple clustering: show individual markers at zoom 13+, clusters otherwise
+      const zoom = map.getZoom();
+      const shouldCluster = zoom < 13;
+      
+      if (shouldCluster && located.length > 50) {
+        implementSimpleClustering(located);
+      }
+    }
+
+    function implementSimpleClustering(features) {
+      // Calculate grid-based clusters
+      const clusteredByGrid = new Map();
+      const gridSize = 50; // pixels
+      
+      features.forEach(feature => {
+        const coords = feature.geometry.coordinates;
+        const point = map.project(coords);
+        const gridKey = `${Math.floor(point.x / gridSize)},${Math.floor(point.y / gridSize)}`;
+        
+        if (!clusteredByGrid.has(gridKey)) {
+          clusteredByGrid.set(gridKey, []);
+        }
+        clusteredByGrid.get(gridKey).push(feature);
+      });
+
+      // Replace individual markers with cluster markers where count > 1
+      const clusterThreshold = 2;
+      clusteredByGrid.forEach((group, gridKey) => {
+        if (group.length >= clusterThreshold) {
+          // Calculate cluster center
+          const center = group.reduce((acc, f) => {
+            return [acc[0] + f.geometry.coordinates[0], acc[1] + f.geometry.coordinates[1]];
+          }, [0, 0]);
+          center[0] /= group.length;
+          center[1] /= group.length;
+
+          // Hide individual markers in this cluster
+          group.forEach(feature => {
+            const marker = markers.find(m => 
+              m.getLngLat().lng === feature.geometry.coordinates[0] &&
+              m.getLngLat().lat === feature.geometry.coordinates[1]
+            );
+            if (marker) {
+              marker.getElement().style.opacity = '0';
+              marker.getElement().style.pointerEvents = 'none';
+            }
+          });
+
+          // Create cluster marker
+          const clusterEl = document.createElement('div');
+          clusterEl.className = 'cluster-marker';
+          clusterEl.textContent = group.length;
+          clusterEl.style.willChange = 'transform';
+
+          const clusterPopup = new maplibregl.Popup({ offset: 25 })
+            .setHTML(`
+              <div class="popup-content">
+                <h4>${group.length} Gesuche in diesem Bereich</h4>
+                <p style="font-size: 12px; color: #666; margin-bottom: 10px;">Zoomen Sie herein, um einzelne Gesuche zu sehen.</p>
+              </div>
+            `);
+
+          const clusterMarker = new maplibregl.Marker({
+            element: clusterEl,
+            scale: 1
+          })
+            .setLngLat(center)
+            .setPopup(clusterPopup)
+            .addTo(map);
+
+          // Add zoom-on-click behavior
+          clusterEl.addEventListener('click', () => {
+            const bounds = new maplibregl.LngLatBounds();
+            group.forEach(f => bounds.extend(f.geometry.coordinates));
+            map.fitBounds(bounds, { padding: 48, maxZoom: 14, duration: 300 });
+          });
+
+          markers.push(clusterMarker);
+        }
+      });
     }
 
     function showUnlocatedCases(features) {
