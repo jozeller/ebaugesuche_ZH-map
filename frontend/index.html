@@ -62,7 +62,7 @@
       <select id="layer-select" class="sidebar-select" aria-label="Kartenlayer wählen">
         <option value="pixelkarte">Pixelkarte</option>
         <option value="swissimage" selected>Luftbild</option>
-        <option value="osm">OpenStreetMap</option>
+        <option value="avwms">Amtliche Vermessung</option>
       </select>
     </div>
 
@@ -83,7 +83,7 @@
       <select id="layer-select-mobile" class="sidebar-select" aria-label="Kartenlayer wählen">
         <option value="pixelkarte">Pixelkarte</option>
         <option value="swissimage" selected>Luftbild</option>
-        <option value="osm">OpenStreetMap</option>
+        <option value="avwms">Amtliche Vermessung</option>
       </select>
     </div>
 
@@ -93,10 +93,14 @@
   <!-- Mobile Overlay -->
   <div class="mobile-drawer-overlay" id="mobile-overlay"></div>
 
+  <!-- Results Toggle Button (Desktop) -->
+  <button id="results-toggle-btn" class="results-toggle-btn" title="Ergebnisliste anzeigen/verbergen" aria-label="Ergebnisliste umschalten">📋</button>
+
   <!-- Results Panel -->
   <aside class="results-panel" id="results-panel" role="complementary" aria-label="Suchergebnisse">
     <div class="results-header">
       <span id="results-count">0 Baugesuche</span>
+      <button id="results-close-btn" class="results-close-btn" aria-label="Ergebnisse schließen" title="Schließen">✕</button>
     </div>
     <ul class="results-list" id="results-list"></ul>
   </aside>

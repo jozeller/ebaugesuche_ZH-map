@@ -62,22 +62,24 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 32px;
-      height: 32px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
-      background: #f0f0f0;
-      border: 1px solid #ddd;
+      background: linear-gradient(135deg, #2D7CB9 0%, #1E5A8E 100%);
+      border: 2px solid #1E5A8E;
       cursor: help;
-      font-size: 14px;
+      font-size: 18px;
       font-weight: 700;
-      color: #666;
+      color: white;
       transition: all 0.2s;
       position: relative;
+      box-shadow: 0 2px 8px rgba(45, 124, 185, 0.3);
     }
 
     .info-button:hover {
-      background: #e0e0e0;
-      color: #222;
+      background: linear-gradient(135deg, #1E5A8E 0%, #0D3A5F 100%);
+      box-shadow: 0 4px 12px rgba(45, 124, 185, 0.5);
+      transform: translateY(-2px);
     }
 
     .info-tooltip {
@@ -360,18 +362,132 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 32px;
-      height: 32px;
+      width: 48px;
+      height: 48px;
       background: transparent;
       border: none;
       border-radius: 50%;
       cursor: pointer;
-      font-size: 24px;
+      font-size: 32px;
       font-weight: bold;
       color: white;
       margin: 0;
       padding: 0;
       text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+      transition: transform 0.2s ease;
+    }
+
+    .custom-marker:hover {
+      transform: scale(1.2);
+    }
+
+    /* Results Panel */
+    .results-panel {
+      position: fixed;
+      top: 56px;
+      right: -360px;
+      width: 360px;
+      height: calc(100vh - 56px);
+      background: white;
+      border-left: 1px solid #e0e0e0;
+      display: flex;
+      flex-direction: column;
+      transition: right 0.3s ease;
+      z-index: 50;
+      box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .results-panel.open {
+      right: 0;
+    }
+
+    .results-toggle {
+      position: absolute;
+      top: 56px;
+      right: 0;
+      width: 44px;
+      height: 44px;
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-left: none;
+      border-radius: 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 51;
+      transition: all 0.2s;
+      color: #222;
+    }
+
+    .results-toggle:hover {
+      background: #f5f5f5;
+    }
+
+    .results-header {
+      padding: 16px;
+      border-bottom: 1px solid #e0e0e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .results-header h3 {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 600;
+      color: #222;
+    }
+
+    .results-list {
+      flex: 1;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+    }
+
+    .result-item {
+      padding: 16px;
+      border-bottom: 1px solid #f0f0f0;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .result-item:hover {
+      background: #f9f9f9;
+    }
+
+    .result-address {
+      font-size: 14px;
+      font-weight: 500;
+      color: #222;
+      margin-bottom: 4px;
+      word-break: break-word;
+    }
+
+    .result-gemeinde {
+      display: inline-block;
+      background: #2563eb;
+      color: white;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-size: 11px;
+      font-weight: 600;
+      margin-top: 4px;
+      margin-right: 4px;
+    }
+
+    .result-link {
+      display: inline-block;
+      color: #E8A43E;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 600;
+      margin-top: 6px;
+      transition: color 0.2s;
+    }
+
+    .result-link:hover {
+      color: #D68C2E;
     }
 
     .custom-marker.hovered {
@@ -549,10 +665,20 @@
       <select id="layer-select">
         <option value="pixelkarte">Pixelkarte</option>
         <option value="swissimage" selected>Luftbild</option>
-        <option value="osm">OpenStreetMap</option>
+        <option value="avwms">Amtliche Vermessung</option>
       </select>
     </div>
   </div>
+
+  <div id="results-panel" class="results-panel">
+    <div class="results-header">
+      <h3 id="results-count">0 Baugesuche</h3>
+      <button id="results-close" title="Schließen" style="background: none; border: none; font-size: 20px; cursor: pointer; padding: 0; color: #666;">×</button>
+    </div>
+    <div id="results-list" class="results-list"></div>
+  </div>
+
+  <button id="results-toggle" class="results-toggle" title="Liste anzeigen/verbergen">📋</button>
 
   <div id="loading" class="loading">
     <div class="loading-spinner"></div>
@@ -588,18 +714,18 @@
           attribution: '© swisstopo'
         }
       },
-      'osm': {
-        'osm-raster': {
+      'avwms': {
+        'av-raster': {
           type: 'raster',
-          tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+          tiles: ['https://wms.zh.ch/AVfarbigZHWMS?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=av&STYLES=&CRS=EPSG:3857&BBOX={bbox-epsg-3857}&WIDTH=256&HEIGHT=256&FORMAT=image/png'],
           tileSize: 256,
-          attribution: '© OpenStreetMap'
+          attribution: '© Kanton Zürich'
         }
       }
     };
 
     function createStyle(layer = 'swissimage') {
-      const sourceId = layer === 'osm' ? 'osm-raster' : 'swisstopo-raster';
+      const sourceId = layer === 'avwms' ? 'av-raster' : 'swisstopo-raster';
       const sources = mapLayers[layer];
       
       return {
@@ -722,6 +848,7 @@
         });
 
         showUnlocatedCases(features.filter(feature => !feature.geometry));
+        updateResultsList(features.filter(feature => feature.geometry?.type === 'Point'));
 
         const located = features.filter(feature => feature.geometry?.type === 'Point');
         if (located.length === 1) {
@@ -775,10 +902,6 @@
       markers.push(marker);
     }
 
-    function setupClustering(features) {
-      // Clustering disabled - show all markers individually for better performance
-    }
-
     function showUnlocatedCases(features) {
       const notices = document.getElementById('unlocated-notices');
       const count = document.getElementById('unlocated-count');
@@ -813,8 +936,52 @@
       });
     }
 
+    function updateResultsList(features) {
+      const resultsList = document.getElementById('results-list');
+      const count = document.getElementById('results-count');
+      
+      count.textContent = `${features.length} Baugesuch${features.length !== 1 ? 'e' : ''}`;
+      resultsList.replaceChildren();
+
+      features.forEach(feature => {
+        const props = feature.properties;
+        const item = document.createElement('div');
+        item.className = 'result-item';
+
+        const address = document.createElement('div');
+        address.className = 'result-address';
+        address.textContent = props.adresse;
+
+        const gemeinde = document.createElement('span');
+        gemeinde.className = 'result-gemeinde';
+        gemeinde.textContent = props.gemeinde;
+
+        const link = document.createElement('a');
+        link.className = 'result-link';
+        link.href = props.detailUrl;
+        link.target = '_blank';
+        link.rel = 'noopener';
+        link.textContent = '→ Zum Baugesuch';
+
+        item.append(address, gemeinde);
+        const linkContainer = document.createElement('div');
+        linkContainer.style.marginTop = '6px';
+        linkContainer.appendChild(link);
+        item.appendChild(linkContainer);
+
+        resultsList.appendChild(item);
+      });
+    }
+
     function showLoading(show) {
-      document.getElementById('loading').style.display = show ? 'block' : 'none';
+      const loadingEl = document.getElementById('loading');
+      if (!loadingEl) return;
+      if (show) {
+        loadingEl.innerHTML = '<div class="loading-spinner"></div><p>Laden...</p>';
+        loadingEl.style.display = 'block';
+      } else {
+        loadingEl.style.display = 'none';
+      }
     }
 
     function showError(message) {
@@ -829,6 +996,19 @@
     }
 
     window.addEventListener('load', initMap);
+
+    // Results Panel Toggle
+    const resultsPanel = document.getElementById('results-panel');
+    const resultsToggle = document.getElementById('results-toggle');
+    const resultsClose = document.getElementById('results-close');
+
+    resultsToggle.addEventListener('click', () => {
+      resultsPanel.classList.toggle('open');
+    });
+
+    resultsClose.addEventListener('click', () => {
+      resultsPanel.classList.remove('open');
+    });
   </script>
 </body>
 </html>

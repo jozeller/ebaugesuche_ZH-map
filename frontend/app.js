@@ -30,12 +30,12 @@ class BaugesucheApp {
           attribution: '© swisstopo'
         }
       },
-      'osm': {
-        'osm-raster': {
+      'avwms': {
+        'av-raster': {
           type: 'raster',
-          tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+          tiles: ['https://wms.zh.ch/AVfarbigZHWMS?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=av&STYLES=&CRS=EPSG:3857&BBOX={bbox-epsg-3857}&WIDTH=256&HEIGHT=256&FORMAT=image/png'],
           tileSize: 256,
-          attribution: '© OpenStreetMap'
+          attribution: '© Kanton Zürich'
         }
       }
     };
@@ -87,6 +87,10 @@ class BaugesucheApp {
       this.loadGesuche();
       this.closeMobileMenu();
     });
+
+    // Results Panel Toggle
+    document.getElementById('results-toggle-btn')?.addEventListener('click', () => this.toggleResultsPanel());
+    document.getElementById('results-close-btn')?.addEventListener('click', () => this.closeResultsPanel());
 
     // Modal Close
     document.getElementById('modal-close')?.addEventListener('click', () => this.closeModal());
@@ -145,7 +149,7 @@ class BaugesucheApp {
   }
 
   createStyle(layer = 'swissimage') {
-    const sourceId = layer === 'osm' ? 'osm-raster' : 'swisstopo-raster';
+    const sourceId = layer === 'avwms' ? 'av-raster' : 'swisstopo-raster';
     const sources = this.mapLayers[layer];
 
     return {
@@ -156,7 +160,7 @@ class BaugesucheApp {
         type: 'raster',
         source: sourceId,
         minzoom: 0,
-        maxzoom: 18
+        maxzoom: 28
       }]
     };
   }
@@ -387,6 +391,16 @@ class BaugesucheApp {
     document.getElementById('detail-modal')?.classList.remove('open');
     document.getElementById('modal-overlay')?.classList.remove('open');
     document.body.style.overflow = '';
+  }
+
+  toggleResultsPanel() {
+    const panel = document.getElementById('results-panel');
+    panel?.classList.toggle('open');
+  }
+
+  closeResultsPanel() {
+    const panel = document.getElementById('results-panel');
+    panel?.classList.remove('open');
   }
 
   showLoading(show) {
