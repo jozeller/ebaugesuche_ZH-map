@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interaktive Karte der Baugesuche im Kanton Zürich">
+  <title>eBaugesuche ZH - Interaktive Karte</title>
+  
+  <!-- MapLibre GL -->
+  <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+  <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
+  
+  <!-- Modern Styles -->
+  <link href="./styles.css" rel="stylesheet" />
+</head>
+<body>
+  <!-- Map Container -->
+  <div id="map" class="map-container"></div>
+
+  <!-- Header -->
+  <header class="header" role="banner">
+    <div class="header-left">
+      <div class="header-logo">eBaugesuche ZH</div>
+    </div>
+    
+    <div class="header-middle">
+      <button class="info-button" id="info-btn" title="Informationen" aria-label="Informationen zur Karte">
+        ℹ
+        <div class="info-tooltip">
+          <strong>Öffentliche Baugesuche</strong><br>
+          Kanton Zürich – Angeschlossene Gemeinden<br>
+          <br>
+          <strong>Datenquelle:</strong> eBaugesuche-Portal ZH<br>
+          <strong>⚠ Haftung:</strong> Keine Gewähr auf Vollständigkeit
+        </div>
+      </button>
+      <div class="notification-badge" id="notification-badge" title="Gesuche ohne Koordinaten">
+        ! <span id="notification-count">0</span>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <div class="header-links">
+        <a href="https://portal.ebaugesuche.zh.ch/" target="_blank" rel="noopener" title="Zum eBaugesuche-Portal">Portal</a>
+        <a href="https://github.com/jozeller/ebaugesuche_ZH-map" target="_blank" rel="noopener" title="GitHub Repository">GitHub</a>
+      </div>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menü öffnen" title="Menü">☰</button>
+    </div>
+  </header>
+
+  <!-- Sidebar (Desktop) -->
+  <aside class="sidebar" id="sidebar" role="complementary" aria-label="Filter">
+    <div class="sidebar-section">
+      <label for="gemeinde-select" class="sidebar-label">Gemeinde</label>
+      <select id="gemeinde-select" class="sidebar-select" aria-label="Gemeinde filtern">
+        <option value="">Gemeinden werden geladen...</option>
+      </select>
+    </div>
+
+    <div class="sidebar-section">
+      <label for="layer-select" class="sidebar-label">Kartenlayer</label>
+      <select id="layer-select" class="sidebar-select" aria-label="Kartenlayer wählen">
+        <option value="pixelkarte">Pixelkarte</option>
+        <option value="swissimage" selected>Luftbild</option>
+        <option value="osm">OpenStreetMap</option>
+      </select>
+    </div>
+
+    <button class="filter-button" id="apply-filter" aria-label="Filter anwenden">Filter anwenden</button>
+  </aside>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="sidebar-section">
+      <label for="gemeinde-select-mobile" class="sidebar-label">Gemeinde</label>
+      <select id="gemeinde-select-mobile" class="sidebar-select" aria-label="Gemeinde filtern">
+        <option value="">Gemeinden werden geladen...</option>
+      </select>
+    </div>
+
+    <div class="sidebar-section">
+      <label for="layer-select-mobile" class="sidebar-label">Kartenlayer</label>
+      <select id="layer-select-mobile" class="sidebar-select" aria-label="Kartenlayer wählen">
+        <option value="pixelkarte">Pixelkarte</option>
+        <option value="swissimage" selected>Luftbild</option>
+        <option value="osm">OpenStreetMap</option>
+      </select>
+    </div>
+
+    <button class="filter-button" id="apply-filter-mobile" aria-label="Filter anwenden">Filter anwenden</button>
+  </div>
+
+  <!-- Mobile Overlay -->
+  <div class="mobile-drawer-overlay" id="mobile-overlay"></div>
+
+  <!-- Results Panel -->
+  <aside class="results-panel" id="results-panel" role="complementary" aria-label="Suchergebnisse">
+    <div class="results-header">
+      <span id="results-count">0 Baugesuche</span>
+    </div>
+    <ul class="results-list" id="results-list"></ul>
+  </aside>
+
+  <!-- Detail Modal -->
+  <div class="modal-overlay" id="modal-overlay"></div>
+  <div class="modal" id="detail-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-header">
+      <h2 class="modal-title" id="modal-title">Details</h2>
+      <button class="modal-close" id="modal-close" aria-label="Schließen">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="./app.js"></script>
+</body>
+</html>
