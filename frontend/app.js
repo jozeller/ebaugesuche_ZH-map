@@ -413,10 +413,12 @@ class BaugesucheApp {
         this.setupMapControls();
         this.setupMapClickHandlers();
         
-        // Re-add markers after style is fully ready
-        if (this.gesuche && this.gesuche.length > 0) {
-          this.addAllMarkers();
-        }
+        // Small delay to ensure map is fully ready
+        setTimeout(() => {
+          if (this.gesuche && this.gesuche.length > 0) {
+            this.addAllMarkers();
+          }
+        }, 100);
       };
       
       this.map.on('styledata', onStyleData);
