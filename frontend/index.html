@@ -52,7 +52,14 @@
   <aside class="sidebar" id="sidebar" role="complementary" aria-label="Filter">
     <div class="sidebar-section">
       <label for="gemeinde-select" class="sidebar-label">Gemeinde</label>
-      <select id="gemeinde-select" class="sidebar-select" aria-label="Gemeinde filtern">
+      <input 
+        type="text" 
+        id="gemeinde-search" 
+        class="sidebar-search"
+        placeholder="Gemeinde suchen..."
+        aria-label="Gemeinde suchen"
+      >
+      <select id="gemeinde-select" class="sidebar-select" aria-label="Gemeinde filtern" size="8">
         <option value="">Gemeinden werden geladen...</option>
       </select>
     </div>
@@ -69,17 +76,15 @@
     <button class="filter-button" id="apply-filter" aria-label="Filter anwenden">Filter anwenden</button>
   </aside>
 
-  <!-- Mobile Drawer -->
+  <!-- Mobile Drawer (Tablet + Mobile with unified view) -->
   <div class="mobile-drawer" id="mobile-drawer">
-    <div class="sidebar-section">
-      <label for="gemeinde-select-mobile" class="sidebar-label">Gemeinde</label>
-      <select id="gemeinde-select-mobile" class="sidebar-select" aria-label="Gemeinde filtern">
-        <option value="">Gemeinden werden geladen...</option>
-      </select>
+    <div class="mobile-drawer-header">
+      <h2>Filter & Ergebnisse</h2>
+      <button class="mobile-drawer-close" aria-label="Schließen" title="Schließen">✕</button>
     </div>
 
     <div class="sidebar-section">
-      <label for="layer-select-mobile" class="sidebar-label">Kartenlayer</label>
+      <label for="layer-select-mobile" class="sidebar-label">📍 Kartenlayer</label>
       <select id="layer-select-mobile" class="sidebar-select" aria-label="Kartenlayer wählen">
         <option value="pixelkarte">Pixelkarte</option>
         <option value="swissimage" selected>Luftbild</option>
@@ -87,7 +92,30 @@
       </select>
     </div>
 
-    <button class="filter-button" id="apply-filter-mobile" aria-label="Filter anwenden">Filter anwenden</button>
+    <div class="sidebar-section">
+      <label for="gemeinde-select-mobile" class="sidebar-label">🏘️ Gemeinde</label>
+      <input 
+        type="text" 
+        id="gemeinde-search-mobile" 
+        class="sidebar-search"
+        placeholder="Name eingeben..."
+        aria-label="Gemeinde suchen"
+      >
+      <select id="gemeinde-select-mobile" class="sidebar-select" size="6" aria-label="Gemeinde filtern">
+        <option value="">Gemeinden werden geladen...</option>
+      </select>
+    </div>
+
+    <div class="sidebar-section">
+      <button class="filter-button" id="apply-filter-mobile" aria-label="Filter anwenden">🔍 Baugesuche laden</button>
+    </div>
+
+    <div class="sidebar-section">
+      <label class="sidebar-label">📋 Ergebnisse</label>
+      <div id="mobile-results-container" class="mobile-results-container">
+        <ul class="results-list mobile-results-list" id="results-list-mobile"></ul>
+      </div>
+    </div>
   </div>
 
   <!-- Mobile Overlay -->

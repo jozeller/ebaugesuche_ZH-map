@@ -68,6 +68,9 @@ class BaugesucheApp {
       if (e.target === e.currentTarget) this.closeMobileMenu();
     });
 
+    // Mobile Drawer Close Button
+    document.getElementById('mobile-drawer')?.querySelector('.mobile-drawer-close')?.addEventListener('click', () => this.closeMobileMenu());
+
     // Desktop Sidebar
     document.getElementById('gemeinde-select')?.addEventListener('change', (e) => {
       this.currentGemeinde = e.target.value;
@@ -80,11 +83,16 @@ class BaugesucheApp {
       this.changeMapLayer(e.target.value);
     });
 
+    // Gemeinde Search (Desktop)
+    document.getElementById('gemeinde-search')?.addEventListener('input', (e) => {
+      this.filterGemeindeSelect('gemeinde-select', e.target.value);
+    });
+
     // Mobile Drawer Filters
     document.getElementById('gemeinde-select-mobile')?.addEventListener('change', (e) => {
       document.getElementById('gemeinde-select').value = e.target.value;
       this.currentGemeinde = e.target.value;
-      this.loadGesuche();
+      this.updateResultsListMobile();
     });
 
     document.getElementById('layer-select-mobile')?.addEventListener('change', (e) => {
@@ -92,11 +100,16 @@ class BaugesucheApp {
       this.changeMapLayer(e.target.value);
     });
 
+    // Gemeinde Search (Mobile)
+    document.getElementById('gemeinde-search-mobile')?.addEventListener('input', (e) => {
+      this.filterGemeindeSelect('gemeinde-select-mobile', e.target.value);
+    });
+
     // Filter Apply Buttons
     document.getElementById('apply-filter')?.addEventListener('click', () => this.loadGesuche());
     document.getElementById('apply-filter-mobile')?.addEventListener('click', () => {
       this.loadGesuche();
-      this.closeMobileMenu();
+      this.updateResultsListMobile();
     });
 
     // Results Panel Toggle
@@ -299,6 +312,34 @@ class BaugesucheApp {
     });
 
     this.currentGemeinde = 'alle';
+  }
+
+  filterGemeindeSelect(selectId, searchText) {
+    const select = document.getElementById(selectId);
+    if (!select) return;
+
+    const searchLower = searchText.toLowerCase().trim();
+    const options = select.querySelectorAll('option');
+    
+    options.forEach(option => {
+      if (option.value === 'alle') {
+        option.style.display = '';
+      } else {
+        const matches = option.textContent.toLowerCase().includes(searchLower);
+        option.style.display = matches ? '' : 'none';
+      }
+    });
+  }
+
+  updateResultsListMobile() {
+    this.loadGesuche();
+    
+    setTimeout(() => {
+      const resultsList = document.getElementById('results-list-mobile');
+      if (resultsList && resultsList.children.length > 0) {
+        resultsList.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
   }
 
   changeMapLayer(layer) {
