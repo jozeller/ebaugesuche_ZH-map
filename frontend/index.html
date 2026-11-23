@@ -355,9 +355,32 @@
       background: #1d4ed8;
     }
 
-    /* Marker wrapper styling - override MapLibre defaults */
+    /* Custom marker styling */
+    .custom-marker {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: #2563eb;
+      border: none;
+      border-radius: 50%;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      font-size: 22px;
+      font-weight: bold;
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+
+    .custom-marker.hovered {
+      background: #1d4ed8;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Marker wrapper styling - override MapLibre defaults, NO transitions for smooth dragging */
     .maplibregl-marker {
-      transition: transform 0.2s, filter 0.2s !important;
       filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.25)) !important;
       width: auto !important;
       height: auto !important;
@@ -456,12 +479,19 @@
       .control-group {
         flex: 1;
         min-width: 0;
+        gap: 2px;
+      }
+
+      .control-group label {
+        font-size: 11px;
+        font-weight: 600;
       }
 
       .control-group select {
         width: 100%;
-        min-height: 44px;
-        font-size: 16px;
+        min-height: 36px;
+        font-size: 13px;
+        padding: 6px 8px;
       }
 
       #map .maplibregl-ctrl-top-left {
@@ -720,11 +750,9 @@
       const markerEl = document.createElement('div');
       markerEl.className = 'custom-marker';
       markerEl.innerHTML = '📍';
-      markerEl.style.width = '32px';
-      markerEl.style.height = '32px';
-      markerEl.style.fontSize = '18px';
-      markerEl.style.willChange = 'transform';
-      // Important: Remove any default MapLibre wrapper styling
+      markerEl.style.width = '40px';
+      markerEl.style.height = '40px';
+      markerEl.style.fontSize = '22px';
       markerEl.style.margin = '0';
       markerEl.style.padding = '0';
 
