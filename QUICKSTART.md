@@ -1,14 +1,18 @@
-# Quick start
+# Quick Start
 
-## Run the map locally
+## 🚀 Run the map locally
 
 ```bash
 npm install
-npm start
+npm run dev
 ```
 
-Open `http://localhost:8080`. The local server serves `frontend/index.html`
-and the files under `data/`.
+Open **http://localhost:8080**
+
+The server serves `frontend/index.html` and the files under `data/`.
+
+**Note:** The GUI redesign is now live on the `feature/gui-redesign` branch!
+See `TESTING.md` for detailed testing instructions.
 
 ## Refresh portal data
 
