@@ -402,9 +402,12 @@ class BaugesucheApp {
       this.map.setStyle(this.createStyle(layer));
       
       // Wait for style to fully load before re-adding markers
+      let styleDataCount = 0;
       const onStyleData = () => {
-        // Only proceed when style is fully loaded (not just loaded)
-        if (!this.map.isStyleLoaded()) return;
+        styleDataCount++;
+        
+        // Only proceed when style is fully loaded (after multiple styledata events)
+        if (!this.map.isStyleLoaded() || styleDataCount < 2) return;
         
         this.map.off('styledata', onStyleData);
         this.setupMapControls();
