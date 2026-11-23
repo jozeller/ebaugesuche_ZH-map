@@ -92,7 +92,7 @@ class BaugesucheApp {
     document.getElementById('gemeinde-select-mobile')?.addEventListener('change', (e) => {
       document.getElementById('gemeinde-select').value = e.target.value;
       this.currentGemeinde = e.target.value;
-      this.updateResultsListMobile();
+      this.loadGesuche(); // Auto-load without needing to click filter button
     });
 
     document.getElementById('layer-select-mobile')?.addEventListener('change', (e) => {
@@ -103,6 +103,21 @@ class BaugesucheApp {
     // Gemeinde Search (Mobile)
     document.getElementById('gemeinde-search-mobile')?.addEventListener('input', (e) => {
       this.filterGemeindeSelect('gemeinde-select-mobile', e.target.value);
+    });
+
+    // Show/hide search fields when dropdown is focused
+    document.getElementById('gemeinde-select')?.addEventListener('focus', () => {
+      this.toggleGemeindeSearch('gemeinde-search', true);
+    });
+    document.getElementById('gemeinde-select')?.addEventListener('blur', () => {
+      this.toggleGemeindeSearch('gemeinde-search', false);
+    });
+
+    document.getElementById('gemeinde-select-mobile')?.addEventListener('focus', () => {
+      this.toggleGemeindeSearch('gemeinde-search-mobile', true);
+    });
+    document.getElementById('gemeinde-select-mobile')?.addEventListener('blur', () => {
+      this.toggleGemeindeSearch('gemeinde-search-mobile', false);
     });
 
     // Filter Apply Buttons
@@ -345,6 +360,28 @@ class BaugesucheApp {
         option.style.display = matches ? '' : 'none';
       }
     });
+  }
+
+  toggleGemeindeSearch(searchId, show) {
+    const searchInput = document.getElementById(searchId);
+    if (!searchInput) return;
+    
+    if (show) {
+      searchInput.style.display = '';
+      searchInput.focus();
+    } else {
+      searchInput.style.display = 'none';
+      searchInput.value = '';
+      
+      // Reset filter to show all options
+      const selectId = searchId.replace('search', 'select');
+      const select = document.getElementById(selectId);
+      if (select) {
+        select.querySelectorAll('option').forEach(option => {
+          option.style.display = '';
+        });
+      }
+    }
   }
 
   updateResultsListMobile() {

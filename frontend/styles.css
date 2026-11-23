@@ -306,6 +306,26 @@ body {
   box-shadow: 0 0 0 3px rgba(232, 164, 62, 0.1);
 }
 
+.sidebar-search {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  margin-bottom: var(--space-sm);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-small);
+  font-family: inherit;
+  transition: all var(--transition-normal);
+  display: none;
+}
+
+.sidebar-search:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(232, 164, 62, 0.1);
+}
+
 .filter-button {
   width: 100%;
   padding: var(--space-md);
