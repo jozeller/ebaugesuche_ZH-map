@@ -27,6 +27,20 @@ function toFeature(gesuch) {
 }
 
 async function buildGemeinde(gemeinde) {
+  const outputPath = path.join(DATA_DIR, `baugesuche_${gemeinde}.json`);
+  
+  // Check if file exists and is recent (less than 24 hours old)
+  if (fs.existsSync(outputPath)) {
+    const stats = fs.statSync(outputPath);
+    const ageHours = (Date.now() - stats.mtime.getTime()) / (1000 * 60 * 60);
+    
+    if (ageHours < 24) {
+      const cached = JSON.parse(fs.readFileSync(outputPath, 'utf8'));
+      console.log(`⏭️ ${gemeinde}: Using cached data (${ageHours.toFixed(1)}h old)`);
+      return cached;
+    }
+  }
+  
   await scrapeGesuche(gemeinde);
   const gesuche = await geocodeGesuche(gemeinde);
   const features = gesuche.map(toFeature);
@@ -45,7 +59,6 @@ async function buildGemeinde(gemeinde) {
     features
   };
 
-  const outputPath = path.join(DATA_DIR, `baugesuche_${gemeinde}.json`);
   fs.writeFileSync(outputPath, JSON.stringify(data, null, 2));
   console.log(`✅ ${gemeinde}: ${features.length} records, ${successCount} exact address matches`);
   return data;

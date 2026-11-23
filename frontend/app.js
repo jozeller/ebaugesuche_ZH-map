@@ -403,9 +403,12 @@ class BaugesucheApp {
       
       this.map.once('style.load', () => {
         this.setupMapControls(); // Re-add controls after style change
-        // Reload data and markers after style change
-        this.loadGesuche();
         this.setupMapClickHandlers();
+        
+        // Reload markers and data after style is fully loaded
+        if (this.gesuche && this.gesuche.length > 0) {
+          this.addAllMarkers();
+        }
       });
     }
   }
