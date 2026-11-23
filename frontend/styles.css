@@ -1,18 +1,18 @@
 /* ===== DESIGN TOKENS ===== */
 :root {
-  /* Colors */
-  --color-primary: #E8A43E;
-  --color-primary-dark: #D68C2E;
-  --color-primary-light: #F0B85F;
+  /* Colors - Schlicht aber attraktiv */
+  --color-primary: #E84C3D;
+  --color-primary-dark: #C23D2E;
+  --color-primary-light: #F0665A;
   
-  --color-secondary: #2D7CB9;
-  --color-secondary-dark: #1E5A8E;
+  --color-secondary: #2C3E50;
+  --color-secondary-dark: #1A252F;
   
   --color-text-primary: #2C3E50;
   --color-text-secondary: #7F8C8D;
   --color-bg-primary: #FFFFFF;
-  --color-bg-secondary: #F8F9FA;
-  --color-border: #E0E6ED;
+  --color-bg-secondary: #F5F6FA;
+  --color-border: #E8EBF0;
   
   --color-success: #27AE60;
   --color-warning: #F39C12;
@@ -93,6 +93,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: var(--space-xl);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition: background-color var(--transition-normal);
 }
@@ -115,7 +116,7 @@ body {
 .header-middle {
   display: flex;
   align-items: center;
-  gap: var(--space-md);
+  gap: var(--space-xl);
 }
 
 .header-right {
@@ -139,12 +140,12 @@ body {
   color: white;
   transition: all var(--transition-normal);
   position: relative;
-  box-shadow: 0 2px 8px rgba(45, 124, 185, 0.3);
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.2);
 }
 
 .info-button:hover {
-  background: linear-gradient(135deg, var(--color-secondary-dark) 0%, #0D3A5F 100%);
-  box-shadow: 0 4px 12px rgba(45, 124, 185, 0.5);
+  background: linear-gradient(135deg, var(--color-secondary-dark) 0%, #0F1920 100%);
+  box-shadow: 0 4px 12px rgba(44, 62, 80, 0.3);
   transform: translateY(-2px);
 }
 
@@ -208,7 +209,7 @@ body {
 .header-links {
   display: flex;
   align-items: center;
-  gap: var(--space-md);
+  gap: var(--space-xl);
   font-size: var(--font-size-small);
 }
 
@@ -360,7 +361,7 @@ body {
 .map-container {
   position: absolute;
   top: 64px;
-  left: 0;
+  left: 280px;
   right: 0;
   bottom: 0;
   transition: left var(--transition-normal);
@@ -654,7 +655,7 @@ body {
 }
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .sidebar {
     left: -280px;
     box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
@@ -740,6 +741,22 @@ body {
 
   .mobile-drawer {
     display: block;
+  }
+
+  .mobile-drawer .sidebar-section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .mobile-drawer .sidebar-label {
+    margin-bottom: var(--space-xs);
+  }
+
+  .mobile-drawer .sidebar-select {
+    padding: var(--space-md);
+    font-size: 1rem;
+    min-height: 44px;
   }
 
   .results-panel {

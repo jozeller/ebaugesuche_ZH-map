@@ -12,6 +12,8 @@ class BaugesucheApp {
     this.currentGemeinde = 'alle';
     this.currentLayer = 'swissimage';
     this.loadSequence = 0;
+    this.resizeTimeout = null;
+    this.controlsInitialized = false;
 
     this.mapLayers = {
       'pixelkarte': {
@@ -21,7 +23,7 @@ class BaugesucheApp {
           tileSize: 256,
           attribution: '© swisstopo',
           minzoom: 0,
-          maxzoom: 28
+          maxzoom: 24
         }
       },
       'swissimage': {
@@ -31,17 +33,17 @@ class BaugesucheApp {
           tileSize: 256,
           attribution: '© swisstopo',
           minzoom: 0,
-          maxzoom: 28
+          maxzoom: 24
         }
       },
       'avwms': {
         'av-raster': {
           type: 'raster',
-          tiles: ['https://wms.zh.ch/AVfarbigZHWMS?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=av&STYLES=&CRS=EPSG:3857&BBOX={bbox-epsg-3857}&WIDTH=256&HEIGHT=256&FORMAT=image/png'],
+          tiles: ['https://wms.zh.ch/AVfarbigZHWMS?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=AVfarbigZHWMS&STYLES=&CRS=EPSG:3857&BBOX={bbox-epsg-3857}&WIDTH=256&HEIGHT=256&FORMAT=image/png'],
           tileSize: 256,
           attribution: '© Kanton Zürich',
           minzoom: 0,
-          maxzoom: 28
+          maxzoom: 24
         }
       }
     };
@@ -69,10 +71,12 @@ class BaugesucheApp {
     // Desktop Sidebar
     document.getElementById('gemeinde-select')?.addEventListener('change', (e) => {
       this.currentGemeinde = e.target.value;
+      document.getElementById('gemeinde-select-mobile').value = e.target.value;
       this.loadGesuche();
     });
 
     document.getElementById('layer-select')?.addEventListener('change', (e) => {
+      document.getElementById('layer-select-mobile').value = e.target.value;
       this.changeMapLayer(e.target.value);
     });
 
@@ -80,6 +84,7 @@ class BaugesucheApp {
     document.getElementById('gemeinde-select-mobile')?.addEventListener('change', (e) => {
       document.getElementById('gemeinde-select').value = e.target.value;
       this.currentGemeinde = e.target.value;
+      this.loadGesuche();
     });
 
     document.getElementById('layer-select-mobile')?.addEventListener('change', (e) => {
@@ -97,6 +102,9 @@ class BaugesucheApp {
     // Results Panel Toggle
     document.getElementById('results-toggle-btn')?.addEventListener('click', () => this.toggleResultsPanel());
     document.getElementById('results-close-btn')?.addEventListener('click', () => this.closeResultsPanel());
+
+    // Notification Badge - Show unlocated Baugesuche
+    document.getElementById('notification-badge')?.addEventListener('click', () => this.showUnlocatedGesuche());
 
     // Modal Close
     document.getElementById('modal-close')?.addEventListener('click', () => this.closeModal());
@@ -140,18 +148,71 @@ class BaugesucheApp {
     this.map = new maplibregl.Map({
       container: 'map',
       style: this.createStyle(this.currentLayer),
-      center: [8.680557, 47.244037],
-      zoom: 13,
+      center: [8.5, 47.5],
+      zoom: 9,
       attributionControl: true,
       performanceMetricsCollection: false
     });
 
-    this.map.on('load', () => this.loadGemeinden());
+    this.map.on('load', () => {
+      this.loadGemeinden();
+      this.setupMapClickHandlers();
+      this.setupMapControls(); // Initial setup after map loads
+    });
 
-    // Add Controls
-    this.map.addControl(new maplibregl.NavigationControl(), 'top-left');
-    this.map.addControl(new maplibregl.FullscreenControl(), 'top-right');
-    this.map.addControl(new maplibregl.ScaleControl({ maxWidth: 200, unit: 'metric' }), 'bottom-right');
+    // Debounced resize listener
+    window.addEventListener('resize', () => {
+      clearTimeout(this.resizeTimeout);
+      this.resizeTimeout = setTimeout(() => this.setupMapControls(), 250);
+    });
+  }
+
+  setupMapControls() {
+    if (!this.map) return;
+    
+    const isMobile = window.innerWidth <= 640;
+    
+    // Check if controls already exist
+    const hasNavControl = this.map._controls?.some(c => c instanceof maplibregl.NavigationControl);
+    const hasFullscreenControl = this.map._controls?.some(c => c instanceof maplibregl.FullscreenControl);
+    const hasScaleControl = this.map._controls?.some(c => c instanceof maplibregl.ScaleControl);
+
+    // Handle NavigationControl - only on desktop
+    if (isMobile && hasNavControl) {
+      // Remove from mobile
+      const navCtrl = this.map._controls.find(c => c instanceof maplibregl.NavigationControl);
+      if (navCtrl) this.map.removeControl(navCtrl);
+    } else if (!isMobile && !hasNavControl) {
+      // Add to desktop
+      this.map.addControl(new maplibregl.NavigationControl(), 'top-left');
+    }
+
+    // Add Fullscreen if not exists
+    if (!hasFullscreenControl) {
+      this.map.addControl(new maplibregl.FullscreenControl(), 'top-right');
+    }
+
+    // Add Scale if not exists
+    if (!hasScaleControl) {
+      this.map.addControl(new maplibregl.ScaleControl({ maxWidth: 200, unit: 'metric' }), 'bottom-right');
+    }
+  }
+
+  setupMapClickHandlers() {
+    this.map.on('click', 'gesuche-layer', (e) => {
+      if (e.features.length > 0) {
+        const feature = e.features[0];
+        this.showDetail(feature);
+      }
+    });
+
+    this.map.on('mouseenter', 'gesuche-layer', () => {
+      this.map.getCanvas().style.cursor = 'pointer';
+    });
+
+    this.map.on('mouseleave', 'gesuche-layer', () => {
+      this.map.getCanvas().style.cursor = '';
+    });
   }
 
   createStyle(layer = 'swissimage') {
@@ -160,14 +221,37 @@ class BaugesucheApp {
 
     return {
       version: 8,
-      sources: sources,
-      layers: [{
-        id: 'base-layer',
-        type: 'raster',
-        source: sourceId,
-        minzoom: 0,
-        maxzoom: 28
-      }]
+      sources: {
+        ...sources,
+        'gesuche-source': {
+          type: 'geojson',
+          data: {
+            type: 'FeatureCollection',
+            features: []
+          }
+        }
+      },
+      layers: [
+        {
+          id: 'base-layer',
+          type: 'raster',
+          source: sourceId,
+          minzoom: 0,
+          maxzoom: 24
+        },
+        {
+          id: 'gesuche-layer',
+          type: 'circle',
+          source: 'gesuche-source',
+          paint: {
+            'circle-radius': 6,
+            'circle-color': '#FF6B6B',
+            'circle-opacity': 0.8,
+            'circle-stroke-width': 2,
+            'circle-stroke-color': '#FFFFFF'
+          }
+        }
+      ]
     };
   }
 
@@ -226,6 +310,12 @@ class BaugesucheApp {
     this.currentLayer = layer;
     if (this.map) {
       this.map.setStyle(this.createStyle(layer));
+      
+      this.map.once('style.load', () => {
+        this.setupMapControls(); // Re-add controls after style change
+        this.addAllMarkers();
+        this.setupMapClickHandlers();
+      });
     }
   }
 
@@ -266,63 +356,51 @@ class BaugesucheApp {
   }
 
   clearMarkers() {
-    this.markers.forEach(marker => marker.remove());
     this.markers = [];
   }
 
   addAllMarkers() {
-    this.gesuche.forEach(feature => {
-      if (feature.geometry?.type === 'Point') {
-        this.addMarker(feature);
+    const features = this.gesuche.filter(f => f.geometry?.type === 'Point');
+    
+    this.markers = features;
+    
+    if (!this.map) return;
+    
+    // Stelle sicher, dass die Source existiert
+    if (!this.map.getSource('gesuche-source')) {
+      this.map.addSource('gesuche-source', {
+        type: 'geojson',
+        data: {
+          type: 'FeatureCollection',
+          features: features
+        }
+      });
+      
+      // Füge auch den Layer hinzu, wenn er nicht existiert
+      if (!this.map.getLayer('gesuche-layer')) {
+        this.map.addLayer({
+          id: 'gesuche-layer',
+          type: 'circle',
+          source: 'gesuche-source',
+          paint: {
+            'circle-radius': 6,
+            'circle-color': '#FF6B6B',
+            'circle-opacity': 0.8,
+            'circle-stroke-width': 2,
+            'circle-stroke-color': '#FFFFFF'
+          }
+        });
       }
-    });
+    } else {
+      // Source existiert, nur Daten aktualisieren
+      this.map.getSource('gesuche-source').setData({
+        type: 'FeatureCollection',
+        features: features
+      });
+    }
 
     const unlocatedCount = this.gesuche.filter(f => !f.geometry).length;
     this.updateNotificationBadge(unlocatedCount);
-  }
-
-  addMarker(feature) {
-    const markerEl = document.createElement('div');
-    markerEl.className = 'custom-marker';
-    markerEl.innerHTML = '📍';
-    markerEl.style.cursor = 'pointer';
-
-    const marker = new maplibregl.Marker({
-      element: markerEl,
-      anchor: 'center'
-    })
-      .setLngLat(feature.geometry.coordinates)
-      .addTo(this.map);
-
-    markerEl.addEventListener('click', () => this.showDetail(feature));
-    this.markers.push(marker);
-  }
-
-  updateResultsList() {
-    const count = this.gesuche.length;
-    document.getElementById('results-count').textContent = `${count} Baugesuch${count !== 1 ? 'e' : ''}`;
-
-    const list = document.getElementById('results-list');
-    list.replaceChildren();
-
-    this.gesuche.forEach(feature => {
-      const props = feature.properties;
-      const item = document.createElement('li');
-      item.className = 'result-item';
-      
-      const html = `
-        <div class="result-address">
-          <span>📍</span>
-          <span>${props.adresse}</span>
-        </div>
-        <div class="result-gemeinde">${props.gemeinde}</div>
-        <a href="${props.detailUrl}" target="_blank" rel="noopener" class="result-link">→ Zum Baugesuch</a>
-      `;
-
-      item.innerHTML = html;
-      item.addEventListener('click', () => this.showDetail(feature));
-      list.appendChild(item);
-    });
   }
 
   updateNotificationBadge(count) {
@@ -407,6 +485,43 @@ class BaugesucheApp {
   closeResultsPanel() {
     const panel = document.getElementById('results-panel');
     panel?.classList.remove('open');
+  }
+
+  showUnlocatedGesuche() {
+    const unlocated = this.gesuche.filter(f => !f.geometry);
+    
+    if (unlocated.length === 0) {
+      this.showError('Keine nicht zugeordneten Baugesuche gefunden.');
+      return;
+    }
+
+    this.updateResultsList(unlocated);
+    this.toggleResultsPanel();
+  }
+
+  updateResultsList(gesuche = this.gesuche) {
+    const count = gesuche.length;
+    document.getElementById('results-count').textContent = `${count} Baugesuch${count !== 1 ? 'e' : ''}`;
+
+    const list = document.getElementById('results-list');
+    list.replaceChildren();
+
+    gesuche.forEach(feature => {
+      const item = document.createElement('li');
+      item.className = 'result-item';
+
+      const props = feature.properties;
+      item.innerHTML = `
+        <div class="result-address">
+          <span>📍 ${props.adresse}</span>
+        </div>
+        <div class="result-gemeinde">${props.gemeinde}</div>
+        <a href="${props.detailUrl}" target="_blank" rel="noopener" class="result-link">Details</a>
+      `;
+
+      item.addEventListener('click', () => this.showDetail(feature));
+      list.appendChild(item);
+    });
   }
 
   showLoading(show) {
