@@ -360,34 +360,34 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 40px;
-      height: 40px;
-      background: #2563eb;
+      width: 32px;
+      height: 32px;
+      background: transparent;
       border: none;
       border-radius: 50%;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
       cursor: pointer;
-      font-size: 22px;
+      font-size: 24px;
       font-weight: bold;
       color: white;
       margin: 0;
       padding: 0;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
     }
 
     .custom-marker.hovered {
-      background: #1d4ed8;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+      filter: brightness(1.1);
     }
 
-    /* Marker wrapper styling - override MapLibre defaults, NO transitions for smooth dragging */
+    /* Marker wrapper styling - NO transitions or shadows for performance */
     .maplibregl-marker {
-      filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.25)) !important;
+      filter: none !important;
       width: auto !important;
       height: auto !important;
+      transition: none !important;
     }
 
     .maplibregl-marker:hover {
-      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35)) !important;
+      filter: none !important;
     }
 
     /* Loading */
@@ -746,15 +746,10 @@
 
       const props = feature.properties;
       
-      // Create custom marker element - simple, lightweight for performance
+      // Create lightweight marker element - just emoji, no styling
       const markerEl = document.createElement('div');
       markerEl.className = 'custom-marker';
       markerEl.innerHTML = '📍';
-      markerEl.style.width = '40px';
-      markerEl.style.height = '40px';
-      markerEl.style.fontSize = '22px';
-      markerEl.style.margin = '0';
-      markerEl.style.padding = '0';
 
       const popup = new maplibregl.Popup({ offset: 25, maxWidth: 300 })
         .setHTML(`
@@ -771,20 +766,11 @@
       const marker = new maplibregl.Marker({
         element: markerEl,
         anchor: 'center',
-        scale: 1,
-        offset: [0, -16]
+        scale: 1
       })
         .setLngLat(feature.geometry.coordinates)
         .setPopup(popup)
         .addTo(map);
-
-      // Add hover effect without expensive DOM manipulation
-      markerEl.addEventListener('mouseenter', () => {
-        markerEl.classList.add('hovered');
-      });
-      markerEl.addEventListener('mouseleave', () => {
-        markerEl.classList.remove('hovered');
-      });
 
       markers.push(marker);
     }
