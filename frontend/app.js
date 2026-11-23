@@ -19,7 +19,9 @@ class BaugesucheApp {
           type: 'raster',
           tiles: ['https://wms.geo.admin.ch/?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ch.swisstopo.pixelkarte-farbe-pk25.noscale&STYLES=&CRS=EPSG:3857&BBOX={bbox-epsg-3857}&WIDTH=256&HEIGHT=256&FORMAT=image/png'],
           tileSize: 256,
-          attribution: '© swisstopo'
+          attribution: '© swisstopo',
+          minzoom: 0,
+          maxzoom: 28
         }
       },
       'swissimage': {
@@ -27,7 +29,9 @@ class BaugesucheApp {
           type: 'raster',
           tiles: ['https://wms.geo.admin.ch/?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ch.swisstopo.swissimage&STYLES=&CRS=EPSG:3857&BBOX={bbox-epsg-3857}&WIDTH=256&HEIGHT=256&FORMAT=image/jpeg'],
           tileSize: 256,
-          attribution: '© swisstopo'
+          attribution: '© swisstopo',
+          minzoom: 0,
+          maxzoom: 28
         }
       },
       'avwms': {
@@ -35,7 +39,9 @@ class BaugesucheApp {
           type: 'raster',
           tiles: ['https://wms.zh.ch/AVfarbigZHWMS?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=av&STYLES=&CRS=EPSG:3857&BBOX={bbox-epsg-3857}&WIDTH=256&HEIGHT=256&FORMAT=image/png'],
           tileSize: 256,
-          attribution: '© Kanton Zürich'
+          attribution: '© Kanton Zürich',
+          minzoom: 0,
+          maxzoom: 28
         }
       }
     };
