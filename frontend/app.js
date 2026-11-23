@@ -122,10 +122,6 @@ class BaugesucheApp {
 
     // Filter Apply Buttons
     document.getElementById('apply-filter')?.addEventListener('click', () => this.loadGesuche());
-    document.getElementById('apply-filter-mobile')?.addEventListener('click', () => {
-      this.loadGesuche();
-      this.updateResultsListMobile();
-    });
 
     // Results Panel Toggle
     document.getElementById('results-toggle-btn')?.addEventListener('click', () => this.toggleResultsPanel());
