@@ -20,23 +20,16 @@
   <!-- Header -->
   <header class="header" role="banner">
     <div class="header-left">
-      <div class="header-logo">eBaugesuche ZH</div>
+      <div class="header-logo">eBaugesuche ZH – Karte</div>
     </div>
     
     <div class="header-middle">
-      <button class="info-button" id="info-btn" title="Informationen" aria-label="Informationen zur Karte">
-        ℹ
-        <div class="info-tooltip">
-          <strong>Öffentliche Baugesuche</strong><br>
-          Kanton Zürich – Angeschlossene Gemeinden<br>
-          <br>
-          <strong>Datenquelle:</strong> eBaugesuche-Portal ZH<br>
-          <strong>⚠ Haftung:</strong> Keine Gewähr auf Vollständigkeit
-        </div>
+      <button type="button" class="info-button" id="info-btn" title="Über diese Karte" aria-label="Über diese Karte" aria-haspopup="dialog">
+        <span aria-hidden="true">♥</span><span>Über die Karte</span>
       </button>
-      <div class="notification-badge" id="notification-badge" title="Gesuche ohne Koordinaten">
+      <button type="button" class="notification-badge" id="notification-badge" title="Gesuche ohne Koordinaten" aria-label="Gesuche ohne Koordinaten">
         ! <span id="notification-count">0</span>
-      </div>
+      </button>
     </div>
 
     <div class="header-right">
@@ -44,24 +37,30 @@
         <a href="https://portal.ebaugesuche.zh.ch/" target="_blank" rel="noopener" title="Zum eBaugesuche-Portal">Portal</a>
         <a href="https://github.com/jozeller/ebaugesuche_ZH-map" target="_blank" rel="noopener" title="GitHub Repository">GitHub</a>
       </div>
-      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menü öffnen" title="Menü">☰</button>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menü öffnen" aria-expanded="false" title="Menü">☰</button>
     </div>
   </header>
 
   <!-- Sidebar (Desktop) -->
   <aside class="sidebar" id="sidebar" role="complementary" aria-label="Filter">
     <div class="sidebar-section">
-      <label for="gemeinde-select" class="sidebar-label">Gemeinde</label>
-      <input 
-        type="text" 
-        id="gemeinde-search" 
-        class="sidebar-search"
-        placeholder="Gemeinde suchen..."
-        aria-label="Gemeinde suchen"
-      >
-      <select id="gemeinde-select" class="sidebar-select" aria-label="Gemeinde filtern" size="8">
-        <option value="">Gemeinden werden geladen...</option>
-      </select>
+      <label for="gemeinde-search" class="sidebar-label">Gemeinde</label>
+      <div class="gemeinde-picker">
+        <input
+          type="search"
+          id="gemeinde-search"
+          class="sidebar-search"
+          placeholder="Gemeinde suchen..."
+          aria-label="Gemeinde suchen"
+          role="combobox"
+          aria-autocomplete="list"
+          aria-haspopup="listbox"
+          aria-expanded="false"
+          aria-controls="gemeinde-options"
+          autocomplete="off"
+        >
+        <div class="gemeinde-options" id="gemeinde-options" role="listbox" hidden></div>
+      </div>
     </div>
 
     <div class="sidebar-section">
@@ -73,7 +72,6 @@
       </select>
     </div>
 
-    <button class="filter-button" id="apply-filter" aria-label="Filter anwenden">Filter anwenden</button>
   </aside>
 
   <!-- Mobile Drawer (Tablet + Mobile with unified view) -->
@@ -81,6 +79,19 @@
     <div class="mobile-drawer-header">
       <h2>Filter & Ergebnisse</h2>
       <button class="mobile-drawer-close" aria-label="Schließen" title="Schließen">✕</button>
+    </div>
+
+    <div class="sidebar-section">
+      <button type="button" class="mobile-info-button" id="info-btn-mobile" aria-haspopup="dialog">
+        <span aria-hidden="true">♥</span> Über die Karte
+      </button>
+    </div>
+
+    <div class="sidebar-section">
+      <button type="button" class="mobile-unlocated-button" id="notification-badge-mobile" title="Gesuche ohne Koordinaten">
+        <span>Gesuche ohne Koordinate</span>
+        <span id="notification-count-mobile">0</span>
+      </button>
     </div>
 
     <div class="sidebar-section">
@@ -93,21 +104,31 @@
     </div>
 
     <div class="sidebar-section">
-      <label for="gemeinde-select-mobile" class="sidebar-label">🏘️ Gemeinde</label>
-      <input 
-        type="text" 
-        id="gemeinde-search-mobile" 
-        class="sidebar-search"
-        placeholder="Name eingeben..."
-        aria-label="Gemeinde suchen"
-      >
-      <select id="gemeinde-select-mobile" class="sidebar-select" size="6" aria-label="Gemeinde filtern">
-        <option value="">Gemeinden werden geladen...</option>
-      </select>
+      <label for="gemeinde-search-mobile" class="sidebar-label">🏘️ Gemeinde</label>
+      <div class="gemeinde-picker">
+        <input
+          type="search"
+          id="gemeinde-search-mobile"
+          class="sidebar-search"
+          placeholder="Gemeinde suchen..."
+          aria-label="Gemeinde suchen"
+          role="combobox"
+          aria-autocomplete="list"
+          aria-haspopup="listbox"
+          aria-expanded="false"
+          aria-controls="gemeinde-options-mobile"
+          autocomplete="off"
+        >
+        <div class="gemeinde-options" id="gemeinde-options-mobile" role="listbox" hidden></div>
+      </div>
     </div>
 
     <div class="sidebar-section">
-      <label class="sidebar-label">📋 Ergebnisse</label>
+      <div class="mobile-results-header">
+        <label class="sidebar-label">📋 Ergebnisse</label>
+        <button type="button" id="results-reset-mobile" class="mobile-results-reset" hidden>Alle Gesuche</button>
+      </div>
+      <span id="results-count-mobile" class="mobile-results-count">0 Baugesuche</span>
       <div id="mobile-results-container" class="mobile-results-container">
         <ul class="results-list mobile-results-list" id="results-list-mobile"></ul>
       </div>
@@ -118,7 +139,7 @@
   <div class="mobile-drawer-overlay" id="mobile-overlay"></div>
 
   <!-- Results Toggle Button (Desktop) -->
-  <button id="results-toggle-btn" class="results-toggle-btn" title="Ergebnisliste anzeigen/verbergen" aria-label="Ergebnisliste umschalten">📋</button>
+  <button id="results-toggle-btn" class="results-toggle-btn hidden" title="Ergebnisliste anzeigen/verbergen" aria-label="Ergebnisliste umschalten" aria-expanded="false">📋</button>
 
   <!-- Results Panel -->
   <aside class="results-panel" id="results-panel" role="complementary" aria-label="Suchergebnisse">
@@ -128,6 +149,43 @@
     </div>
     <ul class="results-list" id="results-list"></ul>
   </aside>
+
+  <dialog class="info-dialog" id="info-dialog" aria-labelledby="info-title">
+    <div class="info-dialog-header">
+      <span class="info-kicker">Eine Karte mit Herz</span>
+      <button type="button" class="info-close" id="info-close" aria-label="Hinweis schließen">✕</button>
+    </div>
+    <h2 id="info-title">Ein Zuhause ist nicht selbstverständlich.</h2>
+    <p>Nicht alle können bauen. Auch junge Menschen haben manchmal kein Zuhause. Das <strong>Nemo</strong> ist eine Notschlafstelle für Jugendliche und junge Erwachsene von 16 bis 23 Jahren in Zürich.</p>
+    <p>Findest du diese Karte nützlich? Dann wäre eine Spende an <strong>NEMO hilft</strong> vielleicht eine schöne Idee.</p>
+    <a class="info-donate" href="https://www.nemohilft.ch/" target="_blank" rel="noopener noreferrer">NEMO hilft unterstützen <span aria-hidden="true">↗</span></a>
+    <div class="donation-qr">
+      <button type="button" class="donation-qr-preview" id="donation-qr-open" aria-label="Spenden-QR-Code vergrössern" aria-haspopup="dialog">
+        <img src="./nemo-spenden-qr.png" alt="">
+      </button>
+      <div>
+        <strong>Direkt per QR-Rechnung spenden</strong>
+        <p>QR-Code mit deiner Banking-App scannen.</p>
+        <button type="button" class="donation-qr-enlarge" id="donation-qr-enlarge" aria-haspopup="dialog">QR-Code vergrössern ↗</button>
+        <a href="./nemo-spenden-qr.png" download="nemo-spenden-qr.png">QR-Code als Bild speichern</a>
+      </div>
+    </div>
+    <p class="info-thanks">Merci fürs Hinschauen ♥</p>
+    <div class="info-about">
+      <strong>Über die Karte</strong>
+      <p>Öffentliche Baugesuche im Kanton Zürich. Datenquelle: eBaugesuche-Portal ZH. Keine Gewähr auf Vollständigkeit.</p>
+    </div>
+  </dialog>
+
+  <dialog class="qr-dialog" id="donation-qr-dialog" aria-labelledby="donation-qr-title">
+    <div class="qr-dialog-header">
+      <h2 id="donation-qr-title">Spenden-QR-Code</h2>
+      <button type="button" class="info-close" id="donation-qr-close" aria-label="QR-Code schliessen">✕</button>
+    </div>
+    <p>Mit deiner Banking-App scannen.</p>
+    <img src="./nemo-spenden-qr.png" alt="Schweizer QR-Code für eine Spende an Nemo">
+    <a href="./nemo-spenden-qr.png" download="nemo-spenden-qr.png">QR-Code als Bild speichern</a>
+  </dialog>
 
   <!-- Detail Modal -->
   <div class="modal-overlay" id="modal-overlay"></div>

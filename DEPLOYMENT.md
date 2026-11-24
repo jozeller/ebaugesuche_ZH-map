@@ -2,9 +2,10 @@
 
 ## GitHub Pages
 
-The production map is the repository-root `index.html`; data is read from the
-repository-root `data/` directory. In repository settings, enable Pages from
-the `main` branch and the `/(root)` folder.
+The production map is the repository-root `index.html`. It loads the shared
+interface from `frontend/`; data remains in the repository-root `data/`
+directory. In repository settings, enable Pages from the `main` branch and
+the `/(root)` folder.
 
 The workflow in `.github/workflows/daily-update.yml` refreshes portal data
 daily at 06:00 UTC and commits changes to the data files. It can also be run

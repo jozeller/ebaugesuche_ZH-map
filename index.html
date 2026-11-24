@@ -3,1012 +3,202 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Baugesuche ZH - Karte</title>
-  
+  <meta name="description" content="Interaktive Karte der Baugesuche im Kanton Zürich">
+  <base href="./frontend/">
+  <title>Karte eBaugesuche ZH</title>
+
+  <!-- MapLibre GL -->
   <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
   <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
-  
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-      background: #fff;
-      color: #222;
-    }
-
-    #map {
-      width: 100%;
-      height: 100vh;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
-
-    /* Header */
-    .header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid #e0e0e0;
-      padding: 4px 20px;
-      min-height: 56px;
-      z-index: 15;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .header-title {
-      font-size: 16px;
-      font-weight: 600;
-      color: #222;
-    }
-
-    .header-links {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-    }
-
-    .info-button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #2D7CB9 0%, #1E5A8E 100%);
-      border: 2px solid #1E5A8E;
-      cursor: help;
-      font-size: 18px;
-      font-weight: 700;
-      color: white;
-      transition: all 0.2s;
-      position: relative;
-      box-shadow: 0 2px 8px rgba(45, 124, 185, 0.3);
-    }
-
-    .info-button:hover {
-      background: linear-gradient(135deg, #1E5A8E 0%, #0D3A5F 100%);
-      box-shadow: 0 4px 12px rgba(45, 124, 185, 0.5);
-      transform: translateY(-2px);
-    }
-
-    .info-tooltip {
-      position: absolute;
-      bottom: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #1f2937;
-      color: white;
-      padding: 12px 14px;
-      border-radius: 6px;
-      font-size: 13px;
-      font-weight: normal;
-      white-space: normal;
-      margin-bottom: 10px;
-      z-index: 50;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity 0.2s;
-      min-width: 260px;
-      text-align: left;
-      line-height: 1.5;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    }
-
-    .info-button:hover .info-tooltip {
-      opacity: 1;
-    }
-
-    .info-tooltip::after {
-      content: '';
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      border: 6px solid transparent;
-      border-top-color: #1f2937;
-    }
-
-    .header-links a {
-      color: #666;
-      text-decoration: none;
-      font-size: 13px;
-      transition: color 0.2s;
-    }
-
-    .header-links a:hover {
-      color: #222;
-    }
-
-    .unlocated-summary {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      min-width: 44px;
-      height: 44px;
-      color: #c26e0a;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 700;
-      list-style: none;
-      transition: color 0.2s;
-    }
-
-    .unlocated-summary:hover {
-      color: #a35a08;
-    }
-
-    .unlocated-summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .unlocated-icon {
-      display: grid;
-      place-items: center;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: #ea8c14;
-      color: white;
-      font-size: 14px;
-      font-weight: bold;
-      flex-shrink: 0;
-    }
-
-    .unlocated-panel {
-      position: absolute;
-      top: 100%;
-      right: 12px;
-      width: min(320px, calc(100vw - 24px));
-      max-height: min(60vh, 500px);
-      max-height: min(60dvh, 500px);
-      overflow-y: auto;
-      overscroll-behavior: contain;
-      padding: 14px;
-      background: white;
-      border: 1px solid #e0e0e0;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-      font-size: 13px;
-    }
-
-    .unlocated-panel h2 {
-      font-size: 14px;
-      margin-bottom: 12px;
-    }
-
-    .unlocated-panel a {
-      display: inline-block;
-      margin: 4px 0 12px;
-      color: #ea8c14;
-      font-weight: 600;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .unlocated-panel a:hover {
-      color: #c26e0a;
-    }
-
-    #map .maplibregl-ctrl-top-left {
-      top: 60px;
-      left: 12px;
-    }
-
-    #map .maplibregl-ctrl-top-right {
-      top: 60px;
-    }
-
-    /* Controls */
-    .controls {
-      position: absolute;
-      bottom: 16px;
-      right: 16px;
-      background: white;
-      border: 1px solid #e0e0e0;
-      border-radius: 8px;
-      padding: 14px;
-      z-index: 10;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      min-width: 220px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    }
-
-    .control-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .control-group label {
-      font-size: 12px;
-      font-weight: 600;
-      color: #222;
-    }
-
-    .control-group select {
-      padding: 8px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      font-size: 13px;
-      background: white;
-      cursor: pointer;
-      color: #222;
-    }
-
-    .control-group select:focus {
-      outline: none;
-      border-color: #222;
-      box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
-    }
-
-    .sidebar-row {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .sidebar-row span {
-      color: #666;
-    }
-
-    /* Popup */
-    .maplibregl-popup {
-      z-index: 20;
-    }
-
-    .maplibregl-popup-close-button {
-      width: 44px;
-      height: 44px;
-      font-size: 28px;
-      line-height: 40px;
-    }
-
-    .maplibregl-popup-content {
-      background: white;
-      border-radius: 8px;
-      padding: 16px 44px 14px 14px;
-      max-width: 320px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-      border: 1px solid #e5e7eb;
-      font-family: inherit;
-    }
-
-    .maplibregl-popup-content h4 {
-      margin: 0 0 10px 0;
-      font-size: 15px;
-      font-weight: 700;
-      color: #1f2937;
-      word-break: break-word;
-    }
-
-    .popup-content {
-      font-size: 13px;
-      color: #4b5563;
-      line-height: 1.5;
-    }
-
-    .popup-address {
-      font-size: 13px;
-      color: #374151;
-      margin-bottom: 10px;
-      font-weight: 500;
-      line-height: 1.4;
-    }
-
-    .popup-gemeinde {
-      display: inline-block;
-      background: #2563eb;
-      color: white;
-      padding: 4px 8px;
-      border-radius: 4px;
-      font-size: 11px;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-
-    .popup-bautyp {
-      display: inline-block;
-      background: #f3f4f6;
-      color: #374151;
-      padding: 3px 7px;
-      border-radius: 4px;
-      font-size: 11px;
-      font-weight: 600;
-      margin: 6px 0;
-      margin-left: 6px;
-    }
-
-    .popup-datum {
-      font-size: 12px;
-      color: #6b7280;
-      margin: 6px 0;
-    }
-
-    .maplibregl-popup-content a {
-      display: inline-block;
-      color: white;
-      background: #2563eb;
-      text-decoration: none;
-      padding: 8px 12px;
-      border-radius: 4px;
-      margin-top: 10px;
-      font-weight: 600;
-      font-size: 13px;
-      transition: background 0.2s;
-      border: none;
-      cursor: pointer;
-    }
-
-    .maplibregl-popup-content a:hover {
-      background: #1d4ed8;
-    }
-
-    /* Custom marker styling */
-    .custom-marker {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 48px;
-      height: 48px;
-      background: transparent;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 32px;
-      font-weight: bold;
-      color: white;
-      margin: 0;
-      padding: 0;
-      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-      transition: transform 0.2s ease;
-    }
-
-    .custom-marker:hover {
-      transform: scale(1.2);
-    }
-
-    /* Results Panel */
-    .results-panel {
-      position: fixed;
-      top: 56px;
-      right: -360px;
-      width: 360px;
-      height: calc(100vh - 56px);
-      background: white;
-      border-left: 1px solid #e0e0e0;
-      display: flex;
-      flex-direction: column;
-      transition: right 0.3s ease;
-      z-index: 50;
-      box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .results-panel.open {
-      right: 0;
-    }
-
-    .results-toggle {
-      position: absolute;
-      top: 56px;
-      right: 0;
-      width: 44px;
-      height: 44px;
-      background: white;
-      border: 1px solid #e0e0e0;
-      border-left: none;
-      border-radius: 0;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 51;
-      transition: all 0.2s;
-      color: #222;
-    }
-
-    .results-toggle:hover {
-      background: #f5f5f5;
-    }
-
-    .results-header {
-      padding: 16px;
-      border-bottom: 1px solid #e0e0e0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .results-header h3 {
-      margin: 0;
-      font-size: 14px;
-      font-weight: 600;
-      color: #222;
-    }
-
-    .results-list {
-      flex: 1;
-      overflow-y: auto;
-      overscroll-behavior: contain;
-    }
-
-    .result-item {
-      padding: 16px;
-      border-bottom: 1px solid #f0f0f0;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-
-    .result-item:hover {
-      background: #f9f9f9;
-    }
-
-    .result-address {
-      font-size: 14px;
-      font-weight: 500;
-      color: #222;
-      margin-bottom: 4px;
-      word-break: break-word;
-    }
-
-    .result-gemeinde {
-      display: inline-block;
-      background: #2563eb;
-      color: white;
-      padding: 2px 6px;
-      border-radius: 3px;
-      font-size: 11px;
-      font-weight: 600;
-      margin-top: 4px;
-      margin-right: 4px;
-    }
-
-    .result-link {
-      display: inline-block;
-      color: #E8A43E;
-      text-decoration: none;
-      font-size: 12px;
-      font-weight: 600;
-      margin-top: 6px;
-      transition: color 0.2s;
-    }
-
-    .result-link:hover {
-      color: #D68C2E;
-    }
-
-    .custom-marker.hovered {
-      filter: brightness(1.1);
-    }
-
-    /* Marker wrapper styling - NO transitions or shadows for performance */
-    .maplibregl-marker {
-      filter: none !important;
-      width: auto !important;
-      height: auto !important;
-      transition: none !important;
-    }
-
-    .maplibregl-marker:hover {
-      filter: none !important;
-    }
-
-    /* Loading */
-    .loading {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: white;
-      padding: 24px;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-      z-index: 20;
-      text-align: center;
-      display: none;
-    }
-
-    .loading-spinner {
-      width: 32px;
-      height: 32px;
-      border: 2px solid #f0f0f0;
-      border-top: 2px solid #222;
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-      margin: 0 auto 12px;
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    /* Error */
-    .error {
-      position: absolute;
-      top: 70px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #fef2f2;
-      color: #991b1b;
-      padding: 12px 16px;
-      border-radius: 4px;
-      border: 1px solid #fecaca;
-      z-index: 20;
-      max-width: 500px;
-      font-size: 13px;
-      display: none;
-    }
-
-    @media (max-width: 768px) {
-      .header {
-        padding: 4px 12px;
-      }
-
-      .header-title {
-        font-size: 14px;
-      }
-
-      .header-links {
-        gap: 8px;
-      }
-
-      .info-tooltip {
-        min-width: 200px;
-        bottom: auto;
-        top: 100%;
-        margin-bottom: 0;
-        margin-top: 8px;
-      }
-
-      .info-tooltip::after {
-        top: auto;
-        bottom: 100%;
-        border: 6px solid transparent;
-        border-bottom-color: #1f2937;
-      }
-
-      .controls {
-        top: 64px;
-        bottom: auto;
-        left: 60px;
-        right: 8px;
-        width: auto;
-        min-width: 0;
-        flex-direction: row;
-        gap: 8px;
-        padding: 8px;
-      }
-
-      .control-group {
-        flex: 1;
-        min-width: 0;
-        gap: 2px;
-      }
-
-      .control-group label {
-        font-size: 11px;
-        font-weight: 600;
-      }
-
-      .control-group select {
-        width: 100%;
-        min-height: 36px;
-        font-size: 13px;
-        padding: 6px 8px;
-      }
-
-      #map .maplibregl-ctrl-top-left {
-        top: 60px;
-        left: 0;
-      }
-
-      #map .maplibregl-ctrl-top-right {
-        top: 145px;
-      }
-
-    }
-  </style>
+  <!-- Modern Styles -->
+  <link href="./styles.css" rel="stylesheet" />
 </head>
 <body>
-  <div id="map"></div>
-  
-  <div class="header">
-    <div class="header-title">eBaugesuche ZH</div>
-    <div class="header-links">
-      <button class="info-button" title="Informationen zur Karte">
-        ℹ
-        <div class="info-tooltip">
-          <strong>Öffentliche Baugesuche</strong><br>
-          Kanton Zürich – angeschlossene Gemeinden<br>
-          <br>
-          Datenquelle: eBaugesuche-Portal ZH<br>
-          <strong>⚠ Keine Gewähr</strong>
-        </div>
-      </button>
-      <details id="unlocated-notices" hidden>
-        <summary class="unlocated-summary" aria-label="Gesuche ohne exakte Adresskoordinate">
-          <span class="unlocated-icon" aria-hidden="true">!</span>
-          <span id="unlocated-count">0</span>
-        </summary>
-        <div class="unlocated-panel">
-          <h2 id="unlocated-heading">Gesuche ohne exakte Adresskoordinate</h2>
-          <div id="unlocated-list"></div>
-        </div>
-      </details>
-      <a href="https://portal.ebaugesuche.zh.ch/" target="_blank" title="Zum eBaugesuche-Portal">eBaugesuche-Portal</a>
-      <a href="https://github.com/jozeller/ebaugesuche_ZH-map" target="_blank">GitHub</a>
-    </div>
-  </div>
+  <!-- Map Container -->
+  <div id="map" class="map-container"></div>
 
-  <div class="controls">
-    <div class="control-group">
-      <label>Gemeinde</label>
-      <select id="gemeinde-select">
-        <option value="">Gemeinden werden geladen ...</option>
-      </select>
+  <!-- Header -->
+  <header class="header" role="banner">
+    <div class="header-left">
+      <div class="header-logo">eBaugesuche ZH – Karte</div>
     </div>
-    <div class="control-group">
-      <label>Kartenlayer</label>
-      <select id="layer-select">
+
+    <div class="header-middle">
+      <button type="button" class="info-button" id="info-btn" title="Über diese Karte" aria-label="Über diese Karte" aria-haspopup="dialog">
+        <span aria-hidden="true">♥</span><span>Über die Karte</span>
+      </button>
+      <button type="button" class="notification-badge" id="notification-badge" title="Gesuche ohne Koordinaten" aria-label="Gesuche ohne Koordinaten">
+        ! <span id="notification-count">0</span>
+      </button>
+    </div>
+
+    <div class="header-right">
+      <div class="header-links">
+        <a href="https://portal.ebaugesuche.zh.ch/" target="_blank" rel="noopener" title="Zum eBaugesuche-Portal">Portal</a>
+        <a href="https://github.com/jozeller/ebaugesuche_ZH-map" target="_blank" rel="noopener" title="GitHub Repository">GitHub</a>
+      </div>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menü öffnen" aria-expanded="false" title="Menü">☰</button>
+    </div>
+  </header>
+
+  <!-- Sidebar (Desktop) -->
+  <aside class="sidebar" id="sidebar" role="complementary" aria-label="Filter">
+    <div class="sidebar-section">
+      <label for="gemeinde-search" class="sidebar-label">Gemeinde</label>
+      <div class="gemeinde-picker">
+        <input
+          type="search"
+          id="gemeinde-search"
+          class="sidebar-search"
+          placeholder="Gemeinde suchen..."
+          aria-label="Gemeinde suchen"
+          role="combobox"
+          aria-autocomplete="list"
+          aria-haspopup="listbox"
+          aria-expanded="false"
+          aria-controls="gemeinde-options"
+          autocomplete="off"
+        >
+        <div class="gemeinde-options" id="gemeinde-options" role="listbox" hidden></div>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <label for="layer-select" class="sidebar-label">Kartenlayer</label>
+      <select id="layer-select" class="sidebar-select" aria-label="Kartenlayer wählen">
         <option value="pixelkarte">Pixelkarte</option>
         <option value="swissimage" selected>Luftbild</option>
         <option value="avwms">Amtliche Vermessung</option>
       </select>
     </div>
-  </div>
 
-  <div id="results-panel" class="results-panel">
-    <div class="results-header">
-      <h3 id="results-count">0 Baugesuche</h3>
-      <button id="results-close" title="Schließen" style="background: none; border: none; font-size: 20px; cursor: pointer; padding: 0; color: #666;">×</button>
+  </aside>
+
+  <!-- Mobile Drawer (Tablet + Mobile with unified view) -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-drawer-header">
+      <h2>Filter & Ergebnisse</h2>
+      <button class="mobile-drawer-close" aria-label="Schließen" title="Schließen">✕</button>
     </div>
-    <div id="results-list" class="results-list"></div>
+
+    <div class="sidebar-section">
+      <button type="button" class="mobile-info-button" id="info-btn-mobile" aria-haspopup="dialog">
+        <span aria-hidden="true">♥</span> Über die Karte
+      </button>
+    </div>
+
+    <div class="sidebar-section">
+      <button type="button" class="mobile-unlocated-button" id="notification-badge-mobile" title="Gesuche ohne Koordinaten">
+        <span>Gesuche ohne Koordinate</span>
+        <span id="notification-count-mobile">0</span>
+      </button>
+    </div>
+
+    <div class="sidebar-section">
+      <label for="layer-select-mobile" class="sidebar-label">📍 Kartenlayer</label>
+      <select id="layer-select-mobile" class="sidebar-select" aria-label="Kartenlayer wählen">
+        <option value="pixelkarte">Pixelkarte</option>
+        <option value="swissimage" selected>Luftbild</option>
+        <option value="avwms">Amtliche Vermessung</option>
+      </select>
+    </div>
+
+    <div class="sidebar-section">
+      <label for="gemeinde-search-mobile" class="sidebar-label">🏘️ Gemeinde</label>
+      <div class="gemeinde-picker">
+        <input
+          type="search"
+          id="gemeinde-search-mobile"
+          class="sidebar-search"
+          placeholder="Gemeinde suchen..."
+          aria-label="Gemeinde suchen"
+          role="combobox"
+          aria-autocomplete="list"
+          aria-haspopup="listbox"
+          aria-expanded="false"
+          aria-controls="gemeinde-options-mobile"
+          autocomplete="off"
+        >
+        <div class="gemeinde-options" id="gemeinde-options-mobile" role="listbox" hidden></div>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="mobile-results-header">
+        <label class="sidebar-label">📋 Ergebnisse</label>
+        <button type="button" id="results-reset-mobile" class="mobile-results-reset" hidden>Alle Gesuche</button>
+      </div>
+      <span id="results-count-mobile" class="mobile-results-count">0 Baugesuche</span>
+      <div id="mobile-results-container" class="mobile-results-container">
+        <ul class="results-list mobile-results-list" id="results-list-mobile"></ul>
+      </div>
+    </div>
   </div>
 
-  <button id="results-toggle" class="results-toggle" title="Liste anzeigen/verbergen">📋</button>
+  <!-- Mobile Overlay -->
+  <div class="mobile-drawer-overlay" id="mobile-overlay"></div>
 
-  <div id="loading" class="loading">
-    <div class="loading-spinner"></div>
-    <p>Laden...</p>
+  <!-- Results Toggle Button (Desktop) -->
+  <button id="results-toggle-btn" class="results-toggle-btn hidden" title="Ergebnisliste anzeigen/verbergen" aria-label="Ergebnisliste umschalten" aria-expanded="false">📋</button>
+
+  <!-- Results Panel -->
+  <aside class="results-panel" id="results-panel" role="complementary" aria-label="Suchergebnisse">
+    <div class="results-header">
+      <span id="results-count">0 Baugesuche</span>
+      <button id="results-close-btn" class="results-close-btn" aria-label="Ergebnisse schließen" title="Schließen">✕</button>
+    </div>
+    <ul class="results-list" id="results-list"></ul>
+  </aside>
+
+  <dialog class="info-dialog" id="info-dialog" aria-labelledby="info-title">
+    <div class="info-dialog-header">
+      <span class="info-kicker">Eine Karte mit Herz</span>
+      <button type="button" class="info-close" id="info-close" aria-label="Hinweis schließen">✕</button>
+    </div>
+    <h2 id="info-title">Ein Zuhause ist nicht selbstverständlich.</h2>
+    <p>Nicht alle können bauen. Auch junge Menschen haben manchmal kein Zuhause. Das <strong>Nemo</strong> ist eine Notschlafstelle für Jugendliche und junge Erwachsene von 16 bis 23 Jahren in Zürich.</p>
+    <p>Findest du diese Karte nützlich? Dann wäre eine Spende an <strong>NEMO hilft</strong> vielleicht eine schöne Idee.</p>
+    <a class="info-donate" href="https://www.nemohilft.ch/" target="_blank" rel="noopener noreferrer">NEMO hilft unterstützen <span aria-hidden="true">↗</span></a>
+    <div class="donation-qr">
+      <button type="button" class="donation-qr-preview" id="donation-qr-open" aria-label="Spenden-QR-Code vergrössern" aria-haspopup="dialog">
+        <img src="./nemo-spenden-qr.png" alt="">
+      </button>
+      <div>
+        <strong>Direkt per QR-Rechnung spenden</strong>
+        <p>QR-Code mit deiner Banking-App scannen.</p>
+        <button type="button" class="donation-qr-enlarge" id="donation-qr-enlarge" aria-haspopup="dialog">QR-Code vergrössern ↗</button>
+        <a href="./nemo-spenden-qr.png" download="nemo-spenden-qr.png">QR-Code als Bild speichern</a>
+      </div>
+    </div>
+    <p class="info-thanks">Merci fürs Hinschauen ♥</p>
+    <div class="info-about">
+      <strong>Über die Karte</strong>
+      <p>Öffentliche Baugesuche im Kanton Zürich. Datenquelle: eBaugesuche-Portal ZH. Keine Gewähr auf Vollständigkeit.</p>
+    </div>
+  </dialog>
+
+  <dialog class="qr-dialog" id="donation-qr-dialog" aria-labelledby="donation-qr-title">
+    <div class="qr-dialog-header">
+      <h2 id="donation-qr-title">Spenden-QR-Code</h2>
+      <button type="button" class="info-close" id="donation-qr-close" aria-label="QR-Code schliessen">✕</button>
+    </div>
+    <p>Mit deiner Banking-App scannen.</p>
+    <img src="./nemo-spenden-qr.png" alt="Schweizer QR-Code für eine Spende an Nemo">
+    <a href="./nemo-spenden-qr.png" download="nemo-spenden-qr.png">QR-Code als Bild speichern</a>
+  </dialog>
+
+  <!-- Detail Modal -->
+  <div class="modal-overlay" id="modal-overlay"></div>
+  <div class="modal" id="detail-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-header">
+      <h2 class="modal-title" id="modal-title">Details</h2>
+      <button class="modal-close" id="modal-close" aria-label="Schließen">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
   </div>
 
-  <div id="error" class="error"></div>
-
-  <script>
-    let map;
-    let gesuche = [];
-    let markers = [];
-    let gemeinden = [];
-    let currentGemeinde = 'alle';
-    let currentLayer = 'swissimage';
-    let loadSequence = 0;
-    let isClustered = false;
-
-    const mapLayers = {
-      'pixelkarte': {
-        'swisstopo-raster': {
-          type: 'raster',
-          tiles: ['https://wms.geo.admin.ch/?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ch.swisstopo.pixelkarte-farbe-pk25.noscale&STYLES=&CRS=EPSG:3857&BBOX={bbox-epsg-3857}&WIDTH=256&HEIGHT=256&FORMAT=image/png'],
-          tileSize: 256,
-          attribution: '© swisstopo'
-        }
-      },
-      'swissimage': {
-        'swisstopo-raster': {
-          type: 'raster',
-          tiles: ['https://wms.geo.admin.ch/?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ch.swisstopo.swissimage&STYLES=&CRS=EPSG:3857&BBOX={bbox-epsg-3857}&WIDTH=256&HEIGHT=256&FORMAT=image/jpeg'],
-          tileSize: 256,
-          attribution: '© swisstopo'
-        }
-      },
-      'avwms': {
-        'av-raster': {
-          type: 'raster',
-          tiles: ['https://wms.zh.ch/AVfarbigZHWMS?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=av&STYLES=&CRS=EPSG:3857&BBOX={bbox-epsg-3857}&WIDTH=256&HEIGHT=256&FORMAT=image/png'],
-          tileSize: 256,
-          attribution: '© Kanton Zürich'
-        }
-      }
-    };
-
-    function createStyle(layer = 'swissimage') {
-      const sourceId = layer === 'avwms' ? 'av-raster' : 'swisstopo-raster';
-      const sources = mapLayers[layer];
-      
-      return {
-        version: 8,
-        sources: sources,
-        layers: [{
-          id: 'base-layer',
-          type: 'raster',
-          source: sourceId,
-          minzoom: 0,
-          maxzoom: 18
-        }]
-      };
-    }
-
-    function initMap() {
-      map = new maplibregl.Map({
-        container: 'map',
-        style: createStyle(currentLayer),
-        center: [8.680557, 47.244037],
-        zoom: 13,
-        attributionControl: true,
-        performanceMetricsCollection: false
-      });
-
-      map.on('load', loadGemeinden);
-
-      map.addControl(new maplibregl.NavigationControl(), 'top-left');
-      map.addControl(new maplibregl.FullscreenControl(), 'top-right');
-      map.addControl(new maplibregl.ScaleControl({ maxWidth: 200, unit: 'metric' }), 'bottom-right');
-
-      document.getElementById('gemeinde-select').addEventListener('change', (e) => {
-        currentGemeinde = e.target.value;
-        loadGesuche();
-      });
-
-      document.getElementById('layer-select').addEventListener('change', (e) => {
-        changeMapLayer(e.target.value);
-      });
-    }
-
-    async function loadGemeinden() {
-      try {
-        const response = await fetch('./data/gemeinden.json');
-        if (!response.ok) throw new Error(`Gemeindeliste: HTTP ${response.status}`);
-
-        gemeinden = await response.json();
-        if (!Array.isArray(gemeinden) || gemeinden.length === 0) {
-          throw new Error('Die Gemeindeliste ist leer oder ungültig.');
-        }
-
-        const select = document.getElementById('gemeinde-select');
-        select.replaceChildren();
-        const allOption = document.createElement('option');
-        allOption.value = 'alle';
-        allOption.textContent = `Alle Gemeinden (${gemeinden.length})`;
-        select.appendChild(allOption);
-        for (const gemeinde of gemeinden) {
-          const option = document.createElement('option');
-          option.value = gemeinde.slug;
-          option.textContent = gemeinde.name;
-          select.appendChild(option);
-        }
-
-        select.value = 'alle';
-        currentGemeinde = select.value;
-        await loadGesuche();
-      } catch (error) {
-        console.error('Fehler beim Laden der Gemeindeliste:', error);
-        showError(`Gemeindeliste konnte nicht geladen werden: ${error.message}`);
-      }
-    }
-
-    function changeMapLayer(layer) {
-      if (!mapLayers[layer]) {
-        showError(`Unbekannter Kartenlayer: ${layer}`);
-        return;
-      }
-      currentLayer = layer;
-      map.setStyle(createStyle(layer));
-    }
-
-    async function loadGesuche() {
-      const request = ++loadSequence;
-      try {
-        showLoading(true);
-
-        const slugs = currentGemeinde === 'alle'
-          ? gemeinden.map(gemeinde => gemeinde.slug)
-          : [currentGemeinde];
-        const datasets = await Promise.all(slugs.map(async slug => {
-          const response = await fetch(`./data/baugesuche_${slug}.json`);
-          if (!response.ok) {
-            throw new Error(`${slug}: HTTP ${response.status}`);
-          }
-          return response.json();
-        }));
-        if (request !== loadSequence) return;
-        const features = datasets.flatMap(data => data.features || []);
-        const latestUpdate = datasets
-          .map(data => data.metadata.updated)
-          .sort()
-          .at(-1);
-        gesuche = {
-          metadata: {
-            count: datasets.reduce((total, data) => total + data.metadata.count, 0),
-            successCount: datasets.reduce((total, data) => (
-              total + (data.metadata.successCount ?? data.features.filter(feature => feature.geometry).length)
-            ), 0),
-            updated: latestUpdate
-          },
-          features
-        };
-
-        markers.forEach(marker => marker.remove());
-        markers = [];
-
-        features.forEach(feature => {
-          addMarker(feature);
-        });
-
-        showUnlocatedCases(features.filter(feature => !feature.geometry));
-        updateResultsList(features.filter(feature => feature.geometry?.type === 'Point'));
-
-        const located = features.filter(feature => feature.geometry?.type === 'Point');
-        if (located.length === 1) {
-          map.flyTo({ center: located[0].geometry.coordinates, zoom: 14, duration: 1000 });
-        } else if (located.length > 1) {
-          const bounds = new maplibregl.LngLatBounds();
-          located.forEach(feature => bounds.extend(feature.geometry.coordinates));
-          map.fitBounds(bounds, { padding: 48, maxZoom: 14, duration: 1000 });
-        }
-
-        showLoading(false);
-      } catch (error) {
-        if (request !== loadSequence) return;
-        console.error('Fehler:', error);
-        showLoading(false);
-        showError(`Fehler beim Laden: ${error.message}`);
-      }
-    }
-
-    function addMarker(feature) {
-      if (feature.geometry?.type !== 'Point') return;
-
-      const props = feature.properties;
-      
-      // Create lightweight marker element - just emoji, no styling
-      const markerEl = document.createElement('div');
-      markerEl.className = 'custom-marker';
-      markerEl.innerHTML = '📍';
-
-      const popup = new maplibregl.Popup({ offset: 25, maxWidth: 300 })
-        .setHTML(`
-          <div class="popup-content">
-            <h4>${props.nummer}</h4>
-            <div class="popup-address">${props.adresse}</div>
-            <div class="popup-gemeinde">${props.gemeinde}</div>
-            ${props.bautyp ? `<div class="popup-bautyp">${props.bautyp}</div>` : ''}
-            ${props.datum ? `<div class="popup-datum">📅 ${props.datum}</div>` : ''}
-            <a href="${props.detailUrl}" target="_blank" rel="noopener">→ Details im eBaugesuche-Portal</a>
-          </div>
-        `);
-
-      const marker = new maplibregl.Marker({
-        element: markerEl,
-        anchor: 'center',
-        scale: 1
-      })
-        .setLngLat(feature.geometry.coordinates)
-        .setPopup(popup)
-        .addTo(map);
-
-      markers.push(marker);
-    }
-
-    function showUnlocatedCases(features) {
-      const notices = document.getElementById('unlocated-notices');
-      const count = document.getElementById('unlocated-count');
-      const heading = document.getElementById('unlocated-heading');
-      const list = document.getElementById('unlocated-list');
-      notices.open = false;
-      notices.hidden = features.length === 0;
-      count.textContent = features.length;
-      notices.querySelector('summary').setAttribute(
-        'aria-label', `${features.length} Gesuche ohne exakte Adresskoordinate`
-      );
-      heading.textContent = `${features.length} Gesuche ohne exakte Adresskoordinate`;
-      list.replaceChildren();
-
-      if (features.length === 0) {
-        list.textContent = 'Keine Gesuche ohne exakte Adresskoordinate.';
-        return;
-      }
-
-      features.forEach(feature => {
-        const row = document.createElement('div');
-        row.className = 'sidebar-row';
-        const address = document.createElement('span');
-        address.textContent = feature.properties.adresse;
-        const link = document.createElement('a');
-        link.href = feature.properties.detailUrl;
-        link.target = '_blank';
-        link.rel = 'noopener';
-        link.textContent = '→ Zum Baugesuch';
-        row.append(address, link);
-        list.appendChild(row);
-      });
-    }
-
-    function updateResultsList(features) {
-      const resultsList = document.getElementById('results-list');
-      const count = document.getElementById('results-count');
-      
-      count.textContent = `${features.length} Baugesuch${features.length !== 1 ? 'e' : ''}`;
-      resultsList.replaceChildren();
-
-      features.forEach(feature => {
-        const props = feature.properties;
-        const item = document.createElement('div');
-        item.className = 'result-item';
-
-        const address = document.createElement('div');
-        address.className = 'result-address';
-        address.textContent = props.adresse;
-
-        const gemeinde = document.createElement('span');
-        gemeinde.className = 'result-gemeinde';
-        gemeinde.textContent = props.gemeinde;
-
-        const link = document.createElement('a');
-        link.className = 'result-link';
-        link.href = props.detailUrl;
-        link.target = '_blank';
-        link.rel = 'noopener';
-        link.textContent = '→ Zum Baugesuch';
-
-        item.append(address, gemeinde);
-        const linkContainer = document.createElement('div');
-        linkContainer.style.marginTop = '6px';
-        linkContainer.appendChild(link);
-        item.appendChild(linkContainer);
-
-        resultsList.appendChild(item);
-      });
-    }
-
-    function showLoading(show) {
-      const loadingEl = document.getElementById('loading');
-      if (!loadingEl) return;
-      if (show) {
-        loadingEl.innerHTML = '<div class="loading-spinner"></div><p>Laden...</p>';
-        loadingEl.style.display = 'block';
-      } else {
-        loadingEl.style.display = 'none';
-      }
-    }
-
-    function showError(message) {
-      const errorEl = document.getElementById('error');
-      if (message) {
-        errorEl.textContent = message;
-        errorEl.style.display = 'block';
-        setTimeout(() => {
-          errorEl.style.display = 'none';
-        }, 5000);
-      }
-    }
-
-    window.addEventListener('load', initMap);
-
-    // Results Panel Toggle
-    const resultsPanel = document.getElementById('results-panel');
-    const resultsToggle = document.getElementById('results-toggle');
-    const resultsClose = document.getElementById('results-close');
-
-    resultsToggle.addEventListener('click', () => {
-      resultsPanel.classList.toggle('open');
-    });
-
-    resultsClose.addEventListener('click', () => {
-      resultsPanel.classList.remove('open');
-    });
-  </script>
+  <!-- Scripts -->
+  <script src="./app.js"></script>
 </body>
 </html>

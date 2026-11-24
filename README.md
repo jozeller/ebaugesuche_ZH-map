@@ -9,10 +9,17 @@ Interaktive Karte öffentlicher Baugesuche aus dem eAuflage-Portal des Kantons
 Zürich. Die Portal-Liste in `data/gemeinden.json` ist die gemeinsame Quelle
 für die aktuell 65 Gemeinden.
 
-Die produktive GitHub-Pages-Seite verwendet [`index.html`](./index.html). Der
-lokale Server (`npm start`) liefert [`frontend/index.html`](./frontend/index.html).
-Beide Karten starten mit dem SwissTopo-Luftbild und zeigen die vollständige
-Gemeindeliste; Stäfa ist die Startgemeinde.
+Die produktive GitHub-Pages-Seite verwendet [`index.html`](./index.html) und
+lädt dieselbe Oberfläche aus `frontend/`. Der lokale Server (`npm start`)
+liefert [`frontend/index.html`](./frontend/index.html). Beide Karten starten
+mit dem SwissTopo-Luftbild und zeigen die vollständige Gemeindeliste; Stäfa
+ist die Startgemeinde.
+
+Der Gemeindefilter bietet eine Suche im Dropdown und lädt nach der Auswahl
+automatisch die passenden Gesuche; die Karte zoomt auf die verfügbaren Punkte.
+Auf Tablets und Handys enthält das Hamburger-Menü Gemeindefilter, Kartenlayer
+und Ergebnisliste. Die Anzeige nicht verortbarer Gesuche lässt sich dort über
+«Alle Gesuche» wieder zurücksetzen.
 
 ## Daten und Koordinaten
 
